@@ -1,23 +1,109 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
-import Navigation from "@/components/ui/navigation";
+// Navigation/Header styled like Chakra example
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Building2, 
-  Brain, 
-  Euro, 
-  FileText, 
-  Smartphone, 
-  TrendingUp, 
-  Users, 
-  Star, 
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
+
+import {
+  Building2,
+  Brain,
+  Euro,
+  FileText,
+  Smartphone,
+  TrendingUp,
+  Users,
+  Star,
   ArrowRight,
   CheckCircle
 } from "lucide-react";
 
+import { Card, CardContent } from "@/components/ui/card";
+
 export default function LandingPage() {
   const [, setLocation] = useLocation();
+
+  // Features for new section
+  const features = [
+    {
+      title: 'Professional Templates',
+      desc: 'Choose from industry-specific templates for every project type. Customize with your brand and content.',
+      img: 'https://archdesk.com/_next/image?url=%2Fproduct%2Festimate-section-view.png&w=1920&q=75',
+    },
+    {
+      title: 'Accurate Cost Estimation',
+      desc: 'Integrate BOQs, pricing schedules, and real-time cost data for precise, error-free proposals.',
+      img: 'https://archdesk.com/_next/image?url=%2Fproduct%2Fproject-tender-comparison.png&w=1920&q=75',
+    },
+    {
+      title: 'Collaboration & Analytics',
+      desc: 'Collaborate in real time, track submissions, and analyze win rates to improve your bidding strategy.',
+      img: 'https://archdesk.com/_next/image?url=%2Fproduct%2Fenquiries-dashboard.png&w=1920&q=75',
+    },
+  ];
+
+  // Content for horizontal slider
+  const sliderSections = [
+    {
+      title: "How AI is Transforming Construction?",
+      content: (
+        <>
+          AI-Powered Quotation is the next evolution in the construction industry. It’s a collaborative process that leverages advanced technology and data to streamline project estimation, reduce costs, and improve efficiency for all stakeholders—whether you’re working on residential, commercial, or infrastructure projects.<br /><br />
+          Unlike traditional workflows that rely on disconnected files and manual updates, our AI-driven approach keeps your project data dynamic, synchronized, and always up to date.
+        </>
+      ),
+      bg: '/bim1.jpeg',
+    },
+    {
+      title: "Benefits of AI Price Quotation",
+      content: (
+        <p className="text-lg text-text-secondary text-center mb-6">
+          BillQuant delivers faster, more accurate, and collaborative construction proposals. Enjoy streamlined workflows, reduced risk, and higher quality outcomes for every project.
+        </p>
+      ),
+      bg: '/bim2.jpg',
+    },
+    {
+      title: "How Does It Work?",
+      content: (
+        <>
+          Our AI Price Quotation tool connects people, technology, and processes to deliver better results in construction planning and execution. By integrating your BOQs, site data, and pricing schedules, it provides a single source of truth for your project—making your workflow more dynamic, collaborative, and efficient.
+        </>
+      ),
+      bg: '/bim3.jpeg',
+    },
+  ];
+
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState(1); // 1 for next, -1 for prev
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const goTo = (idx: number) => {
+    if (idx === sliderIndex) return;
+    setDirection(idx > sliderIndex ? 1 : -1);
+    setAnimating(true);
+    setTimeout(() => {
+      setSliderIndex(idx);
+      setAnimating(false);
+    }, 300);
+  };
+
+  // Auto-advance slider every 5 seconds
+  useEffect(() => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setDirection(1);
+      setAnimating(true);
+      setTimeout(() => {
+        setSliderIndex((prev) => (prev + 1) % sliderSections.length);
+        setAnimating(false);
+      }, 300);
+    }, 5000);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [sliderIndex, sliderSections.length]);
+
 
   const handleStartProject = () => {
     setLocation("/project/1");
@@ -29,159 +115,210 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation onGetStarted={handleGetStarted} />
-      
+      {/* Header */}
+      <header className="w-full px-8 flex items-center justify-between bg-white/80 shadow-sm sticky top-0 z-30 font-graphik-regular">
+        <div className="flex items-center m-0 py-5">
+          <img src="/european_management.png" alt="European Management Logo" width="120px" />
+          <img src="/billquant_logo.png" alt="BillQuant Logo" width="170px" />
+        </div>
+        <nav>
+          <SignedOut><SignUpButton mode="modal" /><a href="#get-started" className="hidden md:inline-block bg-[#071330] text-white px-6 py-2 rounded-lg font-graphik-bold shadow-md hover:bg-[#163b7c] transition ml-5"><SignInButton mode="modal" /></a></SignedOut>
+          <SignedIn>
+            <UserButton showName />
+          </SignedIn>
+        </nav>
+      </header>
+
       {/* Hero Section */}
-      <section className="surface-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl font-bold text-text-primary mb-6 leading-tight">
-                AI-Powered Construction{" "}
-                <span className="gradient-text">Price Quotation</span>{" "}
-                Platform
-              </h1>
-              <p className="text-xl text-text-secondary mb-8 leading-relaxed">
-                Create accurate construction proposals in minutes, not hours. Our AI analyzes your site visits and BOQ files to generate professional quotations with precision pricing.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  onClick={handleStartProject}
-                  className="btn-primary"
-                  data-testid="button-start-project"
-                >
-                  Start New Project
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="btn-secondary"
-                  data-testid="button-watch-demo"
-                >
-                  Watch Demo
-                </Button>
-              </div>
-              <div className="mt-8 flex items-center space-x-8">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">95%</div>
-                  <div className="text-sm text-text-secondary">Time Saved</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">€2M+</div>
-                  <div className="text-sm text-text-secondary">Projects Quoted</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-text-secondary">Contractors</div>
-                </div>
-              </div>
+      <section className="max-w-7xl mx-auto px-6 py-20 hero-section font-graphik-light">
+        <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-5xl font-graphik-semibold text-[#071330] mb-6" style={{ lineHeight: 1.25 }}>
+              Create Construction Proposal in Seconds
+            </h1>
+            <p className="text-xl text-[#444] mb-8 max-w-xl font-graphik-regular">
+              BillQuant empowers construction professionals to generate accurate, professional, and customizable price quotations—fast. Save time, win more projects, and impress your clients with beautiful, data-driven proposals.
+            </p>
+            <div className="flex gap-4 mb-8">
+              <SignedIn>
+                <button onClick={handleGetStarted} className="bg-[#f9a825] text-[#071330] px-8 py-3 rounded-lg font-graphik-bold text-lg shadow-md hover:bg-[#ffd95a] transition">Get Started</button>
+              </SignedIn>
+              <button className="border-2 border-[#071330] text-[#071330] px-8 py-3 rounded-lg font-graphik-semibold text-lg hover:bg-[#e3eafc] transition">Watch Demo</button>
             </div>
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=600" 
-                alt="Modern construction professionals using tablets" 
-                className="rounded-2xl shadow-2xl animate-scale-in"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg animate-fade-in">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-success-green rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium">AI Processing Complete</span>
-                </div>
+            <div className="flex gap-8">
+              <div className="flex flex-col items-start">
+                <span className="text-3xl font-graphik-bold text-[#071330]">50%</span>
+                <span className="text-sm text-[#444] font-graphik-light">Less time building proposals</span>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-3xl font-graphik-bold text-[#071330]">95%</span>
+                <span className="text-sm text-[#444] font-graphik-light">Time saved on admin</span>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-3xl font-graphik-bold text-[#071330]">2M+</span>
+                <span className="text-sm text-[#444] font-graphik-light">Projects quoted</span>
               </div>
             </div>
           </div>
+          <div className="flex-1 flex justify-center">
+            <img
+              src="/bill.jpg"
+              alt="BillQuant UI"
+              className="rounded-2xl shadow-2xl border-4 border-white w-full max-w-lg"
+            />
+          </div>
         </div>
       </section>
+            <section className=" mx-auto py-20 font-graphik-light" id="how-it-works">
+        <div className="flex flex-col md:flex-row items-center gap-12 justify-center">
+        <nav className="hidden md:flex font-graphik-semibold mt-0 w-screen left-1/2 right-1/2 relative " style={{transform: 'translateX(-50%)'}}>
+          <ul className="flex gap-20 w-full justify-center items-center from-primary to-primary-dark h-14 px-8 shadow-lg text-white">
+            <li className="h-full flex items-center bg-white rounded-lg">
+              <a href="#features" className="px-8 py-4 rounded-lg transition-all duration-200 text-primary h-full flex items-center text-lg hover:underline focus:underline">Features</a>
+            </li>
+            <li className="h-full flex items-center rounded-lg">
+              <a href="#how-it-works" className="px-8 py-4 rounded-lg transition-all duration-200 text-primary h-full flex items-center text-lg hover:underline focus:underline">How it Works</a>
+            </li>
+            <li className="h-full flex items-centerrounded-lg">
+              <a href="#testimonials" className="px-8 py-4 rounded-lg transition-all duration-200 text-primary h-full flex items-center text-lg hover:underline focus:underline">Testimonials</a>
+            </li>
+            <li className="h-full flex items-centerrounded-lg">
+              <a href="#contact" className="px-8 py-4 rounded-lg transition-all duration-200 text-primary h-full flex items-center text-lg hover:underline focus:underline">Contact</a>
+            </li>
+          </ul>
+        </nav>
+          </div>
+          </section>
+
+
+      {/* AI Quotation & BIM-Inspired Benefits Horizontal Slider */}
+      <div className="relative overflow-hidden">
+        {/* Background fade transition */}
+        <div
+          key={sliderIndex}
+          className={`w-full absolute left-0 top-0 transition-opacity duration-[1200ms] z-0
+              ${animating ? 'opacity-0' : 'opacity-100'}`}
+          style={{
+            height: '540px', // constant height for background
+            background: `linear-gradient(rgba(248,250,252,0.52), rgba(248,250,252,0.82)), url(${sliderSections[sliderIndex].bg}) center/cover no-repeat`,
+            transition: 'background-image 1.2s',
+          }}
+        />
+        <section
+          className="relative w-full z-10"
+          style={{ minHeight: '540px', display: 'flex', alignItems: 'center' }}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-2xl min-h-[220px] flex flex-col items-center justify-center relative overflow-hidden">
+                <div
+                  key={sliderIndex}
+                  className={`bg-white bg-opacity-95 rounded-2xl shadow-xl px-8 py-10 w-full transition-all duration-[1200ms]
+                      ${animating ? 'translate-y-16 opacity-0' : 'translate-y-0 opacity-100'}
+                    `}
+                  style={{
+                    willChange: 'transform, opacity',
+                  }}
+                >
+                  <h2 className="text-3xl font-bold text-text-primary mb-6 text-center">{sliderSections[sliderIndex].title}</h2>
+                  <div className="text-lg text-text-secondary text-center mb-6 text-justify">
+                    {sliderSections[sliderIndex].content}
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-row justify-center items-center gap-3 mt-2">
+                {sliderSections.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`w-3 h-3 rounded-full border-2 ${sliderIndex === idx ? 'bg-[#1a4ca3] border-[#1a4ca3]' : 'bg-white border-[#1a4ca3]'} transition-all`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    onClick={() => goTo(idx)}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* Features Section */}
       <section id="features" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
-              Powerful Features for Construction Professionals
+              Why BillQuant?
             </h2>
-            <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-              Everything you need to create accurate, professional construction quotations in minutes, not hours
-            </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="card-hover">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center mb-4">
-                  <Brain className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">AI-Powered Analysis</h3>
-                <p className="text-text-secondary">
-                  Automatically analyze site visits and BOQ files to generate accurate quantity estimates and activity breakdowns.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-hover">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center mb-4">
-                  <Euro className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">Regional Pricing</h3>
-                <p className="text-text-secondary">
-                  Access multiple regional price lists including PAT, DEI, and ANAS with automatic price updates and validation.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-hover">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center mb-4">
-                  <FileText className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">Professional Documents</h3>
-                <p className="text-text-secondary">
-                  Generate branded quotations and internal cost analyses with timeline planning and Gantt charts.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-hover">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center mb-4">
-                  <Smartphone className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">Mobile Site Visits</h3>
-                <p className="text-text-secondary">
-                  Document site conditions with photos, measurements, and notes directly from your mobile device.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-hover">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">Cost Analytics</h3>
-                <p className="text-text-secondary">
-                  Track project profitability with detailed cost breakdowns, markup analysis, and performance metrics.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="card-hover">
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center mb-4">
-                  <Users className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold text-text-primary mb-3">Team Collaboration</h3>
-                <p className="text-text-secondary">
-                  Share projects with team members, collaborate on estimates, and manage approvals in real-time.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {features.map((f) => (
+              <div key={f.title} className="bg-[#f5f7fa] rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow duration-200">
+                <h3 className="text-lg font-semibold text-[#071330] mb-3">{f.title}</h3>
+                <p className="text-[#444] mb-4">{f.desc}</p>
+                <img src={f.img} alt={f.title} className="rounded-lg shadow-md" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Features Section */}
+
+      <section id="features" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-text-primary mb-6">
+              Features for Construction Professionals
+            </h2>
+          </div>
+          <ul className="flex flex-row flex-wrap gap-x-8 gap-y-6 max-w-8xl mx-auto justify-center">
+            <li className="flex flex-col items-start md:items-center py-2 w-full md:w-1/4">
+              <div className="flex items-center gap-4">
+                <Brain className="h-7 w-7 text-[#071330] flex-shrink-0" />
+                <span className="text-lg text-[#071330] font-semibold text-left md:text-center">Accurate Cost Forecasting</span>
+              </div>
+              <span className="text-[#444] mt-2 text-justify">All project elements are determined with greater precision, making cost predictions more realistic and reliable.</span>
+            </li>
+            <li className="flex flex-col items-start md:items-center py-2 w-full md:w-1/4">
+              <div className="flex items-center gap-4">
+                <TrendingUp className="h-7 w-7 text-[#071330] flex-shrink-0" />
+                <span className="text-lg text-[#071330] font-semibold text-left md:text-center">Optimized Planning</span>
+              </div>
+              <span className="text-[#444] mt-2 text-justify">Rapid analysis and smart suggestions help you optimize your project before work begins, reducing errors and rework.</span>
+            </li>
+            <li className="flex flex-col items-start md:items-center py-2 w-full md:w-1/4">
+              <div className="flex items-center gap-4">
+                <Users className="h-7 w-7 text-[#071330] flex-shrink-0" />
+                <span className="text-lg text-[#071330] font-semibold text-left md:text-center">Real-Time Collaboration</span>
+              </div>
+              <span className="text-[#444] mt-2 text-justify">Share and update project information with your team and partners, ensuring everyone is always on the same page.</span>
+            </li>
+            <li className="flex flex-col items-start md:items-center py-2 w-full md:w-1/4">
+              <div className="flex items-center gap-4">
+                <Euro className="h-7 w-7 text-[#071330] flex-shrink-0" />
+                <span className="text-lg text-[#071330] font-semibold text-left md:text-center">Material Control</span>
+              </div>
+              <span className="text-[#444] mt-2 text-justify">Get better control over material quantities and costs, reducing waste and saving money.</span>
+            </li>
+            <li className="flex flex-col items-start md:items-center py-2 w-full md:w-1/4">
+              <div className="flex items-center gap-4">
+                <Smartphone className="h-7 w-7 text-[#071330] flex-shrink-0" />
+                <span className="text-lg text-[#071330] font-semibold text-left md:text-center">Predictive Maintenance</span>
+              </div>
+              <span className="text-[#444] mt-2 text-justify">Use data-driven insights to plan maintenance and monitor project health even after completion.</span>
+            </li>
+            <li className="flex flex-col items-start md:items-center py-2 w-full md:w-1/4">
+              <div className="flex items-center gap-4">
+                <Star className="h-7 w-7 text-[#071330] flex-shrink-0" />
+                <span className="text-lg text-[#071330] font-semibold text-left md:text-center">Cahflow control</span>
+              </div>
+              <span className="text-[#444] mt-2 text-justify">Reduce installation errors and material waste, cutting both costs and delivery times.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
-      <section className="py-20 bg-surface-light">
+      <section className="py-20 bg-surface-light" id="testimonials">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
@@ -203,14 +340,9 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <p className="text-text-secondary mb-4">
-                  "ProQuote AI reduced our quotation time from 8 hours to just 45 minutes. The accuracy is incredible and our clients love the professional documents."
+                  "BillQuant reduced our quotation time from 8 hours to 5 minutes. The accuracy is incredible and our clients love the professional documents."
                 </p>
                 <div className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=50&h=50" 
-                    alt="Construction professional" 
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
                   <div>
                     <div className="font-semibold text-text-primary">Marco Bellini</div>
                     <div className="text-sm text-text-secondary">Bellini Costruzioni, Milano</div>
@@ -229,14 +361,9 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <p className="text-text-secondary mb-4">
-                  "The regional pricing integration is perfect for our multi-region projects. We can compare prices automatically and always select the most competitive option."
+                  "The pricing customization is perfect for our dynamic projects. We can compare prices automatically and always select the most risk-safe prices."
                 </p>
                 <div className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=50&h=50" 
-                    alt="Construction manager" 
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
                   <div>
                     <div className="font-semibold text-text-primary">Giuseppe Romano</div>
                     <div className="text-sm text-text-secondary">Romano & Partners, Roma</div>
@@ -255,14 +382,9 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <p className="text-text-secondary mb-4">
-                  "Our win rate increased by 40% since we started using ProQuote AI. The professional presentation and accurate pricing give us a huge competitive advantage."
+                  "Our win rate increased by 40% since we started using BillQuant. The professional presentation and accurate pricing give us a huge competitive advantage."
                 </p>
                 <div className="flex items-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=50&h=50" 
-                    alt="Construction company owner" 
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
                   <div>
                     <div className="font-semibold text-text-primary">Luca Moretti</div>
                     <div className="text-sm text-text-secondary">Moretti Edilizia, Torino</div>
@@ -275,29 +397,21 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white">
+      <section className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white" id="contact">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Quotation Process?</h2>
+          <h2 className="text-4xl font-bold mb-6">Ready to Make a Quotation?</h2>
           <p className="text-xl mb-8 opacity-90">
-            Join hundreds of construction professionals already using ProQuote AI to win more projects and save time.
+            Join hundreds of construction professionals already using BillQuant to win more projects and save time.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={handleStartProject}
-              className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold transform hover:scale-105 transition-all"
-              data-testid="button-start-free-trial"
-            >
-              Start Free Trial
-            </Button>
-            <Button 
+            <Button
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold transition-all"
+              className="border-2 border-white text-primary hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold transition-all"
               data-testid="button-schedule-demo"
             >
-              Schedule Demo
+              Contact us
             </Button>
           </div>
-          <p className="text-sm opacity-75 mt-6">No credit card required • 14-day free trial • Cancel anytime</p>
         </div>
       </section>
 
@@ -306,7 +420,7 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="text-2xl font-bold mb-4">ProQuote AI</div>
+              <div className="text-2xl font-bold mb-4">BillQuant</div>
               <p className="text-gray-300 mb-4">
                 AI-powered construction quotation platform for modern contractors.
               </p>
@@ -345,7 +459,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-300">
-            <p>&copy; 2025 ProQuote AI. All rights reserved.</p>
+            <p>All rights reserved by European Management.</p>
           </div>
         </div>
       </footer>

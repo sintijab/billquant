@@ -48,7 +48,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
         <CardContent className="p-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-text-primary mb-4">
-              Create New Construction Project
+              Create Construction Proposal
             </h2>
             <p className="text-text-secondary text-lg">
               Choose your project type and provide client information to get started

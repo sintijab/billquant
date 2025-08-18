@@ -1,3 +1,46 @@
+/* Graphik Font Faces */
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/GraphikLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/GraphikRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/GraphikMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/GraphikSemibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/GraphikBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url('/fonts/GraphikRegularItalic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @tailwind base;
 @tailwind components;
@@ -10,7 +53,7 @@
   --card-foreground: hsl(220, 16%, 11%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(220, 16%, 11%);
-  --primary: hsl(208, 100%, 40%);
+  --primary: hsl(	222.4, 74.5%, 10.8%);
   --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(220, 16%, 11%);
   --secondary-foreground: hsl(0, 0%, 100%);
@@ -38,8 +81,8 @@
   --sidebar-ring: hsl(208, 89%, 53%);
   
   /* ProQuote AI Custom Properties */
-  --primary-blue: hsl(208, 100%, 40%);
-  --primary-dark: hsl(208, 100%, 32%);
+  --primary-blue: #071330;
+  --primary-dark: #071330;
   --accent-orange: hsl(17, 100%, 59%);
   --success-green: hsl(142, 71%, 45%);
   --surface-light: hsl(210, 20%, 98%);
@@ -47,7 +90,7 @@
   --text-primary: hsl(220, 16%, 11%);
   --text-secondary: hsl(218, 11%, 42%);
   
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Graphik', 'Inter', system-ui, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: 'SF Mono', Consolas, monospace;
   --radius: 0.75rem;
@@ -91,6 +134,14 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+  /* Navigation and landing page font weights */
+  header, nav, .hero-section {
+    font-family: 'Graphik', 'Inter', system-ui, sans-serif;
+  }
+  .font-graphik-light { font-family: 'Graphik', 'Inter', system-ui, sans-serif; font-weight: 300; }
+  .font-graphik-regular { font-family: 'Graphik', 'Inter', system-ui, sans-serif; font-weight: 400; }
+  .font-graphik-semibold { font-family: 'Graphik', 'Inter', system-ui, sans-serif; font-weight: 600; }
+  .font-graphik-bold { font-family: 'Graphik', 'Inter', system-ui, sans-serif; font-weight: 700; }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
