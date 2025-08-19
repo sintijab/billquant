@@ -16,25 +16,25 @@ interface ProgressIndicatorProps {
 
 export default function ProgressIndicator({ currentStep }: ProgressIndicatorProps) {
   return (
-    <div className="mb-12">
+    <div className="md:mb-12">
       <div className="flex justify-center">
         <div className="flex items-center space-x-4">
           {steps.map((step, index) => (
             <div key={step.number} className="flex items-center">
               <div className="flex items-center">
-                <div className={`w-8 h-8 aspect-square rounded-full flex items-center justify-center text-white font-semibold text-base leading-none ${
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 aspect-square rounded-full flex items-center justify-center text-white font-semibold text-base leading-none ${
                   step.number <= currentStep ? 'bg-cad-blue' : 'bg-cad-gray'
                 }`}>
                   {step.number}
                 </div>
-                <span className={`ml-2 font-medium ${
+                <span className={`ml-2 font-medium hidden sm:inline ${
                   step.number <= currentStep ? 'text-cad-blue' : 'text-gray-400'
                 }`}>
                   {step.title}
                 </span>
               </div>
               {index < steps.length - 1 && (
-                <div className="w-16 h-px bg-cad-gray ml-4"></div>
+                <div className="w-8 sm:w-16 h-px bg-cad-gray ml-2 sm:ml-4"></div>
               )}
             </div>
           ))}

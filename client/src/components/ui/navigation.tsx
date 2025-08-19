@@ -23,7 +23,14 @@ export default function Navigation({ onGetStarted }: NavigationProps) {
       <nav>
         <SignedOut><SignUpButton mode="modal" /><div className="hidden md:inline-block bg-[#071330] text-white px-6 py-2 rounded-lg font-graphik-bold shadow-md hover:bg-[#163b7c] transition ml-5"><SignInButton mode="modal" /></div></SignedOut>
         <SignedIn>
-          <UserButton showName />
+          <SignedIn>
+            <span className="md:hidden sm:inline-block ml-2 align-middle">
+            <UserButton showName={false} />
+            </span>
+            <span className="hidden md:inline-block ml-2 align-middle">
+              <UserButton showName={true} />
+            </span>
+          </SignedIn>
         </SignedIn>
        </nav>
     </header>
