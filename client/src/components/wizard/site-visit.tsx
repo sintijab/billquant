@@ -1,21 +1,13 @@
-import { useState } from "react";
+
+import { useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
-import { 
-  ArrowRight, 
-  ArrowLeft, 
-  Plus, 
-  Edit, 
-  Upload,
-  MapPin,
-  Home,
-  Ruler
-} from "lucide-react";
+import { ArrowRight, ArrowLeft, Plus } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
+import SubareaCard from "./subarea-card";
+
 
 interface SiteVisitProps {
   data: ProjectWizardData;
@@ -24,37 +16,48 @@ interface SiteVisitProps {
   onPrevious: () => void;
 }
 
+
 export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVisitProps) {
-  const [editingArea, setEditingArea] = useState<string | null>(null);
+  const [generalNotes, setGeneralNotes] = useState(data.generalNotes || "");
+  const [documentTitle, setDocumentTitle] = useState("");
+  const [generalAttachments, setGeneralAttachments] = useState<any[]>([]);
 
   const handleAddArea = () => {
     const newArea = {
       id: `area-${Date.now()}`,
       name: "New Area",
-      totalArea: "0",
-      status: "To be assessed",
-      priority: "medium" as const,
-      subareas: []
+      statusDescription: "",
+      whatToDo: "",
+      dimensions: "",
+      udm: "",
+      quantity: "",
+      attachmentNote: "",
+      floorAttachments: [],
+      subareas: [],
+      // Required fields for SiteArea type
+      totalArea: "",
+      status: "",
+  priority: "medium" as "medium"
     };
-    
-    onUpdate({
-      siteAreas: [...data.siteAreas, newArea]
-    });
+    onUpdate({ siteAreas: [...data.siteAreas, newArea] });
   };
 
   const handleAddSubarea = (areaId: string) => {
     const newSubarea = {
       id: `subarea-${Date.now()}`,
       name: "New Room",
-      dimensions: "0m × 0m",
-      area: "0",
-      height: "0",
-      volume: "0",
+      statusDescription: "",
+      dimensions: "",
+      udm: "",
+      quantity: "",
+      photos: [],
+      // Required fields for SiteSubarea type
+      area: "",
+      height: "",
+      volume: "",
       currentStatus: "",
-      workRequired: "",
-      photos: []
+      workRequired: ""
     };
-
     onUpdate({
       siteAreas: data.siteAreas.map(area =>
         area.id === areaId
@@ -64,275 +67,182 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
     });
   };
 
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <Card className="shadow-lg animate-fade-in">
         <CardContent className="p-8">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">Site Visit Documentation</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-semibold text-text-primary mb-4">
+              Site Visit Documentation
+            </h2>
             <p className="text-text-secondary text-lg">
               Document site areas and subareas with detailed measurements and notes
             </p>
           </div>
-
-          {/* Sample Site Areas */}
-          <div className="space-y-8">
-            {/* Default Piano Terra Area */}
-            <div className="border border-gray-200 rounded-xl p-6">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-primary border-b-2 border-primary pb-2 inline-block">
-                  Piano Terra
-                </h3>
-                <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                  <div>
-                    <span className="font-medium text-text-primary">Total Area:</span>
-                    <span className="text-text-secondary ml-2">120 m²</span>
-                  </div>
-                  <div>
-                    <span className="font-medium text-text-primary">Status:</span>
-                    <span className="text-text-secondary ml-2">To be renovated</span>
-                  </div>
-                  <div>
-                    <span className="font-medium text-text-primary">Priority:</span>
-                    <Badge variant="destructive" className="ml-2">High</Badge>
-                  </div>
-                </div>
-              </div>
-
-              {/* Subareas */}
-              <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-text-primary flex items-center">
-                  <Home className="h-5 w-5 mr-2" />
-                  Subareas
-                </h4>
-                
-                {/* Soggiorno Subarea */}
-                <div className="bg-surface-light rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <h5 className="font-semibold text-text-primary">Soggiorno</h5>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      data-testid="button-edit-soggiorno"
+          {/* Site Areas */}
+          <div className="space-y-10">
+            {data.siteAreas.map((area: any, areaIdx: number) => (
+              <div key={area.id} className="bg-primary-dark/90 backdrop-blur rounded-2xl shadow p-8 mb-8 border border-primary-dark">
+                <div className="flex flex-col md:flex-row gap-8">
+                  {/* Area fields left column */}
+                  <div className="md:w-2/5 w-full flex flex-col gap-4 bg-gray-200 text-white rounded-xl p-6 border border-gray-300 shadow-inner relative">
+                    {/* Remove Area button top right */}
+                    <Button 
+                      variant="destructive" 
+                      size="icon" 
+                      className="absolute top-2 right-2 z-10 w-8 h-8 p-0 rounded-full flex items-center justify-center shadow-md"
+                      onClick={() => onUpdate({ siteAreas: data.siteAreas.filter((_, i) => i !== areaIdx) })}
+                      aria-label="Remove Area"
                     >
-                      <Edit className="h-4 w-4" />
+                      <span className="sr-only">Remove Area</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </Button>
+                    <Input
+                      value={area.name}
+                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: e.target.value } : a) })}
+                      className="text-lg font-semibold bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white text-white rounded-none px-0 placeholder-white"
+                      style={{'--tw-placeholder-opacity': '1', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      placeholder="Area name"
+                    />
+                    <Input
+                      value={area.statusDescription || ''}
+                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) })}
+                      className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white text-white rounded-none px-0 placeholder-white"
+                      style={{'--tw-placeholder-opacity': '1', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      placeholder="Area status description"
+                    />
+                    <Input
+                      value={area.whatToDo || ''}
+                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, whatToDo: e.target.value } : a) })}
+                      className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white text-white rounded-none px-0 placeholder-white"
+                      style={{'--tw-placeholder-opacity': '1', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      placeholder="What to do?"
+                    />
+                    <Input
+                      value={area.dimensions || ''}
+                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, dimensions: e.target.value } : a) })}
+                      className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white text-white rounded-none px-0 placeholder-white"
+                      style={{'--tw-placeholder-opacity': '1', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      placeholder="Dimensions"
+                    />
+                    <div className="flex gap-2">
+                      <Input
+                        value={area.udm || ''}
+                        onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) })}
+                        className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white text-white rounded-none px-0 placeholder-white"
+                        style={{'--tw-placeholder-opacity': '1', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                        placeholder="UDM"
+                      />
+                      <Input
+                        value={area.quantity || ''}
+                        onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, quantity: e.target.value } : a) })}
+                        className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white text-white rounded-none px-0 placeholder-white"
+                        style={{'--tw-placeholder-opacity': '1', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                        placeholder="Quantity"
+                      />
+                    </div>
+                    <div className="flex gap-2 items-center">
+                      <Button variant="outline" className="rounded-full px-4 py-2 border-primary bg-white/90 text-primary-dark font-semibold" asChild>
+                        <label>
+                          Upload area plan
+                          <input type="file" className="hidden" onChange={e => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              const reader = new FileReader();
+                              reader.onload = ev => {
+                                onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, floorAttachments: [...(a.floorAttachments || []), { url: ev.target?.result }] } : a) });
+                              };
+                              reader.readAsDataURL(file);
+                            }
+                          }} />
+                        </label>
+                      </Button>
+                    </div>
+                    <Input
+                      value={area.attachmentNote || ''}
+                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, attachmentNote: e.target.value } : a) })}
+                      className="bg-white/80 placeholder:text-gray-400"
+                      placeholder="Attachment note (optional)"
+                    />
+
+                  </div>
+                  {/* Subareas right column */}
+                  <div className="md:w-2/5 w-full flex flex-col gap-6">
+                    {area.subareas?.map((sub: any, subIdx: number) => (
+                      <SubareaCard
+                        key={sub.id}
+                        sub={sub}
+                        areaIdx={areaIdx}
+                        subIdx={subIdx}
+                        onUpdate={onUpdate}
+                        data={data}
+                        setGeneratingDesc={() => {}}
+                      />
+                    ))}
+                    <Button
+                      variant="outline"
+                      onClick={() => handleAddSubarea(area.id)}
+                      className="w-full border border-dashed border-primary text-primary hover:bg-primary hover:text-white rounded-full py-4 px-6 text-lg shadow transition-all"
+                      data-testid={`button-add-subarea-${area.id}`}
+                    >
+                      <Plus className="h-4 w-4 mr-2" />
+                      Add New Subarea
                     </Button>
                   </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm mb-4">
-                    <div>
-                      <span className="font-medium">Dimensions:</span>
-                      <div className="text-text-secondary">6.5m × 4.2m</div>
-                    </div>
-                    <div>
-                      <span className="font-medium">Area:</span>
-                      <div className="text-text-secondary">27.3 m²</div>
-                    </div>
-                    <div>
-                      <span className="font-medium">Height:</span>
-                      <div className="text-text-secondary">3.0m</div>
-                    </div>
-                    <div>
-                      <span className="font-medium">Volume:</span>
-                      <div className="text-text-secondary">81.9 m³</div>
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <span className="font-medium text-sm">Current Status:</span>
-                    <p className="text-text-secondary text-sm mt-1">
-                      Existing wood flooring to be removed. Walls need new paint. Electrical system requires upgrade.
-                    </p>
-                  </div>
-                  <div className="mb-4">
-                    <span className="font-medium text-sm">Work Required:</span>
-                    <p className="text-text-secondary text-sm mt-1">
-                      Remove existing flooring, install new ceramic tiles, repaint walls, upgrade electrical outlets.
-                    </p>
-                  </div>
-                  <div className="flex space-x-2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=80" 
-                      alt="Living room current state" 
-                      className="w-20 h-16 object-cover rounded"
-                    />
-                    <img 
-                      src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=80" 
-                      alt="Living room electrical detail" 
-                      className="w-20 h-16 object-cover rounded"
-                    />
-                    <button 
-                      className="w-20 h-16 border-2 border-dashed border-gray-300 rounded flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-colors"
-                      data-testid="button-add-photo"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </button>
-                  </div>
                 </div>
-
-                {/* Cucina Subarea */}
-                <div className="bg-surface-light rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <h5 className="font-semibold text-text-primary">Cucina</h5>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      data-testid="button-edit-cucina"
-                    >
-                      <Edit className="h-4 w-4" />
-                    </Button>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm mb-4">
-                    <div>
-                      <span className="font-medium">Dimensions:</span>
-                      <div className="text-text-secondary">4.0m × 3.5m</div>
-                    </div>
-                    <div>
-                      <span className="font-medium">Area:</span>
-                      <div className="text-text-secondary">14.0 m²</div>
-                    </div>
-                    <div>
-                      <span className="font-medium">Height:</span>
-                      <div className="text-text-secondary">3.0m</div>
-                    </div>
-                    <div>
-                      <span className="font-medium">Volume:</span>
-                      <div className="text-text-secondary">42.0 m³</div>
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <span className="font-medium text-sm">Current Status:</span>
-                    <p className="text-text-secondary text-sm mt-1">
-                      Old kitchen units to be removed. Plumbing and electrical systems need complete renewal.
-                    </p>
-                  </div>
-                  <div className="mb-4">
-                    <span className="font-medium text-sm">Work Required:</span>
-                    <p className="text-text-secondary text-sm mt-1">
-                      Full kitchen renovation: new units, countertops, appliances, plumbing, and electrical work.
-                    </p>
-                  </div>
-                  <div className="flex space-x-2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=80" 
-                      alt="Kitchen current state" 
-                      className="w-20 h-16 object-cover rounded"
-                    />
-                    <button 
-                      className="w-20 h-16 border-2 border-dashed border-gray-300 rounded flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary transition-colors"
-                      data-testid="button-add-kitchen-photo"
-                    >
-                      <Plus className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-
-                <Button
-                  variant="outline"
-                  onClick={() => handleAddSubarea("piano-terra")}
-                  className="w-full border-2 border-dashed border-primary text-primary hover:bg-primary hover:text-white"
-                  data-testid="button-add-subarea"
-                >
-                  <Plus className="h-4 w-4 mr-2" />
-                  Add New Subarea
-                </Button>
-              </div>
-            </div>
-
-            {/* Additional Areas */}
-            {data.siteAreas.map((area) => (
-              <div key={area.id} className="border border-gray-200 rounded-xl p-6">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-primary border-b-2 border-primary pb-2 inline-block">
-                    {area.name}
-                  </h3>
-                  <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                    <div>
-                      <span className="font-medium text-text-primary">Total Area:</span>
-                      <span className="text-text-secondary ml-2">{area.totalArea} m²</span>
-                    </div>
-                    <div>
-                      <span className="font-medium text-text-primary">Status:</span>
-                      <span className="text-text-secondary ml-2">{area.status}</span>
-                    </div>
-                    <div>
-                      <span className="font-medium text-text-primary">Priority:</span>
-                      <Badge 
-                        variant={area.priority === "high" ? "destructive" : area.priority === "medium" ? "default" : "secondary"} 
-                        className="ml-2"
-                      >
-                        {area.priority.charAt(0).toUpperCase() + area.priority.slice(1)}
-                      </Badge>
-                    </div>
-                  </div>
-                </div>
-                
-                <Button
-                  variant="outline"
-                  onClick={() => handleAddSubarea(area.id)}
-                  className="w-full border-2 border-dashed border-primary text-primary hover:bg-primary hover:text-white"
-                  data-testid={`button-add-subarea-${area.id}`}
-                >
-                  <Plus className="h-4 w-4 mr-2" />
-                  Add New Subarea
-                </Button>
               </div>
             ))}
-
-            {/* General Notes and Attachments */}
-            <div className="border border-gray-200 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-text-primary mb-4 flex items-center">
-                <MapPin className="h-5 w-5 mr-2" />
-                General Notes and Attachments
-              </h3>
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="projectNotes" className="block text-sm font-medium text-text-primary mb-2">
-                    Project Notes
-                  </Label>
-                  <Textarea
-                    id="projectNotes"
-                    placeholder="Add any additional notes about the project, special requirements, or constraints..."
-                    value={data.generalNotes}
-                    onChange={(e) => onUpdate({ generalNotes: e.target.value })}
-                    className="h-32 resize-none"
-                    data-testid="textarea-project-notes"
-                  />
-                </div>
-                <div>
-                  <Label className="block text-sm font-medium text-text-primary mb-2">
-                    Additional Attachments
-                  </Label>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary transition-colors">
-                    <Upload className="h-12 w-12 text-gray-400 mx-auto mb-3" />
-                    <p className="text-text-secondary mb-3">Drop files here or click to upload</p>
-                    <Button 
-                      variant="outline" 
-                      className="bg-surface-light hover:bg-gray-200"
-                      data-testid="button-choose-files"
-                    >
-                      Choose Files
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <Button
               variant="outline"
               onClick={handleAddArea}
-              className="w-full border-2 border-dashed border-primary text-primary hover:bg-primary hover:text-white"
+              className="w-full border border-dashed border-primary text-primary hover:bg-primary hover:text-white rounded-full py-4 px-6 text-lg shadow transition-all"
               data-testid="button-add-area"
             >
               <Plus className="h-4 w-4 mr-2" />
               Add New Area
             </Button>
           </div>
-
+          {/* General Notes and Attachments - always at the bottom */}
+          <div className="bg-white/90 rounded-2xl shadow p-8 mt-12">
+            <h3 className="text-2xl font-bold mb-4">General Notes & Attachments</h3>
+            <Input
+              value={documentTitle}
+              onChange={e => setDocumentTitle(e.target.value)}
+              className="mb-4 text-xl py-6 px-4"
+              placeholder="Document title"
+            />
+            <Textarea
+              value={generalNotes}
+              onChange={e => setGeneralNotes(e.target.value)}
+              className="mb-4 text-lg py-4 px-4"
+              placeholder="General notes about the project, requirements, or constraints..."
+              rows={4}
+            />
+            <input type="file" multiple className="block mb-4" onChange={e => {
+              const files = Array.from(e.target.files || []);
+              files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = ev => {
+                  setGeneralAttachments(prev => [...prev, { url: ev.target?.result }]);
+                };
+                reader.readAsDataURL(file);
+              });
+            }} />
+            <div className="flex gap-2 flex-wrap">
+              {generalAttachments.map((att, i) => (
+                <a key={i} href={att.url} target="_blank" rel="noopener noreferrer" className="underline text-blue-600">Attachment {i+1}</a>
+              ))}
+            </div>
+          </div>
           {/* Action Buttons */}
-          <div className="flex justify-between mt-8">
+          <div className="flex justify-between mt-10">
             <Button
               variant="ghost"
               onClick={onPrevious}
-              className="text-text-secondary hover:text-text-primary"
+              className="text-text-secondary hover:text-text-primary text-lg px-8 py-4 rounded-full"
               data-testid="button-back"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -340,7 +250,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
             </Button>
             <Button 
               onClick={onNext} 
-              className="btn-primary"
+              className="btn-primary text-lg px-8 py-4 rounded-full shadow"
               data-testid="button-continue"
             >
               Continue to Activities Overview
