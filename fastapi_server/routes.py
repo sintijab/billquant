@@ -1,6 +1,9 @@
 import moondream as md
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+import os
+api_key = os.environ.get("MOONDREAM_API_KEY")
+model = md.vl(api_key=api_key)
 
 app = FastAPI()
 
@@ -26,7 +29,7 @@ async def analyze_image_moondream(file: UploadFile = File(...)):
     """
     try:
         # Initialize Moondream model (replace with your actual API key)
-        model = md.vl(api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlfaWQiOiJjNDI3NzhjMS1lZjZmLTQ3NGUtOTAzMC1lNmMxNzU4YWI5ZjUiLCJvcmdfaWQiOiJneDZHZnBpZDBkNlcxeGhWU25XVW8wRTBMSEp2YnJiYyIsImlhdCI6MTc1NTIwNDY2NCwidmVyIjoxfQ.5qORcpnvbYaS3i_eX1Qk9uAk6VVPM4fFjeIrOgsGq5c")
+        model = md.vl(api_key=api_key)
         from PIL import Image
         import io
         contents = await file.read()
