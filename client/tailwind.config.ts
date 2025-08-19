@@ -70,11 +70,20 @@ export default {
         "surface-2": "var(--surface-2)",
         "text-primary": "var(--text-primary)",
         "text-secondary": "var(--text-secondary)",
+                // CAD-inspired colors
+        'cad-dark': 'var(--cad-dark)',
+        'cad-darker': 'var(--cad-darker)',
+        'cad-gray': 'var(--cad-gray)',
+        'cad-gray-light': 'var(--cad-gray-light)',
+        'cad-blue': 'var(--cad-blue)',
+        'cad-blue-dark': 'var(--cad-blue-dark)',
+        'cad-accent': 'var(--cad-accent)',
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+        inter: ['Inter', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

@@ -104,17 +104,26 @@ export default function ProjectWizard() {
   };
 
   return (
-    <div className="min-h-screen bg-surface-light">
-      <Navigation onGetStarted={handleGetStarted} />
-      
-      <div className="py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <StepIndicator currentStep={currentStep} />
-        </div>
+    <div className="relative min-h-screen bg-surface-light overflow-hidden">
+      {/* Blurred BIM2 overlay background */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex justify-center items-center">
+        <img
+          src="/bim1.jpeg"
+          alt="BIM2 Overlay"
+          className="w-full opacity-60 blur select-none object-cover object-center"
+          style={{ filter: 'blur(7px)' }}
+        />
       </div>
-
-      <div className="pb-20">
-        {renderStep()}
+      <div className="relative z-10">
+        <Navigation onGetStarted={handleGetStarted} />
+        <div className="py-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <StepIndicator currentStep={currentStep} />
+          </div>
+        </div>
+        <div className="pb-20">
+          {renderStep()}
+        </div>
       </div>
     </div>
   );

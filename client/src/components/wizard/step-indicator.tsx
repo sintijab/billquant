@@ -10,38 +10,35 @@ const steps = [
   { number: 5, title: "Document Generation" }
 ];
 
-export default function StepIndicator({ currentStep }: StepIndicatorProps) {
+interface ProgressIndicatorProps {
+  currentStep: number;
+}
+
+export default function ProgressIndicator({ currentStep }: ProgressIndicatorProps) {
   return (
     <div className="mb-12">
-      <div className="step-indicator">
-        {steps.map((step, index) => (
-          <div key={step.number} className="flex items-center">
-            <div className="step-item">
-              <div 
-                className={`step-circle ${
-                  currentStep === step.number ? 'active' : 'inactive'
-                }`}
-                data-testid={`step-${step.number}`}
-              >
-                {step.number}
+      <div className="flex justify-center">
+        <div className="flex items-center space-x-4">
+          {steps.map((step, index) => (
+            <div key={step.number} className="flex items-center">
+              <div className="flex items-center">
+                <div className={`w-8 h-8 aspect-square rounded-full flex items-center justify-center text-white font-semibold text-base leading-none ${
+                  step.number <= currentStep ? 'bg-cad-blue' : 'bg-cad-gray'
+                }`}>
+                  {step.number}
+                </div>
+                <span className={`ml-2 font-medium ${
+                  step.number <= currentStep ? 'text-cad-blue' : 'text-gray-400'
+                }`}>
+                  {step.title}
+                </span>
               </div>
-              <span 
-                className={`ml-3 font-medium ${
-                  currentStep === step.number ? 'text-primary' : 'text-muted-foreground'
-                }`}
-              >
-                {step.title}
-              </span>
+              {index < steps.length - 1 && (
+                <div className="w-16 h-px bg-cad-gray ml-4"></div>
+              )}
             </div>
-            {index < steps.length - 1 && (
-              <div 
-                className={`step-line ml-3 mr-3 ${
-                  currentStep > step.number ? 'completed' : 'pending'
-                }`}
-              />
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

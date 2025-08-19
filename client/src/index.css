@@ -89,6 +89,15 @@
   --surface-2: hsl(210, 17%, 97%);
   --text-primary: hsl(220, 16%, 11%);
   --text-secondary: hsl(218, 11%, 42%);
+
+    /* CAD-inspired colors */
+  --cad-dark: hsl(0 0% 10.2%);
+  --cad-darker: hsl(0 0% 5.9%);
+  --cad-gray: hsl(0 0% 16.5%);
+  --cad-gray-light: hsl(0 0% 22.7%);
+  --cad-blue: hsl(203.8863 88.2845% 53.1373%);
+  --cad-blue-dark: hsl(207.2727 85.2273% 44.7059%);
+  --cad-accent: hsl(217.2000 91.2000% 59.8000%);
   
   --font-sans: 'Graphik', 'Inter', system-ui, sans-serif;
   --font-serif: Georgia, serif;

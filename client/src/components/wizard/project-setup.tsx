@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MapPin, Upload, ArrowRight } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
+import { SignatureCapture } from "../signature-capture";
 
 interface ProjectSetupProps {
   data: ProjectWizardData;
@@ -16,6 +17,8 @@ interface ProjectSetupProps {
 
 export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
+    const [signature, setSignature] = useState<string>("");
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +50,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
       <Card className="shadow-lg animate-fade-in">
         <CardContent className="p-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
+            <h2 className="text-3xl font-SEMIbold text-text-primary mb-4">
               Create Construction Proposal
             </h2>
             <p className="text-text-secondary text-lg">
@@ -58,7 +61,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
           <form onSubmit={handleSubmit} className="space-y-10">
             {/* Project Type Selection */}
             <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-6">Project Type</h3>
+              <h3 className="text-l font-semibold text-text-primary mb-6">Project Type</h3>
               <p className="text-text-secondary mb-6">Select how you want to start your project</p>
               
               <RadioGroup
@@ -70,7 +73,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                   <RadioGroupItem value="site_visit" id="site_visit" className="sr-only" />
                   <Label
                     htmlFor="site_visit"
-                    className={`flex-1 cursor-pointer border-2 rounded-xl p-6 transition-all hover:shadow-lg ${
+                    className={`flex-1 cursor-pointer border rounded-xl p-6 transition-all hover:shadow-lg ${
                       data.projectType === "site_visit"
                         ? "border-primary bg-primary/5"
                         : "border-gray-300 hover:border-primary bg-white"
@@ -79,7 +82,9 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                   >
                     <div className="flex items-start space-x-4">
                       <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                        data.projectType === "site_visit" ? "bg-primary text-white" : "bg-gray-100 text-gray-600"
+                        data.projectType === "site_visit"
+                          ? "bg-primary text-white"
+                          : "bg-gray-100 text-gray-600"
                       }`}>
                         <MapPin className="h-6 w-6" />
                       </div>
@@ -102,7 +107,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                   <RadioGroupItem value="upload_boq" id="upload_boq" className="sr-only" />
                   <Label
                     htmlFor="upload_boq"
-                    className={`flex-1 cursor-pointer border-2 rounded-xl p-6 transition-all hover:shadow-lg ${
+                    className={`flex-1 cursor-pointer border rounded-xl p-6 transition-all hover:shadow-lg ${
                       data.projectType === "upload_boq"
                         ? "border-primary bg-primary/5"
                         : "border-gray-300 hover:border-primary bg-white"
@@ -134,8 +139,8 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
 
             {/* Client Information Form */}
             <div>
-              <h3 className="text-xl font-semibold text-text-primary mb-6">Client Information</h3>
-              <p className="text-text-secondary mb-6">Enter the client details for this project</p>
+              <h3 className="text-l font-semibold text-text-primary mb-6">Client Information</h3>
+              <p className="text-text-secondary mb-6">Enter the client details for this project to send the price proposal.</p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -148,14 +153,13 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="Marco"
                     value={data.clientFirstName}
                     onChange={(e) => handleInputChange("clientFirstName", e.target.value)}
-                    className={errors.clientFirstName ? "border-red-500" : ""}
+                    className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientFirstName ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-client-first-name"
                   />
                   {errors.clientFirstName && (
                     <p className="text-sm text-red-500">{errors.clientFirstName}</p>
                   )}
                 </div>
-                
                 <div className="space-y-2">
                   <Label htmlFor="clientSurname" className="text-sm font-medium text-text-primary">
                     Client Surname
@@ -166,14 +170,13 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="Rossi"
                     value={data.clientSurname}
                     onChange={(e) => handleInputChange("clientSurname", e.target.value)}
-                    className={errors.clientSurname ? "border-red-500" : ""}
+                    className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientSurname ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-client-surname"
                   />
                   {errors.clientSurname && (
                     <p className="text-sm text-red-500">{errors.clientSurname}</p>
                   )}
                 </div>
-                
                 <div className="space-y-2">
                   <Label htmlFor="clientPhone" className="text-sm font-medium text-text-primary">
                     Client Phone
@@ -184,10 +187,10 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="+39 333 123 4567"
                     value={data.clientPhone}
                     onChange={(e) => handleInputChange("clientPhone", e.target.value)}
+                    className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400"
                     data-testid="input-client-phone"
                   />
                 </div>
-                
                 <div className="space-y-2">
                   <Label htmlFor="clientEmail" className="text-sm font-medium text-text-primary">
                     Client Email
@@ -198,14 +201,13 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="marco.rossi@email.com"
                     value={data.clientEmail}
                     onChange={(e) => handleInputChange("clientEmail", e.target.value)}
-                    className={errors.clientEmail ? "border-red-500" : ""}
+                    className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientEmail ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-client-email"
                   />
                   {errors.clientEmail && (
                     <p className="text-sm text-red-500">{errors.clientEmail}</p>
                   )}
                 </div>
-                
                 <div className="md:col-span-2 space-y-2">
                   <Label htmlFor="siteAddress" className="text-sm font-medium text-text-primary">
                     Site Address
@@ -216,7 +218,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="Via Roma 123, 20121 Milano, Italy"
                     value={data.siteAddress}
                     onChange={(e) => handleInputChange("siteAddress", e.target.value)}
-                    className={errors.siteAddress ? "border-red-500" : ""}
+                    className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.siteAddress ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-site-address"
                   />
                   {errors.siteAddress && (
@@ -226,26 +228,37 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
               </div>
             </div>
 
-            {/* General Notes */}
-            <div>
-              <Label htmlFor="generalNotes" className="text-sm font-medium text-text-primary">
-                General Notes (Optional)
-              </Label>
-              <Textarea
-                id="generalNotes"
-                placeholder="Add any additional notes about the project, special requirements, or constraints..."
-                value={data.generalNotes}
-                onChange={(e) => handleInputChange("generalNotes", e.target.value)}
-                className="mt-2"
-                data-testid="textarea-general-notes"
-              />
+            {/* Digital Signature */}
+            <div className="space-y-6">
+              <h3 className="text-l font-semibold text-white mb-4">Digital Signature</h3>
+              <div className="border border-dashed border-primary-blue rounded-2xl p-8 text-center hover:border-cad-blue transition-colors bg-white/40 backdrop-blur">
+                <div className="text-4xl text-cad-blue mb-4">
+                  <i className="fas fa-signature"></i>
+                </div>
+                <p className="text-gray-400 mb-4">Upload your signature or use digital signing pad</p>
+                <SignatureCapture onSignatureCapture={setSignature}>
+                  <Button 
+                    type="button"
+                    className="bg-cad-blue hover:bg-cad-blue-dark px-6 py-3 rounded-full text-base shadow-md"
+                    data-testid="button-capture-signature"
+                  >
+                    Capture Signature
+                  </Button>
+                </SignatureCapture>
+                {signature && (
+                  <div className="mt-4">
+                    <img src={signature} alt="Captured signature" className="max-w-full h-20 mx-auto border rounded-2xl shadow" />
+                    <p className="text-green-400 text-sm mt-2">Signature captured successfully</p>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Action Button */}
             <div className="flex justify-end">
               <Button 
                 type="submit" 
-                className="btn-primary flex items-center"
+                className="btn-primary rounded-full flex items-center"
                 data-testid="button-continue"
               >
                 {data.projectType === "site_visit" ? "Continue to Site Visit" : "Continue to BOQ Upload"}
