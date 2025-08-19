@@ -424,11 +424,6 @@ export default function LandingPage() {
               <p className="text-gray-300 mb-4">
                 AI-powered construction quotation platform for modern contractors.
               </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  <Building2 className="h-5 w-5" />
-                </a>
-              </div>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Product</h3>

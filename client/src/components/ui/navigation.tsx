@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 import { Building2, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -19,7 +20,12 @@ export default function Navigation({ onGetStarted }: NavigationProps) {
         <img src="/european_management.png" alt="European Management Logo" width="120px" />
         <img src="/billquant_logo.png" alt="BillQuant Logo" width="170px" />
       </div>
-      <a href="#get-started" className="hidden md:inline-block bg-[#071330] text-white px-6 py-2 rounded-lg font-graphik-bold shadow-md hover:bg-[#163b7c] transition">Login</a>
+      <nav>
+        <SignedOut><SignUpButton mode="modal" /><div className="hidden md:inline-block bg-[#071330] text-white px-6 py-2 rounded-lg font-graphik-bold shadow-md hover:bg-[#163b7c] transition ml-5"><SignInButton mode="modal" /></div></SignedOut>
+        <SignedIn>
+          <UserButton showName />
+        </SignedIn>
+       </nav>
     </header>
   );
 }
