@@ -3,3 +3,4 @@ uvicorn
 moondream
 pillow
 python-multipart
+python-dotenv

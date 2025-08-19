@@ -1,7 +1,9 @@
 import moondream as md
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 import os
+load_dotenv()
 api_key = os.environ.get("MOONDREAM_API_KEY")
 model = md.vl(api_key=api_key)
 
