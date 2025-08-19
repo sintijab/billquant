@@ -68,7 +68,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
     };
 
     return (
-        <div className="bg-white rounded-2xl p-1 md:p-6 border border-gray-200">
+        <div className="bg-white rounded-2xl p-6 border border-gray-200">
             <div className="flex flex-row items-center gap-4 mb-4">
                 <Input
                     value={sub.name}
