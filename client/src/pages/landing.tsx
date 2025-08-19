@@ -122,7 +122,7 @@ export default function LandingPage() {
           <img src="/billquant_logo.png" alt="BillQuant Logo" width="170px" />
         </div>
         <nav>
-          <SignedOut><SignUpButton mode="modal" /><a href="#get-started" className="hidden md:inline-block bg-[#071330] text-white px-6 py-2 rounded-lg font-graphik-bold shadow-md hover:bg-[#163b7c] transition ml-5"><SignInButton mode="modal" /></a></SignedOut>
+          <SignedOut><SignUpButton mode="modal" /><div className="hidden md:inline-block bg-[#071330] text-white px-6 py-2 rounded-lg font-graphik-bold shadow-md hover:bg-[#163b7c] transition ml-5"><SignInButton mode="modal" /></div></SignedOut>
           <SignedIn>
             <UserButton showName />
           </SignedIn>
