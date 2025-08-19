@@ -19,6 +19,7 @@ import { useRef, useState } from "react";
 const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdate, data, setGeneratingDesc }) => {
     const [photoPopover, setPhotoPopover] = useState(false);
     const [livePhotoModal, setLivePhotoModal] = useState(false);
+    const [analyzing, setAnalyzing] = useState(false);
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -68,7 +69,15 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
     };
 
     return (
-        <div className="bg-white rounded-2xl p-6 border border-gray-200">
+        <div className="bg-white rounded-2xl p-6 border border-gray-200 relative">
+            {analyzing && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/80 rounded-2xl">
+                    <svg className="animate-spin h-10 w-10 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                </div>
+            )}
             <div className="flex flex-row items-center gap-4 mb-4">
                 <Input
                     value={sub.name}
@@ -300,21 +309,37 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                 onChange={e => {
                                     const file = e.target.files?.[0];
                                     if (file) {
+                                        setAnalyzing(true);
                                         const reader = new FileReader();
-                                        reader.onload = ev => {
+                                        reader.onload = async ev => {
+                                            const url = ev.target?.result;
+                                            let description = '';
+                                            try {
+                                                const formData = new FormData();
+                                                formData.append('file', file);
+                                                const response = await fetch('https://billquant.onrender.com/analyze_image_moondream', {
+                                                    method: 'POST',
+                                                    body: formData
+                                                });
+                                                const result = await response.json();
+                                                if (result.answer) description = result.answer;
+                                            } catch (err) {
+                                                description = '';
+                                            }
                                             onUpdate({
                                                 siteAreas: data.siteAreas.map((a: any, i: number) =>
                                                     i === areaIdx
                                                         ? {
                                                             ...a,
                                                             subareas: a.subareas.map((s: any, si: number) =>
-                                                                si === subIdx ? { ...s, photos: [...(s.photos || []), { url: ev.target?.result, fileName: file.name }] } : s
+                                                                si === subIdx ? { ...s, photos: [...(s.photos || []), { url, fileName: file.name, description }] } : s
                                                             ),
                                                         }
                                                         : a
                                                 ),
                                             });
                                             setPhotoPopover(false);
+                                            setAnalyzing(false);
                                         };
                                         reader.readAsDataURL(file);
                                     }
