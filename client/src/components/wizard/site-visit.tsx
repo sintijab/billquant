@@ -148,7 +148,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                         placeholder="Quantity"
                       />
                     </div>
-                    <div className="flex gap-2 items-center">
+                    <div className="flex flex-col gap-2 items-start">
                       <Button variant="outline" className="cursor-pointer rounded-full px-4 py-2 border-none bg-white/90 text-primary-dark font-semibold" asChild>
                         <label>
                           Upload area plan
@@ -157,13 +157,25 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                             if (file) {
                               const reader = new FileReader();
                               reader.onload = ev => {
-                                onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, floorAttachments: [...(a.floorAttachments || []), { url: ev.target?.result }] } : a) });
+                                onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, floorAttachments: [...(a.floorAttachments || []), { url: ev.target?.result, name: file.name }] } : a) });
                               };
                               reader.readAsDataURL(file);
                             }
                           }} />
                         </label>
                       </Button>
+                      {/* Show uploaded area plan files as links */}
+                      {area.floorAttachments && area.floorAttachments.length > 0 && (
+                        <div className="flex flex-col gap-1 mt-2">
+                          {area.floorAttachments.map((att: any, i: number) => (
+                            <div key={i} className="flex items-center gap-2">
+                              <a href={att.url} target="_blank" rel="noopener noreferrer" className="underline text-blue-600 text-sm">
+                                {att.name ? att.name : `Attachment ${i+1}`}
+                              </a>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                     <Input
                       value={area.attachmentNote || ''}

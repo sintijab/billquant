@@ -36,7 +36,7 @@ async def analyze_image_moondream(file: UploadFile = File(...)):
         import io
         contents = await file.read()
         image = Image.open(io.BytesIO(contents))
-        result = model.query(image, "Describe from construction site what is the state and what has to be renovated and repaired.")
+        result = model.query(image, "Describe from construction engineering point what has to be renovated and repaired. Don't repeat sentences and skip words disrepair and construction. Count objects and measures if possible. If it is floor map then give rooms and precise measurements with the numbers.")
         answer = result.get("answer", "")
         request_id = result.get("request_id", "")
         # Remove line breaks from answer
