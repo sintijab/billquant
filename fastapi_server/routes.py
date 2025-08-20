@@ -3,10 +3,16 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from fastapi import Query
+import json
+from mistral_utils import answer_question
+from fastapi import Form
 import os
+import re
 load_dotenv()
 api_key = os.environ.get("MOONDREAM_API_KEY")
 model = md.vl(api_key=api_key)
+
+
 
 app = FastAPI()
 
@@ -22,6 +28,29 @@ app.add_middleware(
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
+
+@app.post("/mistral_activity_list")
+async def mistral(query: str = Form(...)):
+    raw_answer = answer_question(query)
+    # Remove outer quotes if present
+    if raw_answer.startswith('"') and raw_answer.endswith('"'):
+        raw_answer = raw_answer[1:-1]
+
+    # Unescape escaped characters
+    raw_answer = raw_answer.encode('utf-8').decode('unicode_escape')
+
+    # Extract JSON from code block
+    match = re.search(r"```json\s*({[\s\S]*?})\s*```", raw_answer, re.IGNORECASE)
+    json_str = match.group(1) if match else raw_answer
+
+    try:
+        parsed_json = json.loads(json_str)
+        if isinstance(parsed_json, str):
+            parsed_json = json.loads(parsed_json)
+    except json.JSONDecodeError:
+        parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
+    return parsed_json
+
 
 @app.post("/extract_pdf_text")
 async def extract_pdf_text(file: UploadFile = File(...)):

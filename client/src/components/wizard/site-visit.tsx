@@ -1,6 +1,6 @@
 
 import { useRef, useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSiteVisit } from '@/features/wizardSlice';
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -11,6 +11,7 @@ import { ArrowRight, ArrowLeft, Plus, Upload, FileText, ImageIcon, X, SearchChec
 import { ProjectWizardData } from "@/lib/types";
 import SubareaCard from "./subarea-card";
 import Loader from "../ui/loader";
+import { formatAreaData } from "@/lib/formatAreaData";
 
 
 interface SiteVisitProps {
@@ -21,12 +22,19 @@ interface SiteVisitProps {
 }
 
 export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVisitProps) {
-
+  function collectAllAreaAndSubareaFields(siteAreas: any[]) {
+    return siteAreas.map(area => ({
+      ...area,
+      subareas: area.subareas?.map((sub: any) => ({ ...sub })) || []
+    }));
+  }
   const [showExtractedTextModal, setShowExtractedTextModal] = useState<{ open: boolean; text: string }>({ open: false, text: "" });
+  // Get the full redux state for site visit
+  const siteVisitState = useSelector((state: any) => state.wizard);
   const dispatch = useDispatch();
   const [generalNotes, setGeneralNotes] = useState(data.generalNotes || "");
   const [generalAttachments, setGeneralAttachments] = useState<{ url: string; title: string }[]>([]);
-  const [aiConsent, setAiConsent] = useState(!!data.aiConsent);
+  const [aiConsent, setAiConsent] = useState(true);
 
   const handleAddArea = () => {
     const newArea = {
@@ -34,15 +42,12 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
       name: "New Area",
       statusDescription: "",
       whatToDo: "",
-      dimensions: "",
+      totalArea: "",
       udm: "",
       quantity: "",
       attachmentNote: "",
       floorAttachments: [],
       subareas: [],
-      // Required fields for SiteArea type
-      totalArea: "",
-      status: "",
       priority: "medium" as "medium"
     };
     const updated = { siteAreas: [...data.siteAreas, newArea] };
@@ -53,18 +58,8 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   const handleAddSubarea = (areaId: string) => {
     const newSubarea = {
       id: `subarea-${Date.now()}`,
-      name: "New Subarea",
-      statusDescription: "",
-      dimensions: "",
-      udm: "",
-      quantity: "",
-      photos: [],
-      // Required fields for SiteSubarea type
-      area: "",
-      height: "",
-      volume: "",
-      currentStatus: "",
-      workRequired: ""
+      title: "New Subarea",
+      items: []
     };
     const updated = {
       siteAreas: data.siteAreas.map(area =>
@@ -125,18 +120,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </Button>
-                    {area.name === 'New Area' ? (
-                      <h2 className="text-2xl font-semibold text-gray-900 mb-2">New Area</h2>
-                    ) : (
-                      <Input
-                        value={area.name}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: e.target.value } : a) })}
-                        onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: e.target.value } : a) }))}
-                        className="text-lg font-semibold bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
-                        placeholder="Area name"
-                      />
-                    )}
+                    <h2 className="text-2xl font-semibold text-gray-900 mb-2">Area no. {areaIdx + 1}</h2>
                     <Input
                       value={area.statusDescription || ''}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) })}
@@ -154,9 +138,9 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                       placeholder="What to do?"
                     />
                     <Input
-                      value={area.dimensions || ''}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, dimensions: e.target.value } : a) })}
-                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, dimensions: e.target.value } : a) }))}
+                      value={area.totalArea || ''}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a) })}
+                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a) }))}
                       className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
                       style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                       placeholder="Dimensions"
@@ -306,9 +290,35 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                     </Button>
                   </div>
                 </div>
+                {/* Save Area button inside each Area card */}
+                <div className="flex justify-end mt-4">
+                  <Button
+                    variant="secondary"
+                    className="px-8 py-4 rounded-full"
+                    onClick={async () => {
+                      const areaData = collectAllAreaAndSubareaFields([area])[0];
+                      const formatted = formatAreaData(areaData);
+                      console.log(formatted);
+                      try {
+                        const formData = new FormData();
+                        formData.append('query', formatted);
+                        const resp = await fetch('http://127.0.0.1:8000/mistral_activity_list', {
+                          method: 'POST',
+                          body: formData
+                        });
+                        const data = await resp.json();
+                        console.log('Mistral response:', data);
+                      } catch (err) {
+                        console.error('Error calling Mistral endpoint:', err);
+                      }
+                    }}
+                  >
+                    Save Area
+                  </Button>
+                </div>
               </div>
             ))}
-            <div className="flex justify-center">
+            <div className="flex justify-center items-center mt-4">
               <Button
                 variant="outline"
                 onClick={handleAddArea}
@@ -546,7 +556,12 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
               Back
             </Button>
             <Button
-              onClick={onNext}
+              onClick={() => {
+                // Collect all area and subarea info from redux
+                const allData = collectAllAreaAndSubareaFields(siteVisitState.siteAreas || []);
+                console.log('All Area and Subarea Data:', allData);
+                onNext();
+              }}
               variant="link"
               className="text-lg px-8 py-4 rounded-full"
               data-testid="button-continue"

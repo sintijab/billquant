@@ -21,6 +21,7 @@ const INITIAL_DATA: ProjectWizardData = {
   siteAreas: [],
   activityCategories: [],
   boqItems: [],
+  aiConsent: true,
 };
 
 export default function ProjectWizard() {

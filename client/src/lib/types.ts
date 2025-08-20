@@ -1,20 +1,23 @@
+export interface SiteSubareaItem {
+  id: string;
+  status: string;
+  dimensions: string;
+  udm: string;
+  quantity: string;
+  description: string;
+  photos: { url: string; fileName?: string }[];
+}
+
 export interface SiteSubarea {
   id: string;
-  name: string;
-  dimensions: string;
-  area: string;
-  height: string;
-  volume: string;
-  currentStatus: string;
-  workRequired: string;
-  photos: string[];
+  title: string;
+  items: SiteSubareaItem[];
 }
 
 export interface SiteArea {
   id: string;
   name: string;
   totalArea: string;
-  status: string;
   priority: "low" | "medium" | "high";
   subareas: SiteSubarea[];
 }
