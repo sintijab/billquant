@@ -97,7 +97,6 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
             <h2 className="text-3xl font-semibold text-text-primary mb-4">
               Site Visit Documentation
             </h2>
-            <Loader size="xxs" />
             <p className="text-text-secondary text-lg">
               Document site areas and subareas with detailed measurements and notes
             </p>
