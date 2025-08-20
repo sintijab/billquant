@@ -5,16 +5,12 @@ import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 
 import {
-  Building2,
   Brain,
   Euro,
-  FileText,
   Smartphone,
   TrendingUp,
   Users,
   Star,
-  ArrowRight,
-  CheckCircle
 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";

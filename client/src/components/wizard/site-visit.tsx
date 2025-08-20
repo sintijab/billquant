@@ -1,12 +1,16 @@
 
 import { useRef, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { setSiteVisit } from '@/features/wizardSlice';
 import { Card, CardContent } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ArrowRight, ArrowLeft, Plus } from "lucide-react";
+import { ArrowRight, ArrowLeft, Plus, Upload, FileText, ImageIcon, X, SearchCheck } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import SubareaCard from "./subarea-card";
+import Loader from "../ui/loader";
 
 
 interface SiteVisitProps {
@@ -16,11 +20,13 @@ interface SiteVisitProps {
   onPrevious: () => void;
 }
 
-
 export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVisitProps) {
+
+  const [showExtractedTextModal, setShowExtractedTextModal] = useState<{ open: boolean; text: string }>({ open: false, text: "" });
+  const dispatch = useDispatch();
   const [generalNotes, setGeneralNotes] = useState(data.generalNotes || "");
-  const [documentTitle, setDocumentTitle] = useState("");
-  const [generalAttachments, setGeneralAttachments] = useState<any[]>([]);
+  const [generalAttachments, setGeneralAttachments] = useState<{ url: string; title: string }[]>([]);
+  const [aiConsent, setAiConsent] = useState(!!data.aiConsent);
 
   const handleAddArea = () => {
     const newArea = {
@@ -37,9 +43,11 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
       // Required fields for SiteArea type
       totalArea: "",
       status: "",
-  priority: "medium" as "medium"
+      priority: "medium" as "medium"
     };
-    onUpdate({ siteAreas: [...data.siteAreas, newArea] });
+    const updated = { siteAreas: [...data.siteAreas, newArea] };
+    onUpdate(updated);
+    dispatch(setSiteVisit(updated));
   };
 
   const handleAddSubarea = (areaId: string) => {
@@ -58,15 +66,28 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
       currentStatus: "",
       workRequired: ""
     };
-    onUpdate({
+    const updated = {
       siteAreas: data.siteAreas.map(area =>
         area.id === areaId
           ? { ...area, subareas: [...area.subareas, newSubarea] }
           : area
       )
-    });
+    };
+    onUpdate(updated);
+    dispatch(setSiteVisit(updated));
   };
 
+
+  // Whenever site visit data changes, update redux
+  const handleUpdate = (updates: Partial<ProjectWizardData>) => {
+    onUpdate(updates);
+    dispatch(setSiteVisit(updates));
+  };
+  const [attachmentPopover, setAttachmentPopover] = useState(false);
+  const [areaPlanLoading, setAreaPlanLoading] = useState(false);
+  const [generalAttachmentLoading, setGeneralAttachmentLoading] = useState(false);
+  const pdfInputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
 
   return (
     <div className="max-w-6xl mx-auto md:px-4 lg:px-8">
@@ -76,6 +97,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
             <h2 className="text-3xl font-semibold text-text-primary mb-4">
               Site Visit Documentation
             </h2>
+            <Loader size="xxs" />
             <p className="text-text-secondary text-lg">
               Document site areas and subareas with detailed measurements and notes
             </p>
@@ -88,11 +110,15 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                   {/* Area fields left column */}
                   <div className="md:w-2/5 w-full flex flex-col gap-4 bg-gray-100 text-white rounded-xl p-6 shadow-md relative">
                     {/* Remove Area button top right */}
-                    <Button 
+                    <Button
                       variant="outline"
-                      size="icon" 
+                      size="icon"
                       className="absolute top-2 right-2 z-10 w-8 h-8 p-0 rounded-full flex items-center justify-center shadow-md border-0 bg-white text-primary-dark hover:bg-primary-dark hover:text-white transition-colors"
-                      onClick={() => onUpdate({ siteAreas: data.siteAreas.filter((_, i) => i !== areaIdx) })}
+                      onClick={() => {
+                        const updated = { siteAreas: data.siteAreas.filter((_: unknown, i: number) => i !== areaIdx) };
+                        onUpdate(updated);
+                        dispatch(setSiteVisit(updated));
+                      }}
                       aria-label="Remove Area"
                     >
                       <span className="sr-only">Remove Area</span>
@@ -105,73 +131,144 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                     ) : (
                       <Input
                         value={area.name}
-                        onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: e.target.value } : a) })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: e.target.value } : a) })}
+                        onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: e.target.value } : a) }))}
                         className="text-lg font-semibold bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                        style={{'--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                         placeholder="Area name"
                       />
                     )}
                     <Input
                       value={area.statusDescription || ''}
-                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) })}
+                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) }))}
                       className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                      style={{'--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                       placeholder="Area status description"
                     />
                     <Input
                       value={area.whatToDo || ''}
-                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, whatToDo: e.target.value } : a) })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, whatToDo: e.target.value } : a) })}
+                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, whatToDo: e.target.value } : a) }))}
                       className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                      style={{'--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                       placeholder="What to do?"
                     />
                     <Input
                       value={area.dimensions || ''}
-                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, dimensions: e.target.value } : a) })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, dimensions: e.target.value } : a) })}
+                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, dimensions: e.target.value } : a) }))}
                       className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                      style={{'--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                       placeholder="Dimensions"
                     />
                     <div className="flex gap-2">
                       <Input
                         value={area.udm || ''}
-                        onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) })}
+                        onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) }))}
                         className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                        style={{'--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                         placeholder="UDM"
                       />
                       <Input
                         value={area.quantity || ''}
-                        onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, quantity: e.target.value } : a) })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, quantity: e.target.value } : a) })}
+                        onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, quantity: e.target.value } : a) }))}
                         className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                        style={{'--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                         placeholder="Quantity"
                       />
                     </div>
                     <div className="flex flex-col gap-2 items-start">
-                      <Button variant="outline" className="cursor-pointer rounded-full px-4 py-2 border-none bg-white/90 text-primary-dark font-semibold" asChild>
-                        <label>
-                          Upload area plan
-                          <input type="file" className="hidden" onChange={e => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              const reader = new FileReader();
-                              reader.onload = ev => {
-                                onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, floorAttachments: [...(a.floorAttachments || []), { url: ev.target?.result, name: file.name }] } : a) });
-                              };
-                              reader.readAsDataURL(file);
-                            }
-                          }} />
-                        </label>
-                      </Button>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="outline"
+                          className="cursor-pointer rounded-full px-4 py-2 border-none bg-white/90 text-primary-dark font-semibold"
+                          asChild
+                          disabled={areaPlanLoading}
+                        >
+                          <label className={areaPlanLoading ? 'opacity-60 pointer-events-none' : ''}>
+                            Upload area plan
+                            <input
+                              type="file"
+                              accept="application/pdf,image/*"
+                              className="hidden"
+                              onChange={async e => {
+                                const file = e.target.files?.[0];
+                                if (!file) return;
+                                setAreaPlanLoading(true);
+                                const isPDF = file.type === 'application/pdf';
+                                const isImage = file.type.startsWith('image/');
+                                const reader = new FileReader();
+                                reader.onload = async ev => {
+                                  const url = typeof ev.target?.result === 'string' ? ev.target.result : '';
+                                  let extractedText = '';
+                                  if (isPDF) {
+                                    const formData = new FormData();
+                                    formData.append('file', file);
+                                    const resp = await fetch('http://127.0.0.1:8000/extract_pdf_text', { method: 'POST', body: formData });
+                                    const data = await resp.json();
+                                    extractedText = data.text || '';
+                                  } else if (isImage) {
+                                    const formData = new FormData();
+                                    formData.append('file', file);
+                                    const resp = await fetch('http://127.0.0.1:8000/analyze_image_moondream?ocr=true', { method: 'POST', body: formData });
+                                    const data = await resp.json();
+                                    extractedText = data.answer || '';
+                                  }
+                                  const updated = { siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, floorAttachments: [...(a.floorAttachments || []), { url, name: file.name, extractedText }] } : a) };
+                                  onUpdate(updated);
+                                  dispatch(setSiteVisit(updated));
+                                  setAreaPlanLoading(false);
+                                };
+                                reader.readAsDataURL(file);
+                              }}
+                            />
+                          </label>
+                        </Button>
+                        {areaPlanLoading && <Loader size="xxs" />}
+                      </div>
                       {/* Show uploaded area plan files as links */}
                       {area.floorAttachments && area.floorAttachments.length > 0 && (
                         <div className="flex flex-col gap-1 mt-2">
                           {area.floorAttachments.map((att: any, i: number) => (
                             <div key={i} className="flex items-center gap-2">
                               <a href={att.url} target="_blank" rel="noopener noreferrer" className="underline text-blue-600 text-sm">
-                                {att.name ? att.name : `Attachment ${i+1}`}
+                                {att.name ? att.name : `Attachment ${i + 1}`}
                               </a>
+                              {att.extractedText && (
+                                <button
+                                  type="button"
+                                  className="ml-2 p-1 rounded-full text-primary-dark hover:bg-primary-dark hover:text-white focus:outline-none transition-colors"
+                                  aria-label="Show extracted text"
+                                  onClick={() => setShowExtractedTextModal({ open: true, text: att.extractedText! })}
+                                >
+                                  <SearchCheck className="w-5 h-5" />
+                                </button>
+                              )}
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="ml-1 p-1 rounded-full text-primary-dark hover:bg-primary-dark hover:text-white focus:outline-none transition-colors"
+                                aria-label="Remove attachment"
+                                onClick={() => {
+                                  const updated = {
+                                    siteAreas: data.siteAreas.map((a: any, areaI: number) =>
+                                      areaI === areaIdx
+                                        ? { ...a, floorAttachments: a.floorAttachments.filter((_: any, attI: number) => attI !== i) }
+                                        : a
+                                    )
+                                  };
+                                  onUpdate(updated);
+                                  dispatch(setSiteVisit(updated));
+                                }}
+                              >
+                                <span className="sr-only">Remove attachment</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                              </Button>
                             </div>
                           ))}
                         </div>
@@ -179,9 +276,11 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                     </div>
                     <Input
                       value={area.attachmentNote || ''}
-                      onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, attachmentNote: e.target.value } : a) })}
-                      className="bg-white/80 placeholder:text-gray-400"
-                      placeholder="Attachment note (optional)"
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, attachmentNote: e.target.value } : a) })}
+                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, attachmentNote: e.target.value } : a) }))}
+                      className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
+                      style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                      placeholder="Attachment comment (optional)"
                     />
 
                   </div>
@@ -193,9 +292,9 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                         sub={sub}
                         areaIdx={areaIdx}
                         subIdx={subIdx}
-                        onUpdate={onUpdate}
+                        onUpdate={handleUpdate}
                         data={data}
-                        setGeneratingDesc={() => {}}
+                        setGeneratingDesc={() => { }}
                       />
                     ))}
                     <Button
@@ -214,7 +313,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
               <Button
                 variant="outline"
                 onClick={handleAddArea}
-                  className="w-[340px] max-w-full border border-dashed border-primary text-primary hover:bg-primary hover:text-white rounded-xl py-6 px-16 text-lg shadow transition-all"
+                className="w-[340px] max-w-full border border-dashed border-primary text-primary hover:bg-primary hover:text-white rounded-xl py-6 px-16 text-lg shadow transition-all"
                 data-testid="button-add-area"
               >
                 Add New Area
@@ -229,62 +328,212 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
               <div className="flex-1 mb-4 md:mb-0">
                 <Input
                   value={generalNotes}
-                  onChange={e => setGeneralNotes(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setGeneralNotes(e.target.value)}
+                  onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                    const updated = { generalNotes: e.target.value };
+                    onUpdate(updated);
+                    dispatch(setSiteVisit(updated));
+                  }}
                   className="text-base py-2 px-3 w-full"
                   placeholder="General notes about the project, requirements, or constraints..."
                 />
               </div>
               {/* Right column: Attachments */}
-              <div className="flex-1">
-                <label className="inline-block mb-4">
-                  <span className="btn-primary inline-flex items-center px-4 py-2 rounded-full font-semibold cursor-pointer bg-primary text-white hover:bg-primary-dark transition-all shadow border-0">
-                    Attach files
-                  </span>
-                  <input
-                    type="file"
-                    multiple
-                    className="hidden"
-                    onChange={e => {
-                      const files = Array.from(e.target.files || []);
-                      files.forEach(file => {
+              <div className="flex-1 relative">
+                <div className="flex items-center gap-2 mb-4">
+                  <Button
+                    variant="outline"
+                    onClick={() => setAttachmentPopover((v) => !v)}
+                    disabled={generalAttachmentLoading}
+                    className={generalAttachmentLoading ? 'opacity-60 pointer-events-none' : ''}
+                  >
+                    <Upload className="h-5 w-5 mr-2" /> Attach files
+                  </Button>
+                  {generalAttachmentLoading && <Loader size="xxs" />}
+                </div>
+                {attachmentPopover && (
+                  <div className="absolute left-0 top-full mt-2 z-50 bg-white border rounded-xl shadow-lg p-4 flex flex-col gap-2 min-w-[12rem]">
+                    <Button
+                      variant="outline"
+                      className="flex items-center gap-2"
+                      onClick={() => {
+                        if (pdfInputRef.current) pdfInputRef.current.value = "";
+                        pdfInputRef.current?.click();
+                      }}
+                    >
+                      <FileText className="h-5 w-5" /> Upload PDF
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex items-center gap-2"
+                      onClick={() => {
+                        if (imageInputRef.current) imageInputRef.current.value = "";
+                        imageInputRef.current?.click();
+                      }}
+                    >
+                      <ImageIcon className="h-5 w-5" /> Upload Image
+                    </Button>
+                    {/* Hidden file inputs */}
+                    <input
+                      ref={pdfInputRef}
+                      type="file"
+                      accept="application/pdf"
+                      style={{ display: "none" }}
+                      onChange={async e => {
+                        setAttachmentPopover(false);
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        setGeneralAttachmentLoading(true);
                         const reader = new FileReader();
-                        reader.onload = ev => {
-                          setGeneralAttachments(prev => [...prev, { url: ev.target?.result, title: '' }]);
+                        reader.onload = async ev => {
+                          const url = typeof ev.target?.result === 'string' ? ev.target.result : '';
+                          const formData = new FormData();
+                          formData.append('file', file);
+                          const resp = await fetch('http://127.0.0.1:8000/extract_pdf_text', { method: 'POST', body: formData });
+                          const data = await resp.json();
+                          const newAttachment = { url, title: '', extractedText: data.text || '' };
+                          setGeneralAttachments(prev => {
+                            const updated = [...prev, newAttachment];
+                            onUpdate({ generalAttachments: updated });
+                            dispatch(setSiteVisit({ generalAttachments: updated }));
+                            setGeneralAttachmentLoading(false);
+                            return updated;
+                          });
                         };
                         reader.readAsDataURL(file);
-                      });
-                    }}
-                  />
-                </label>
+                      }}
+                    />
+                    <input
+                      ref={imageInputRef}
+                      type="file"
+                      accept="image/*"
+                      style={{ display: "none" }}
+                      onChange={async e => {
+                        setAttachmentPopover(false);
+                        const file = e.target.files?.[0];
+                        if (!file) return;
+                        setGeneralAttachmentLoading(true);
+                        const reader = new FileReader();
+                        reader.onload = async ev => {
+                          const url = typeof ev.target?.result === 'string' ? ev.target.result : '';
+                          setGeneralAttachments(prev => {
+                            const updated = [...prev, { url, title: '', extractedText: '' }];
+                            onUpdate({ generalAttachments: updated });
+                            dispatch(setSiteVisit({ generalAttachments: updated }));
+                            setGeneralAttachmentLoading(false);
+                            return updated;
+                          });
+                        };
+                        reader.readAsDataURL(file);
+                      }}
+                    />
+                  </div>
+                )}
                 <div className="flex flex-col gap-2 flex-wrap">
-                  {generalAttachments.map((att, i) => (
+                  {generalAttachments.map((att: { url: string; title: string; extractedText?: string }, i: number) => (
                     <div key={i} className="flex items-center gap-2 mb-1">
                       <Input
                         value={att.title || ''}
                         onChange={e => {
-                          const newAttachments = [...generalAttachments];
-                          newAttachments[i].title = e.target.value;
+                          const newAttachments = generalAttachments.map((a, idx) =>
+                            idx === i ? { ...a, title: e.target.value } : a
+                          );
+                          setGeneralAttachments(newAttachments);
+                        }}
+                        onBlur={async e => {
+                          const newTitle = e.target.value;
+                          let newAttachments = generalAttachments.map((a, idx) =>
+                            idx === i ? { ...a, title: newTitle } : a
+                          );
+                          const isImage = att.url.startsWith('data:image');
+                          if (isImage && newTitle) {
+                            setGeneralAttachmentLoading(true);
+                            try {
+                              const res = await fetch(att.url);
+                              const blob = await res.blob();
+                              const formData = new FormData();
+                              formData.append('file', blob, `attachment_${i}.png`);
+                              const resp = await fetch(`http://127.0.0.1:8000/analyze_image_moondream?notes=${encodeURIComponent(newTitle)}`, { method: 'POST', body: formData });
+                              const data = await resp.json();
+                              newAttachments = newAttachments.map((a, idx) =>
+                                idx === i ? { ...a, extractedText: data.answer || '' } : a
+                              );
+                            } catch (err) { /* ignore */ }
+                            setGeneralAttachmentLoading(false);
+                          }
+                          onUpdate({ generalAttachments: newAttachments });
+                          dispatch(setSiteVisit({ generalAttachments: newAttachments }));
                           setGeneralAttachments(newAttachments);
                         }}
                         className="text-sm py-1 px-2 w-48"
                         placeholder="Document title"
                       />
-                      <a href={att.url} target="_blank" rel="noopener noreferrer" className="underline text-blue-600 text-sm">Attachment {i+1}</a>
+                      <a href={att.url} target="_blank" rel="noopener noreferrer" className="underline text-blue-600 text-sm">
+                        Attachment {i + 1}
+                      </a>
+                      {att.extractedText && (
+                        <button
+                          type="button"
+                          className="ml-2 p-1 rounded-full bg-white text-primary-dark hover:bg-primary-dark hover:text-white focus:outline-none transition-colors"
+                          aria-label="Show extracted text"
+                          onClick={() => setShowExtractedTextModal({ open: true, text: att.extractedText! })}
+                        >
+                          <SearchCheck className="w-5 h-5" />
+                        </button>
+                      )}
                       <button
                         type="button"
                         className="ml-1 p-1 rounded-full bg-white text-primary-dark hover:bg-primary-dark hover:text-white focus:outline-none transition-colors"
                         aria-label="Remove attachment"
-                        onClick={() => setGeneralAttachments(generalAttachments.filter((_, idx) => idx !== i))}
+                        onClick={() => {
+                          const updated = generalAttachments.filter((_, idx) => idx !== i);
+                          setGeneralAttachments(updated);
+                          onUpdate({ generalAttachments: updated });
+                          dispatch(setSiteVisit({ generalAttachments: updated }));
+                        }}
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                        <X className="w-4 h-4" />
                       </button>
                     </div>
                   ))}
+                {/* Modal for extracted text */}
+                {showExtractedTextModal.open && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                    <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full relative">
+                      <button
+                        className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-200"
+                        onClick={() => setShowExtractedTextModal({ open: false, text: "" })}
+                        aria-label="Close"
+                        style={{ background: 'none' }}
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                      <h4 className="text-lg font-semibold mb-4">Extracted Information</h4>
+                      <div className="whitespace-pre-wrap text-gray-800 text-base max-h-[60vh] overflow-y-auto">
+                        {showExtractedTextModal.text}
+                      </div>
+                    </div>
+                  </div>
+                )}
                 </div>
               </div>
             </div>
+          </div>
+          {/* AI Consent Checkbox */}
+          <div className="flex items-center mt-6 ml-4">
+            <Checkbox
+              id="ai-consent"
+              checked={aiConsent}
+              onCheckedChange={(checked: boolean) => {
+                setAiConsent(checked);
+                onUpdate({ aiConsent: checked });
+                dispatch(setSiteVisit({ aiConsent: checked }));
+              }}
+              className="mr-3 w-5 h-5 border-2 border-primary rounded focus:ring-2 focus:ring-primary"
+            />
+            <label htmlFor="ai-consent" className="text-sm text-gray-700 select-none">
+              I agree AI use in processing of uploaded documents and photos for the construction inspection and analysis.
+            </label>
           </div>
           {/* Action Buttons */}
           <div className="flex justify-between mt-10">
@@ -297,12 +546,13 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back
             </Button>
-            <Button 
-              onClick={onNext} 
-              className="btn-primary text-lg px-8 py-4 rounded-full shadow"
+            <Button
+              onClick={onNext}
+              variant="link"
+              className="text-lg px-8 py-4 rounded-full"
               data-testid="button-continue"
             >
-              Continue
+              Continue to Activity Overview
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>

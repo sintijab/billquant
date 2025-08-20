@@ -4,3 +4,6 @@ moondream
 pillow
 python-multipart
 python-dotenv
+transformers
+torch
+pdf2image

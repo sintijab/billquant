@@ -58,6 +58,8 @@ export interface ProjectWizardData {
   siteAddress: string;
   digitalSignature: string;
   generalNotes: string;
+  generalAttachments: { url: string; title: string }[];
+  aiConsent: boolean;
   siteAreas: SiteArea[];
   activityCategories: ActivityCategory[];
   boqItems: BOQItem[];

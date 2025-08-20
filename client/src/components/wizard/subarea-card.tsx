@@ -15,8 +15,12 @@ interface SubareaCardProps {
 
 
 import { useRef, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { setSiteVisit } from '@/features/wizardSlice';
+import Loader from "../ui/loader";
 
 const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdate, data, setGeneratingDesc }) => {
+    const dispatch = useDispatch();
     const [photoPopover, setPhotoPopover] = useState(false);
     const [livePhotoModal, setLivePhotoModal] = useState(false);
     const [analyzing, setAnalyzing] = useState(false);
@@ -71,25 +75,36 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
     return (
         <div className="bg-white rounded-2xl p-6 border border-gray-200 relative">
             {analyzing && (
-                <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/80 rounded-2xl">
-                    <svg className="animate-spin h-10 w-10 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                    </svg>
+                <div className="absolute inset-0 flex items-center justify-center z-20 bg-white/60 rounded-2xl">
+                    <Loader size="xxs" />
                 </div>
             )}
             <div className="flex flex-row items-center gap-4 mb-4">
-                <Input
-                    value={sub.name}
-                    onChange={e => onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, subareas: a.subareas.map((s: any, si: number) => si === subIdx ? { ...s, name: e.target.value } : s) } : a) })}
-                    className="flex-1 font-medium bg-white/80 placeholder:text-gray-400 text-lg"
-                    placeholder="Subarea name"
-                />
+                                <Input
+                                    value={sub.name}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, subareas: a.subareas.map((s: any, si: number) => si === subIdx ? { ...s, name: e.target.value } : s) } : a) })}
+                                    onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                                        const updated = { siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, subareas: a.subareas.map((s: any, si: number) => si === subIdx ? { ...s, name: e.target.value } : s) } : a) };
+                                        dispatch(setSiteVisit(updated));
+                                    }}
+                                    className="flex-1 font-medium bg-white/80 placeholder:text-gray-400 text-lg"
+                                    placeholder="Subarea name"
+                                />
                 <Button
                     variant="secondary"
                     size="icon"
                     className="ml-2 w-8 h-8 p-0 rounded-full flex items-center justify-center shadow-md border-0 bg-white text-primary-dark hover:bg-primary-dark hover:text-white transition-colors"
-                    onClick={() => onUpdate({ siteAreas: data.siteAreas.map((a: any, i: number) => i === areaIdx ? { ...a, subareas: a.subareas.filter((_: any, si: number) => si !== subIdx) } : a) })}
+                    onClick={() => {
+                        const updated = {
+                            siteAreas: data.siteAreas.map((a: any, i: number) =>
+                                i === areaIdx
+                                    ? { ...a, subareas: a.subareas.filter((_: any, si: number) => si !== subIdx) }
+                                    : a
+                            )
+                        };
+                        onUpdate(updated);
+                        dispatch(setSiteVisit(updated));
+                    }}
                     aria-label="Remove Subarea"
                 >
                     <span className="sr-only">Remove Subarea</span>
@@ -108,6 +123,35 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                             className="w-40 h-full max-h-[300px] object-cover rounded-xl border bg-gray-200"
                             style={{ objectFit: 'cover', height: '100%', maxHeight: '300px' }}
                         />
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="absolute top-2 right-2 p-1 rounded-full bg-white text-primary-dark hover:bg-primary-dark hover:text-white focus:outline-none transition-colors"
+                            aria-label="Remove photo"
+                            onClick={() => {
+                                const updated = {
+                                    siteAreas: data.siteAreas.map((a: any, i: number) =>
+                                        i === areaIdx
+                                            ? {
+                                                ...a,
+                                                subareas: a.subareas.map((s: any, si: number) =>
+                                                    si === subIdx
+                                                        ? { ...s, photos: s.photos.filter((_: any, pi: number) => pi !== pIdx) }
+                                                        : s
+                                                )
+                                            }
+                                            : a
+                                    )
+                                };
+                                onUpdate(updated);
+                                dispatch(setSiteVisit(updated));
+                            }}
+                        >
+                            <span className="sr-only">Remove photo</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </Button>
                         <div className="flex-1 flex flex-col gap-1 pl-4">
                             {/* First line: file name (left), delete icon (right) */}
                             <div className="flex flex-row items-center justify-between mb-1">
@@ -144,7 +188,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                             </div>
                             <Input
                                 value={photo.statusDescription || ''}
-                                onChange={e => {
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     onUpdate({
                                         siteAreas: data.siteAreas.map((a: any, i: number) =>
                                             i === areaIdx
@@ -170,7 +214,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                             />
                             <Input
                                 value={photo.dimensions || ''}
-                                onChange={e => {
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     onUpdate({
                                         siteAreas: data.siteAreas.map((a: any, i: number) =>
                                             i === areaIdx
@@ -197,7 +241,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                             <div className="flex gap-2 w-full mb-1">
                                 <Input
                                     value={photo.udm || ''}
-                                    onChange={e => {
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                         onUpdate({
                                             siteAreas: data.siteAreas.map((a: any, i: number) =>
                                                 i === areaIdx
@@ -223,7 +267,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                 />
                                 <Input
                                     value={photo.quantity || ''}
-                                    onChange={e => {
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                         onUpdate({
                                             siteAreas: data.siteAreas.map((a: any, i: number) =>
                                                 i === areaIdx
@@ -250,7 +294,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                             </div>
                             <Textarea
                                 value={photo.description || ''}
-                                onChange={e => {
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                     onUpdate({
                                         siteAreas: data.siteAreas.map((a: any, i: number) =>
                                             i === areaIdx
@@ -280,16 +324,18 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                 ))}
                 {/* Add photo button at the bottom */}
                 <div className="flex flex-col justify-start items-start mt-2 relative">
-                    <button
-                        className="w-32 h-32 border border-dashed hover:border-gray-300 rounded-xl flex items-center justify-center text-primary hover:text-gray-400 border-primary transition-colors"
-                        onClick={() => setPhotoPopover(true)}
-                        type="button"
-                        id={`add-photo-btn-${areaIdx}-${subIdx}`}
-                    >
-                        <Plus className="h-6 w-6" />
-                    </button>
+                    {!analyzing && (
+                        <button
+                            className="w-32 h-32 border border-dashed hover:border-gray-300 rounded-xl flex items-center justify-center text-primary hover:text-gray-400 border-primary transition-colors"
+                            onClick={() => setPhotoPopover(true)}
+                            type="button"
+                            id={`add-photo-btn-${areaIdx}-${subIdx}`}
+                        >
+                            <Plus className="h-6 w-6" />
+                        </button>
+                    )}
                     {/* Photo popover directly under the button */}
-                    {photoPopover && (
+                    {photoPopover && !analyzing && (
                         <div className="absolute left-0 top-full mt-2 z-50 bg-white border rounded-xl shadow-lg p-4 flex flex-col gap-2 min-w-[10rem]">
                             <Button variant="outline" className="flex items-center gap-2" onClick={() => {
                                 setLivePhotoModal(true);
@@ -310,21 +356,24 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                     const file = e.target.files?.[0];
                                     if (file) {
                                         setAnalyzing(true);
+                                        setPhotoPopover(false);
                                         const reader = new FileReader();
                                         reader.onload = async ev => {
                                             const url = ev.target?.result;
                                             let description = '';
-                                            try {
-                                                const formData = new FormData();
-                                                formData.append('file', file);
-                                                const response = await fetch('https://billquant.onrender.com/analyze_image_moondream', {
-                                                    method: 'POST',
-                                                    body: formData
-                                                });
-                                                const result = await response.json();
-                                                if (result.answer) description = result.answer;
-                                            } catch (err) {
-                                                description = '';
+                                            if (data.aiConsent) {
+                                                try {
+                                                    const formData = new FormData();
+                                                    formData.append('file', file);
+                                                    const response = await fetch('http://127.0.0.1:8000/analyze_image_moondream', {
+                                                        method: 'POST',
+                                                        body: formData
+                                                    });
+                                                    const result = await response.json();
+                                                    if (result.answer) description = result.answer;
+                                                } catch (err) {
+                                                    description = '';
+                                                }
                                             }
                                             onUpdate({
                                                 siteAreas: data.siteAreas.map((a: any, i: number) =>
@@ -338,7 +387,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                                         : a
                                                 ),
                                             });
-                                            setPhotoPopover(false);
                                             setAnalyzing(false);
                                         };
                                         reader.readAsDataURL(file);

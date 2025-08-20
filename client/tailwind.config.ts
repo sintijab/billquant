@@ -78,6 +78,8 @@ export default {
         'cad-blue': 'var(--cad-blue)',
         'cad-blue-dark': 'var(--cad-blue-dark)',
         'cad-accent': 'var(--cad-accent)',
+        'loader-square': '#fff',
+        'loader-accent': '#3b82f6',
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
@@ -86,6 +88,28 @@ export default {
         inter: ['Inter', 'sans-serif'],
       },
       keyframes: {
+        'loader-enter': {
+					'0%': { 
+						opacity: '0',
+						transform: 'translateY(-10px)'
+					},
+					'5%': { 
+						opacity: '1',
+						transform: 'translateY(0px)'
+					},
+					'50.9%': { 
+						opacity: '1',
+						transform: 'translateY(0px)'
+					},
+					'55.9%': { 
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': { 
+						opacity: '0',
+						transform: 'translateY(-10px)'
+					},
+                },
         "accordion-down": {
           from: {
             height: "0",
@@ -124,6 +148,7 @@ export default {
         },
       },
       animation: {
+        'loader-enter': 'loader-enter 6s infinite',
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out",

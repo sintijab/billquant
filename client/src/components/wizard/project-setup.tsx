@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { setProjectSetup } from '@/features/wizardSlice';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MapPin, Upload, ArrowRight } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
@@ -16,8 +17,14 @@ interface ProjectSetupProps {
 }
 
 export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupProps) {
+  const dispatch = useDispatch();
   const [errors, setErrors] = useState<Record<string, string>>({});
-    const [signature, setSignature] = useState<string>("");
+  const [signature, setSignatureState] = useState<string>("");
+  // Save signature to Redux and local state
+  const handleSignatureCapture = (sig: string) => {
+    setSignatureState(sig);
+    dispatch(setProjectSetup({ digitalSignature: sig }));
+  };
 
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -43,6 +50,10 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
     }
+  };
+
+  const handleInputBlur = (field: keyof ProjectWizardData, value: string) => {
+    dispatch(setProjectSetup({ [field]: value }));
   };
 
   return (
@@ -153,6 +164,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="Marco"
                     value={data.clientFirstName}
                     onChange={(e) => handleInputChange("clientFirstName", e.target.value)}
+                    onBlur={(e) => handleInputBlur("clientFirstName", e.target.value)}
                     className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientFirstName ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-client-first-name"
                   />
@@ -170,6 +182,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="Rossi"
                     value={data.clientSurname}
                     onChange={(e) => handleInputChange("clientSurname", e.target.value)}
+                    onBlur={(e) => handleInputBlur("clientSurname", e.target.value)}
                     className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientSurname ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-client-surname"
                   />
@@ -187,6 +200,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="+39 333 123 4567"
                     value={data.clientPhone}
                     onChange={(e) => handleInputChange("clientPhone", e.target.value)}
+                    onBlur={(e) => handleInputBlur("clientPhone", e.target.value)}
                     className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400"
                     data-testid="input-client-phone"
                   />
@@ -201,6 +215,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="marco.rossi@email.com"
                     value={data.clientEmail}
                     onChange={(e) => handleInputChange("clientEmail", e.target.value)}
+                    onBlur={(e) => handleInputBlur("clientEmail", e.target.value)}
                     className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientEmail ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-client-email"
                   />
@@ -218,6 +233,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                     placeholder="Via Roma 123, 20121 Milano, Italy"
                     value={data.siteAddress}
                     onChange={(e) => handleInputChange("siteAddress", e.target.value)}
+                    onBlur={(e) => handleInputBlur("siteAddress", e.target.value)}
                     className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.siteAddress ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-site-address"
                   />
@@ -236,7 +252,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                   <i className="fas fa-signature"></i>
                 </div>
                 <p className="text-gray-400 mb-4">Upload your signature or use digital signing pad</p>
-                <SignatureCapture onSignatureCapture={setSignature}>
+                <SignatureCapture onSignatureCapture={handleSignatureCapture}>
                   <Button 
                     type="button"
                     className="bg-cad-blue hover:bg-cad-blue-dark px-6 py-3 rounded-full text-base shadow-md"

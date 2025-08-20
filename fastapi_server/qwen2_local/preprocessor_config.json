@@ -1,0 +1,13 @@
+{
+  "do_normalize": true,
+  "do_resize": true,
+  "feature_extractor_type": "Qwen2VLImageProcessor",
+  "image_mean": [0.5, 0.5, 0.5],
+  "image_processor_type": "Qwen2VLImageProcessor",
+  "image_std": [0.5, 0.5, 0.5],
+  "resample": 2,
+  "size": {
+    "shortest_edge": 224,
+    "longest_edge": 224
+  }
+}
