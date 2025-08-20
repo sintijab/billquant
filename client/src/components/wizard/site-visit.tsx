@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { setSiteVisit } from '@/features/wizardSlice';
+import { setSiteWorks } from '@/features/siteWorksSlice';
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
@@ -37,9 +38,10 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   const [aiConsent, setAiConsent] = useState(true);
 
   const handleAddArea = () => {
+    const areaIdx = data.siteAreas.length;
     const newArea = {
       id: `area-${Date.now()}`,
-      name: "New Area",
+      name: `Area no. ${areaIdx + 1}`,
       statusDescription: "",
       whatToDo: "",
       totalArea: "",
@@ -56,9 +58,11 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   };
 
   const handleAddSubarea = (areaId: string) => {
+    const area = data.siteAreas.find((a: any) => a.id === areaId);
+    const subIdx = area && area.subareas ? area.subareas.length : 0;
     const newSubarea = {
       id: `subarea-${Date.now()}`,
-      title: "New Subarea",
+      title: `Subarea no. ${subIdx + 1}`,
       items: []
     };
     const updated = {
@@ -298,7 +302,6 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                     onClick={async () => {
                       const areaData = collectAllAreaAndSubareaFields([area])[0];
                       const formatted = formatAreaData(areaData);
-                      console.log(formatted);
                       try {
                         const formData = new FormData();
                         formData.append('query', formatted);
@@ -307,7 +310,9 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                           body: formData
                         });
                         const data = await resp.json();
-                        console.log('Mistral response:', data);
+                        if (data && data.SiteWorks && data.Missing) {
+                          dispatch(setSiteWorks({ SiteWorks: data.SiteWorks, Missing: data.Missing }));
+                        }
                       } catch (err) {
                         console.error('Error calling Mistral endpoint:', err);
                       }
