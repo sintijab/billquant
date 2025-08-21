@@ -261,26 +261,6 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
               </div>
             </div>
 
-            {/* Attach Files */}
-            <div className="space-y-6">
-              <h3 className="text-l font-semibold text-text-primary mb-4">Attach files</h3>
-              <div className="mb-2">
-                <Button type="button" className="bg-primary text-white px-6 py-3 rounded-full shadow-md">
-                  Attach files
-                </Button>
-              </div>
-              {/* Show attached files from generalAttachments */}
-              {Array.isArray(data.generalAttachments) && data.generalAttachments.length > 0 && (
-                <ul className="space-y-2">
-                  {data.generalAttachments.map((file: any, idx: number) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm text-text-secondary bg-gray-50 rounded px-3 py-2">
-                      <span className="truncate flex-1">{file.title || file.url}</span>
-                      <a href={file.url} target="_blank" rel="noopener noreferrer" className="text-primary underline">View</a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
             {/* Digital Signature */}
             <div className="space-y-6">
               <h3 className="text-l font-semibold text-white mb-4">Digital Signature</h3>

@@ -1,0 +1,649 @@
+Main Category: Bonifica di siti contaminati
+Description: Edizione 2025
+
+La presente sezione, redatta in origine dal Settore Programmazione di Interventi di Risanamento e Bonifiche dell'Assessorato Ambiente della Regione Piemonte, nasce come strumento per la quantificazione della spesa ammissibile nell'ambito della procedura di concessione dei contributi per gli interventi di bonifica di siti contaminati.
+
+La difficoltà e la complessità degli interventi di bonifica di siti contaminati appaiono dovute essenzialmente alla interdisciplinarietà delle problematiche da affrontare, per cui è necessario che allo studio per la caratterizzazione geologico-idrogeologica del sito si accompagni anche uno studio per la caratterizzazione delle fonti della contaminazione, in modo che il progettista possa, una volta acquisiti i dati sulla probabilità e sulle possibili modalità di interazione tra sito e fonte inquinante, scegliere la tipologia di intervento più adeguata.
+
+In tale ottica, la presente sezione è stata riorganizzata nei contenuti e nell'attuale edizione tutte le parti riguardanti le indagini geofisiche sui terreni e la caratterizzazione del sito, comuni ad altri campi, sono state rielaborate e riclassificate con spostamento nella sezione tematica n. 17 "Sondaggi, rilievi e indagini geognostiche", grazie alla collaborazione della Direzione Ambiente, che si è avvalsa di alcuni professionisti facenti parte del gruppo cosiddetto "1000 esperti PNRR". 
+Analogamente, le indagini geotecniche di laboratorio che trovano più largo impiego nella definizione delle caratteristiche fisiche dei terreni, così come i sondaggi e le indagini ambientali in sito che di norma sono eseguite con gli stessi metodi e le medesime attrezzature utilizzate in campo geotecnico, sono state spostate nella suddetta sezione. 
+Per agevolare i progettisti nella ricerca ed individuazione di quanto ritenuto idoneo, ma diversamente classificato nell'ambito delle sezioni 17 e 22 suddette, è stata predisposta una tabella di corrispondenza che richiama, a fronte del precedente codice appartenente all'edizione 2024, il nuovo codice di assegnazione dell'edizione 2025, a parità di contenuto descrittivo. Si veda quanto riportato in nota metodologica nel paragraf riguardante tali novità. 
+
+
+Ne consegue dunque che sussista la possibilità di poter utilizzare, in avvio a progetti di bonifica, quali primi adempimenti operativi necessari, se non già qui presenti,  voci di prezzario proposte in altre sezioni tematiche, ed in particolare nella sezione 17 per tutto ciò che attiene ai sondaggi, rilievi ed indagini geognostiche.
+
+Nella presente sezione si sono state mantenute le attività che riflettono le ulteriori tappe principali di ogni progetto esecutivo di bonifica: 
+- esecuzione di pozzi per acqua;
+- prove idrochimiche connesse;
+- caratterizzazione del sito con campionamento con dispositivo spingente;
+- caratterizzazione delle fonti di contaminazione;
+- interventi di bonifica.
+
+Per quanto riguarda l'ultimo capitolo, concernente gli interventi di bonifica, la consapevolezza della difficoltà di una quantificazione teorica dei costi in grado di prescindere da fattori peculiari quali ad esempio tipologia e quantità dell'agente inquinante, modalità di contaminazione, tipo di suolo interessato, tipologia e profondità della falda, presenza di infrastrutture od attività antropiche, ecc..., ha comportato, per la presente edizione del prezzario regionale, la necessità di limitarsi a mantenere soltanto i costi dell'intervento più comune quale la messa in sicurezza mediante impermeabilizzazione superficiale laterale, rimandando alle future edizioni di aggiornamento l'implementazione di nuove voci relative a diversi metodi di bonifica. 
+E' stato inserito ex novo un capitolo specifico attinente la bonifica da ordigni esplosivi residuati bellici, finalizzato a fornire i costi di indagine da sostenersi in caso di sospetto rischio di ritrovamento di tale apparati (capitolo 22.P24).
+
+L'obiettivo, anche in termini di analisi del rapporto costi/efficacia dell'intervento e tempi di risanamento, in funzione della tipologia di inquinante, rimane comunque quello di stimolare i progettisti a prendere in considerazione anche tecniche di decontaminazione alternative al conferimento in discarica o in altri impianti di smaltimento.
+
+I prezzi sono comprensivi del 27,60% (16% + 10%) per spese generali e utili d'impresa.
+
+Qualora le voci di prezzo della presente sezione siano impiegabili per l'attuazione delle previsioni finalizzate alla tutela della salute e sicurezza nei luoghi di lavoro, secondo quanto previsto nell'allegato XV del D.Lgs. 81/08 s.m.i. per la stima dei costi della sicurezza relativi, in coerenza con le previsioni di cui all'articolo 5 comma 9 dell'allegato I.14 del D.Lgs. 36/23, si dovrà preventivamente procedere ad un ricalcolo della stima del prezzo definendo il costo di sicurezza utilizzabile attraverso lo scorporo dal prezzo della singola voce utilizzata della quota di utile prevista del 10%. I costi così stimati non saranno ribassabili e verranno riconosciuti per le quantità eseguite, nell'ambito dello specifico computo metrico estimativo delle misure di sicurezza redatto.
+
+La mano d'opera edile (ed affine) utilizzata per la valorizzazione delle analisi è quella definita dal Ministero del Lavoro e delle Politiche sociali con Decreto della Direzione Generale dei rapporti di  lavoro e delle relazioni industriali n. 5 del 29 gennaio 2025, nel quale il Ministero ha fornito, attraverso apposite tabelle, il costo medio orario su base provinciale per il personale dipendente da imprese del settore dell'edilizia e attività affini (con decorrenza 29 gennaio 2025). 
+Per comodità di utilizzo il testo del decreto completo di tabelle è consultabile all'indirizzo: www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus-on/analisi-economiche-costo-lavoro/pagine/default
+
+Con riferimento alle previsioni di cui al paragrafo 2.2.1 della nota metodologica, si precisa che nella presente sezione le incidenze percentuali presunte di manodopera, per tutte le voci ad oggi prive di una analisi prezzi puntuale di dettaglio, sono state dedotte dalla tabella indici di congruità della manodopera come aggiornata dalla Commissione Nazionale Casse Edili (CNCE) con l'accordo collettivo tra le parti sociali sottoscritto nel 2022, in ottemperanza alle previsioni di cui al Decreto del Ministero del Lavoro e delle Politiche sociali n. 143 del 25 giugno 2021. 
+Qualora si utilizzino voci di prezzo per le quali non si condivide la suddetta stima, resta l'onere del progettista di definire correttamente tale quota. 
+
+Per la stesura di nuove analisi prezzi il costo orario della manodopera da applicare per le singole categorie di lavori è da riferirsi alle tabelle ministeriali connesse allo specifico settore produttivo, laddove esistenti (Edilizia e affini, metalmeccanico-impiantistico ed affini etc.), ovvero alle tabelle fornite dalle associazioni di riferimento sulla base dei rispettivi Contratti Collettivi Nazionali di Lavoro (C.C.N.L.) vigenti.
+
+Category: INDAGINI PER LA CARATTERIZZAZIONE DEL SITO  -  INDAGINI IDROGEOLOGICHE - Esecuzione di pozzi per acqua
+  Activity: Impianto di cantiere comprensivo di approntamento, carico e scarico, revisione a fine lavori e installazione, in ciascun punto di perforazione compreso il primo, di attrezzature per esecuzione di pozzo per acqua a percussione su aree pianeggianti accessibili ai normali mezzi di trasporto
+    Work: ...
+      Codice: 22.P03.A10.005, U.M.: cad, Euro: 1063.78, Note: 
+  Activity: Perforazione in terreno di qualsiasi granulometria durante l'esecuzione di un pozzo con metodo a percussione, compreso l'eventuale attraversamento di trovanti e manufatti, per ogni diametro impiegato fino a 100 m dal p. c.
+    Work: Per ogni metro lineare, per f = 400 mm
+      Codice: 22.P03.A15.005, U.M.: m, Euro: 162.7, Note: 
+    Work: Per ogni metro lineare, per f = 500 mm
+      Codice: 22.P03.A15.010, U.M.: m, Euro: 175.22, Note: 
+    Work: Per ogni metro lineare, per f = 600 mm
+      Codice: 22.P03.A15.015, U.M.: m, Euro: 187.73, Note: 
+    Work: Per ogni metro lineare, per f = 700 mm
+      Codice: 22.P03.A15.020, U.M.: m, Euro: 212.76, Note: 
+    Work: Per ogni metro lineare, per f = 800 mm
+      Codice: 22.P03.A15.025, U.M.: m, Euro: 237.8, Note: 
+    Work: Per ogni metro lineare, per f = 900 mm
+      Codice: 22.P03.A15.030, U.M.: m, Euro: 262.82, Note: 
+    Work: Per ogni metro lineare, per f = 1. 000 mm
+      Codice: 22.P03.A15.035, U.M.: m, Euro: 287.85, Note: 
+    Work: Per ogni metro lineare, per f = 1. 200 mm
+      Codice: 22.P03.A15.040, U.M.: m, Euro: 306.61, Note: 
+    Work: Per ogni metro lineare, per f = 1. 500 mm
+      Codice: 22.P03.A15.045, U.M.: m, Euro: 344.15, Note: 
+  Activity: Impianto di cantiere comprensivo di approntamento, carico e scarico, revisione a fine lavori e installazione, in ciascun punto di perforazione compreso il primo, di attrezzature per esecuzione di pozzo per acqua a rotazione a circolazione diretta dei fluidi su aree pianeggianti accessibili ai normali mezzi di trasporto
+    Work: ...
+      Codice: 22.P03.A20.005, U.M.: cad, Euro: 1063.78, Note: 
+  Activity: Perforazione in terreno di qualsiasi granulometria durante l'esecuzione di un pozzo per acqua con metodo a rotazione a circolazione diretta dei fluidi, compreso l'eventuale attraversamento di trovanti e manufatti, per ogni diametro impiegato fino a 100 m dal p. c.
+    Work: Per ogni metro lineare, per f fino a 8"1/2
+      Codice: 22.P03.A25.005, U.M.: m, Euro: 118.91, Note: 
+    Work: Per ogni metro lineare, per f fino a 12"1/4
+      Codice: 22.P03.A25.010, U.M.: m, Euro: 150.17, Note: 
+    Work: Per ogni metro lineare, per f fino a 17"1/2
+      Codice: 22.P03.A25.015, U.M.: m, Euro: 206.5, Note: 
+  Activity: Impianto di cantiere comprensivo di approntamento, carico e scarico, revisione a fine lavori e installazione, in ciascun punto di perforazione compreso il primo, di attrezzature per esecuzione di pozzo per acqua a rotazione a circolazione diretta di aria su aree pianeggianti accessibili ai normali mezzi di trasporto
+    Work: ...
+      Codice: 22.P03.A30.005, U.M.: cad, Euro: 782.19, Note: 
+  Activity: Perforazione in terreno di qualsiasi granulometria durante l'esecuzione di un pozzo per acqua con metodo a rotazione a circolazione diretta di aria, compreso l'eventuale attraversamento di trovanti e manufatti, per ogni diametro impiegato fino a 100 m dal p. c.
+    Work: Per ogni metro lineare, per f fino a 8"1/2
+      Codice: 22.P03.A35.005, U.M.: m, Euro: 168.96, Note: 
+    Work: Per ogni metro lineare, per f fino a 12"1/4
+      Codice: 22.P03.A35.010, U.M.: m, Euro: 206.5, Note: 
+    Work: Per ogni metro lineare, per f fino a 17"1/2
+      Codice: 22.P03.A35.015, U.M.: m, Euro: 256.55, Note: 
+  Activity: Impianto di cantiere comprensivo di approntamento, carico e scarico, revisione a fine lavori e installazione, in ciascun punto di perforazione compreso il primo, di attrezzature per esecuzione di pozzo per acqua a rotazione a circolazione inversa su aree pianeggianti accessibili ai normali mezzi di trasporto
+    Work: ...
+      Codice: 22.P03.A40.005, U.M.: cad, Euro: 2252.7, Note: 
+  Activity: Perforazione in terreno di qualsiasi granulometria durante l'esecuzione di un pozzo per acqua con metodo a rotazione a circolazione inversa, compreso l'eventuale attraversamento di trovanti e manufatti, per ogni diametro impiegato fino a 100 m dal p. c.
+    Work: Per ogni metro lineare, per f = 600 mm
+      Codice: 22.P03.A45.005, U.M.: m, Euro: 200.24, Note: 
+    Work: Per ogni metro lineare, per f = 800 mm
+      Codice: 22.P03.A45.010, U.M.: m, Euro: 225.27, Note: 
+    Work: Per ogni metro lineare, per f = 1. 000 mm
+      Codice: 22.P03.A45.015, U.M.: m, Euro: 237.8, Note: 
+    Work: Per ogni metro lineare, per f > 1. 000 mm
+      Codice: 22.P03.A45.020, U.M.: m, Euro: 281.6, Note: 
+  Activity: Fornitura e posa di rivestimento costituito da tubi in lamiera saldata bitumati a caldo sia esternamente che internamente, con giunti saldati in testa su bordi preparati a bisello o con manicotti saldati
+    Work: Per ogni metro lineare, per tubi con fest = 219. 1 mm e spessore pari a 5. 9 mm
+      Codice: 22.P03.A50.005, U.M.: m, Euro: 46.92, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 273. 0 mm e spessore pari a 6. 3 mm
+      Codice: 22.P03.A50.010, U.M.: m, Euro: 59.44, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 323. 8 mm e spessore pari a 7. 1 mm
+      Codice: 22.P03.A50.015, U.M.: m, Euro: 78.22, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 355. 6 mm e spessore pari a 8. 0 mm
+      Codice: 22.P03.A50.020, U.M.: m, Euro: 93.86, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 406. 4 mm e spessore pari a 8. 8 mm
+      Codice: 22.P03.A50.025, U.M.: m, Euro: 118.91, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 457. 2 mm e spessore pari a 10. 0 mm
+      Codice: 22.P03.A50.030, U.M.: m, Euro: 150.17, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 508. 0 mm e spessore pari a 11. 0 mm
+      Codice: 22.P03.A50.035, U.M.: m, Euro: 181.47, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 609. 6 mm e spessore pari a 12. 5 mm
+      Codice: 22.P03.A50.040, U.M.: m, Euro: 250.29, Note: 
+  Activity: Fornitura e posa di rivestimento costituito da tubi in lamiera saldata e zincata a bagno, con giunti saldati in testa su bordi preparati a bisello o con manicotti saldati
+    Work: Per ogni metro lineare, per tubi con fest = 114. 0 mm e spessore pari a 4. 0 mm
+      Codice: 22.P03.A55.005, U.M.: m, Euro: 25.02, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 168. 0 mm e spessore pari a 4. 0 mm
+      Codice: 22.P03.A55.010, U.M.: m, Euro: 50.07, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 219. 1 mm e spessore pari a 5. 0 mm
+      Codice: 22.P03.A55.015, U.M.: m, Euro: 56.32, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 273. 0 mm e spessore pari a 5. 0 mm
+      Codice: 22.P03.A55.020, U.M.: m, Euro: 78.22, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 323. 9 mm e spessore pari a 6. 0 mm
+      Codice: 22.P03.A55.025, U.M.: m, Euro: 96.99, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 355. 6 mm e spessore pari a 6. 0 mm
+      Codice: 22.P03.A55.030, U.M.: m, Euro: 109.52, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 406. 4 mm e spessore pari a 6. 0 mm
+      Codice: 22.P03.A55.035, U.M.: m, Euro: 125.16, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 457. 0 mm e spessore pari a 6. 0 mm
+      Codice: 22.P03.A55.040, U.M.: m, Euro: 140.78, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 508. 0 mm e spessore pari a 6. 0 mm
+      Codice: 22.P03.A55.045, U.M.: m, Euro: 153.3, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 610. 0 mm e spessore pari a 7. 0 mm
+      Codice: 22.P03.A55.050, U.M.: m, Euro: 209.62, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 711. 0 mm e spessore pari a 7. 0 mm
+      Codice: 22.P03.A55.055, U.M.: m, Euro: 244.05, Note: 
+  Activity: Fornitura e posa di tubazioni già finestrate in maniera continua con sistema tipo Johnson, con finestrature variabili da 0.25 a 2 mm, complete di manicotti d'attacco a saldare in barre da 3 o 6 m in acciaio zincato
+    Work: Per ogni metro lineare, per tubi con fest = 219 mm e fint = 202 mm
+      Codice: 22.P03.A60.005, U.M.: m, Euro: 165.84, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 273 mm e fint = 257 mm
+      Codice: 22.P03.A60.010, U.M.: m, Euro: 212.76, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 324 mm e fint = 310 mm
+      Codice: 22.P03.A60.015, U.M.: m, Euro: 244.05, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 352 mm e fint = 338 mm
+      Codice: 22.P03.A60.020, U.M.: m, Euro: 269.07, Note: 
+    Work: Per ogni metro lineare, per tubi con fest = 412 mm e fint = 392 mm
+      Codice: 22.P03.A60.025, U.M.: m, Euro: 300.37, Note: 
+  Activity: Esecuzione di drenaggio in opera con ghiaietto siliceo calibrato e selezionato posto all'esterno dei tratti fenestrati anche in due o tre strati concentrici, compresa anche la fornitura e posa dell'eventuale reticella di contenimento dello strato interno
+    Work: ...
+      Codice: 22.P03.A65.005, U.M.: m³, Euro: 162.7, Note: 
+  Activity: Esecuzione di tamponamento in opera dell'intercapedine con ghiaia non selezionata
+    Work: ...
+      Codice: 22.P03.A70.005, U.M.: m³, Euro: 68.83, Note: 
+  Activity: Impermeabilizzazione dell'intercapedine eseguita per gravità con cilindretti di argilla altamente rigonfianti a base di montmorillonite sodica (k < 10 - 10 m/s e aumento di volume minimo pari al 40%)
+    Work: ...
+      Codice: 22.P03.A75.005, U.M.: kg, Euro: 1.24, Note: 
+  Activity: Impermeabilizzazione dell'intercapedine eseguita con boiacca pura di cemento, escluso il nolo per allestimento sistema di iniezione
+    Work: ...
+      Codice: 22.P03.A80.005, U.M.: kg, Euro: 0.31, Note: 
+  Activity: Impermeabilizzazione dell'intercapedine eseguita con argilla di cava posta in opera per gravità
+    Work: ...
+      Codice: 22.P03.A85.005, U.M.: m³, Euro: 156.44, Note: 
+  Activity: Impermeabilizzazione dell'intercapedine eseguita con calcestruzzo posto in opera per gravità
+    Work: ...
+      Codice: 22.P03.A90.005, U.M.: m³, Euro: 156.44, Note: 
+  Activity: Allestimento del sistema di spurgo ed esecuzione dello sviluppo del pozzo mediante motocompressore d'aria a doppia colonna o pistone e sonda, per un minimo di 15 ore effettive di spurgo
+    Work: Per ogni allestimento
+      Codice: 22.P03.A95.005, U.M.: cad, Euro: 1251.51, Note: 
+    Work: Per ogni ora
+      Codice: 22.P03.A95.010, U.M.: h, Euro: 93.86, Note: 
+  Activity: Allontanamento dei detriti solidi (impalabili)
+    Work: ...
+      Codice: 22.P03.B05.005, U.M.: m³, Euro: 31.29, Note: 
+
+Category: INDAGINI PER LA CARATTERIZZAZIONE DEL SITO  -  INDAGINI IDROGEOLOGICHE - Installazione piezometri
+  Activity: Installazione di piezometri a tubo aperto, compresa la fornitura dei materiali occorrenti, all'interno del completamento del pozzo per la misura del livello piezometrico
+    Work: Per ogni installazione
+      Codice: 22.P04.A05.005, U.M.: cad, Euro: 108.26, Note: 
+    Work: Per ogni metro lineare di tubo installato max. 2"
+      Codice: 22.P04.A05.010, U.M.: m, Euro: 22.53, Note: 
+  Activity: Installazione di piezometri pneumatici ed elettrici o simili, esclusa la fornitura della cella di misura, di cavi elettrici o pneumatici di raccordo all'interno del completamento del pozzo per la misura del livello piezometrico
+    Work: Per ogni installazione
+      Codice: 22.P04.A15.005, U.M.: cad, Euro: 237.8, Note: 
+    Work: Per ogni metro lineare di tubo installato
+      Codice: 22.P04.A15.010, U.M.: m, Euro: 13.76, Note: 
+
+Category: INDAGINI PER LA CARATTERIZZAZIONE DEL SITO  -  INDAGINI IDROGEOLOGICHE - Indagini idrochimiche
+  Activity: Esecuzione di una prova di tracciamento con il metodo di Stanudin per la determinazione di velocità e direzione del flusso idrico sotterraneo, mediante l'immissione in pozzo di 25 kg di sale e la misura, mediante un quadripolo, delle variazioni di resistività indotte nel terreno dal passaggio dell'onda salina, comprese la misura della resistività iniziale della falda e tutte le successive misure necessarie per determinare lo spostamento nel tempo delle linee equipotenziali, l'elaborazione e l'interpretazione dei dati
+    Work: ...
+      Codice: 22.P05.A05.005, U.M.: cad, Euro: 938.64, Note: 
+  Activity: Esecuzione di una prova single - well per la determinazione di velocità di filtrazione, permeabilità, trasmissività e portata dell'acquifero, mediante immissione in falda e successivo monitoraggio su un solo pozzo/piezometro della concentrazione di un tracciante radioisotopico, comprensiva di misura della radiazione di fondo, introduzione nel tratto filtrato del pozzo del tracciante e posizionamento della sonda nella stessa posizione, registrazione ed interpretazione dei dati, congiuntamente ad una misura della direzione principale del deflusso idrico sotterraneo mediante misurazione dell'intensità della radiazione in corrispondenza di posizioni aventi tra loro un angolo di 45°, per un minimo di almeno due rotazioni complete
+    Work: Per ogni prova
+      Codice: 22.P05.A10.005, U.M.: cad, Euro: 2503, Note: 
+  Activity: Esecuzione di una prova multi - well per la determinazione di velocità effettiva, porosità efficace, coefficienti di dispersione longitudinale e trasversale, dispersività longitudinale e trasversale, mediante immissione di un tracciante radioisotopico in un pozzo/piezometro e monitoraggio della sua concentrazione in uno o più punti di misura posti a valle dello stesso, comprensiva, per ciascun pozzo e/o piezometro, degli oneri di cui al punto 1. 3. 3. 2
+    Work: Per ogni prova
+      Codice: 22.P05.A15.005, U.M.: cad, Euro: 3754.52, Note: 
+
+Category: INDAGINI PER LA CARATTERIZZAZIONE DEL SITO  -  INDAGINI IDROGEOLOGICHE - Prove idrauliche
+  Activity: Allestimento del sistema di pompaggio e degli strumenti di misura per esecuzione prova di portata
+    Work: ...
+      Codice: 22.P06.A05.005, U.M.: cad, Euro: 1063.78, Note: 
+  Activity: Esecuzione di prova di portata per la determinazione dei parametri idrodinamici dell'acquifero, compresa la fornitura dell'energia elettrica, la registrazione, l'elaborazione e l'interpretazione dei dati
+    Work: Per ogni ora, con pompa da 25 kW
+      Codice: 22.P06.A10.005, U.M.: h, Euro: 62.6, Note: 
+    Work: Per ogni ora, con pompa da 60 kW
+      Codice: 22.P06.A10.010, U.M.: h, Euro: 78.22, Note: 
+    Work: Per ogni ora, con pompa da 120 kW
+      Codice: 22.P06.A10.015, U.M.: h, Euro: 93.86, Note: 
+
+Category: INDAGINI PER LA CARATTERIZZAZIONE DEL SITO  -  INDAGINI IDROGEOLOGICHE - Prelievo campioni d'acqua
+  Activity: Campionamento di acqua finalizzato alla analisi chimica della stessa, realizzato durante l'esecuzione di un pozzo, compreso l'allestimento del sistema di pompaggio, indipendentemente dalla durata del pompaggio
+    Work: ...
+      Codice: 22.P08.A05.005, U.M.: cad, Euro: 3128.75, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  CAMPIONAMENTO - Terreni
+  Activity: Perforazione di qualunque tipo di terreno finalizzato all'installazione, mediante infissione verticale con dispositivo spingente ad azionamento elettrico o pneumatico, di attrezzatura utile al campionamento attivo dei gas interstiziali, costituita da aste cave con setto filtrante posto in corrispondenza della profondità di misura collocate in serie fino al raggiungimento del piano campagna, le quali garantiscano lungo tutta la profondità la tenuta pneumatica della batteria di aste nei confronti del terreno, evitando infiltrazioni di aria dall'esterno
+    Work: Per ogni installazione
+      Codice: 22.P12.A25.005, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Prelievo di campioni di gas mediante posa in opera, in corrispondenza del setto filtrante, di sonda capillare a tenuta pneumatica coassiale alla batteria di aste, e mediante utilizzo di pompa pneumatica aspirante che consenta il passaggio della miscela gassosa attraverso fiale reagenti a lettura diretta sul campo (determinazione semiquantitativa), precedentemente collocate alla testa del tubo capillare
+    Work: Per ogni prelievo a profondità da 0 a 5 m
+      Codice: 22.P12.A30.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: Per ogni prelievo a profondità oltre i 5 m
+      Codice: 22.P12.A30.010, U.M.: cad, Euro: 26.92, Note: 
+  Activity: Prelievo di campioni di gas mediante posa in opera, in corrispondenza del setto filtrante, di sonda capillare a tenuta pneumatica coassiale alla batteria di aste, e mediante utilizzo di pompa da vuoto che consenta di convogliare la miscela gassosa estratta in appositi contenitori o su fiale di carbone attivo
+    Work: Per ogni prelievo a profondità da 0 a 5 m
+      Codice: 22.P12.A35.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: Per ogni prelievo a profondità oltre i 5 m
+      Codice: 22.P12.A35.010, U.M.: cad, Euro: 26.92, Note: 
+  Activity: Prelievo di campioni di gas con metodi passivi, compresa la perforazione in qualunque tipo di terreno di un foro di diametro idoneo al posizionamento del captore fino a 1 m dal p. c., l'installazione di qualunque tipo di captore e la determinazione, mediante adeguata analisi chimica di laboratorio (desorbimento, spettrometria di massa e gascromatografia), di almeno 10 composti volatili
+    Work: Per ogni campione compreso il primo
+      Codice: 22.P12.A40.005, U.M.: cad, Euro: 312.89, Note: 
+    Work: Per ogni metro di perforazione, da 1 a 5 m
+      Codice: 22.P12.A40.010, U.M.: m, Euro: 17.53, Note: 
+    Work: Per ogni metro di perforazione, da 5 a 10 m
+      Codice: 22.P12.A40.015, U.M.: m, Euro: 23.77, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  CAMPIONAMENTO - Gas interstiziali
+  Activity: Trasporto in andata e ritorno dell'attrezzatura, compreso il viaggio del personale di cantiere
+    Work: ...
+      Codice: 22.P13.A10.005, U.M.: km, Euro: 1.86, Note: 
+  Activity: Trasferimento delle attrezzature da un punto all'altro di una stessa area di intervento, fino ad una distanza di 300 m
+    Work: Per ogni trasferimento
+      Codice: 22.P13.A15.005, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Prelievo di campioni di qualunque tipo di terreno, finalizzato all'analisi gascromatografica in laboratorio sulle sostanze organiche presenti, da eseguirsi mediante apparecchiatura ad infissione ad andamento verticale con campionatori a tenuta pneumatica che garantiscano contro infiltrazione e/o dispersione
+    Work: Per ogni campione
+      Codice: 22.P13.A20.005, U.M.: cad, Euro: 18.77, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  CAMPIONAMENTO - Acque
+  Activity: Installazione del sistema di pompaggio all'interno del pozzetto di monitoraggio, indipendentemente dalla profondità
+    Work: Per ogni installazione
+      Codice: 22.P14.A10.005, U.M.: cad, Euro: 938.64, Note: 
+  Activity: Campionamento di acque contaminate mediante utilizzo di campionatore pneumatico o di elettropompa sommersa che impediscano alterazioni di natura fisica o chimica delle acque durante il campionamento stesso, compreso l'eventuale spurgo dell'acqua stagnante all'interno del pozzetto per un tempo massimo di 3 ore di spurgo
+    Work: Per ogni campione, per profondità da 0 a 40 m dal p. c.
+      Codice: 22.P14.A15.005, U.M.: cad, Euro: 187.73, Note: 
+  Activity: Campionamento di acque contaminate mediante utilizzo di campionatore di Bayler (o campionatore statico)
+    Work: Per ogni campione, per profondità da 0 a 40 m dal p. c.
+      Codice: 22.P14.A20.005, U.M.: cad, Euro: 37.55, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  ANALISI CHIMICHE - Terreni - Preparazione dei campioni
+  Activity: Terreni - Preparazione dei campioni
+    Work: Preparazione dei campioni mediante dissoluzione acida
+      Codice: 22.P15.A05.005, U.M.: cad, Euro: 12.53, Note: 
+    Work: Preparazione dei campioni mediante eluizione con CO2
+      Codice: 22.P15.A05.010, U.M.: cad, Euro: 18.77, Note: 
+    Work: Preparazione dei campioni mediante eluizione con CH3CO2H
+      Codice: 22.P15.A05.015, U.M.: cad, Euro: 18.77, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  ANALISI CHIMICHE - Terreni - Analisi di laboratorio
+  Activity: Parametri generali e anioni - pH potenziometria
+    Work: ...
+      Codice: 22.P16.A05.005, U.M.: cad, Euro: 9.39, Note: 
+  Activity: Parametri generali e anioni - conducibilità potenziometria
+    Work: ...
+      Codice: 22.P16.A10.005, U.M.: cad, Euro: 9.39, Note: 
+  Activity: Parametri generali e anioni - contenuto sostanze organiche volumetria
+    Work: ...
+      Codice: 22.P16.A15.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Parametri generali e anioni - contenuto argilla granulometria
+    Work: ...
+      Codice: 22.P16.A20.005, U.M.: cad, Euro: 43.59, Note: 
+  Activity: Parametri generali e anioni - mineralogia argilla diffrattometria RX
+    Work: ...
+      Codice: 22.P16.A25.005, U.M.: cad, Euro: 156.44, Note: 
+  Activity: Parametri generali e anioni - capacità scambio cationico spettrofotom. assorb. atom.
+    Work: ...
+      Codice: 22.P16.A30.005, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Parametri generali e anioni - fluoruri
+    Work: a - colorimetria
+      Codice: 22.P16.A35.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - elettrodo iono - selettivi
+      Codice: 22.P16.A35.010, U.M.: cad, Euro: 18.77, Note: 
+    Work: c - cromatografia ionica
+      Codice: 22.P16.A35.015, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Parametri generali e anioni - Bromuri
+    Work: cromatografia ionica
+      Codice: 22.P16.A40.005, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Parametri generali e anioni - cianuri liberi
+    Work: colorimetria previa distillazione
+      Codice: 22.P16.A45.005, U.M.: cad, Euro: 31.29, Note: 
+  Activity: Parametri generali e anioni - cianuri complessi
+    Work: colorimetria previa distillazione
+      Codice: 22.P16.A50.005, U.M.: cad, Euro: 28.17, Note: 
+  Activity: Parametri generali e anioni - amianto
+    Work: a - microscopia ottica
+      Codice: 22.P16.A55.005, U.M.: cad, Euro: 156.44, Note: 
+    Work: b - diffrattometria RX
+      Codice: 22.P16.A55.010, U.M.: cad, Euro: 156.44, Note: 
+  Activity: Metalli - argento
+    Work: assorbimento atomico fiamma
+      Codice: 22.P16.A60.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Metalli - arsenico
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.A65.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - kit idruri
+      Codice: 22.P16.A65.010, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Metalli - bario
+    Work: emissione al plasma
+      Codice: 22.P16.A70.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: berillio - emissione al plasma
+    Work: ...
+      Codice: 22.P16.A75.005, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - cadmio
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.A80.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.A80.010, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - cobalto
+    Work: emissione al plasma
+      Codice: 22.P16.A85.005, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - cromo
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.A90.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.A90.010, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - cromo VI
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.A95.005, U.M.: cad, Euro: 25.02, Note: 
+    Work: b - spettrofotom. UV/VIS
+      Codice: 22.P16.A95.010, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Metalli - mercurio
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.B05.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - kit idruri
+      Codice: 22.P16.B05.010, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Metalli - molibdeno
+    Work: assorbimento atomico fiamma
+      Codice: 22.P16.B10.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Metalli - nichel
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.B15.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.B15.010, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - piombo
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.B20.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.B20.010, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - rame
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.B25.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.B25.010, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - selenio
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.B30.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.B30.010, U.M.: cad, Euro: 25.02, Note: 
+    Work: c - kit idruri
+      Codice: 22.P16.B30.015, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Metalli - stagno
+    Work: a - spettrofotom. assorb. atom. L. /cad.
+      Codice: 22.P16.B35.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.B35.010, U.M.: cad, Euro: 18.77, Note: 
+    Work: c - kit idruri
+      Codice: 22.P16.B35.015, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Metalli - tallio
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.B40.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.B40.010, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Metalli - vanadio
+    Work: emissione al plasma
+      Codice: 22.P16.B45.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Metalli - zinco
+    Work: a - spettrofotom. assorb. atom.
+      Codice: 22.P16.B50.005, U.M.: cad, Euro: 18.77, Note: 
+    Work: b - emissione al plasma
+      Codice: 22.P16.B50.010, U.M.: cad, Euro: 15.63, Note: 
+  Activity: Metalli - screening metalli
+    Work: spettrofotom. assorb. atom.
+      Codice: 22.P16.B55.005, U.M.: cad, Euro: 93.86, Note: 
+  Activity: Composti organici
+    Work: idrocarburi totali, espressi come n - eptano - spettrofotometria IR
+      Codice: 22.P16.B60.005, U.M.: cad, Euro: 62.6, Note: 
+    Work: composti alifatici e aliciclici non alogenati - gascromatografia
+      Codice: 22.P16.B60.010, U.M.: cad, Euro: 93.86, Note: 
+    Work: composti alifatici alogenati (tetraclorometano, 1,2 - dicloroetano, tetracloroetene, triclorometano, diclorometano, 1,1 - dicloroetano, 1,1,1 - tricloroetano, 1,1,2 - tricloroetano, 1,1,2,2 - tetracloroetano, 1,2 - dicloroetene, tricloroetene, 1,2 - dicloropropano, 1,2 - dicloropropene) - gascromatografia
+      Codice: 22.P16.B60.015, U.M.: cad, Euro: 93.86, Note: 
+  Activity: Composti aromatici non alogenati
+    Work: IPA più tossici (benzo (a)antracene, benzo (a)pirene, benzo (b)fluorantene, benzo (j)fluorantene, benzo (k)fluorantene, dibenzo (a,h)antracene dibenzo (a)pirene, indeno (1,2,3 - c,d)pirene) - gascromatografia massa
+      Codice: 22.P16.B65.010, U.M.: cad, Euro: 112.62, Note: 
+    Work: IPA meno tossici (naftalene, antracene, fenantrene, fluorantene, pirene) - gascromatografia massa
+      Codice: 22.P16.B65.015, U.M.: cad, Euro: 112.62, Note: 
+  Activity: Microinquinanti organici policlorurati
+    Work: PCB, PCT totali - gascromatografia
+      Codice: 22.P16.B70.005, U.M.: cad, Euro: 112.62, Note: 
+    Work: PCN totali - gascromatografia massa
+      Codice: 22.P16.B70.010, U.M.: cad, Euro: 143.93, Note: 
+    Work: PCDD; PCDF - gascromatografia massa
+      Codice: 22.P16.B70.015, U.M.: cad, Euro: 750.9, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  ANALISI CHIMICHE - Terreni - Gas interstiziali
+  Activity: Analisi gascromatografica speditiva in sito per la determinazione della concentrazione delle sostanze organiche volatili. Per ogni analisi:
+    Work: ...
+      Codice: 22.P17.A05.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Idrocarburi totali - spettrorofotom. IR
+    Work: ...
+      Codice: 22.P17.A10.005, U.M.: cad, Euro: 93.86, Note: 
+  Activity: Composti alifatici alogenati - gascromatografia
+    Work: ...
+      Codice: 22.P17.A15.005, U.M.: cad, Euro: 87.6, Note: 
+  Activity: Composti aromatici non alogenati
+    Work: a - gascromatografia
+      Codice: 22.P17.A20.005, U.M.: cad, Euro: 87.6, Note: 
+    Work: b - gascromatografia massa
+      Codice: 22.P17.A20.010, U.M.: cad, Euro: 143.93, Note: 
+  Activity: Solventi clorurati totali - gascromatografia
+    Work: ...
+      Codice: 22.P17.A25.005, U.M.: cad, Euro: 87.6, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  ANALISI CHIMICHE  - Terreni - Acque
+  Activity: Preparazione dei campioni
+    Work: Trattamento preliminare del campione mediante distillazione, estrazione, concentrazione, ecc . Per ogni campione:
+      Codice: 22.P18.A05.005, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Analisi di laboratorio
+    Work: pH - potenziometria
+      Codice: 22.P18.A10.005, U.M.: cad, Euro: 9.39, Note: 
+    Work: fluoruri - colorimetria
+      Codice: 22.P18.A10.010, U.M.: cad, Euro: 18.77, Note: 
+    Work: fluoruri - elettrodo ionoselettivi
+      Codice: 22.P18.A10.015, U.M.: cad, Euro: 18.77, Note: 
+    Work: fluoruri - cromatografia ionica
+      Codice: 22.P18.A10.020, U.M.: cad, Euro: 15.63, Note: 
+    Work: cloruri - cromatografia ionica
+      Codice: 22.P18.A10.025, U.M.: cad, Euro: 15.63, Note: 
+    Work: cianuri - colorimetria
+      Codice: 22.P18.A10.030, U.M.: cad, Euro: 15.63, Note: 
+    Work: solfati - cromatografia ionica
+      Codice: 22.P18.A10.035, U.M.: cad, Euro: 15.63, Note: 
+    Work: nitrati - cromatografia ionica
+      Codice: 22.P18.A10.040, U.M.: cad, Euro: 15.63, Note: 
+    Work: nitriti - spettrofotom. UV/VIS
+      Codice: 22.P18.A10.045, U.M.: cad, Euro: 15.63, Note: 
+    Work: Ammoniaca - spettrofotom. UV/VIS
+      Codice: 22.P18.A10.050, U.M.: cad, Euro: 15.63, Note: 
+    Work: fosfati totali - spettrofotom. UV/VIS
+      Codice: 22.P18.A10.055, U.M.: cad, Euro: 31.29, Note: 
+    Work: azoto Kjeldahl - spettrofotom. UV/VIS
+      Codice: 22.P18.A10.060, U.M.: cad, Euro: 25.02, Note: 
+    Work: ossidabilità - volumetria
+      Codice: 22.P18.A10.065, U.M.: cad, Euro: 18.77, Note: 
+    Work: conducibilità - potenziometria
+      Codice: 22.P18.A10.070, U.M.: cad, Euro: 9.39, Note: 
+    Work: COD titolazione
+      Codice: 22.P18.A10.075, U.M.: cad, Euro: 31.29, Note: 
+    Work: BOD5 titolazione
+      Codice: 22.P18.A10.080, U.M.: cad, Euro: 37.55, Note: 
+    Work: alluminio - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.085, U.M.: cad, Euro: 18.77, Note: 
+    Work: alluminio - emissione al plasma
+      Codice: 22.P18.A10.090, U.M.: cad, Euro: 18.77, Note: 
+    Work: antimonio - spettrofotom. ass. at.
+      Codice: 22.P18.A10.095, U.M.: cad, Euro: 18.77, Note: 
+    Work: antimonio - kit idruri
+      Codice: 22.P18.A10.100, U.M.: cad, Euro: 25.02, Note: 
+    Work: argento - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.105, U.M.: cad, Euro: 25.02, Note: 
+    Work: arsenico - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.110, U.M.: cad, Euro: 18.77, Note: 
+    Work: arsenico - kit idruri
+      Codice: 22.P18.A10.115, U.M.: cad, Euro: 25.02, Note: 
+    Work: cadmio - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.120, U.M.: cad, Euro: 18.77, Note: 
+    Work: cadmio - emissione al plasma
+      Codice: 22.P18.A10.125, U.M.: cad, Euro: 18.77, Note: 
+    Work: cromo totale - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.130, U.M.: cad, Euro: 18.77, Note: 
+    Work: cromo totale - emissione al plasma
+      Codice: 22.P18.A10.135, U.M.: cad, Euro: 18.77, Note: 
+    Work: ferro - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.140, U.M.: cad, Euro: 18.77, Note: 
+    Work: ferro - emissione al plasma
+      Codice: 22.P18.A10.145, U.M.: cad, Euro: 18.77, Note: 
+    Work: manganese - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.150, U.M.: cad, Euro: 18.77, Note: 
+    Work: manganese - emissione al plasma
+      Codice: 22.P18.A10.155, U.M.: cad, Euro: 18.77, Note: 
+    Work: mercurio - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.160, U.M.: cad, Euro: 18.77, Note: 
+    Work: mercurio - emissione al plasma
+      Codice: 22.P18.A10.165, U.M.: cad, Euro: 25.02, Note: 
+    Work: nichel - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.170, U.M.: cad, Euro: 18.77, Note: 
+    Work: nichel - emissione al plasma
+      Codice: 22.P18.A10.175, U.M.: cad, Euro: 18.77, Note: 
+    Work: piombo - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.180, U.M.: cad, Euro: 18.77, Note: 
+    Work: piombo - emissione al plasma
+      Codice: 22.P18.A10.185, U.M.: cad, Euro: 18.77, Note: 
+    Work: rame - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.190, U.M.: cad, Euro: 18.77, Note: 
+    Work: rame - emissione al plasma
+      Codice: 22.P18.A10.195, U.M.: cad, Euro: 18.77, Note: 
+    Work: selenio - spettrofotom. assorb. atom.
+      Codice: 22.P18.A10.200, U.M.: cad, Euro: 18.77, Note: 
+    Work: selenio - kit idruri
+      Codice: 22.P18.A10.205, U.M.: cad, Euro: 25.02, Note: 
+    Work: zinco - spettrofotom. assorb . atom.
+      Codice: 22.P18.A10.210, U.M.: cad, Euro: 18.77, Note: 
+    Work: zinco - emissione al plasma
+      Codice: 22.P18.A10.215, U.M.: cad, Euro: 18.77, Note: 
+    Work: tensioattivi anionici MBAS - spettrofotometria
+      Codice: 22.P18.A10.225, U.M.: cad, Euro: 25.02, Note: 
+    Work: fenoli totali - spettrofotom. UV/VIS
+      Codice: 22.P18.A10.230, U.M.: cad, Euro: 25.02, Note: 
+    Work: solventi clorurati totali - gascromatografia
+      Codice: 22.P18.A10.235, U.M.: cad, Euro: 93.86, Note: 
+    Work: idrocarburi totali - spettrofotometria IR
+      Codice: 22.P18.A10.240, U.M.: cad, Euro: 31.29, Note: 
+    Work: composti alifatici alogenati - gascromatografia
+      Codice: 22.P18.A10.245, U.M.: cad, Euro: 87.6, Note: 
+    Work: composti aromatici non alogenati - gascromatografia
+      Codice: 22.P18.A10.250, U.M.: cad, Euro: 87.6, Note: 
+    Work: composti aromatici non alogenati - gascromatografia massa
+      Codice: 22.P18.A10.255, U.M.: cad, Euro: 143.93, Note: 
+    Work: idrocarburi policiclici aromatici - gascromatografia massa
+      Codice: 22.P18.A10.260, U.M.: cad, Euro: 125.16, Note: 
+    Work: PCB - gascromatografia
+      Codice: 22.P18.A10.265, U.M.: cad, Euro: 112.62, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  ANALISI CHIMICHE - Fanghi e rifiuti solidi - Preparazione dei campioni
+  Activity: Preparazione del campione per determinazioni spettrofotometriche in assorbimento atomico
+    Work: Per ogni campione
+      Codice: 22.P19.A05.005, U.M.: cad, Euro: 43.79, Note: 
+  Activity: Preparazione del campione finalizzata al test di cessione
+    Work: Per ogni campione
+      Codice: 22.P19.A10.005, U.M.: cad, Euro: 31.29, Note: 
+  Activity: Test di cessione: eluizione con CH3COOH, CO2, H2SO4, ecc...
+    Work: Per ogni campione
+      Codice: 22.P19.A15.005, U.M.: cad, Euro: 31.29, Note: 
+
+Category: INDAGINI SULLE FONTI DI CONTAMINAZIONE  -  ANALISI CHIMICHE - Fanghi e rifiuti solidi - Analisi di laboratorio
+  Activity: Ceneri e sostanze volatili
+    Work: ...
+      Codice: 22.P20.A05.005, U.M.: cad, Euro: 9.39, Note: 
+  Activity: Azoto totale spettrofotom. UV/VIS
+    Work: ...
+      Codice: 22.P20.A10.005, U.M.: cad, Euro: 37.55, Note: 
+  Activity: Azoto nitrico cromatografia ionica
+    Work: ...
+      Codice: 22.P20.A15.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Azoto ammoniacale spettrofotom. UV/VIS
+    Work: ...
+      Codice: 22.P20.A20.005, U.M.: cad, Euro: 37.55, Note: 
+  Activity: Fosforo totale spettrofotom. UV/VIS
+    Work: ...
+      Codice: 22.P20.A25.005, U.M.: cad, Euro: 37.55, Note: 
+  Activity: Cianuri totali distillazione
+    Work: ...
+      Codice: 22.P20.A30.005, U.M.: cad, Euro: 37.55, Note: 
+  Activity: Boro emissione al plasma
+    Work: ...
+      Codice: 22.P20.A35.005, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Carbonio organico volumetria
+    Work: ...
+      Codice: 22.P20.A40.005, U.M.: cad, Euro: 25.02, Note: 
+  Activity: Metalli spettrofot. di ass. at.
+    Work: ...
+      Codice: 22.P20.A45.005, U.M.: cad, Euro: 18.77, Note: 
+  Activity: Composti alifatici alogenati gascromatografia
+    Work: ...
+      Codice: 22.P20.A50.005, U.M.: cad, Euro: 87.6, Note: 
+  Activity: Composti aromatici non alogenati gascromatografia
+    Work: ...
+      Codice: 22.P20.A55.005, U.M.: cad, Euro: 93.86, Note: 
+  Activity: Fenoli totali
+    Work: a - colorimetria
+      Codice: 22.P20.A60.005, U.M.: cad, Euro: 31.29, Note: 
+    Work: b - fenoli separati
+      Codice: 22.P20.A60.010, U.M.: cad, Euro: 93.86, Note: 
+  Activity: Analisi per la classificazione del rifiuto ai fini dello smaltimento ex deliberazione Comitato Interministeriale del 27/7/84
+    Work: Per ogni campione
+      Codice: 22.P20.A65.005, U.M.: cad, Euro: 375.45, Note: 
+
+Category: INTERVENTI DI BONIFICA - Messa in sicurezza mediante impermeabilizzazione superficiale
+  Activity: Fornitura e posa di geocomposito bentonitico costituito da bentonite sodica naturale di spessore non inferiore a 6 mm (tenore minimo in montmorillonite e coefficiente di permeabilità minimo pari rispettivamente a 95% e 10 - 9 cm/s) interposta ad un sottostrato e ad un soprastrato di geotessile
+    Work: ...
+      Codice: 22.P21.A05.005, U.M.: m², Euro: 13.14, Note: 
+  Activity: Posa in opera di uno strato di argilla, compresa la fornitura a pie' d'opera, lo spandimento di uno spessore non superiore a 25 cm e la compattazione fino al raggiungimento di un coefficiente di permeabilità non superiore a 10 - 7 cm/s
+    Work: ...
+      Codice: 22.P21.A10.005, U.M.: m², Euro: 20.66, Note: 
+  Activity: Fornitura e posa in opera di geomembrana in HDPE rinforzato, con resistenza a trazione e a lacerazione non inferiori rispettivamente a 17 kN/m e a 130 N in senso sia longitudinale che trasversale, stabilizzata ai raggi solari
+    Work: ...
+      Codice: 22.P21.A15.005, U.M.: m², Euro: 4.7, Note: 
+  Activity: Posa in opera di uno strato di ghiaietto selezionato di qualsiasi spessore, compresa la fornitura e lo spandimento, finalizzato al drenaggio delle acque superficiali
+    Work: ...
+      Codice: 22.P21.A20.005, U.M.: m², Euro: 18.77, Note: 
+  Activity: Posa in opera di uno strato di sabbia di qualsiasi spessore, compresa la fornitura e lo spandimento
+    Work: Al metro cubo
+      Codice: 22.P21.A25.005, U.M.: m³, Euro: 25.02, Note: 
+  Activity: Fornitura e posa in opera di georete tridimensionale ad alto indice dei vuoti, finalizzata al drenaggio e alla protezione meccanica dei teli impermeabili
+    Work: Al metro quadrato
+      Codice: 22.P21.A30.005, U.M.: m², Euro: 10, Note: 
+    Work: Al metro quadrato, con un geotessile di separazione
+      Codice: 22.P21.A30.010, U.M.: m², Euro: 11.27, Note: 
+    Work: Al metro quadrato, con due geotessili di separazione
+      Codice: 22.P21.A30.015, U.M.: m², Euro: 14.39, Note: 
+
+Category: INTERVENTI DI BONIFICA
+  Activity: Trattamento terreni
+    Work: Trattamento dei volumi scavati mediante sistema di vagliatura e frantumazione meccanica, passante 15-20 mm, compreso caricamento in tramoggia, carico e trasporto delle risultanze nelle piazzole di stoccaggio con idoneo abbancamento. Misurazione in cumulo. Produttività media giornaliera fino a 1500 m3
+      Codice: 22.P23.A08.005, U.M.: m³, Euro: 5.35, Note: 
+
+Category: INTERVENTI DI BONIFICA DA ORDIGNI ESPLOSIVI RESIDUATI BELLICI
+  Activity: Preparazione delle aree mediante l'estirpazione di erbe, arbusti, vegetazione in genere e radici, il taglio di alberi di piccole dimensioni
+    Work: Eseguito per "campo" e "striscia" di bonifica
+      Codice: 22.P24.A05.005, U.M.: m², Euro: 0.41, Note: 
+  Activity: Bonifica delle aree mediante ricerca superficiale. Esplorazione mediante l'impiego di apposito apparato di ricerca, per "strisce" successive della larghezza di circa 1,00 metro ed entro la profondità di 1,00 metro dal piano di campagna, in terreni pianeggianti o inclinati di qualsiasi natura e consistenza. Tale operazione deve essere svolta da Rastrellatori B.C.M. sotto la supervisione di un Assistente Tecnico B.C.M. (personale qualificato in possesso di brevetto di specializzazione "Bonifica Campi Minati" - B.C.M.). Il prezzo si intende comprensivo degli oneri di segnalazione di eventuali ritrovamenti alle Autorità competenti, della sorveglianza, dell'assistenza e di quant'altro occorre per eseguire l'intervento in sicurezza e nel rispetto delle vigenti normative, nonché di ogni onere necessario per dare il lavoro realizzato a opera d'arte. Sono esclusi gli oneri per la documentazione e le procedure presso il Genio Militare.
+    Work: Per mq di terreno bonificato fino alla profondità di 1,00 m dal piano di campagna
+      Codice: 22.P24.A10.005, U.M.: m², Euro: 0.3, Note: 
+  Activity: Bonifica di profondità mediante fori trivellati. Perforazione successiva alla bonifica superficiale, eseguita a mezzo di trivella non a perrcussione da eseguirsi al centro di quadrati aventi il lato non superiore a 2,80 m. Esplorazione mediante l'impiego di apposito apparato di ricerca, svolta da Rastrellatori B.C.M. sotto la supervisione di un Assistente Tecnico B.C.M. (personale qualificato in possesso di brevetto di specializzazione "Bonifica Campi Minati" - B.C.M.). Il prezzo si intende comprensivo degli oneri di segnalazione di eventuali ritrovamenti alle Autorità competenti, della sorveglianza, dell'assistenza e di quant'altro occorre per eseguire l'intervento in sicurezza e nel rispetto delle vigenti normative, nonché di ogni onere necessario per dare il lavoro realizzato a opera d'arte. Sono esclusi gli oneri per la documentazione e le procedure presso il Genio Militare.
+    Work: Per mq di terreno bonificato oltre 1,00 m e fino alla profondità di 3,00 m dal piano di campagna
+      Codice: 22.P24.A15.005, U.M.: m², Euro: 1.57, Note: 
+    Work: Per mq di terreno bonificato oltre 1,00 m e fino alla profondità di 5,00 m dal piano di campagna
+      Codice: 22.P24.A15.010, U.M.: m², Euro: 2.02, Note: 
+    Work: Per mq di terreno bonificato oltre 1,00 m e fino alla profondità di 7,00 m dal piano di campagna
+      Codice: 22.P24.A15.015, U.M.: m², Euro: 2.47, Note: 
+  Activity: Scavo con mezzi meccanici e connesso uso di apparati di ricerca da effettuarsi a profondità superiore a 100 cm dal piano di campagna, in terreni di qualsiasi genere, natura e consistenza, eseguiti mediante l'impiego di idonei mezzi meccanici, dotati di opportuni sistemi di protezione e muniti di benna liscia ed eseguito a strati successivi di spessore non superiore all'accertata capacità di rilevazione degli apparati di ricerca e previa verifica del terreno da scavare fino alla profondità interessata e con verifica del fondo scavo. Il prezzo si intende comprensivo degli oneri di segnalazione di eventuali ritrovamenti alle Autorità competenti, della sorveglianza, dell'assistenza e di quant'altro occorre per eseguire l'intervento in sicurezza e nel rispetto delle vigenti normative, nonché di ogni onere necessario per dare il lavoro realizzato a opera d'arte.
+    Work: Scavo a sezione aperta
+      Codice: 22.P24.A20.005, U.M.: m³, Euro: 3.28, Note: 
+    Work: Scavo a sezione obbligata
+      Codice: 22.P24.A20.010, U.M.: m³, Euro: 4.38, Note: 
+  Activity: Scavo eseguito a mano e con l'impiego di apparato di ricerca effettuato laddove, per problemi operativi o mancanza di sufficiente spazio, non sia possibile l'utilizzo di mezzi meccanici oppure in prossimità di un'interferenza ferromagnetica tale da fare presumere la presenza di un ordigno bellico a distanza pari a circa 1,00 metro. Tale operazione deve essere svolta da Rastrellatori B.C.M. sotto la supervisione di un Assistente Tecnico B.C.M. (personale qualificato in possesso di brevetto di specializzazione "Bonifica Campi Minati" - B.C.M.). Il prezzo si intende comprensivo degli oneri di protezione e di segnalamento, l'allontanamento del materiale dal bordo dello scavo, nonché la segnalazione di eventuali ritrovamenti alle Autorità competenti, della sorveglianza, dell'assistenza, di quant'altro occorre per eseguire l'intervento in sicurezza e nel rispetto delle vigenti normative e di ogni onere necessario per dare il lavoro realizzato a opera d'arte.
+    Work: Scavo eseguito a mano e con l'impiego di apparato di ricerca
+      Codice: 22.P24.A25.005, U.M.: m³, Euro: 148.27, Note: 
+
+Category: PREZZI INSERITI A CALCOLO
+  Activity: AMMORTAMENTI ATTREZZATURE MISURE
+    Work: Attrezzatura rilevazione magnetometrica di ordigni bellici
+      Codice: 22.P99.A05.005, U.M.: h, Euro: 24.28, Note: 
+

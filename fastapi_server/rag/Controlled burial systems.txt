@@ -1,0 +1,330 @@
+Main Category: Impianti ad interramento controllato
+Description: Edizione 2025
+
+La presente sezione è frutto dell'analisi e dell'esperienza maturata nel settore da parte dell'Azienda Multiservizi Igiene Ambientale Torino S.p.A.
+
+Come già illustrato nella nota metodologica, la stesura di tale edizione, facendo seguito all'edizione 2024, rappresenta, in ossequio alle previsioni di cui all'articolo 41 c.13 D.Lgs. n. 36/2023 e relativo Allegato I.14 e s.m.i., l'aggiornamento annuale del prezzario regionale, ed è stata redatta attraverso la conduzione di puntuale rilevazione dei prezzi di mercato mediante indagini condotte tra i principali fornitori/produttori dei materiali da costruzione più significativi nonché tra gli operatori del settore, anche avvalendosi del contributo degli enti e delle associazioni presenti su Tavolo Permanente di Lavoro regionale. L'indagine si è sviluppata nel secondo semestre 2024, consentendo la definizione dell'edizione 2025 qui presentata.
+
+Per quanto non contenuto nella sezione in oggetto, per lavorazioni da eseguirsi in impianti ad interramento controllato, si rimanda alle sezioni facenti parte integrante del presente elenco prezzi regionale, in particolare alle sezioni "01-Opere Edili", "17-Sondaggi, rilievi, indagini geognostiche" e "18 - Sistemazione, recupero e gestione del territorio e dell'ambiente".
+
+I prezzi sono comprensivi del 27,60% (16% + 10%) per spese generali ed utili di impresa.
+
+Qualora le voci di prezzo della presente sezione siano impiegabili per l'attuazione delle previsioni finalizzate alla tutela della salute e sicurezza nei luoghi di lavoro, secondo quanto previsto nell'allegato XV del D.Lgs. 81/08 s.m.i. per la stima dei costi della sicurezza relativi, in coerenza con le previsioni di cui all'articolo 5 comma 9 dell'allegato I.14 del D.Lgs. 36/23, si dovrà preventivamente procedere ad un ricalcolo della stima del prezzo definendo il costo di sicurezza utilizzabile attraverso lo scorporo dal prezzo della singola voce utilizzata della quota di utile prevista del 10%. I costi così stimati non saranno ribassabili e verranno riconosciuti per le quantità eseguite, nell'ambito dello specifico computo metrico estimativo delle misure di sicurezza redatto.
+
+La mano d'opera edile (ed affine) utilizzata per la valorizzazione delle analisi è quella definita dal Ministero del Lavoro e delle Politiche sociali con Decreto della Direzione Generale dei rapporti di  lavoro e delle relazioni industriali n. 5 del 29 gennaio 2025, nel quale il Ministero ha fornito, attraverso apposite tabelle, il costo medio orario su base provinciale per il personale dipendente da imprese del settore dell'edilizia e attività affini (con decorrenza 29 gennaio 2025). 
+
+Per comodità di utilizzo il testo del decreto completo di tabelle è consultabile all'indirizzo: www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus-on/analisi-economiche-costo-lavoro/pagine/default
+
+Per la stesura di nuove analisi prezzi il costo orario della manodopera da applicare per le singole categorie di lavori è da riferirsi alle tabelle ministeriali connesse allo specifico settore produttivo, laddove esistenti (Edilizia e affini, metalmeccanico-impiantistico ed affini etc.), ovvero alle tabelle fornite dalle associazioni di riferimento sulla base dei rispettivi Contratti Collettivi Nazionali di Lavoro (C.C.N.L.) vigenti.
+
+Category: IMPERMERMEABILIZZAZIONI
+  Activity: Fornitura e posa di geomembrana in polietilene ad alta densità (HDPE) stabilizzata ai raggi ultravioletti
+    Work: - spessore 2 mm a superficie liscia, avente le caratteristiche conformi alla normativa di riferimento, compreso la saldatura a doppia pista con macchina per fusione a trascinamento automatico
+      Codice: 10.A01.A10.010, U.M.: m², Euro: 11.71, Note: 
+    Work: - spessore 1,5 mm a superficie strutturata, avente le caratteristiche conformi alla normativa di riferimento, compreso la saldatura a doppia pista con macchina per fusione a trascinamento automatico
+      Codice: 10.A01.A10.020, U.M.: m², Euro: 17.49, Note: 
+  Activity: Saldature
+    Work: ripulitura preliminare di geomembrana in HDPE, eseguita a mano
+      Codice: 10.A01.A20.010, U.M.: m, Euro: 3.58, Note: 
+    Work: ad estrusione geomembrana in HDPE
+      Codice: 10.A01.A20.020, U.M.: m, Euro: 18.08, Note: 
+    Work: ad estrusione tra geomembrana in HDPE e tubazione in HDPE
+      Codice: 10.A01.A20.030, U.M.: cad, Euro: 153.61, Note: 
+  Activity: Fornitura e posa di lastre in HDPE
+    Work: spessore 2 cm
+      Codice: 10.A01.A30.010, U.M.: m², Euro: 82.6, Note: 
+  Activity: Sigillatura pozzi biogas
+    Work: pozzo in acciaio: rifacimento sigillatura con geomembrana strutturata 1,5 mm, guarnizione in neoprene, fascettatura di testata
+      Codice: 10.A01.A40.010, U.M.: cad, Euro: 546.37, Note: 
+    Work: pozzo in acciaio: rifacimento sigillatura con geomembrana in HDPE strutturata 1,5 mm, guarnizione in neoprene, fascettatura di testata, compreso scavo base camino e reinterro
+      Codice: 10.A01.A40.020, U.M.: cad, Euro: 914.8, Note: 
+    Work: pozzo in acciaio: esecuzione di camicia con geomembrana in HDPE liscia 2 mm, collarino di testa con geomembrana in HDPE strutturata 1,5 mm, riempimento con argille e bentonite, sigillatura con guarnizione in neoprene, fascettatura di testata, compreso scavo iniziale e reinterro finale
+      Codice: 10.A01.A40.030, U.M.: cad, Euro: 1227.57, Note: 
+    Work: pozzo in polietilene: esecuzione di camicia con geomembrana in HDPE liscia 2 mm, compresa saldatura sulla tubazione, scavo iniziale e reinterro finale
+      Codice: 10.A01.A40.040, U.M.: cad, Euro: 581.78, Note: 
+  Activity: Fornitura e posa di geomembrana in polietilene a bassa densità (LDPE) stabilizzata ai raggi ultravioletti
+    Work: spessore 0,5 mm a superficie liscia, avente le caratteristiche conformi alla normativa di riferimento
+      Codice: 10.A01.B10.010, U.M.: m², Euro: 3.24, Note: 
+  Activity: Fornitura e posa di geocomposito bentonitico, confinato in modo tale da impedirne lo scorrimento in ogni posizione di posa:
+    Work: contenuto minimo di bentonite 5 kg/m² con permeabilità k< 5x10-9 cm/s, materiale di contenimento in PP agugliato da 150 g/mq
+      Codice: 10.A01.C10.010, U.M.: m², Euro: 9.77, Note: 
+
+Category: FORNITURA E POSA DI GEOTESSILE
+  Activity: Non-Tessuto in polipropilene (PP)
+    Work: di massa 125 g/m2, resistenza a trazione maggiore di 1,5 kN/m, resistenza a punzonamento 0,1 kN, compresa la cucitura dei lembi
+      Codice: 10.A02.A10.010, U.M.: m², Euro: 1.51, Note: 
+    Work: - di massa aerica 300 g/m² compreso la cucitura dei lembi con filo di nylon mediante cucitrice elettrica, avente le caratteristiche conformi alla normativa di riferimento
+      Codice: 10.A02.A10.020, U.M.: m², Euro: 1.94, Note: 
+    Work: di massa 300 g/m2, resistenza a trazione maggiore di 20 kN/m, resistenza a punzonamento 3 kN, compresa la cucitura dei lembi
+      Codice: 10.A02.A10.030, U.M.: m², Euro: 2.71, Note: 
+    Work: di massa 500 g/mq, resistenza a trazione maggiore di 30 kN/m, resistenza a punzonamento 6 kN, compresa la cucitura dei lembi
+      Codice: 10.A02.A10.040, U.M.: m², Euro: 3.15, Note: 
+    Work: di massa 800 g/m2, resistenza a trazione maggiore di 53 kN/m, resistenza a punzonamento 9,5 kN, compresa la cucitura dei lembi
+      Codice: 10.A02.A10.050, U.M.: m², Euro: 5.19, Note: 
+  Activity: Tessuto in polipropilene (PP)
+    Work: di massa 240 g/m2, resistenza a trazione maggiore di 40 kN/m, resistenza a punzonamento 5,5 kN, , compresa la cucitura dei lembi
+      Codice: 10.A02.A20.010, U.M.: m², Euro: 2.31, Note: 
+    Work: di massa 500 g/m2, resistenza a trazione maggiore di 110 kN/m, resistenza a punzonamento 13 kN, compresa la cucitura dei lembi
+      Codice: 10.A02.A20.020, U.M.: m², Euro: 4.93, Note: 
+  Activity: Non-Tessuto in HDPE
+    Work: di massa 800 g/m2, resistenza a punzonamento maggiore di 27 KN, compresa la cucitura dei lembi
+      Codice: 10.A02.B10.010, U.M.: m², Euro: 5.73, Note: 
+  Activity: Tessuto in HDPE
+    Work: con funzione di filtro, di massa 120 g/m2, resistenza a trazione long e trasv pari a 25 kN/m, permeabilità maggiore di 200*10-3 m/s e pori circa 450 mm
+      Codice: 10.A02.B20.010, U.M.: m², Euro: 4.67, Note: 
+
+Category: FORNITURA E POSA DI GEORETI
+  Activity: Georete in polietilene (HDPE)
+    Work: a tre ordini di fili paralleli ed incrociati, massa 1.300 g/m²
+      Codice: 10.A03.A10.010, U.M.: m², Euro: 5.73, Note: 
+  Activity: Geogriglia in poliestere (PET)
+    Work: tridimensionale, con resistenza a rottura longitudinale maggiore di 90 kN/m e allungamento inferiore a 12,5%
+      Codice: 10.A03.A20.010, U.M.: m², Euro: 14.35, Note: 
+
+Category: TUBAZIONI  IN HDPE
+  Activity: Fornitura e posa di tubazioni in HDPE tipo PE80 per liquidi, SDR17 (PN8), prodotte con granulo vergine di 1a qualita, a superficie liscia rispondenti alle norme UNI EN 12201
+    Work: DN50, compresa la giunzione mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.A10.010, U.M.: m, Euro: 2.65, Note: 
+    Work: DN90, compresa la giunzione mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.A10.020, U.M.: m, Euro: 7.38, Note: 
+    Work: DN125, compresa la giunzione mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.A10.030, U.M.: m, Euro: 13.5, Note: 
+  Activity: Fornitura e posa di tubazioni in HDPE tipo PE80 per liquidi, SDR11 (PN12,5), prodotte con granulo vergine di 1a qualita, a superficie liscia rispondenti alle norme UNI EN 12201
+    Work: DN75, compresa la giunzione mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.A20.010, U.M.: m, Euro: 7.09, Note: 
+    Work: DN110, compresa la giunzione mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.A20.020, U.M.: m, Euro: 15.09, Note: 
+    Work: DN125, compresa la formazione di giunti mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.A20.030, U.M.: m, Euro: 19.58, Note: 
+    Work: DN200, compresa la formazione di giunti mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e  guarnizioni
+      Codice: 10.A04.A20.040, U.M.: m, Euro: 48.83, Note: 
+    Work: DN225, compresa la formazione di giunti mediante saldatura per fusione, raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.A20.050, U.M.: m, Euro: 64.24, Note: 
+  Activity: Fornitura e posa di tubazione in HDPE, rispondenti alle norme EN 13476, rigidezza circonferenziale SN4 kN/m2
+    Work: DE160, esterno corrugato e parete interna liscia
+      Codice: 10.A04.B10.010, U.M.: m, Euro: 9.31, Note: 
+  Activity: Fornitura e posa di tubazioni in HDPE tipo PE80 per drenaggio, SDR17 (PN8), tripla fessurazione per i 2/3 della circonferenza, prodotte con granulo vergine di 1a qualita, a superficie liscia rispondenti alle norme UNI EN 12201
+    Work: DN90, comprensiva di manicotti e viti di fissaggio
+      Codice: 10.A04.C10.010, U.M.: m, Euro: 11.26, Note: 
+    Work: DN140, comprensiva di manicotti e viti di fissaggio
+      Codice: 10.A04.C10.020, U.M.: m, Euro: 22.68, Note: 
+    Work: DN200, comprensiva di manicotti e viti di fissaggio
+      Codice: 10.A04.C10.030, U.M.: m, Euro: 41.76, Note: 
+  Activity: Fornitura e posa di tubazioni in HDPE tipo PE80 per drenaggio, SDR11 (PN12,5), tripla fessurazione per i 2/3 della circonferenza, prodotte con granulo vergine di 1a qualita, a superficie liscia rispondenti alle norme UNI EN 12201
+    Work: DN140, larghezza fessura 4/8 mm, completa di raccordi, curve, manicotti e viti di fissaggio
+      Codice: 10.A04.C20.010, U.M.: m, Euro: 31.42, Note: 
+    Work: DN160, larghezza fessura 4/8 mm, completa di raccordi, curve, manicotti e viti di fissaggio
+      Codice: 10.A04.C20.020, U.M.: m, Euro: 38.75, Note: 
+    Work: DN225, larghezza fessura 4/8 mm, completa di raccordi, curve, manicotti e viti di fissaggio
+      Codice: 10.A04.C20.030, U.M.: m, Euro: 72.23, Note: 
+  Activity: Fornitura e posa di tubazioni in HDPE per gas tipo S8, rispondenti alle norme UNI ISO 4437 e UNI EN 1555
+    Work: DN125, compresa saldatura per fusione, presa staffa con valvola m/f 1", raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.D10.010, U.M.: m, Euro: 17.57, Note: 
+    Work: DN140, compresa saldatura per fusione, presa staffa con valvola m/f 1", raccordi, curve, cartelle, flange, bulloneria e guarnizioni
+      Codice: 10.A04.D10.020, U.M.: m, Euro: 21.9, Note: 
+    Work: DE400, compresa saldatura per fusione, presa a staffa con valvola m/f 1", raccordi, curve, cartelle e flange, compresa bulloneria e guarnizioni
+      Codice: 10.A04.D10.030, U.M.: m, Euro: 172.53, Note: 
+  Activity: Fornitura e posa di tubazioni RILSAN per aria compressa, rispondenti alle norme DIN74324
+    Work: PA11 Ø6x4, colore bianco
+      Codice: 10.A04.E10.010, U.M.: m, Euro: 1.52, Note: 
+    Work: PA11 Ø8x6, colore bianco
+      Codice: 10.A04.E10.020, U.M.: m, Euro: 1.94, Note: 
+    Work: PA11 Ø12x10, colore bianco
+      Codice: 10.A04.E10.030, U.M.: m, Euro: 2.89, Note: 
+
+Category: RACCORDI IN HDPE
+  Activity: Fornitura e posa di manicotti in HDPE tipo PE80 per giunzione tubazioni
+    Work: DN50, per giunzione tubazione ad avvitamento
+      Codice: 10.A05.A10.010, U.M.: cad, Euro: 6.23, Note: 
+    Work: DN140, comprensivo di viti autofilettanti per giunzione tubazioni
+      Codice: 10.A05.A10.020, U.M.: cad, Euro: 8.88, Note: 
+    Work: DN160, comprensivo di viti autofilettanti per giunzione tubazioni
+      Codice: 10.A05.A10.030, U.M.: cad, Euro: 9.47, Note: 
+    Work: DE200, comprensivo di viti autofilettanti per giunzione tubazioni
+      Codice: 10.A05.A10.040, U.M.: cad, Euro: 11.35, Note: 
+    Work: DE225, comprensivo di viti autofilettanti per giunzione tubazioni
+      Codice: 10.A05.A10.050, U.M.: cad, Euro: 26.16, Note: 
+  Activity: Fornitura e posa di manicotti elettrici in HDPE tipo PE80, PN8, per giunzione tubazioni
+    Work: DN125
+      Codice: 10.A05.B10.010, U.M.: cad, Euro: 34.43, Note: 
+    Work: DN140
+      Codice: 10.A05.B10.020, U.M.: cad, Euro: 42.9, Note: 
+    Work: DN160
+      Codice: 10.A05.B10.030, U.M.: cad, Euro: 45.65, Note: 
+    Work: DN225
+      Codice: 10.A05.B10.040, U.M.: cad, Euro: 90.92, Note: 
+  Activity: Fornitura e posa di cartelle codulo lungo in HDPE tipo PE80, SDR11 (PN12,5)
+    Work: - DN125
+      Codice: 10.A05.C10.010, U.M.: cad, Euro: 18.56, Note: 
+    Work: DN140
+      Codice: 10.A05.C10.020, U.M.: cad, Euro: 23.79, Note: 
+  Activity: Fornitura e posa di braghe in HDPE tipo PE80, SDR11 (PN 12,5) per collegamento tubazioni
+    Work: DN90 TEE 90° con tappo, comprensivo di giunzione per saldatura
+      Codice: 10.A05.D10.010, U.M.: cad, Euro: 30.14, Note: 
+    Work: DN125 TEE 90° con tappo, comprensivo di giunzione per saldatura
+      Codice: 10.A05.D10.020, U.M.: cad, Euro: 61.74, Note: 
+    Work: DN200x140 TEE 90°, comprensiva di viti autofilettanti per giunzione tubazione
+      Codice: 10.A05.D10.030, U.M.: cad, Euro: 178.92, Note: 
+    Work: DN140 a 45°, comprensiva di viti autofilettanti per giunzione tubazione
+      Codice: 10.A05.D10.040, U.M.: cad, Euro: 91.58, Note: 
+    Work: DN160 a 45°, comprensiva di viti autofilettanti per giunzione tubazione
+      Codice: 10.A05.D10.050, U.M.: cad, Euro: 108.2, Note: 
+    Work: DN200 a 45°, comprensiva di viti autofilettanti per giunzione tubazione
+      Codice: 10.A05.D10.060, U.M.: cad, Euro: 188.69, Note: 
+    Work: DN225 a 45°, comprensiva di viti autofilettanti per giunzione tubazione
+      Codice: 10.A05.D10.070, U.M.: cad, Euro: 231.2, Note: 
+    Work: DN225x160 a 45°, comprensiva di viti autofilettanti per giunzione tubazione
+      Codice: 10.A05.D10.080, U.M.: cad, Euro: 162.28, Note: 
+  Activity: Fornitura e posa di curve e riduzioni in HDPE tipo PE80, SDR11 (PN12,5), per collegamento tubazioni
+    Work: curva a 90°, DN125, PN12,5
+      Codice: 10.A05.E10.010, U.M.: cad, Euro: 41.17, Note: 
+    Work: curva a 90°, DN225, PN12,5
+      Codice: 10.A05.E10.020, U.M.: cad, Euro: 132.36, Note: 
+    Work: riduzione concentrica, DE140x125, PN 12,5
+      Codice: 10.A05.E10.030, U.M.: cad, Euro: 25.45, Note: 
+    Work: riduzione concentrica, DE225x160, PN 12,5
+      Codice: 10.A05.E10.040, U.M.: cad, Euro: 73.53, Note: 
+    Work: giunto di dilatazione, DE225, PN12,5
+      Codice: 10.A05.E10.050, U.M.: cad, Euro: 1213.81, Note: 
+
+Category: FLANGE E GUARNIZIONI
+  Activity: Flange cieche in acciaio PN16, compresa bulloneria
+    Work: DN125
+      Codice: 10.A06.A10.010, U.M.: cad, Euro: 48.39, Note: 
+    Work: DN150
+      Codice: 10.A06.A10.020, U.M.: cad, Euro: 63.11, Note: 
+    Work: DN200
+      Codice: 10.A06.A10.030, U.M.: cad, Euro: 99.55, Note: 
+    Work: DN250
+      Codice: 10.A06.A10.040, U.M.: cad, Euro: 155.9, Note: 
+    Work: DN400
+      Codice: 10.A06.A10.050, U.M.: cad, Euro: 414.09, Note: 
+  Activity: Flange libere in acciaio PN16, compresa bulloneria
+    Work: flangia libera in acciaio DN125, PN16, compresa bulloneria
+      Codice: 10.A06.B10.010, U.M.: cad, Euro: 31.07, Note: 
+    Work: flangia libera in acciaio DN140, PN16, compresa bulloneria
+      Codice: 10.A06.B10.020, U.M.: cad, Euro: 37.82, Note: 
+    Work: flangia libera in acciaio DN225, PN16, compresa bulloneria
+      Codice: 10.A06.B10.030, U.M.: cad, Euro: 72.06, Note: 
+    Work: flangia libera in acciaio DN400, PN16, compresa bulloneria
+      Codice: 10.A06.B10.040, U.M.: cad, Euro: 268.75, Note: 
+  Activity: Flange libere in alluminio PN16, compresa bulloneria
+    Work: flangia libera in alluminio DN125, PN16, compresa bulloneria
+      Codice: 10.A06.C10.010, U.M.: cad, Euro: 36.44, Note: 
+    Work: flangia libera in alluminio DN140, PN16, compresa bulloneria
+      Codice: 10.A06.C10.020, U.M.: cad, Euro: 44.2, Note: 
+    Work: flangia libera in alluminio DN225, PN16, compresa bulloneria
+      Codice: 10.A06.C10.030, U.M.: cad, Euro: 74.4, Note: 
+  Activity: Guarnizioni per flange
+    Work: DN125
+      Codice: 10.A06.D10.010, U.M.: cad, Euro: 4.52, Note: 
+    Work: DN150
+      Codice: 10.A06.D10.020, U.M.: cad, Euro: 5.83, Note: 
+    Work: DN200
+      Codice: 10.A06.D10.030, U.M.: cad, Euro: 8.63, Note: 
+    Work: DN250
+      Codice: 10.A06.D10.040, U.M.: cad, Euro: 10.77, Note: 
+
+Category: PEZZI SPECIALI VARI
+  Activity: Fornitura e posa di pezzi speciali in HDPE:
+    Work: passatelo in HDPE tipo PE80, DN225, PN12,5, con inclinazione variabile da 15° a 90°
+      Codice: 10.A07.A10.010, U.M.: cad, Euro: 295.89, Note: 
+    Work: pozzetto in HDPE tipo PE80, DE800, PN5, comprensivo di fondello, coperchio, derivazioni DE160/225
+      Codice: 10.A07.A10.020, U.M.: cad, Euro: 1043.82, Note: 
+    Work: pozzetto in HDPE tipo PE80, DE1000, PN5, comprensivo di fondello, coperchio, derivazioni DN160/225
+      Codice: 10.A07.A10.030, U.M.: cad, Euro: 1565.75, Note: 
+    Work: pozzetto in HDPE tipo PE80, DE1200, PN5, comprensivo di fondello, coperchio, derivazioni DE160/225
+      Codice: 10.A07.A10.040, U.M.: cad, Euro: 1971.67, Note: 
+    Work: pozzetto in HDPE tipo PE80, DE1500, PN5, comprensivo di fondello, coperchio, derivazioni DN 160/225
+      Codice: 10.A07.A10.050, U.M.: cad, Euro: 2110.87, Note: 
+  Activity: Fornitura e posa di pezzi speciali in acciaio:
+    Work: cestello cilindrico Ø1000 mm in rete metallica Ø1,5 a maglia quadrata 20x20 irrobustita con 3 tondini in acciaio Ø10, h=1,2 m
+      Codice: 10.A07.B10.010, U.M.: cad, Euro: 47.8, Note: 
+    Work: testa di pozzo biogas, uso duale per captazione biogas e percolato, in acciaio verniciato, flangiata DN200, PN10, completa di tronchetto DN125, valvola a volantino DN125 (di cui alla voce 10.A07.D10.040), golfari di sollevamento, prese per campionamento da 3/8" con 2 valvole f/f da 3/8" a sfera e 1 portagomma in ottone, attacchi da 1" e 3/8" m/f con tappo, da 3" con valvola a sfera m/f
+      Codice: 10.A07.B10.020, U.M.: cad, Euro: 1120.18, Note: 
+  Activity: Fornitura e posa di pompe:
+    Work: valvola a saracinesca in ghisa DN400, corpo piatto a cuneo gommato compresa di volantino e completa di bulloneria INOX
+      Codice: 10.A07.C10.010, U.M.: cad, Euro: 2601.03, Note: 
+  Activity: Fornitura e posa di valvole:
+    Work: valvola a saracinesca in ghisa DN400, corpo piatto a cuneo gommato compresa di volantino e completa di bulloneria INOX
+      Codice: 10.A07.D10.010, U.M.: cad, Euro: 4798.5, Note: 
+    Work: valvola a farfalla in ghisa sferoidale del tipo Lug, con comando manuale, DN125, PN 10, asta in INOX AISI 416, farfalla placcata nichel con anello di guarnizione di gomma BUNA N compresa bulloneria in acciaio INOX
+      Codice: 10.A07.D10.020, U.M.: cad, Euro: 394.41, Note: 
+    Work: valvola a farfalla in ghisa sferoidale del tipo Lug, con comando pneumatico, DN125, PN 10/16, asta in INOX AISI 416, farfalla placcata nichel con anello di guarnizione di gomma EPDM, completa di attuatore pneumatico in alluminio anodizzato, pignone di acciaio nichelato e pistone di alluminio, pressione di comando 2,5-10 bar, microinterruttore di fine corsa, in versione antideflagrante, compresa bulloneria in acciaio INOX
+      Codice: 10.A07.D10.030, U.M.: cad, Euro: 913.68, Note: 
+    Work: valvola a volantino, corpo in ghisa, asta in INOX, gommatura in EPDM, DN125 PN10/16, per gas con agenti aggressivi
+      Codice: 10.A07.D10.040, U.M.: cad, Euro: 591.6, Note: 
+
+Category: PROVE SUI MATERIALI
+  Activity: Prove geoelettriche
+    Work: Indagine geoelettrica per accertamento integrità fisica di geomembrana in HDPE mediante utilizzo di elettrodi generatori di campo elettrico per individuazione di fori e lacerazioni
+      Codice: 10.A08.A10.010, U.M.: m², Euro: 1.17, Note: 
+  Activity: Prove geotecniche
+    Work: prove di densità in sito con volumometro a sabbia
+      Codice: 10.A08.B10.010, U.M.: cad, Euro: 96.18, Note: 
+    Work: prova di permeabilità in sito (Boutwell e/o Permeametro a doppio anello)
+      Codice: 10.A08.B10.020, U.M.: cad, Euro: 663.56, Note: 
+    Work: prove di carico su piastra Ø 600 mm
+      Codice: 10.A08.B10.030, U.M.: cad, Euro: 273.58, Note: 
+    Work: analisi granulometriche complete per vagliatura per via umida e sedimentazione aerometrica
+      Codice: 10.A08.B10.040, U.M.: cad, Euro: 105.23, Note: 
+    Work: prova di laboratorio per la quantificazione dei limiti di Atterberg
+      Codice: 10.A08.B10.050, U.M.: cad, Euro: 90.24, Note: 
+    Work: prova di laboratorio per la quantificazione del contenuto d'acqua dei campioni prelevati per la misura di densità in sito
+      Codice: 10.A08.B10.060, U.M.: cad, Euro: 30.27, Note: 
+    Work: prova di permeabilità in laboratorio (su campioni ricostruiti e indisturbati)
+      Codice: 10.A08.B10.070, U.M.: cad, Euro: 253.75, Note: 
+    Work: prova di compattazione Proctor modificato: raggiungimento di costipamento pari al 90%, in fustella da 912cc con 5 punti della curva densità/umidità
+      Codice: 10.A08.B10.080, U.M.: cad, Euro: 454.01, Note: 
+
+Category: MATERIALI NATURALI
+  Activity: Materiali naturali
+    Work: fornitura e posa di terreno argilloso scevro da macroscopiche impurità, compattato fino ad un coefficiente di permeabilità k<1x10-7 cm/s
+      Codice: 10.A09.A10.010, U.M.: m³, Euro: 26.41, Note: 
+  Activity: Per recupero materiali
+    Work: fornitura e posa di terreno agrario comprensivo di miscelazione con compost
+      Codice: 10.A09.B10.010, U.M.: m³, Euro: 17.48, Note: 
+  Activity: Per drenaggi
+    Work: ghiaia naturale lavata e vagliata Ø=6-60 mm
+      Codice: 10.A09.C10.010, U.M.: m³, Euro: 27.09, Note: 
+    Work: ghiaia naturale vagliata Ø=2-70 mm
+      Codice: 10.A09.C10.020, U.M.: m³, Euro: 20.82, Note: 
+    Work: ghiaino naturale calibrato Ø=5 mm
+      Codice: 10.A09.C10.030, U.M.: m³, Euro: 27.5, Note: 
+    Work: ghiaietto calibrato Ø=10-30 mm per drenaggio percolato
+      Codice: 10.A09.C10.040, U.M.: m³, Euro: 25.2, Note: 
+    Work: ciottoli naturali vagliati Ø=50-70 mm, per drenaggio biogas
+      Codice: 10.A09.C10.050, U.M.: m³, Euro: 19.97, Note: 
+  Activity: Fornitura e posa di rete in fibra naturale di juta, posata secondo prescrizioni del costruttore e comprensiva di ferri per fissaggio
+    Work: con massa da 500 g/m²
+      Codice: 10.A09.D10.010, U.M.: m², Euro: 5.19, Note: 
+    Work: con massa da 800 g/m²
+      Codice: 10.A09.D10.020, U.M.: m², Euro: 6.64, Note: 
+
+Category: MATERIALI  ARTIFICIALI
+  Activity: Pneumatici
+    Work: posa di pneumatici sulle sponde impermeabilizzate e successiva fornitura e ricopertura con materiale sabbio-terroso per protezione geomembrana in HDPE
+      Codice: 10.A10.A10.010, U.M.: m², Euro: 9.58, Note: 
+
+Category: MACCHINE E ATTREZZATURE
+  Activity: Macchina operatrice per la compattazione di rifiuti dotato di ruote metalliche munite di opportuni piedi e lama frontale tipo landfill, punto di aggancio per il traino dei mezzi, compreso operatore ed ogni altro onere
+    Work: dozer piccoli: 60-90 kW - massa operativa 8 -10 t
+      Codice: 10.A11.A10.010, U.M.: h, Euro: 140.53, Note: 
+  Activity: Attrezzatura per la triturazione / riduzione pezzatura dei rifiuti con basso peso specifico di mucchio, dotato di sistema di traslazione e di caricamento dei materiali, compreso operatore ed ogni altro onere
+    Work: di potenza non inferiore a 200 kW
+      Codice: 10.A11.A20.010, U.M.: h, Euro: 214.02, Note: 
+  Activity: Macchina arpista cingolata, con lama frontale tipo landfill, punto di aggancio per il traino dei mezzi, compreso operatore ed ogni altro onere
+    Work: dozer piccoli: 60-90 kW massa operativa 8 -10 t
+      Codice: 10.A11.A30.001, U.M.: h, Euro: 90.42, Note: 
+    Work: dozer medi  >90 kW 170 kw massa operativa 11 -25 t
+      Codice: 10.A11.A30.005, U.M.: h, Euro: 100.26, Note: 
+    Work: dozer medi >170-270 kW massa operativa 25-40 t
+      Codice: 10.A11.A30.010, U.M.: h, Euro: 110.13, Note: 
+    Work: dozer grandi >270-500 kW massa operativa 40-75 t
+      Codice: 10.A11.A30.020, U.M.: h, Euro: 115.07, Note: 
+  Activity: Spazzatrice stradale meccanica pesante, con impianto ad acqua per abbattimento polveri, compreso operatore ed ogni altro onere
+    Work: con portata utile non inferiore a 3.000 kg
+      Codice: 10.A11.A40.010, U.M.: h, Euro: 75.03, Note: 
+    Work: Nolo di saldatrice per geomembrana in HDPE, del tipo a doppia pista e/o ad estrusione
+      Codice: 10.A11.A40.020, U.M.: h, Euro: 17.7, Note: 
+

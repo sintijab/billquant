@@ -1,0 +1,1077 @@
+Main Category: Depurazione
+Description: Edizione 2025
+
+Le voci di prezzo considerate nella presente sezione dell'Elenco Prezzi Regionale sono state valutate dalla Società Metropolitana Acque Torino (referente Alberto GIORS) sulla scorta della pluriennale esperienza nelle attività di progettazione e di conduzione dei lavori relativi alla depurazione dei reflui.
+
+Come già illustrato nella nota metodologica, la stesura di tale edizione, facendo seguito all'edizione 2024, rappresenta, in ossequio alle previsioni di cui all'articolo 41 c. 13 D.Lgs. n. 36/2023 e relativo Allegato I.14 e s.m.i.,  l'aggiornamento annuale del prezzario regionale, ed è stata redatta attraverso la conduzione di puntuale rilevazione dei prezzi di mercato mediante indagini condotte tra i principali fornitori/produttori dei materiali da costruzione più significativi nonché tra gli operatori del settore, anche avvalendosi del contributo degli enti e delle associazioni presenti su Tavolo Permanente di Lavoro regionale. L'indagine si è sviluppata nel secondo semestre 2024, consentendo la definizione dell'edizione 2025 qui presentata, che si presenta in generale riorganizzata nelle risorse e nelle lavorazioni presentate.
+
+La scelta delle voci di prezzo per la massima parte non disponibile su analoghi documenti a valenza regionale o locale, è stata effettuata tenendo presente le specifiche esperienze di progettazione maturate nel settore.
+I prezzi e le descrizioni relative, come confermati con la presente edizione, sono d'altra parte stati valutati a seguito di documentabili ricerche di mercato onde consentire congruo riferimento per gli operatori del settore.
+In generale non sono comprese nella presente sezione le forniture, i noli e le opere compiute i cui prezzi e descrizioni risultino assolutamente assimilabili a quelli già contemplati in altre sezioni; si è per contro provveduto a riportare quelle voci che, pur comparendo anche in altre parti dell'elenco prezzi regionale, presentino peculiarità e di conseguenza prezzi, specifiche dei lavori di realizzazione di sistemi di depurazione.
+
+I prezzi sono comprensivi del 27,60% (16% + 10%) per spese generali ed utili di impresa.
+
+Qualora le voci di prezzo della presente sezione siano impiegabili per l'attuazione delle previsioni finalizzate alla tutela della salute e sicurezza nei luoghi di lavoro, secondo quanto previsto nell'allegato XV del D.Lgs. 81/08 s.m.i. per la stima dei costi della sicurezza relativi, in coerenza con le previsioni di cui all'articolo 5 comma 9 dell'allegato I.14 del D.Lgs. 36/23, si dovrà preventivamente procedere ad un ricalcolo della stima del prezzo definendo il costo di sicurezza utilizzabile attraverso lo scorporo dal prezzo della singola voce utilizzata della quota di utile prevista del 10%. I costi così stimati non saranno ribassabili e verranno riconosciuti per le quantità eseguite, nell'ambito dello specifico computo metrico estimativo delle misure di sicurezza redatto.
+La mano d'opera edile (ed affine) utilizzata per la valorizzazione delle analisi è quella definita dal Ministero del Lavoro e delle Politiche sociali con Decreto della Direzione Generale dei rapporti di  lavoro e delle relazioni industriali n. 5 del 29 gennaio 2025, nel quale il Ministero ha fornito, attraverso apposite tabelle, il costo medio orario su base provinciale per il personale dipendente da imprese del settore dell'edilizia e attività affini (con decorrenza 29 gennaio 2025). 
+
+Per comodità di utilizzo il testo del decreto completo di tabelle è consultabile all'indirizzo: www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus-on/analisi-economiche-costo-lavoro/pagine/default
+
+Con riferimento alle previsioni di cui al paragrafo 2.2.1 della nota metodologica, si precisa che nella presente sezione l'incidenza del costo della manodopera presunta, per l'esecuzione dell'opera nel suo complesso, è indicata a livello dei singoli capitoli ed è stata dedotta dalla tabella indici di congruità della manodopera come aggiornata dalla Commissione Nazionale Casse Edili (CNCE) con l'accordo collettivo tra le parti sociali sottoscritto nel 2022, in ottemperanza alle previsioni di cui al Decreto del Ministero del Lavoro e delle Politiche sociali n. 143 del 25 giugno 2021. Qualora si utilizzino voci di prezzo per le quali non si condivide la suddetta stima, resta l'onere del progettista di definire correttamente tale quota. 
+
+Per la stesura di nuove analisi prezzi il costo orario della manodopera da applicare per le singole categorie di lavori è da riferirsi alle tabelle ministeriali connesse allo specifico settore produttivo, laddove esistenti (Edilizia e affini, metalmeccanico-impiantistico ed affini etc.), ovvero alle tabelle fornite dalle associazioni di riferimento sulla base dei rispettivi Contratti Collettivi Nazionali di Lavoro (C.C.N.L.) vigenti.
+
+Category: OPERE MECCANICHE
+  Activity: Fornitura e posa di tubazioni in acciaio nero tipo UNI 6363/C saldate e verniciate complete di curve, tee, e raccorderia
+    Work: c) DN 40
+      Codice: 09.P02.A05.005, U.M.: m, Euro: 18.96, Note: 
+    Work: d) DN 50
+      Codice: 09.P02.A05.010, U.M.: m, Euro: 23.24, Note: 
+    Work: e) DN 65
+      Codice: 09.P02.A05.015, U.M.: m, Euro: 26.96, Note: 
+    Work: f) DN 80
+      Codice: 09.P02.A05.020, U.M.: m, Euro: 36.71, Note: 
+    Work: g) DN 100
+      Codice: 09.P02.A05.025, U.M.: m, Euro: 41.97, Note: 
+    Work: h) DN 125
+      Codice: 09.P02.A05.030, U.M.: m, Euro: 53.21, Note: 
+    Work: i) DN 150
+      Codice: 09.P02.A05.035, U.M.: m, Euro: 67.46, Note: 
+    Work: j) DN 200
+      Codice: 09.P02.A05.040, U.M.: m, Euro: 95.93, Note: 
+    Work: k) DN 250
+      Codice: 09.P02.A05.045, U.M.: m, Euro: 117.67, Note: 
+    Work: l) DN 300
+      Codice: 09.P02.A05.050, U.M.: m, Euro: 152.15, Note: 
+    Work: m) DN 350
+      Codice: 09.P02.A05.055, U.M.: m, Euro: 190.33, Note: 
+    Work: n) DN 400
+      Codice: 09.P02.A05.060, U.M.: m, Euro: 235.29, Note: 
+    Work: o) DN 450
+      Codice: 09.P02.A05.065, U.M.: m, Euro: 293.79, Note: 
+    Work: p) DN 500
+      Codice: 09.P02.A05.070, U.M.: m, Euro: 349.98, Note: 
+  Activity: Fornitura e posa di flange a collarino. Dimensioni e fori secondo UNI 228 2/67 PN 16, con gradino secondo UNI 2229/67
+    Work: c) DN 40
+      Codice: 09.P02.A10.005, U.M.: cad, Euro: 11.42, Note: 
+    Work: d) DN 50
+      Codice: 09.P02.A10.010, U.M.: cad, Euro: 14.6, Note: 
+    Work: e) DN 65
+      Codice: 09.P02.A10.015, U.M.: cad, Euro: 18.57, Note: 
+    Work: f) DN 80
+      Codice: 09.P02.A10.020, U.M.: cad, Euro: 22.92, Note: 
+    Work: g) DN 100
+      Codice: 09.P02.A10.025, U.M.: cad, Euro: 27.63, Note: 
+    Work: h) DN 125
+      Codice: 09.P02.A10.030, U.M.: cad, Euro: 35.68, Note: 
+    Work: i) DN 150
+      Codice: 09.P02.A10.035, U.M.: cad, Euro: 43.46, Note: 
+    Work: j) DN 200
+      Codice: 09.P02.A10.040, U.M.: cad, Euro: 57.15, Note: 
+    Work: k) DN 250
+      Codice: 09.P02.A10.045, U.M.: cad, Euro: 78.6, Note: 
+    Work: l) DN 300
+      Codice: 09.P02.A10.050, U.M.: cad, Euro: 99.95, Note: 
+    Work: m) DN 350
+      Codice: 09.P02.A10.055, U.M.: cad, Euro: 125.18, Note: 
+    Work: n) DN 400
+      Codice: 09.P02.A10.060, U.M.: cad, Euro: 151, Note: 
+    Work: o) DN 450
+      Codice: 09.P02.A10.065, U.M.: cad, Euro: 178.36, Note: 
+    Work: p) DN 500
+      Codice: 09.P02.A10.070, U.M.: cad, Euro: 222.04, Note: 
+  Activity: Fornitura e posa di flange piane. Di dimensioni e forature secondo UNI 2278/67 PN 16 e 2277/76 PN 10
+    Work: c) DN 40
+      Codice: 09.P02.A15.005, U.M.: cad, Euro: 10.88, Note: 
+    Work: d) DN 50
+      Codice: 09.P02.A15.010, U.M.: cad, Euro: 13.95, Note: 
+    Work: e) DN 65
+      Codice: 09.P02.A15.015, U.M.: cad, Euro: 17.69, Note: 
+    Work: f) DN 80
+      Codice: 09.P02.A15.020, U.M.: cad, Euro: 21.58, Note: 
+    Work: g) DN 100
+      Codice: 09.P02.A15.025, U.M.: cad, Euro: 26.83, Note: 
+    Work: h) DN 125
+      Codice: 09.P02.A15.030, U.M.: cad, Euro: 34.48, Note: 
+    Work: i) DN 150
+      Codice: 09.P02.A15.035, U.M.: cad, Euro: 41.6, Note: 
+    Work: j) DN 200
+      Codice: 09.P02.A15.040, U.M.: cad, Euro: 55.99, Note: 
+    Work: k) DN 250
+      Codice: 09.P02.A15.045, U.M.: cad, Euro: 78.45, Note: 
+    Work: l) DN 300
+      Codice: 09.P02.A15.050, U.M.: cad, Euro: 94.35, Note: 
+    Work: m) DN 350
+      Codice: 09.P02.A15.055, U.M.: cad, Euro: 120.86, Note: 
+    Work: n) DN 400
+      Codice: 09.P02.A15.060, U.M.: cad, Euro: 144.02, Note: 
+    Work: o) DN 450
+      Codice: 09.P02.A15.065, U.M.: cad, Euro: 169.36, Note: 
+    Work: p) DN 500
+      Codice: 09.P02.A15.070, U.M.: cad, Euro: 210.59, Note: 
+  Activity: Fornitura e posa di flange cieche. Di dimensioni e foratura secondo UNI 6093/67 PN 16, con gradino UNI 2229/67 compresi bulloni, dadi, rondelle zincati e guarnizioni
+    Work: c) DN 40
+      Codice: 09.P02.A20.005, U.M.: cad, Euro: 5.56, Note: 
+    Work: d) DN 50
+      Codice: 09.P02.A20.010, U.M.: cad, Euro: 6.9, Note: 
+    Work: e) DN 65
+      Codice: 09.P02.A20.015, U.M.: cad, Euro: 8.55, Note: 
+    Work: f) DN 80
+      Codice: 09.P02.A20.020, U.M.: cad, Euro: 10.95, Note: 
+    Work: g) DN 100
+      Codice: 09.P02.A20.025, U.M.: cad, Euro: 13.16, Note: 
+    Work: h) DN 125
+      Codice: 09.P02.A20.030, U.M.: cad, Euro: 19.87, Note: 
+    Work: i) DN 150
+      Codice: 09.P02.A20.035, U.M.: cad, Euro: 25.09, Note: 
+    Work: j) DN 200
+      Codice: 09.P02.A20.040, U.M.: cad, Euro: 38.79, Note: 
+    Work: k) DN 250
+      Codice: 09.P02.A20.045, U.M.: cad, Euro: 60.06, Note: 
+    Work: l) DN 300
+      Codice: 09.P02.A20.050, U.M.: cad, Euro: 84.27, Note: 
+    Work: m) DN 350
+      Codice: 09.P02.A20.055, U.M.: cad, Euro: 129.64, Note: 
+    Work: n) DN 400
+      Codice: 09.P02.A20.060, U.M.: cad, Euro: 165.61, Note: 
+    Work: o) DN 450
+      Codice: 09.P02.A20.065, U.M.: cad, Euro: 204.57, Note: 
+    Work: p) DN 500
+      Codice: 09.P02.A20.070, U.M.: cad, Euro: 253.3, Note: 
+  Activity: Coibentazione tubazioni. La coibentazione deve essere realizzata con coppelle di lana di vetro eventualmente fissata con filo armonico inossidabile e rifinita con lamierino di alluminio lucidato collegato con viti in acciaio inox.
+    Work: a) DN 65 spessore coibentazione 40 mm
+      Codice: 09.P02.A25.005, U.M.: m, Euro: 13.5, Note: 
+    Work: b) DN 80 spessore coibentazione 60 mm
+      Codice: 09.P02.A25.010, U.M.: m, Euro: 16.03, Note: 
+    Work: c) DN 150 spessore coibentazione 60 mm
+      Codice: 09.P02.A25.015, U.M.: m, Euro: 28.93, Note: 
+    Work: d) DN 300 spessore coibentazione 100 mm
+      Codice: 09.P02.A25.020, U.M.: m, Euro: 56.2, Note: 
+  Activity: Fornitura e posa attacco di flussaggio a manichetta DN 25 Costruzione e posa di complessivo per flussaggio tubazione, formato da tronchetto filettato 2", valvola a sfera 2", riduzione a doppia vite 2"/1", attacco rapido da 1" filettato femmina.
+    Work: compreso il montaggio dei particolari la foratura della tubazione con cannello ossiacetilenico, aggiustaggio e saldatura del tronchetto.
+      Codice: 09.P02.A30.005, U.M.: cad, Euro: 44.97, Note: 
+  Activity: Fornitura e posa in opera di tubazioni in PVC rigido PN 10 UNI EN 1452 protette da UV per condotte aria con giunzioni saldate o filettate complete di curve, tee e raccorderia; esente da cariche plastificanti con resistenza minima di 480 kg/cm² a trazione.
+    Work: a) DN 250
+      Codice: 09.P02.A35.005, U.M.: m, Euro: 86.93, Note: 
+    Work: b) DN 315
+      Codice: 09.P02.A35.010, U.M.: m, Euro: 100.41, Note: 
+    Work: c) DN 400
+      Codice: 09.P02.A35.015, U.M.: m, Euro: 202.32, Note: 
+    Work: d) DN 500
+      Codice: 09.P02.A35.020, U.M.: m, Euro: 273.54, Note: 
+    Work: e) DN 800
+      Codice: 09.P02.A35.025, U.M.: m, Euro: 547.07, Note: 
+  Activity: Fornitura e posa di valvole di intercettazione a corpo ovale a cuneo gommato flangiate PN10 Corpo: ghisa sferoidale Albero: INOX 13% Cr Cuneo: ghisa sferoidale con gomma nitrilica Rivestimento esterno ed interno: Vernice epox. termoindurente Tenuta: doppio O. R. - anello NBR Bulloni: INOX AISI 304
+    Work: a) DN 100
+      Codice: 09.P02.A90.005, U.M.: cad, Euro: 247.31, Note: 
+    Work: b) DN 150
+      Codice: 09.P02.A90.010, U.M.: cad, Euro: 412.16, Note: 
+    Work: c) DN 200
+      Codice: 09.P02.A90.015, U.M.: cad, Euro: 715.68, Note: 
+    Work: d) DN 250
+      Codice: 09.P02.A90.020, U.M.: cad, Euro: 1056.63, Note: 
+    Work: e) DN 300
+      Codice: 09.P02.A90.025, U.M.: cad, Euro: 1498.78, Note: 
+  Activity: Fornitura e posa in oper di saracinesche: a corpo ovale con cuneo in ottone, corpo in ghisa G G 25 del tipo Meehanite, PN 10, coperchio e volantino in ghisa, asta in acciaio inox, madreviti in ottone, flange forate secondo UNI 2223/67 PN 10, scartamento tra le flange cm 20 + D (esenti da manutenzione).
+    Work: a) DN 40
+      Codice: 09.P02.A95.005, U.M.: cad, Euro: 61.53, Note: 
+    Work: b) DN 50
+      Codice: 09.P02.A95.010, U.M.: cad, Euro: 72.11, Note: 
+    Work: c) DN 65
+      Codice: 09.P02.A95.015, U.M.: cad, Euro: 96.9, Note: 
+    Work: d) DN 80
+      Codice: 09.P02.A95.020, U.M.: cad, Euro: 113, Note: 
+    Work: e) DN 100
+      Codice: 09.P02.A95.025, U.M.: cad, Euro: 147.02, Note: 
+    Work: f) DN 125
+      Codice: 09.P02.A95.030, U.M.: cad, Euro: 186.97, Note: 
+    Work: g) DN 150
+      Codice: 09.P02.A95.035, U.M.: cad, Euro: 242.03, Note: 
+    Work: h) DN 200
+      Codice: 09.P02.A95.040, U.M.: cad, Euro: 385.95, Note: 
+    Work: i) DN 250
+      Codice: 09.P02.A95.045, U.M.: cad, Euro: 637.74, Note: 
+    Work: j) DN 300
+      Codice: 09.P02.A95.050, U.M.: cad, Euro: 891.03, Note: 
+  Activity: Fornitura e posa in opera di saracimesche a corpo piatto in ghisa, vite interna, cuneo in ghisa, attacchi flangiati UNI 2223/67 PN 10, provviste di volantino in ghisa piatto (esenti da manutenzione).
+    Work: a) DN 40
+      Codice: 09.P02.B05.005, U.M.: cad, Euro: 59.05, Note: 
+    Work: b) DN 50
+      Codice: 09.P02.B05.010, U.M.: cad, Euro: 64.44, Note: 
+    Work: c) DN 65
+      Codice: 09.P02.B05.015, U.M.: cad, Euro: 79.43, Note: 
+    Work: d) DN 80
+      Codice: 09.P02.B05.020, U.M.: cad, Euro: 94.62, Note: 
+    Work: e) DN 125
+      Codice: 09.P02.B05.025, U.M.: cad, Euro: 111.64, Note: 
+    Work: f) DN 150
+      Codice: 09.P02.B05.030, U.M.: cad, Euro: 147.48, Note: 
+    Work: g) DN 200
+      Codice: 09.P02.B05.035, U.M.: cad, Euro: 168.62, Note: 
+    Work: h) DN 250
+      Codice: 09.P02.B05.040, U.M.: cad, Euro: 260.04, Note: 
+    Work: i) DN 300
+      Codice: 09.P02.B05.045, U.M.: cad, Euro: 443.78, Note: 
+  Activity: Fornitura e posa in opera di valvole di ritegno con otturatore in ghisa, adatte per installazioni orizzontali, corpo in ghisa PN 10, attacchi flangiati secondo UNI 2223 PN 10;
+    Work: a) DN 50
+      Codice: 09.P02.B10.005, U.M.: cad, Euro: 54.73, Note: 
+    Work: b) DN 65
+      Codice: 09.P02.B10.010, U.M.: cad, Euro: 77.86, Note: 
+    Work: c) DN 80
+      Codice: 09.P02.B10.015, U.M.: cad, Euro: 89.89, Note: 
+    Work: d) DN 100
+      Codice: 09.P02.B10.020, U.M.: cad, Euro: 113.91, Note: 
+    Work: e) DN 125
+      Codice: 09.P02.B10.025, U.M.: cad, Euro: 148.36, Note: 
+    Work: f) DN 150
+      Codice: 09.P02.B10.030, U.M.: cad, Euro: 202.72, Note: 
+    Work: g) DN 200
+      Codice: 09.P02.B10.035, U.M.: cad, Euro: 326.35, Note: 
+    Work: h) DN 250
+      Codice: 09.P02.B10.040, U.M.: cad, Euro: 639.22, Note: 
+    Work: i) DN 300
+      Codice: 09.P02.B10.045, U.M.: cad, Euro: 742.64, Note: 
+  Activity: Fornitura e posa in opera di valvole di ritegno in acciaio corpo PN 10, con otturatore in acciaio, flange PN 10 UNI 2223/67 con gradino rialzato UNI 2229;
+    Work: a) DN 50
+      Codice: 09.P02.B15.005, U.M.: cad, Euro: 269.76, Note: 
+    Work: b) DN 65
+      Codice: 09.P02.B15.010, U.M.: cad, Euro: 329.73, Note: 
+    Work: c) DN 80
+      Codice: 09.P02.B15.015, U.M.: cad, Euro: 374.67, Note: 
+    Work: d) DN 100
+      Codice: 09.P02.B15.020, U.M.: cad, Euro: 524.56, Note: 
+    Work: e) DN 125
+      Codice: 09.P02.B15.025, U.M.: cad, Euro: 779.38, Note: 
+    Work: f) DN 150
+      Codice: 09.P02.B15.030, U.M.: cad, Euro: 869.3, Note: 
+    Work: g) DN 200
+      Codice: 09.P02.B15.035, U.M.: cad, Euro: 1378.87, Note: 
+  Activity: Fornitura e posa giunti di smontaggio valvole completamente in acciaio verniciato con guarnizione in gomma nitrilica flangiati PN10
+    Work: a) DN 50
+      Codice: 09.P02.B20.005, U.M.: cad, Euro: 142.36, Note: 
+    Work: b) DN 100
+      Codice: 09.P02.B20.010, U.M.: cad, Euro: 262.29, Note: 
+    Work: c) DN 150
+      Codice: 09.P02.B20.015, U.M.: cad, Euro: 374.67, Note: 
+    Work: d) DN 200
+      Codice: 09.P02.B20.020, U.M.: cad, Euro: 562.04, Note: 
+    Work: e) DN 250
+      Codice: 09.P02.B20.025, U.M.: cad, Euro: 621.96, Note: 
+    Work: f) DN 300
+      Codice: 09.P02.B20.030, U.M.: cad, Euro: 681.97, Note: 
+    Work: g) DN 350
+      Codice: 09.P02.B20.035, U.M.: cad, Euro: 861.78, Note: 
+    Work: h) DN 400
+      Codice: 09.P02.B20.040, U.M.: cad, Euro: 1049.15, Note: 
+    Work: i) DN 500
+      Codice: 09.P02.B20.045, U.M.: cad, Euro: 1348.89, Note: 
+  Activity: Fornitura e posa di valvola di manovra rapida per spurgo PN 10 DN 150 Corpo GG25 - piatto INOX AISI 316 Asta AISI 316 - ingrassatore su reggispinta Tenuta PTFE su lama Leve acciaio verniciato
+    Work: a) DN 80
+      Codice: 09.P02.B25.005, U.M.: cad, Euro: 352.2, Note: 
+    Work: b) DN 150
+      Codice: 09.P02.B25.010, U.M.: cad, Euro: 479.61, Note: 
+  Activity: Fornitura e posa di valvole di intercettazione a ghigliottina con attuatore pneumatico A) Attuatore: a cilindro (interno cilindro cromato) doppio effetto Serie unificate C NOMO Teste di alluminio Stelo rivestito in Cromo duro Canna in acciaio cromato Protezione esterna smaltatura Attacchi aria 3/8" - 1" - 4" PN aria 14 bar Fine pneumatici corsa A/C tenuta IP 65 Guarnizioni EPDM B) Materiali: Corpo GG25/Piatto inox AISI 316 Asta AISI 316/ingrassatore su reggispinta Tenuta PTFE su lama
+    Work: b) DN 100
+      Codice: 09.P02.B30.005, U.M.: cad, Euro: 809.34, Note: 
+    Work: c) DN 150
+      Codice: 09.P02.B30.010, U.M.: cad, Euro: 936.74, Note: 
+    Work: d) DN 200
+      Codice: 09.P02.B30.015, U.M.: cad, Euro: 1273.95, Note: 
+    Work: e) DN 250
+      Codice: 09.P02.B30.020, U.M.: cad, Euro: 1498.78, Note: 
+  Activity: Fornitura e fornitura e posa di valvola di ritegno a clapet - Corpo in ghisa - Piattello in ghisa - Molla in bronzo - Verniciatura epossidica - Pressione nominale PN16
+    Work: a) DN 100
+      Codice: 09.P02.B35.005, U.M.: cad, Euro: 262.29, Note: 
+    Work: b) DN 125
+      Codice: 09.P02.B35.010, U.M.: cad, Euro: 340.95, Note: 
+    Work: c) DN 150
+      Codice: 09.P02.B35.015, U.M.: cad, Euro: 457.11, Note: 
+    Work: d) DN 200
+      Codice: 09.P02.B35.020, U.M.: cad, Euro: 756.86, Note: 
+    Work: e) DN 250
+      Codice: 09.P02.B35.025, U.M.: cad, Euro: 1139.06, Note: 
+    Work: f) DN 300
+      Codice: 09.P02.B35.030, U.M.: cad, Euro: 2308.11, Note: 
+  Activity: Fornitura e fornitura e posa di valvola di ritegno a palla - Corpo in ghisa - Sfera in ghisa rivestita in elastomerico - Verniciatura epossidica
+    Work: b) DN 100
+      Codice: 09.P02.B40.005, U.M.: cad, Euro: 449.62, Note: 
+    Work: c) DN 150
+      Codice: 09.P02.B40.010, U.M.: cad, Euro: 674.44, Note: 
+    Work: d) DN 200
+      Codice: 09.P02.B40.015, U.M.: cad, Euro: 1423.85, Note: 
+    Work: e) DN 250
+      Codice: 09.P02.B40.020, U.M.: cad, Euro: 3109.94, Note: 
+    Work: f) DN 300
+      Codice: 09.P02.B40.025, U.M.: cad, Euro: 4496.33, Note: 
+  Activity: Fornitura e fornitura e posa di valvola a sfera INOX filettata - PN 40
+    Work: a) DN 25
+      Codice: 09.P02.B45.005, U.M.: cad, Euro: 44.97, Note: 
+    Work: b) DN 32
+      Codice: 09.P02.B45.010, U.M.: cad, Euro: 57.7, Note: 
+    Work: c) DN 40
+      Codice: 09.P02.B45.015, U.M.: cad, Euro: 77.93, Note: 
+    Work: d) DN 50
+      Codice: 09.P02.B45.020, U.M.: cad, Euro: 103.42, Note: 
+    Work: e) DN 60
+      Codice: 09.P02.B45.025, U.M.: cad, Euro: 112.42, Note: 
+    Work: f) DN 80
+      Codice: 09.P02.B45.030, U.M.: cad, Euro: 134.89, Note: 
+  Activity: Fornitura e posa di stramazzo dentato in acciaio inox, altezza 150 mm, spessore 3 mm, bulloneria in acciaio inox con testa a martello e staffe sagomate 1 ogni 50 cm
+    Work: ...
+      Codice: 09.P02.C05.005, U.M.: m, Euro: 33.72, Note: 
+  Activity: Fornitura e posa di lamiera paraschiuma in acciaio inox, altezza 150 mm, spessore 3 mm.
+    Work: Completo di staffe e bulloneria in acciaio inox
+      Codice: 09.P02.C10.005, U.M.: m, Euro: 30, Note: 
+  Activity: Fornitura e posa di profilo di ancoraggio halfen 52/34 mm INOX AISI 304; 5,05 kg/m
+    Work: Bulloneria a testa di martello M 16 DIN 19558
+      Codice: 09.P02.C15.005, U.M.: m, Euro: 41.18, Note: 
+  Activity: Fornitura e posa di paratoia 800x800 mm. di intercettazione, ad azionamento manuale con manovella accoppiata a riduttore a coppia conica, dalle caratteristiche seguenti: - - tenuta sui 4 lati - - rispondenti allo standard AWWA C501/80 relativamente a tenute e regolazione dei cunei di spinta - gargami in acciaio INOX spessore 10 mm. Diaframma dotato di ruote reggicarico adatte a garantire agevole traslazione. Gargamatura portante e di guida con piatto di scorrimento fresato. Specchio in acciaio INOX tamburato con lamiera spessore 10 mm/cad. Traverse in acciaio INOX Num 1 vite di sollevamento fi 50 INOX
+    Work: ...
+      Codice: 09.P02.C30.005, U.M.: cad, Euro: 8992.69, Note: 
+  Activity: Fornitura e posa di paratoia 1000x1000 mm. di intercettazione, ad azionamento manuale con manovella accoppiata a riduttore a coppia conica, dalle caratteristiche seguenti: - - tenuta sui 4 lati - rispondenti allo standard AWWA C501/80 relativamente a tenute e regolazione dei cunei di spinta - gargami in acciaio INOX spessore 10 mm. Diaframma dotato di ruote reggicarico adatte a garantire agevole traslazione. Gargamatura portante e di guida con piatto di scorrimento fresato. Specchio in acciaio INOX tamburato con lamiera spessore 10 mm/cad. Traverse in acciaio INOX Num 1 vite di sollevamento fi 50 INOX
+    Work: ...
+      Codice: 09.P02.C35.005, U.M.: cad, Euro: 9742.08, Note: 
+  Activity: F/POSA DI PARATOIA 800 x 800 mm. Fornitura e posa di paratoia di intercettazione, ad azionamento manuale, dalle caratteristiche seguenti: - tenuta sui 3 lati - rispondenti allo standard AWWA C501/80 relativamente a tenute e regolazione dei cunei di spinta - gargami in acciaio INOX spessore 10 mm. Diaframma dotato di ruote reggicarico adatte a garantire agevole traslazione. Gargamatura portante e di guida con piatto di scorrimento fresato. Specchio in acciaio INOX tamburato con lamiera spessore 10 mm/cad. Traverse in acciaio INOX Num 1 vite di sollevamento fi 50 INOX
+    Work: ...
+      Codice: 09.P02.C40.005, U.M.: cad, Euro: 8243.3, Note: 
+  Activity: Fornitura e posa di paratoia 1000x1000 mm. di intercettazione, ad azionamento manuale, dalle caratteristiche seguenti: - tenuta sui 3 lati - rispondenti allo standard AWWA C501/80 relativamente a tenute e regolazione dei cunei di spinta - gargami in acciaio INOX spessore 10 mm. Diaframma dotato di ruote reggicarico adatte a garantire agevole traslazione. Gargamatura portante e di guida con piatto di scorrimento fresato. Specchio in acciaio INOX tamburato con lamiera spessore 10 mm/cad. Traverse in acciaio INOX Num 1 vite di sollevamento fi 50 INOX
+    Work: ...
+      Codice: 09.P02.C45.005, U.M.: cad, Euro: 9367.37, Note: 
+  Activity: Coppia 25 Nm Fornitura, installazione ed attivazione di attuatore elettrico per paratoie dotato di: - teleinvertitore integrato nel gruppo di comando - gruppo di comando ad ingranaggi dei fine corsa (A/C) - gruppo limitatore di coppia in entrambi i sensi di marcia, coppia regolabile - morsettiera di collegamento rapida (presa/spina). Comando di emergenza manuale a volantino con proprio riduttore. Termostati di protezione motore. Interruttori in tandem per posizionamento del gruppo in due punti tra le posizioni dei fine corsa. Potenziometro con scheda elettronica per trasmissione posizione (40/20 mA). Chiusura di emergenza in by - pass termostati.
+    Work: ...
+      Codice: 09.P02.C50.005, U.M.: cad, Euro: 4496.33, Note: 
+  Activity: Vuotatura con rimozione di sabbie e materiali solidi diversi; aspirazione delle sabbie da vasche d'accumulo degli impianti di depurazione, con intervento manuale ove occorra, sia per la rimozione dei materiali solidi dal fondo delle vasche che per il loro sollevamento. Sono comprese tutte le operazioni e le attrezzature connesse al corretto svolgimento del lavoro, l'approvvigionamento dell'acqua, il carico diretto su automezzo dotato di contenitore coperto a tenuta stagna o di autobotte, il trasporto e il trattamento delle sole materie solide presso siti autorizzati.
+    Work: ...
+      Codice: 09.P02.C55.005, U.M.: m³, Euro: 101.9, Note: 
+  Activity: Aspirazione, raccolta di morchie, fanghi, schiume e altri surnatanti su vasche o manufatti di impianti di depurazione mediante aspirazione con Canal - jet combinato per l'eventuale fluidificazione del materiale surnatante, compreso l'intervento manuale con idonea attrezzatura il trasporto e il trattamento delle sole materie solide presso siti autorizzati.
+    Work: ...
+      Codice: 09.P02.C60.005, U.M.: m³, Euro: 56.95, Note: 
+  Activity: Pulizia e lavaggio, tramite canal - jet, delle canalette di stramazzo di vasche di sedimentazione circolari poste su impianti di depurazione compresa la pulizia dei denti di lupo (ove necessario l'operazione verrà svolta a bordo carroponte) per vasche di diametro fino a 30 m
+    Work: ...
+      Codice: 09.P02.C65.005, U.M.: m, Euro: 1.17, Note: 
+  Activity: Manutenzione e pulizia di paratoie manuali di qualsiasi dimensione poste su condotte fognarie o camere di manovra comprendenti le seguenti operazioni: - pulizia con idropulitrice delle viti e gargami; - ingrassaggio delle viti e gargami; - verifica ed eventuale regolazione della manovrabilità; - ingrassaggio delle parti mobili e quelle fisse e controllo della guarnizione di tenuta. Compreso il materiale di consumo (grasso, acqua ecc.) ed i mezzi, personale, ed ogni altro onere per dare le paratoie funzionanti.
+    Work: ...
+      Codice: 09.P02.C70.005, U.M.: cad, Euro: 63.7, Note: 
+  Activity: Manutenzione e pulizia di paratoie con movimentazione elettrica comprendenti le seguenti operazioni: - pulizia con idropulitrice delle viti e gargami; - ingrassaggio delle viti e gargami; - verifica ed eventuale regolazione della manovrabilità; - ingrassaggio delle parti mobili e quelle fisse e verifica della guarnizione di tenuta. Compreso il materiale di consumo (grasso, acqua, ecc.) ed i mezzi ed il personale ed ogni altro onere per dare la paratoia funzionante.
+    Work: ...
+      Codice: 09.P02.C75.005, U.M.: m, Euro: 89.89, Note: 
+
+Category: OPERE STRUMENTALI
+  Activity: Fornitura ed installazione di stazione automatica di prelievo di campioni di reflui composta da: - Prelevatore automatico di acque refrigerato e termostato con contenitore in acciaio INOX IP65 montato su ruote. - Programmatore locale delle funzioni. - Controllo remoto a quadro di: - n° ciclo di campionamento - allarme di malfunzionamento riassuntivo - attivazione di ciclo remota - Alimentazione 220 V 50 Hz - Alimentazione acqua di risciacquo 1/2" - 2 - 6 bar - Tubo di aspirazione ø interno > 16 mm - Altezza di aspirazione 6,5 m - Aspirazione a mezzo di pompa a vuoto
+    Work: ...
+      Codice: 09.P03.A05.005, U.M.: cad, Euro: 12739.62, Note: 
+  Activity: Fornitura e posa di misuratore di portata su condotte, per fluidi, PN 10, tipo autozero con elettronica incorporata interamente configurabile da tastiera. Trasmettitore ed indicatore (IP65) LCD da installare a 2,5 m su apposita colonnina fissata al mancorrente: - alimentazione 110 V uscita 4,20 mA; - interfacciabile direttamente su PLC con dati di sistema su E2 PROM; - rivestimento gomma dura o PTFE; - allarme di tubo vuoto e un allarme configurabile.
+    Work: a) DN 100
+      Codice: 09.P03.A10.005, U.M.: cad, Euro: 2622.84, Note: 
+    Work: b) DN 200
+      Codice: 09.P03.A10.010, U.M.: cad, Euro: 3372.26, Note: 
+    Work: c) DN 250
+      Codice: 09.P03.A10.015, U.M.: cad, Euro: 4496.33, Note: 
+    Work: d) DN 300
+      Codice: 09.P03.A10.020, U.M.: cad, Euro: 5020.92, Note: 
+  Activity: Fornitura e posa di interruttore di livello a galleggiante (pera) privo di mercurio con contrappeso, completo di supporteria INOX.
+    Work: ...
+      Codice: 09.P03.A15.005, U.M.: cad, Euro: 224.83, Note: 
+  Activity: Fornitura e posa di misuratore di livello ad ultrasuoni costituito da: - - sensore ultrasonoro, IP65, con campo di azione 0÷10 m; - supporti per aggancio ai mancorrenti realizzati in acciaio INOX 1 1/4 e morsetti tropicalizzati da ponteggio; - indicatore digitale da incasso per la visualizzazione a quadro; - unita di elaborazione per controllo della misura e regolazione (almeno 3 uscite a relè).
+    Work: ...
+      Codice: 09.P03.A20.005, U.M.: cad, Euro: 2997.54, Note: 
+  Activity: Fornitura e posa di misuratore di livello piezoresistivo costituito da: - misura continua con sonda a fune di tipo piezoresistivo con uscita di corrente 4÷20 mA; - generatore di soglie almeno 3 uscite a relè; - indicatore di livello a 5 cifre in quota assoluta; - sensore ultrasonoro IP65 campo 0÷10 mt; - unita di elaborazione (4÷20 mA); - supporto per strumenti con tubo INOX 1 e 1/2 e morsetti tropicalizzati.
+    Work: ...
+      Codice: 09.P03.A25.005, U.M.: cad, Euro: 3746.95, Note: 
+  Activity: Fornitura e posa di strumento atto alla misurazione dell'ossigeno disciolto con le caratteristiche seguenti: - misura di O2 potenziostatica a 3 elettrodi - catodo oro elettrodi argento - membrana 40 micron o superiore - compensazione automatica di temperatura - rigenerazione membrana con blocco preassemblato - vita operativa: 4 anni di elettrolita - trasmettitore a microprocessore - interfaccia digitale RS485 - calibrazione automatica con tabella di saturazione precaricata - funzione Hold per blocco della misura (durante lavaggio e manutenzione) - uscita 4/20 mmA - contenitore da campo IP 65
+    Work: ...
+      Codice: 09.P03.A30.005, U.M.: cad, Euro: 5245.78, Note: 
+  Activity: Fornitura e posa di sonde per la misura della temperatura con le caratteristiche seguenti: - termoresistenze in platino 0°C - 100 ohm, elemento sensibile da installare in guaina 150 mm testina IP65; - collegamento a trasduttore ohm/mA per generatore di contatti a soglie preimpostabili
+    Work: ...
+      Codice: 09.P03.A35.005, U.M.: cad, Euro: 1124.08, Note: 
+  Activity: Fornitura e posa di misuratore di pressione per acqua od aria costituito da: - trasmettitore elettronico di pressione IP65 tipo a membrana ceramica; - supporto e valvola per spurgo in acciaio INOX; - indicatore digitale da incasso per visualizzazione a quadro della misura.
+    Work: ...
+      Codice: 09.P03.A40.005, U.M.: cad, Euro: 1498.78, Note: 
+
+Category: IMPIANTI DI FITODEPURAZIONE
+  Activity: Impianti di fitodepurazione
+    Work: fornitura di pompa ad immersione 12 VCC 18 a portata 250 l/minuto
+      Codice: 09.P04.A05.005, U.M.: cad, Euro: 293.77, Note: 
+    Work: fornitura di pannelli fotovoltaici con potenza di 80 W
+      Codice: 09.P04.A05.010, U.M.: cad, Euro: 797.3, Note: 
+    Work: fornitura di inverter per pannelli fotovoltaici
+      Codice: 09.P04.A05.015, U.M.: cad, Euro: 1454.73, Note: 
+    Work: fornitura di batterie tampone
+      Codice: 09.P04.A05.020, U.M.: cad, Euro: 181.82, Note: 
+    Work: fornitura di centralina di controllo
+      Codice: 09.P04.A05.025, U.M.: cad, Euro: 181.82, Note: 
+  Activity: Fornitura e messa in opera di materiali di riempimento:
+    Work: fornitura e messa in opera di pietrisco sfuso di roccia zeolitica chabasitica (d= 6-8 cm) per l'abbattimento dell'azoto ammoniacale
+      Codice: 09.P04.A10.005, U.M.: m³, Euro: 153.87, Note: 
+    Work: fornitura e messa in opera di ghiaietto di roccia zeolitica chabasitica (d= 2-4 cm) per l'ulteriore abbattimento dell'azoto ammoniacale
+      Codice: 09.P04.A10.010, U.M.: m³, Euro: 167.86, Note: 
+    Work: bfs, blast furnace slag, (sottoprodotto del ciclo di produzione della ghisa) per l'abbattimento del fosforo
+      Codice: 09.P04.A10.015, U.M.: m³, Euro: 167.86, Note: 
+  Activity: Fornitura e messa in opera di prodotti per la biofertilizzazione e micorrizazione:
+    Work: biofertilizzazione diffusa delle superfici a prato con la distribuzione diretta di inoculi a base di funghi ecto-endomicorrizici e batteri p.g.p. (plant growth promoting) della rizosfera ( 0,3 kg di prodotto per m²)
+      Codice: 09.P04.A15.005, U.M.: m², Euro: 0.19, Note: 
+    Work: biofertilizzazione puntuale di specie arboree con la distribuzione diretta di inoculi a base di funghi ecto
+      Codice: 09.P04.A15.010, U.M.: cad, Euro: 1.54, Note: 
+    Work: biofertilizzazione puntuale di specie arboree con la distribuzione diretta di inoculi a base di funghi ecto-endomicorrizici e batteri p.g.p. (plant growth promoting) della rizosfera (2 kg di prodotto caduna)
+      Codice: 09.P04.A15.015, U.M.: cad, Euro: 58.06, Note: 
+  Activity: Fornitura di piantine acquatiche:
+    Work: fornitura, compreso il trasporto nel luogo della messa a dimora di specie erbacee e/o arbustive acquatiche da impiegarsi in operazioni di ricostruzione della vegetazione naturale od in impianti di fitodepurazione delle acque e dei suoli delle specie: phragmites australis, typha latifolia
+      Codice: 09.P04.A20.005, U.M.: cad, Euro: 3.66, Note: 
+    Work: fornitura, compreso il trasporto nel luogo della messa a dimora di specie erbacee e/o arbustive acquatiche da impiegarsi in operazioni di ricostruzione della vegetazione naturale od in impianti di fitodepurazione delle acque e dei suoli della specie: nymphaea alba
+      Codice: 09.P04.A20.010, U.M.: cad, Euro: 14.56, Note: 
+    Work: fornitura, compreso il trasporto nel luogo della messa a dimora di specie erbacee e/o arbustive acquatiche da impiegarsi in operazioni di ricostruzione della vegetazione naturale od in impianti di fitodepurazione delle acque e dei suoli della specie: iris pseudacorus
+      Codice: 09.P04.A20.015, U.M.: cad, Euro: 4.48, Note: 
+    Work: fornitura, compreso il trasporto nel luogo della messa a dimora di specie erbacee e/o arbustive acquatiche da impiegarsi in operazioni di ricostruzione della vegetazione naturale od in impianti di fitodepurazione delle acque e dei suoli della specie: trapa natans
+      Codice: 09.P04.A20.020, U.M.: cad, Euro: 4.48, Note: 
+    Work: fornitura, compreso il trasporto nel luogo della messa a dimora di specie erbacee e/o arbustive acquatiche da impiegarsi in operazioni di ricostruzione della vegetazione naturale od in impianti di fitodepurazione delle acque e dei suoli delle specie: lemna minor
+      Codice: 09.P04.A20.025, U.M.: cad, Euro: 2.93, Note: 
+
+Category: FORNITURE OPERE CIVILI
+  Activity: Resina per il consolidamento di fondi assorbenti, la realizzazione di rasature e massetti epossidici
+    Work: ...
+      Codice: 09.P05.A05.005, U.M.: kg, Euro: 31.2, Note: 
+  Activity: Preparatore per il trattamento e la pulizia di fondi inassorbenti, garantendo un'adesione ottimale di adesivi reattivi, sistemi resinosi e sigillanti su fondi inassorbenti, lisci e compatti
+    Work: ...
+      Codice: 09.P05.A10.005, U.M.: l, Euro: 15.49, Note: 
+  Activity: Quarzo minerale calibrato a granulometria controllata, lavato e perfettamente asciutto, utilizzato come carica strutturale nelle rasature sintetiche e nei massetti epossidici
+    Work: ...
+      Codice: 09.P05.A15.005, U.M.: kg, Euro: 0.94, Note: 
+  Activity: Piastrelle ceramiche in Gres Smaltato in pasta bianca, ingelive e resistenti agli attacchi chimici/biologici, adatte ad un utilizzo sia in ambiente interno sia in ambiente esterno, a pavimento e/o rivestimento
+    Work: ...
+      Codice: 09.P05.A20.005, U.M.: m², Euro: 45, Note: 
+  Activity: Bordature o zoccolature ceramiche in Gres Smaltato in pasta bianca, ingelive e resistenti agli attacchi chimici/biologici, adatte ad un utilizzo sia in ambiente interno sia in ambiente esterno, a pavimento e/o rivestimento
+    Work: ...
+      Codice: 09.P05.A25.005, U.M.: m, Euro: 22.53, Note: 
+  Activity: PRIMER aggrappante per la preparazione di supporti al successivo incollaggio di piastrelle
+    Work: ...
+      Codice: 09.P05.A30.005, U.M.: kg, Euro: 9.76, Note: 
+  Activity: COLLANTE strutturale flessibile per l'incollaggio di piastrelle adatto ad un utilizzo sia in ambiente interno sia in ambiente esterno, a pavimento e/o rivestimento
+    Work: ...
+      Codice: 09.P05.A35.005, U.M.: kg, Euro: 1.26, Note: 
+  Activity: FUGANTE bicomponente antiacido per la stuccatura di piastrelle adatto ad un utilizzo sia in ambiente interno sia in ambiente esterno, a pavimento e/o rivestimento
+    Work: ...
+      Codice: 09.P05.A45.005, U.M.: kg, Euro: 16.45, Note: 
+
+Category: FORNITURE OPERE MECCANICHE (materiale metallico)
+  Activity: Profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), tubi, tubolari, piatti o larghi piatti per lavori di carpenteria metallica
+    Work: in Acciaio INOX tipo AISI304/316
+      Codice: 09.P10.A05.005, U.M.: kg, Euro: 6.99, Note: 
+    Work: in Acciaio al Carbonio (Fe 430 - Fe 510) grezzo
+      Codice: 09.P10.A05.010, U.M.: kg, Euro: 1.89, Note: 
+    Work: in Alluminio
+      Codice: 09.P10.A05.015, U.M.: kg, Euro: 7.83, Note: 
+
+Category: FORNITURE OPERE MECCANICHE (materiale plastico)
+  Activity: Grigliato in PRFV (Poliestere Rinforzato Fibra di Vetro) APERTO, resina isoftalica autoestinguente, profilo concavo o con quarzo antiscivolo
+    Work: Grigliato PRFV maglia 38x38 altezza 25 mm aperto
+      Codice: 09.P15.A05.005, U.M.: m², Euro: 83.96, Note: 
+    Work: Grigliato PRFV maglia 38x38 altezza 30 mm aperto
+      Codice: 09.P15.A05.010, U.M.: m², Euro: 97.92, Note: 
+    Work: Grigliato PRFV maglia 38x38 altezza 38 mm aperto
+      Codice: 09.P15.A05.015, U.M.: m², Euro: 120.49, Note: 
+    Work: Grigliato PRFV maglia 50x50 altezza 50 mm aperto
+      Codice: 09.P15.A05.020, U.M.: m², Euro: 143.24, Note: 
+    Work: Grigliato PRFV maglia 50x50/100x50 altezza 100 mm aperto
+      Codice: 09.P15.A05.025, U.M.: m², Euro: 424.22, Note: 
+    Work: Grigliato PRFV maglia micro 15x15  altezza 30 mm aperto
+      Codice: 09.P15.A05.030, U.M.: m², Euro: 155.76, Note: 
+  Activity: Grigliato in PRFV (Poliestere Rinforzato Fibra di Vetro) CHIUSO/CIECO, resina isoftalica autoestinguente, con quarzo antiscivolo
+    Work: Grigliato PRFV maglia 38x38 altezza 25+3 mm chiuso
+      Codice: 09.P15.A10.005, U.M.: m², Euro: 126.07, Note: 
+    Work: Grigliato PRFV maglia 38x38  altezza 30+3 mm chiuso
+      Codice: 09.P15.A10.010, U.M.: m², Euro: 140.12, Note: 
+    Work: Grigliato PRFV maglia 38x38  altezza 38+3 mm chiuso
+      Codice: 09.P15.A10.015, U.M.: m², Euro: 161.5, Note: 
+    Work: Grigliato PRFV maglia 50x50 altezza 50+3 mm chiuso
+      Codice: 09.P15.A10.020, U.M.: m², Euro: 181.15, Note: 
+    Work: Grigliato PRFV maglia 50x50/100x50 altezza 100+3 mm chiuso
+      Codice: 09.P15.A10.025, U.M.: m², Euro: 481.82, Note: 
+  Activity: Recinzione in PRFV (Poliestere Rinforzato Fibra di Vetro), resina isoftalica autoestinguente, profilo liscio. Sono inclusi i montanti e i cambi di direzione in resina, i tappi di chiusura dei montanti, la base rettangolare in AISI304 da tassellare, i tasselli AISI304 e i bulloni inox per il montaggio dei pannelli
+    Work: Recinzione PRFV maglia rettangolare o quadrata di spessore fino a 30 mm aperto
+      Codice: 09.P15.A20.005, U.M.: m², Euro: 79.93, Note: 
+  Activity: Tubo in PVC-U per condotte in pressione PN10 o PN16 (giunzione filettata o ad incollaggio)
+    Work: Tubo in PVC-U - Fino a De 20
+      Codice: 09.P15.A30.005, U.M.: m, Euro: 1.14, Note: 
+    Work: Tubo in PVC-U - De 25
+      Codice: 09.P15.A30.010, U.M.: m, Euro: 1.76, Note: 
+    Work: Tubo in PVC-U - De 32
+      Codice: 09.P15.A30.015, U.M.: m, Euro: 2.04, Note: 
+    Work: Tubo in PVC-U - De 40
+      Codice: 09.P15.A30.020, U.M.: m, Euro: 2.92, Note: 
+    Work: Tubo in PVC-U - De 50
+      Codice: 09.P15.A30.025, U.M.: m, Euro: 4.49, Note: 
+    Work: Tubo in PVC-U - De 63
+      Codice: 09.P15.A30.030, U.M.: m, Euro: 6.99, Note: 
+    Work: Tubo in PVC-U - De 75
+      Codice: 09.P15.A30.035, U.M.: m, Euro: 9.93, Note: 
+    Work: Tubo in PVC-U - De 90
+      Codice: 09.P15.A30.040, U.M.: m, Euro: 13.02, Note: 
+    Work: Tubo in PVC-U - De 110
+      Codice: 09.P15.A30.045, U.M.: m, Euro: 15.96, Note: 
+    Work: Tubo in PVC-U - De 125
+      Codice: 09.P15.A30.050, U.M.: m, Euro: 20.36, Note: 
+    Work: Tubo in PVC-U - De 140
+      Codice: 09.P15.A30.055, U.M.: m, Euro: 25.56, Note: 
+    Work: Tubo in PVC-U - De 160
+      Codice: 09.P15.A30.060, U.M.: m, Euro: 33.37, Note: 
+    Work: Tubo in PVC-U - De 200
+      Codice: 09.P15.A30.065, U.M.: m, Euro: 52.15, Note: 
+    Work: Tubo in PVC-U - De 250
+      Codice: 09.P15.A30.070, U.M.: m, Euro: 81.23, Note: 
+    Work: Tubo in PVC-U - De 315
+      Codice: 09.P15.A30.075, U.M.: m, Euro: 126.63, Note: 
+  Activity: Raccordi in PVC-U per condotte in pressione (giunzione filettata o ad incollaggio) quali manicotti, ti a 45°e 90°, gomiti a 45°e 90°, bocchettoni, curve, portagomma, riduzioni e bussole di riduzione, calotte, collari, croci, flange libere e cieche, nipple, adattatori, tappi, maggioratori
+    Work: Tubo in PVC-U - Fino a De 20
+      Codice: 09.P15.A35.005, U.M.: cad, Euro: 1.95, Note: 
+    Work: Tubo in PVC-U - De 25
+      Codice: 09.P15.A35.010, U.M.: cad, Euro: 2.49, Note: 
+    Work: Tubo in PVC-U - De 32
+      Codice: 09.P15.A35.015, U.M.: cad, Euro: 3.48, Note: 
+    Work: Tubo in PVC-U - De 40
+      Codice: 09.P15.A35.020, U.M.: cad, Euro: 4.7, Note: 
+    Work: Tubo in PVC-U - De 50
+      Codice: 09.P15.A35.025, U.M.: cad, Euro: 6.29, Note: 
+    Work: Tubo in PVC-U - De 63
+      Codice: 09.P15.A35.030, U.M.: cad, Euro: 8.91, Note: 
+    Work: Tubo in PVC-U - De 75
+      Codice: 09.P15.A35.035, U.M.: cad, Euro: 19.59, Note: 
+    Work: Tubo in PVC-U - De 90
+      Codice: 09.P15.A35.040, U.M.: cad, Euro: 25.47, Note: 
+    Work: Tubo in PVC-U - De 110
+      Codice: 09.P15.A35.045, U.M.: cad, Euro: 37.58, Note: 
+    Work: Tubo in PVC-U - De 125
+      Codice: 09.P15.A35.050, U.M.: cad, Euro: 42.12, Note: 
+    Work: Tubo in PVC-U - De 140
+      Codice: 09.P15.A35.055, U.M.: cad, Euro: 51.14, Note: 
+    Work: Tubo in PVC-U - De 160
+      Codice: 09.P15.A35.060, U.M.: cad, Euro: 69.18, Note: 
+    Work: Tubo in PVC-U - De 200
+      Codice: 09.P15.A35.065, U.M.: cad, Euro: 129.39, Note: 
+    Work: Tubo in PVC-U - De 250
+      Codice: 09.P15.A35.070, U.M.: cad, Euro: 215.62, Note: 
+    Work: Tubo in PVC-U - De 315
+      Codice: 09.P15.A35.075, U.M.: cad, Euro: 344.02, Note: 
+  Activity: Valvola a sfera in PVC-U con maniglia blu per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Valvola a sfera in PVC-U con maniglia blu - Fino a De 20
+      Codice: 09.P15.A40.005, U.M.: cad, Euro: 20.1, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 25
+      Codice: 09.P15.A40.010, U.M.: cad, Euro: 22.28, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 32
+      Codice: 09.P15.A40.015, U.M.: cad, Euro: 28.68, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 40
+      Codice: 09.P15.A40.020, U.M.: cad, Euro: 35.12, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 50
+      Codice: 09.P15.A40.025, U.M.: cad, Euro: 42.85, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 63
+      Codice: 09.P15.A40.030, U.M.: cad, Euro: 60.72, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 75
+      Codice: 09.P15.A40.035, U.M.: cad, Euro: 194.95, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 90
+      Codice: 09.P15.A40.040, U.M.: cad, Euro: 237.88, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De 110
+      Codice: 09.P15.A40.045, U.M.: cad, Euro: 298.62, Note: 
+  Activity: Valvola a sfera in PVC-U con maniglia rossa per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Valvola a sfera in PVC-U con maniglia rossa - Fino a De 20
+      Codice: 09.P15.A45.005, U.M.: cad, Euro: 44.37, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 25
+      Codice: 09.P15.A45.010, U.M.: cad, Euro: 51.97, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 32
+      Codice: 09.P15.A45.015, U.M.: cad, Euro: 62.33, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 40
+      Codice: 09.P15.A45.020, U.M.: cad, Euro: 80.87, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 50
+      Codice: 09.P15.A45.025, U.M.: cad, Euro: 101.67, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 63
+      Codice: 09.P15.A45.030, U.M.: cad, Euro: 130.16, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 75
+      Codice: 09.P15.A45.035, U.M.: cad, Euro: 333.3, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 90
+      Codice: 09.P15.A45.040, U.M.: cad, Euro: 428.01, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De 110
+      Codice: 09.P15.A45.045, U.M.: cad, Euro: 543.59, Note: 
+  Activity: Valvola di non ritorno a molla o a palla in PVC-U per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - Fino a De 20
+      Codice: 09.P15.A50.005, U.M.: cad, Euro: 55.71, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De 25
+      Codice: 09.P15.A50.010, U.M.: cad, Euro: 63.52, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De 32
+      Codice: 09.P15.A50.015, U.M.: cad, Euro: 71, Note: 
+    Work: Valvola di non ritorno a molla o a palla  in PVC-U - De 40
+      Codice: 09.P15.A50.020, U.M.: cad, Euro: 91.49, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De 50
+      Codice: 09.P15.A50.025, U.M.: cad, Euro: 117.62, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De 63
+      Codice: 09.P15.A50.030, U.M.: cad, Euro: 165.62, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De 75
+      Codice: 09.P15.A50.035, U.M.: cad, Euro: 323.24, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De 90
+      Codice: 09.P15.A50.040, U.M.: cad, Euro: 418.31, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De 110
+      Codice: 09.P15.A50.045, U.M.: cad, Euro: 534.11, Note: 
+  Activity: Filtro a Y in PVC-U per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Filtro a Y in PVC-U - Fino a De 20
+      Codice: 09.P15.A55.005, U.M.: cad, Euro: 61.95, Note: 
+    Work: Filtro a Y in PVC-U - De 25
+      Codice: 09.P15.A55.010, U.M.: cad, Euro: 72.46, Note: 
+    Work: Filtro a Y in PVC-U - De 32
+      Codice: 09.P15.A55.015, U.M.: cad, Euro: 95.13, Note: 
+    Work: Filtro a Y  in PVC-U - De 40
+      Codice: 09.P15.A55.020, U.M.: cad, Euro: 115.47, Note: 
+    Work: Filtro a Y in PVC-U - De 50
+      Codice: 09.P15.A55.025, U.M.: cad, Euro: 151.65, Note: 
+    Work: Filtro a Y in PVC-U - De 63
+      Codice: 09.P15.A55.030, U.M.: cad, Euro: 191.8, Note: 
+    Work: Filtro a Y in PVC-U - De 75
+      Codice: 09.P15.A55.035, U.M.: cad, Euro: 300.05, Note: 
+    Work: Filtro a Y in PVC-U - De 90
+      Codice: 09.P15.A55.040, U.M.: cad, Euro: 361.8, Note: 
+    Work: Filtro a Y in PVC-U - De 110
+      Codice: 09.P15.A55.045, U.M.: cad, Euro: 655.81, Note: 
+  Activity: Flussimetro per liquidi per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Flussimetro - Fino a De 20
+      Codice: 09.P15.A60.005, U.M.: cad, Euro: 188.85, Note: 
+    Work: Flussimetro - De 25
+      Codice: 09.P15.A60.010, U.M.: cad, Euro: 213.35, Note: 
+    Work: Flussimetro - De 32
+      Codice: 09.P15.A60.015, U.M.: cad, Euro: 289.91, Note: 
+    Work: Flussimetro - De 40
+      Codice: 09.P15.A60.020, U.M.: cad, Euro: 339.93, Note: 
+    Work: Flussimetro - De 50
+      Codice: 09.P15.A60.025, U.M.: cad, Euro: 455.28, Note: 
+    Work: Flussimetro - De 63
+      Codice: 09.P15.A60.030, U.M.: cad, Euro: 789.08, Note: 
+  Activity: supporti ferma tubo in plastica
+    Work: Supporti - Fino a De 20
+      Codice: 09.P15.A65.005, U.M.: cad, Euro: 1.3, Note: 
+    Work: Supporti - De 25
+      Codice: 09.P15.A65.010, U.M.: cad, Euro: 1.49, Note: 
+    Work: Supporti - De 32
+      Codice: 09.P15.A65.015, U.M.: cad, Euro: 1.72, Note: 
+    Work: Supporti - De 40
+      Codice: 09.P15.A65.020, U.M.: cad, Euro: 2.65, Note: 
+    Work: Supporti - De 50
+      Codice: 09.P15.A65.025, U.M.: cad, Euro: 3.34, Note: 
+    Work: Supporti - De 63
+      Codice: 09.P15.A65.030, U.M.: cad, Euro: 3.66, Note: 
+    Work: Supporti - De 75
+      Codice: 09.P15.A65.035, U.M.: cad, Euro: 6.53, Note: 
+    Work: Supporti - De 90
+      Codice: 09.P15.A65.040, U.M.: cad, Euro: 8.93, Note: 
+    Work: Supporti - De 110
+      Codice: 09.P15.A65.045, U.M.: cad, Euro: 10.07, Note: 
+    Work: Supporti - De 125
+      Codice: 09.P15.A65.050, U.M.: cad, Euro: 14.06, Note: 
+    Work: Supporti - De 140
+      Codice: 09.P15.A65.055, U.M.: cad, Euro: 15.72, Note: 
+    Work: Supporti - De 160
+      Codice: 09.P15.A65.060, U.M.: cad, Euro: 18.78, Note: 
+
+Category: OPERE CIVILI
+  Activity: Livellamento degli stramazzi di vasca di sedimentazione comprensivo di: 1) pulizia con idropulitrice della lama di stramazzo; 2) rilevamento delle quote dello stramazzo a fine di individuare la quota media di livellamento; 3) abbassamento od innalzamento dello stramazzo con eventuale sostituzione della bulloneria di ancoraggio; 4) fissaggio tramite tasselli INOX M 8x75 di piastre a molla INOX per bloccaggio di eventuali tratte mal ancorate in ragione del 30% max del perimetro, i tasselli dovranno essere in n. 3 al m; 5) risigillatura con silicone del bordo lato interno per evitare il sifonamento della lamiera o posa di guarnizione morbida.
+    Work: ...
+      Codice: 09.A01.A15.005, U.M.: m, Euro: 5.98, Note: 
+  Activity: Fornitura e posa di copertura in lastre isolate coibentate a profilo grecato in acciaio zincato, protetta nella faccia superiore da un rivestimento anticorrosivo (spessore totale lamiera + rivestimento minimo 1,5 mm.) e nella faccia inferiore da un primer bituminoso termostabile.
+    Work: compresi gruppi di fissaggio e pezzi speciali (spessore minimo 50 mm)
+      Codice: 09.A01.A35.005, U.M.: m², Euro: 89.89, Note: 
+  Activity: Fornitura e posa di tubazioni in acciaio per condotte interrate tipo SS, bitumate UNI 6363/C UNI 6363/B; UNI 6363 - ERW o LSAW fino a 500 compreso UNI 6363 - ERW o LSAW o SSAW oltre 500, rivestimento esterno bituminoso UNI 5256 Classe III, rivestimento interno Primer bituminoso.
+    Work: a) DN 100
+      Codice: 09.A01.A45.005, U.M.: m, Euro: 21.37, Note: 
+    Work: b) DN 150
+      Codice: 09.A01.A45.010, U.M.: m, Euro: 32.6, Note: 
+    Work: c) DN 200
+      Codice: 09.A01.A45.015, U.M.: m, Euro: 46.85, Note: 
+    Work: d) DN 250
+      Codice: 09.A01.A45.020, U.M.: m, Euro: 61.85, Note: 
+    Work: e) DN 300
+      Codice: 09.A01.A45.025, U.M.: m, Euro: 76.82, Note: 
+    Work: f) DN 350
+      Codice: 09.A01.A45.030, U.M.: m, Euro: 90.67, Note: 
+    Work: g) DN 400
+      Codice: 09.A01.A45.035, U.M.: m, Euro: 98.92, Note: 
+    Work: h) DN 450
+      Codice: 09.A01.A45.040, U.M.: m, Euro: 109.05, Note: 
+    Work: i) DN 500
+      Codice: 09.A01.A45.045, U.M.: m, Euro: 122.87, Note: 
+    Work: j) DN 550
+      Codice: 09.A01.A45.050, U.M.: m, Euro: 127.4, Note: 
+    Work: k) DN 600
+      Codice: 09.A01.A45.055, U.M.: m, Euro: 138.65, Note: 
+    Work: l) DN 800
+      Codice: 09.A01.A45.060, U.M.: m, Euro: 202.32, Note: 
+    Work: m) DN 1000
+      Codice: 09.A01.A45.065, U.M.: m, Euro: 303.51, Note: 
+  Activity: Fornitura e posa di tubazioni in acciaio zincato
+    Work: Fornitura e posa di tubazioni in acciaio zincato UNI 8863
+      Codice: 09.A01.A50.005, U.M.: kg, Euro: 11.23, Note: 
+
+Category: CAROTAGGI
+  Activity: Apertura di fori rotondi eseguiti su struttura di c.a. od assimilabili eseguiti con la tecnica usuale o con la tecnica del carotaggio continuo, compresa la pulizia dell'area di lavoro e lo smaltimenti in discarica del materiale di risulta. L'approvvigionamento idrico è compreso nel prezzo
+    Work: Carotaggio fino a diametro 52 mm - Primo foro
+      Codice: 09.A05.A05.005, U.M.: cad, Euro: 147.18, Note: 
+    Work: Carotaggio fino a diametro 52 mm - Per ogni foro eseguito successivamente al primo
+      Codice: 09.A05.A05.010, U.M.: cm, Euro: 2.46, Note: 
+    Work: Carotaggio diametro da 62 mm a 102 mm - Primo foro
+      Codice: 09.A05.A05.015, U.M.: cad, Euro: 258, Note: 
+    Work: Carotaggio diametro da 62 mm a 102 mm - Per ogni foro eseguito successivamente al primo
+      Codice: 09.A05.A05.020, U.M.: cm, Euro: 4.57, Note: 
+    Work: Carotaggio diametro da 112 mm a 202 mm - Primo foro
+      Codice: 09.A05.A05.025, U.M.: cad, Euro: 455.91, Note: 
+    Work: Carotaggio diametro da 112 mm a 202 mm - Per ogni foro eseguito successivamente al primo
+      Codice: 09.A05.A05.030, U.M.: cm, Euro: 7.21, Note: 
+    Work: Carotaggio diametro da 225 mm a 300 mm - Primo foro
+      Codice: 09.A05.A05.035, U.M.: cad, Euro: 653.82, Note: 
+    Work: Carotaggio diametro da 225 mm a 300 mm - Per ogni foro eseguito successivamente al primo
+      Codice: 09.A05.A05.040, U.M.: cm, Euro: 11.17, Note: 
+    Work: Carotaggio diametro da 350 mm a 400 mm - Primo foro
+      Codice: 09.A05.A05.045, U.M.: cad, Euro: 829.3, Note: 
+    Work: Carotaggio diametro da 350 mm a 400 mm - Per ogni foro eseguito successivamente al primo
+      Codice: 09.A05.A05.050, U.M.: cm, Euro: 13.81, Note: 
+  Activity: Fornitura e posa in opera di piastrelle, bordature o zoccolature antiacido con adeguate caratteristiche di resistenza e di protezione contro l'aggressione di acidi di varia origine, chimica o organica, per pavimentazione o rivestimento di pareti in ambito industriale (quali, a titolo esemplificativo e non esaustivo, vasche di sedimentazione, di contenimento contro lo sversamento accidentale di prodotti chimici, manufatti per l'alloggiamento di macchinari/pompe dosatrici, ecc..), comprendente la pulizia delle superfici da polvere o residui che possano compromettere l'adesione della piastrella ed eventuale stesa di primer, preparazione e stesa con spatola dentata di collante strutturale flessibile che garantisca un ottimo e duraturo incollaggio nel tempo anche in condizioni aggressive, fornitura e posa delle piastrelle, bordature o zoccolature antiacido, stuccatura delle fughe, previa pulizia, da eseguirsi con apposito fugante bicomponente antiacido (curando la pulizia delle superfici al fine di asportare il fugante in eccesso entro i tempi di indurimento)
+    Work: Fornitura e posa di pavimento o rivestimento in piastrelle antiacido
+      Codice: 09.A05.A10.005, U.M.: m², Euro: 83.62, Note: 
+    Work: Fornitura e posa di bordatura o zoccolatura per pavimento o rivestimento in piastrelle antiacido
+      Codice: 09.A05.A10.010, U.M.: m², Euro: 31.67, Note: 
+    Work: Ripristino di pavimento o rivestimento in piastrelle antiacido per superfici inferiori a 2m² per singolo intervento
+      Codice: 09.A05.A10.015, U.M.: m², Euro: 167.25, Note: 
+  Activity: Posa in opera di piastrelle, bordature o zoccolature antiacido con adeguate caratteristiche di resistenza e di protezione contro l'aggressione di acidi di varia origine, chimica o organica, per pavimentazione o rivestimento di pareti in ambito industriale (quali, a titolo esemplificativo e non esaustivo, vasche di sedimentazione, di contenimento contro lo sversamento accidentale di prodotti chimici, manufatti per l'alloggiamento di macchinari/pompe dosatrici, ecc..), comprendente la pulizia delle superfici da polvere o residui che possano compromettere l'adesione della piastrella ed eventuale stesa di primer, preparazione e stesa con spatola dentata di collante strutturale flessibile che garantisca un ottimo e duraturo incollaggio nel tempo anche in condizioni aggressive, posa delle piastrelle, bordature o zoccolature antiacido, stuccatura delle fughe, previa pulizia, da eseguirsi con apposito fugante bicomponente antiacido (curando la pulizia delle superfici al fine di asportare il fugante in eccesso entro i tempi di indurimento)
+    Work: Posa di pavimento o rivestimento in piastrelle antiacido
+      Codice: 09.A05.A15.005, U.M.: m², Euro: 38.62, Note: 
+    Work: Posa di bordatura o zoccolatura per pavimento o rivestimento in piastrelle antiacido
+      Codice: 09.A05.A15.010, U.M.: m, Euro: 9.13, Note: 
+  Activity: Realizzazione di riprese di getto (ancoraggi) per la connessione di nuovi elementi in cemento armato su pavimentazioni o manufatti esistenti, consistente nell'esecuzione di perforazione a rotopercussione, con un diametro sino a 20 mm per una profondità pari a circa i 2/3 dello spessore della muratura perforata, compresa l'accurata pulizia del foro con l'aspirazione forzata della polvere e dei detriti della foratura eseguita, la fornitura in opera di uno spezzone di barra piegata (gancio) in acciaio ad aderenza migliorata fino a 12 mm di diametro e per una lunghezza minima pari a venti volte il diametro del tondino utilizzato; il successivo inghisaggio è ottenuto mediante riempimento a rifiuto del foro praticato per la sua intera lunghezza con ancorante chimico ad iniezione bicomponente  e l'introduzione del gancio. Compresa ogni altra opera accessoria
+    Work: ...
+      Codice: 09.A05.A20.005, U.M.: cad, Euro: 20.77, Note: 
+  Activity: Taglio di pavimentazioni in calcestruzzo armato per la formazione di giunti di dilatazione o altro, con disco diamantato opportunamente raffreddato ad acqua durante l'operazione di taglio
+    Work: ...
+      Codice: 09.A05.A25.005, U.M.: m, Euro: 14.05, Note: 
+  Activity: Sistemazione di aree pavimentate in marmette autobloccanti che presentano cedimenti, sfornellamenti, caditoie o tombini da riquotare, pozzetti da risanare. La lavorazione prevede la fornitura di nuove marmette, oppure in alternativa il riutilizzo di marmette precedentemente rimosse curandone la cernita e la pulizia, e la successiva posa su letto di sabbia. È compresa l'eventuale sistemazione e la riquotatura di caditoie, chiusini e pozzetti presenti nell'area
+    Work: ...
+      Codice: 09.A05.A30.005, U.M.: m², Euro: 57.08, Note: 
+  Activity: Lavatura mediante idrolavaggio ad alta pressione su manufatti in genere al fine di rimuovere vecchi rivestimenti e preparare le superfici per successivi trattamenti
+    Work: ...
+      Codice: 09.A05.A35.005, U.M.: m², Euro: 7.16, Note: 
+  Activity: Applicazione di cicli protettivi su superfici metalliche di qualsiasi forma e dimensione con adeguate caratteristiche tecniche e spessori delle vernici protettive. I cicli sono costituiti da una ripresa di fondo e due riprese di vernice
+    Work: Verniciatura su carpenteria metallica, lamiere sagomate, serbatoi di stoccaggio
+      Codice: 09.A05.A40.005, U.M.: m², Euro: 24.96, Note: 
+    Work: Verniciatura su tubazioni, valvolame, condotte e paratoie metalliche
+      Codice: 09.A05.A40.010, U.M.: m², Euro: 29.65, Note: 
+    Work: Verniciatura su porte, portoni e passerelle
+      Codice: 09.A05.A40.015, U.M.: m², Euro: 30.58, Note: 
+  Activity: Applicazione di cicli protettivi su superfici in conglomerato cementizio di qualsiasi forma e dimensione con adeguate caratteristiche tecniche e spessori delle vernici protettive
+    Work: Verniciatura a smalto di superfici interne o esterne su strutture in c.a. - il ciclo è costituito da fondo a base di resine e successiva applicazione di smalto con adeguate caratteristiche di resistenza all'acqua, alle atmosfere aggressive, agli agenti atmosferici, alla formazione di muffe ed insudiciamento
+      Codice: 09.A05.A45.005, U.M.: m², Euro: 17.49, Note: 
+    Work: Ciclo protettivo superfici interne delle vasche in c.a. contenenti liquami o fanghi -  il ciclo è costituito da fondo di ancoraggio a base di resine e successivo rivestimento protettivo
+      Codice: 09.A05.A45.010, U.M.: m², Euro: 24.38, Note: 
+  Activity: Accurata smerigliatura di strutture in calcestruzzo al fine di eliminare/asportare totalmente rivestimenti, vernici e colle esistenti, utilizzando apposita smerigliatrice/levigatrice a mano con disco diamantato collegata ad un aspiratore al fine di ridurre le polveri
+    Work: ...
+      Codice: 09.A05.A50.005, U.M.: m², Euro: 19.5, Note: 
+  Activity: Montaggio e successivo smontaggio all'interno di vasche o manufatti di sistemi modulari galleggianti (zattere modulari galleggianti montabili) fornite dal committente. Sono esclusi eventuali oneri per la sicurezza e/o personale impiegato in compiti attinenti la sicurezza. La lavorazione comprende la condivisione modalità operative con referenti della stazione appaltante, il trasporto in cantiere e montaggio all'interno della vasca del sistema di zattere modulari galleggianti fornite dal committente comprese di parapetto, smontaggio del sistema di zattere modulari galleggianti al termine delle lavorazioni, accurata pulizia e trasporto in luogo indicato dal committente
+    Work: ...
+      Codice: 09.A05.A55.005, U.M.: m², Euro: 233.85, Note: 
+  Activity: Rimozione di vecchi rivestimenti e preparazione del supporto per successiva impermeabilizzazione all'interno di vasche in cls contenenti liquami o fanghi da depurazione mediante l'utilizzo di idonei sistemi al fine di raggiungere le superfici da trattare. La lavorazione comprende la condivisione modalità operative con referenti della stazione appaltante, la rimozione vecchi rivestimenti e parti di calcestruzzo incoerenti (scarificazione delle parti di calcestruzzo distaccate o non perfettamente ancorate oppure fessurate e successiva accurata idrosabbiatura/sabbiatura e/o smerigliatura utilizzando apposita smerigliatrice/levigatrice a mano con disco diamantato collegata ad un aspiratore per ridurre le polveri, al fine di rimuovere totalmente vecchi rivestimenti fino al raggiungimento del supporto coerente). La lavorazione comprende inoltre il trasporto delle attrezzature e del materiale in cantiere e tutto quanto necessario ad eseguire la lavorazione a regola d'arte, compreso l'eventuale utilizzo, modifica dimensionale e spostamento di sistemi a zattera con livello d'acqua variabile all'interno della vasca o l'eventuale utilizzo, spostamento e livellamento di trabattelli anche su fondi non planari
+    Work: ...
+      Codice: 09.A05.A60.005, U.M.: m², Euro: 51.93, Note: 
+  Activity: Trattamento di ripristino e impermeabilizzazione interna di vasche in cls contenenti liquami o fanghi da depurazione mediante l'utilizzo di idonei sistemi al fine di raggiungere le superfici da trattare. La lavorazione comprende la condivisione modalità operative con referenti della stazione appaltante, gli eventuali ripristini localizzati del supporto (verifica dello stato del supporto e nell'eventualità si riscontrassero nidi di ghiaia del getto, copriferro mancante, eventuali parti mancanti o non planari, ripristino della complanarità e della consistenza del supporto mediante utilizzo di malta tixotropica per la passivazione, ripristino, rasatura e protezione monolitica di strutture in calcestruzzo degradato) e successiva applicazione a spatola, rullo o pennello di rivestimento impermeabile con adeguato spessore per la protezione e l'impermeabilizzazione a durabilità garantita di strutture in calcestruzzo, previa applicazione di primer. La lavorazione comprende inoltre il trasporto delle attrezzature e del materiale in cantiere e tutto quanto necessario ad eseguire la lavorazione a regola d'arte, compreso l'eventuale utilizzo, modifica dimensionale e spostamento di sistemi a zattera con livello d'acqua variabile all'interno della vasca o l'eventuale utilizzo, spostamento e livellamento di trabattelli anche su fondi non planari.
+    Work: ...
+      Codice: 09.A05.A65.005, U.M.: m², Euro: 77.33, Note: 
+  Activity: Rifacimento delle vie di corsa di carriponte mediante demolizione di porzioni incoerenti e vecchi rivestimenti e realizzazione di un massetto epossidico. La lavorazione comprende: 
+- rimozione vecchi rivestimenti: demolizione e rimozione di vecchi rivestimenti esistenti e preparazione accurata del supporto in cemento armato mediante scabratura per rendere la superficie grezza al tatto; 
+- locali ripristini: ripristini con malta pronta monocomponente tixotropica a base di cementi speciali e resine sintetiche delle zone maggiormente disgregate a seguito della demolizione del vecchio rivestimento (presenza di supporto incoerente);  
+- preparazione del supporto: preparazione del supporto in cemento armato mediante intagliatura con disco diamantato, per rendere la superficie graffiata in maniera fitta e migliorare l'aggrappo del massetto epossidico; 
+- massetto epossidico: primerizzazione con legante epossidico; ad asciugatura quasi, ma non del tutto avvenuta, posa in opera di massetto epossidico, creato miscelando puro legante epossidico e sabbia di quarzo asciutta a granulometria controllata (spessore totale del massetto epossidico compreso fra 1 e 2 cm). È compresa nel prezzo anche la casseratura laterale ove necessaria; 
+- spolvero superficiale: ad asciugatura quasi, ma non del tutto avvenuta, stendere a pennello sulla superficie porosa una mano di legante epossidico puro, non diluito, per chiudere le porosità superficiali e spolverare fresco su fresco con quarzo secco fine, allo scopo di irrobustire la crosta superficiale senza perdere l'attrito necessario al rotolamento delle ruote del carroponte; 
+- giunti di dilatazione: creazione di adeguati giunti di dilatazione nel nuovo massetto epossidico trasversalmente in corrispondenza dei preesistenti giunti strutturali (e comunque a distanze non superiori a metri 5) mediante intagliatura con disco diamantato e riempimento con sigillante poliuretanico tixotropico ad alta resistenza all'abrasione per giunti di dilatazione-deformazione
+    Work: ...
+      Codice: 09.A05.A70.005, U.M.: m², Euro: 446.58, Note: 
+  Activity: Ripristini superficiali delle vie di corsa di carriponte comprendente: 
+- preparazione delle superfici e locali ripristini superficiali; 
+- spolvero superficiale: stendere a pennello sulla superficie porosa una mano di legante epossidico puro, non diluito, per chiudere le porosità superficiali e spolverare fresco su fresco con quarzo secco fine, allo scopo di irrobustire la crosta superficiale senza perdere l'attrito necessario al rotolamento delle ruote del carroponte
+    Work: ...
+      Codice: 09.A05.A75.005, U.M.: m², Euro: 64.85, Note: 
+  Activity: Rimozione di membrane/guaine di impermeabilizzazione da coperture piane, a volta o inclinate, in qualunque piano di fabbricato, compreso il carico e il trasporto in pubblica discarica, esclusi i soli oneri di smaltimento
+    Work: ...
+      Codice: 09.A05.A80.005, U.M.: m², Euro: 9.42, Note: 
+  Activity: Impermeabilizzazione di tetti piani con applicazione di uno strato di guaina bituminosa (compresa la fornitura e stesa di vernice bituminosa di aggrappo e la fornitura e posa di bocchettoni/messicani in corrispondenza delle pluviali)
+    Work: Impermeabilizzazione con uno strato di guaina non ardesiata
+      Codice: 09.A05.A85.005, U.M.: m², Euro: 18.16, Note: 
+    Work: Impermeabilizzazione con uno strato di guaina ardesiata
+      Codice: 09.A05.A85.010, U.M.: m², Euro: 19.29, Note: 
+  Activity: Provvista e posa in opera di tubi pluviali, doccioni, converse, faldali, in alluminio spessore 8/10, compreso ogni accessorio per il fissaggio
+    Work: ...
+      Codice: 09.A05.A90.005, U.M.: kg, Euro: 62.59, Note: 
+
+Category: OPERE MECCANICHE (materiale metallico)
+  Activity: Fornitura, costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in acciaio inox tipo AISI304/316
+    Work: Carpenteria metallica in Acciaio Inox tipo aisi 304/316 - Minore di 25 kg o grigliati di qualunque peso
+      Codice: 09.A10.A05.005, U.M.: kg, Euro: 22.77, Note: 
+    Work: Carpenteria metallica in Acciaio Inox tipo aisi 304/316 - da 25 a 500 kg
+      Codice: 09.A10.A05.010, U.M.: kg, Euro: 18.66, Note: 
+    Work: Carpenteria metallica in Acciaio Inox tipo aisi 304/316 - Maggiore di 500 kg
+      Codice: 09.A10.A05.015, U.M.: kg, Euro: 17.3, Note: 
+  Activity: Costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in acciaio inox tipo AISI304/316
+    Work: Carpenteria metallica in acciaio inox tipo aisi 304/316
+      Codice: 09.A10.A10.005, U.M.: kg, Euro: 10.3, Note: 
+  Activity: Fornitura, costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in acciaio al carbonio (Fe 430 - Fe 510) grezzo
+    Work: Carpenteria metallica in Fe430-510 grezzo - Minore di 25 kg o grigliati di qualunque peso
+      Codice: 09.A10.A15.005, U.M.: kg, Euro: 9.8, Note: 
+    Work: Carpenteria metallica in Fe430-510 grezzo - da 25 a 500 kg
+      Codice: 09.A10.A15.010, U.M.: kg, Euro: 8.08, Note: 
+    Work: Carpenteria metallica in Fe430-510 grezzo - Maggiore di 500 kg
+      Codice: 09.A10.A15.015, U.M.: kg, Euro: 7.39, Note: 
+  Activity: Costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in acciaio al carbonio (Fe 430 - Fe 510) grezzo
+    Work: Carpenteria metallica in Fe430-510 grezzo
+      Codice: 09.A10.A20.005, U.M.: kg, Euro: 5.5, Note: 
+  Activity: Fornitura, costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in acciaio al carbonio (Fe 430 - Fe 510) zincato a caldo
+    Work: Carpenteria metallica in Fe430-510 Zincato a caldo - Minore di 25 kg o grigliati di qualunque peso
+      Codice: 09.A10.A25.005, U.M.: kg, Euro: 10.73, Note: 
+    Work: Carpenteria metallica in Fe430-510 Zincato a caldo - da 25 a 500 kg
+      Codice: 09.A10.A25.010, U.M.: kg, Euro: 9.2, Note: 
+    Work: Carpenteria metallica in Fe430-510 Zincato a caldo - Maggiore di 500 kg
+      Codice: 09.A10.A25.015, U.M.: kg, Euro: 8.32, Note: 
+  Activity: Costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in acciaio al carbonio (Fe 430 - Fe 510) zincato a caldo
+    Work: Carpenteria metallica in Fe430-510 Zincato a caldo
+      Codice: 09.A10.A30.005, U.M.: kg, Euro: 6.44, Note: 
+  Activity: Fornitura, costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in Alluminio
+    Work: Carpenteria metallica in Alluminio - Minore di 25 kg o grigliati di qualunque peso
+      Codice: 09.A10.A35.005, U.M.: kg, Euro: 23.28, Note: 
+    Work: Carpenteria metallica in Alluminio - da 25 a 500 kg
+      Codice: 09.A10.A35.010, U.M.: kg, Euro: 20.68, Note: 
+    Work: Carpenteria metallica in Alluminio - Maggiore di 500 kg
+      Codice: 09.A10.A35.015, U.M.: kg, Euro: 19.65, Note: 
+  Activity: Costruzione e montaggio di carpenteria metallica realizzata con profilati laminati a caldo (H, C, L, T, Z), barre (tonde, quadre, esagonali, ecc.), piatti o larghi piatti per supporti, mensole, miglioramenti o completamenti di strutture metalliche esistenti, preparazione dei simulacri e di ogni lavoro di carpenteria metallica, compresi i materiali di consumo, di saldatura e gli accessori di montaggio. Carpenteria in Alluminio
+    Work: Carpenteria metallica in Alluminio
+      Codice: 09.A10.A40.005, U.M.: kg, Euro: 11.81, Note: 
+  Activity: Fornitura e posa in opera di bulloni, dadi, rondelle aventi diametri e dimensioni di diverse misure in Acciaio zincato
+    Work: Misura da M10 a M20
+      Codice: 09.A10.A45.005, U.M.: kg, Euro: 8.08, Note: 
+    Work: Misura da M22 a M28
+      Codice: 09.A10.A45.010, U.M.: kg, Euro: 11.48, Note: 
+    Work: Misura da M30 a M36
+      Codice: 09.A10.A45.015, U.M.: kg, Euro: 14.12, Note: 
+    Work: Misura oltre M36
+      Codice: 09.A10.A45.020, U.M.: kg, Euro: 16.98, Note: 
+  Activity: Fornitura e posa in opera di bulloni, dadi, rondelle aventi diametri e dimensioni di diverse misure in Acciaio INOX
+    Work: Misura da M10 a M20
+      Codice: 09.A10.A50.005, U.M.: kg, Euro: 14.68, Note: 
+    Work: Misura da M22 a M30
+      Codice: 09.A10.A50.010, U.M.: kg, Euro: 16.68, Note: 
+  Activity: Posa in opera di bulloni, dadi, rondelle aventi diametri e dimensioni diversi
+    Work: ...
+      Codice: 09.A10.A55.005, U.M.: kg, Euro: 2.68, Note: 
+  Activity: Rimozione di rivestimento isolante coibente, eseguita a mano e/o con l'ausilio di piccoli utensili compresa la separazione secondo codici EER dei materiali di risulta, l'insaccamento in appositi big-bags e lo stoccaggio in luogo indicato dal Committente, esclusi gli oneri per la sicurezza e gli oneri per lo smaltimento. Misura della superficie effettiva prima dell'intervento
+    Work: ...
+      Codice: 09.A10.A60.005, U.M.: m², Euro: 10.42, Note: 
+
+Category: OPERE MECCANICHE (materiale plastico)
+  Activity: Fornitura e posa in opera di grigliato in PRFV (Poliestere Rinforzato Fibra di Vetro) APERTO, resina isoftalica autoestinguente, profilo concavo o con quarzo antiscivolo, compresi i tagli, le riseghe e l'eventuale sfrido non recuperabile. Sostegni e sistemi di fissaggio esclusi
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 38x38, altezza 25 mm (aperto)
+      Codice: 09.A15.A05.005, U.M.: m², Euro: 132.93, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 38x38, altezza 30 mm (aperto)
+      Codice: 09.A15.A05.010, U.M.: m², Euro: 154.73, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 38x38, altezza 38 mm (aperto)
+      Codice: 09.A15.A05.015, U.M.: m², Euro: 190.03, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 50x50, altezza 50 mm (aperto)
+      Codice: 09.A15.A05.020, U.M.: m², Euro: 232.37, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 50x50 o 100x50, altezza 100 mm (aperto)
+      Codice: 09.A15.A05.025, U.M.: m², Euro: 593.67, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia micro 15x15, altezza 30 mm (aperto)
+      Codice: 09.A15.A05.030, U.M.: m², Euro: 213.55, Note: 
+  Activity: Fornitura e posa in opera di grigliato in PRFV (Poliestere Rinforzato Fibra di Vetro) CIECO, resina isoftalica autoestinguente, superficie chiusa (3mm) con quarzo antiscivolo, compresi i tagli, le riseghe e l'eventuale sfrido non recuperabile. Sostegni e sistemi di fissaggio esclusi
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 38x38, altezza 28 mm (cieco)
+      Codice: 09.A15.A10.005, U.M.: m², Euro: 178.96, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 38x38, altezza 33 mm (cieco)
+      Codice: 09.A15.A10.010, U.M.: m², Euro: 201.82, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 38x38, altezza 41 mm (cieco)
+      Codice: 09.A15.A10.015, U.M.: m², Euro: 235.94, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 50x50, altezza 53 mm (cieco)
+      Codice: 09.A15.A10.020, U.M.: m², Euro: 275.18, Note: 
+    Work: Grigliato in PRFV pedonabile antiscivolo a maglia 50x50 o 100x50, altezza 103 mm (cieco)
+      Codice: 09.A15.A10.025, U.M.: m², Euro: 656.16, Note: 
+  Activity: Posa in opera di grigliato in PRFV (Poliestere Rinforzato Fibra di Vetro), resina isoftalica autoestinguente, profilo antiscivolo a maglia aperta o cieca, comprese le eventuali modifiche per la corretta posa quali tagli e/o riseghe. Sostegni e sistemi di fissaggio esclusi
+    Work: per pannelli di altezza fino a 53 mm
+      Codice: 09.A15.A15.005, U.M.: m², Euro: 69.54, Note: 
+    Work: per pannelli di altezza da 60 a 103 mm
+      Codice: 09.A15.A15.010, U.M.: m², Euro: 141.04, Note: 
+  Activity: Posa in opera di grigliato in PRFV (Poliestere Rinforzato Fibra di Vetro), resina isoftalica autoestinguente, profilo antiscivolo a maglia aperta o cieca, comprese le eventuali modifiche per la corretta posa quali tagli e/o riseghe. Sostegni e sistemi di fissaggio esclusi
+    Work: per pannelli di altezza fino a 53 mm
+      Codice: 09.A15.A20.005, U.M.: m², Euro: 92.66, Note: 
+  Activity: Posa in opera di recinzione in PRFV (Poliestere Rinforzato Fibra di Vetro), resina isoftalica autoestinguente, profilo liscio, compresi gli eventuali tagli e le riseghe nei cambi di direzione o terminali, inclusa la posa dei montanti e dei cambi di direzione in resina, dei tappi di chiusura dei montanti e della base rettangolare in AISI304 da tassellare
+    Work: Posa recinzione PRFV maglia rettangolare o quadrata di spessore fino a 30 mm (aperto)
+      Codice: 09.A15.A25.005, U.M.: m², Euro: 16.65, Note: 
+  Activity: Fornitura e posa tubo in PVC-U per condotte in pressione PN10 o PN 16 (giunzione filettata o ad incollaggio)
+    Work: Tubazioni in PVC-U - Fino a De20
+      Codice: 09.A15.A30.005, U.M.: m, Euro: 2.05, Note: 
+    Work: Tubazioni in PVC-U - De25
+      Codice: 09.A15.A30.010, U.M.: m, Euro: 3.57, Note: 
+    Work: Tubazioni in PVC-U - De32
+      Codice: 09.A15.A30.015, U.M.: m, Euro: 3.83, Note: 
+    Work: Tubazioni in PVC-U - De40
+      Codice: 09.A15.A30.020, U.M.: m, Euro: 5.65, Note: 
+    Work: Tubazioni in PVC-U - De50
+      Codice: 09.A15.A30.025, U.M.: m, Euro: 8.12, Note: 
+    Work: Tubazioni in PVC-U - De63
+      Codice: 09.A15.A30.030, U.M.: m, Euro: 11.49, Note: 
+    Work: Tubazioni in PVC-U - De75
+      Codice: 09.A15.A30.035, U.M.: m, Euro: 15.37, Note: 
+    Work: Tubazioni in PVC-U - De90
+      Codice: 09.A15.A30.040, U.M.: m, Euro: 19.32, Note: 
+    Work: Tubazioni in PVC-U - De110
+      Codice: 09.A15.A30.045, U.M.: m, Euro: 23.19, Note: 
+    Work: Tubazioni in PVC-U - De125
+      Codice: 09.A15.A30.050, U.M.: m, Euro: 28.51, Note: 
+    Work: Tubazioni in PVC-U - De140
+      Codice: 09.A15.A30.055, U.M.: m, Euro: 34.6, Note: 
+    Work: Tubazioni in PVC-U - De160
+      Codice: 09.A15.A30.060, U.M.: m, Euro: 44.22, Note: 
+    Work: Tubazioni in PVC-U - De200
+      Codice: 09.A15.A30.065, U.M.: m, Euro: 65.94, Note: 
+    Work: Tubazioni in PVC-U - De250
+      Codice: 09.A15.A30.070, U.M.: m, Euro: 98.98, Note: 
+    Work: Tubazioni in PVC-U - De315
+      Codice: 09.A15.A30.075, U.M.: m, Euro: 148.34, Note: 
+  Activity: Fornitura e posa raccordi in PVC-U per condotte in pressione (giunzione filettata o ad incollaggio) 
+quali manicotti, ti a 45° e 90°, gomiti a 45° e 90°, bocchettoni, curve, portagomma, riduzioni e bussole di riduzione, calotte, collari, croci, flange libere e cieche, nipple, adattatori, tappi, maggioratori...
+    Work: Raccordi in PVC-U - Fino a De20
+      Codice: 09.A15.A35.005, U.M.: cad, Euro: 7.42, Note: 
+    Work: Raccordi in PVC-U - De25
+      Codice: 09.A15.A35.010, U.M.: cad, Euro: 8.66, Note: 
+    Work: Raccordi in PVC-U - De32
+      Codice: 09.A15.A35.015, U.M.: cad, Euro: 9.8, Note: 
+    Work: Raccordi in PVC-U - De40
+      Codice: 09.A15.A35.020, U.M.: cad, Euro: 11.85, Note: 
+    Work: Raccordi in PVC-U - De50
+      Codice: 09.A15.A35.025, U.M.: cad, Euro: 13.73, Note: 
+    Work: Raccordi in PVC-U - De63
+      Codice: 09.A15.A35.030, U.M.: cad, Euro: 17.56, Note: 
+    Work: Raccordi in PVC-U - De75
+      Codice: 09.A15.A35.035, U.M.: cad, Euro: 29.36, Note: 
+    Work: Raccordi in PVC-U - De90
+      Codice: 09.A15.A35.040, U.M.: cad, Euro: 36.77, Note: 
+    Work: Raccordi in PVC-U - De110
+      Codice: 09.A15.A35.045, U.M.: cad, Euro: 51.79, Note: 
+    Work: Raccordi in PVC-U - De125
+      Codice: 09.A15.A35.050, U.M.: cad, Euro: 58.37, Note: 
+    Work: Raccordi in PVC-U - De140
+      Codice: 09.A15.A35.055, U.M.: cad, Euro: 69.43, Note: 
+    Work: Raccordi in PVC-U - De160
+      Codice: 09.A15.A35.060, U.M.: cad, Euro: 90.99, Note: 
+    Work: Raccordi in PVC-U - De200
+      Codice: 09.A15.A35.065, U.M.: cad, Euro: 160.68, Note: 
+    Work: Raccordi in PVC-U - De250
+      Codice: 09.A15.A35.070, U.M.: cad, Euro: 263.84, Note: 
+    Work: Raccordi in PVC-U - De315
+      Codice: 09.A15.A35.075, U.M.: cad, Euro: 409.68, Note: 
+  Activity: Fornitura e posa valvole a sfera in PVC-U con maniglia blu, per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Valvola a sfera in PVC-U con maniglia blu - Fino a de20
+      Codice: 09.A15.A40.005, U.M.: cad, Euro: 25.56, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De25
+      Codice: 09.A15.A40.010, U.M.: cad, Euro: 28.45, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De32
+      Codice: 09.A15.A40.015, U.M.: cad, Euro: 35, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De40
+      Codice: 09.A15.A40.020, U.M.: cad, Euro: 42.27, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De50
+      Codice: 09.A15.A40.025, U.M.: cad, Euro: 50.29, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De63
+      Codice: 09.A15.A40.030, U.M.: cad, Euro: 69.38, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De75
+      Codice: 09.A15.A40.035, U.M.: cad, Euro: 204.72, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De90
+      Codice: 09.A15.A40.040, U.M.: cad, Euro: 249.18, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia blu - De110
+      Codice: 09.A15.A40.045, U.M.: cad, Euro: 312.84, Note: 
+  Activity: Fornitura e posa valvole a sfera in PVC-U con maniglia rossa, per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Valvola a sfera in PVC-U con maniglia rossa - Fino a de20
+      Codice: 09.A15.A45.005, U.M.: cad, Euro: 49.83, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De25
+      Codice: 09.A15.A45.010, U.M.: cad, Euro: 58.14, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De32
+      Codice: 09.A15.A45.015, U.M.: cad, Euro: 68.65, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De40
+      Codice: 09.A15.A45.020, U.M.: cad, Euro: 88.03, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De50
+      Codice: 09.A15.A45.025, U.M.: cad, Euro: 109.12, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De63
+      Codice: 09.A15.A45.030, U.M.: cad, Euro: 138.82, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De75
+      Codice: 09.A15.A45.035, U.M.: cad, Euro: 343.08, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De90
+      Codice: 09.A15.A45.040, U.M.: cad, Euro: 439.31, Note: 
+    Work: Valvola a sfera in PVC-U con maniglia rossa - De110
+      Codice: 09.A15.A45.045, U.M.: cad, Euro: 557.8, Note: 
+  Activity: Fornitura e posa valvole di non ritorno a molla o a palla in PVC-U, per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - Fino a de20
+      Codice: 09.A15.A50.005, U.M.: cad, Euro: 61.18, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De25
+      Codice: 09.A15.A50.010, U.M.: cad, Euro: 69.69, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De32
+      Codice: 09.A15.A50.015, U.M.: cad, Euro: 77.6, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De40
+      Codice: 09.A15.A50.020, U.M.: cad, Euro: 98.65, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De50
+      Codice: 09.A15.A50.025, U.M.: cad, Euro: 125.07, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De63
+      Codice: 09.A15.A50.030, U.M.: cad, Euro: 174.28, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De75
+      Codice: 09.A15.A50.035, U.M.: cad, Euro: 333.01, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De90
+      Codice: 09.A15.A50.040, U.M.: cad, Euro: 429.61, Note: 
+    Work: Valvola di non ritorno a molla o a palla in PVC-U - De110
+      Codice: 09.A15.A50.045, U.M.: cad, Euro: 548.32, Note: 
+  Activity: Fornitura e posa filtro ad Y in PVC-U, per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Filtro a Y in PVC-U - Fino a de20
+      Codice: 09.A15.A55.005, U.M.: cad, Euro: 67.42, Note: 
+    Work: Filtro a Y in PVC-U - De25
+      Codice: 09.A15.A55.010, U.M.: cad, Euro: 78.63, Note: 
+    Work: Filtro a Y in PVC-U - De32
+      Codice: 09.A15.A55.015, U.M.: cad, Euro: 101.44, Note: 
+    Work: Filtro a Y in PVC-U - De40
+      Codice: 09.A15.A55.020, U.M.: cad, Euro: 122.62, Note: 
+    Work: Filtro a Y in PVC-U - De50
+      Codice: 09.A15.A55.025, U.M.: cad, Euro: 159.1, Note: 
+    Work: Filtro a Y in PVC-U - De63
+      Codice: 09.A15.A55.030, U.M.: cad, Euro: 200.45, Note: 
+    Work: Filtro a Y in PVC-U - De75
+      Codice: 09.A15.A55.035, U.M.: cad, Euro: 309.83, Note: 
+    Work: Filtro a Y in PVC-U - De90
+      Codice: 09.A15.A55.040, U.M.: cad, Euro: 373.09, Note: 
+    Work: Filtro a Y in PVC-U - De110
+      Codice: 09.A15.A55.045, U.M.: cad, Euro: 670.03, Note: 
+  Activity: Fornitura e posa flussimetro per liquidi per condotte in pressione (giunzione filettata o ad incollaggio)
+    Work: Flussimetro - Fino a de20
+      Codice: 09.A15.A60.005, U.M.: cad, Euro: 195.02, Note: 
+    Work: Flussimetro - De32
+      Codice: 09.A15.A60.010, U.M.: cad, Euro: 219.66, Note: 
+    Work: Flussimetro - De40
+      Codice: 09.A15.A60.015, U.M.: cad, Euro: 297.07, Note: 
+    Work: Flussimetro - De50
+      Codice: 09.A15.A60.020, U.M.: cad, Euro: 347.37, Note: 
+    Work: Flussimetro - De63
+      Codice: 09.A15.A60.025, U.M.: cad, Euro: 463.93, Note: 
+    Work: Flussimetro - De75
+      Codice: 09.A15.A60.030, U.M.: cad, Euro: 798.86, Note: 
+  Activity: Fornitura e posa di supporti fermatubo in plastica, comprensivo di tassello
+    Work: Supporti - Fino a De20
+      Codice: 09.A15.A65.005, U.M.: m, Euro: 9.46, Note: 
+    Work: Supporti - De25
+      Codice: 09.A15.A65.010, U.M.: m, Euro: 9.66, Note: 
+    Work: Supporti - De32
+      Codice: 09.A15.A65.015, U.M.: m, Euro: 9.89, Note: 
+    Work: Supporti - De40
+      Codice: 09.A15.A65.020, U.M.: m, Euro: 10.82, Note: 
+    Work: Supporti - De50
+      Codice: 09.A15.A65.025, U.M.: m, Euro: 11.51, Note: 
+    Work: Supporti - De63
+      Codice: 09.A15.A65.030, U.M.: m, Euro: 11.82, Note: 
+    Work: Supporti - De75
+      Codice: 09.A15.A65.035, U.M.: m, Euro: 14.7, Note: 
+    Work: Supporti - De90
+      Codice: 09.A15.A65.040, U.M.: m, Euro: 17.09, Note: 
+    Work: Supporti - De110
+      Codice: 09.A15.A65.045, U.M.: m, Euro: 18.23, Note: 
+    Work: Supporti - De125
+      Codice: 09.A15.A65.050, U.M.: m, Euro: 22.22, Note: 
+    Work: Supporti - De140
+      Codice: 09.A15.A65.055, U.M.: m, Euro: 23.88, Note: 
+    Work: Supporti - De160
+      Codice: 09.A15.A65.060, U.M.: m, Euro: 26.95, Note: 
+
