@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setProjectSetup } from '@/features/wizardSlice';
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,9 +18,25 @@ interface ProjectSetupProps {
 }
 
 export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupProps) {
+  const reduxSetup = useSelector((state: any) => state.wizard?.projectSetup || {});
   const dispatch = useDispatch();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [signature, setSignatureState] = useState<string>("");
+
+  useEffect(() => {
+    // Always persist generalAttachments from Redux if available and non-empty
+    let merged = { ...data, ...reduxSetup };
+    if (Array.isArray(reduxSetup.generalAttachments) && reduxSetup.generalAttachments.length > 0) {
+      merged.generalAttachments = reduxSetup.generalAttachments;
+    } else if (Array.isArray(data.generalAttachments) && data.generalAttachments.length > 0) {
+      merged.generalAttachments = data.generalAttachments;
+    }
+    if (reduxSetup.generalNotes) merged.generalNotes = reduxSetup.generalNotes;
+    if (reduxSetup.digitalSignature) merged.digitalSignature = reduxSetup.digitalSignature;
+    onUpdate(merged);
+    if (merged.digitalSignature) setSignatureState(merged.digitalSignature);
+    // eslint-disable-next-line
+  }, []);
   // Save signature to Redux and local state
   const handleSignatureCapture = (sig: string) => {
     setSignatureState(sig);
@@ -244,6 +261,26 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
               </div>
             </div>
 
+            {/* Attach Files */}
+            <div className="space-y-6">
+              <h3 className="text-l font-semibold text-text-primary mb-4">Attach files</h3>
+              <div className="mb-2">
+                <Button type="button" className="bg-primary text-white px-6 py-3 rounded-full shadow-md">
+                  Attach files
+                </Button>
+              </div>
+              {/* Show attached files from generalAttachments */}
+              {Array.isArray(data.generalAttachments) && data.generalAttachments.length > 0 && (
+                <ul className="space-y-2">
+                  {data.generalAttachments.map((file: any, idx: number) => (
+                    <li key={idx} className="flex items-center gap-2 text-sm text-text-secondary bg-gray-50 rounded px-3 py-2">
+                      <span className="truncate flex-1">{file.title || file.url}</span>
+                      <a href={file.url} target="_blank" rel="noopener noreferrer" className="text-primary underline">View</a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             {/* Digital Signature */}
             <div className="space-y-6">
               <h3 className="text-l font-semibold text-white mb-4">Digital Signature</h3>
