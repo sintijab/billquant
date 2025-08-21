@@ -48,62 +48,60 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
             </p>
           </div>
 
-          {/* Activity Categories from siteWorks */}
-          <div className="space-y-6">
-            {Object.entries(grouped).map(([workName, activities], idx) => {
-              const acts = activities as any[];
-              return (
-                <div key={workName} className="border border-gray-200 rounded-xl overflow-hidden">
-                  <div className="bg-surface-light p-4">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-text-primary flex items-center">
-                        {/* Optionally add an icon here if you want */}
-                        {workName}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead className="bg-gray-50">
-                        <tr>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider w-2/5">
-                            Description
-                          </th>
-                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
-                            Location
-                          </th>
-                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
-                            Quantity
-                          </th>
-                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
-                            UDM
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
-                        {acts.map((activity: any, idx: number) => (
-                          <tr key={idx} className="hover:bg-surface-light transition-colors">
-                            <td className="px-4 py-4 text-sm text-text-primary w-2/5">
-                              {activity.Timeline}
-                            </td>
-                            <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
-                              {activity.Area} {activity.Subarea ? `/ ${activity.Subarea}` : ''}
-                            </td>
-                            <td className="px-4 py-4 text-sm text-text-primary font-medium w-1/5 text-center">
-                              {activity.Quantity}
-                            </td>
-                            <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
-                              {activity.Unit}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+          {/* Unified Activities Table */}
+          {works.length > 0 && (
+            <div className="border border-gray-200 rounded-xl overflow-hidden mb-8">
+              <div className="bg-surface-light p-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-text-primary flex items-center">
+                    {/* Optionally add an icon here if you want */}
+                    Construction activities for {works[0].Area}
+                  </h3>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider w-2/5">
+                        Description
+                      </th>
+                      <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
+                        Location
+                      </th>
+                      <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
+                        Quantity
+                      </th>
+                      <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
+                        UDM
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {works.map((activity: any, idx: number) => (
+                      <tr key={idx} className="hover:bg-surface-light transition-colors">
+                        <td className="px-4 py-4 text-sm text-text-primary w-2/5">
+                          <span className="text-lg font-semibold text-text-primary flex items-center">
+                            {activity.Work}
+                          </span>
+                          <div className="text-sm text-text-secondary mt-1">{activity.Timeline}</div>
+                        </td>
+                        <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
+                          {activity.Subarea}
+                        </td>
+                        <td className="px-4 py-4 text-sm text-text-primary font-medium w-1/5 text-center">
+                          {activity.Quantity}
+                        </td>
+                        <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
+                          {activity.Unit}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
 
           {/* Timeline Summary from GeneralTimeline */}
           <div className="mt-8 bg-surface-light rounded-xl p-6">
