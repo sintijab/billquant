@@ -6,7 +6,6 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '@/store';
 import { setSiteVisit, analyzeImages } from '@/features/siteVisitSlice';
-import { resetSiteWorks } from '@/features/siteWorksSlice';
 import Loader from "../ui/loader";
 
 interface SubareaCardProps {
@@ -38,36 +37,71 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
         }
     };
 
-    const handleCapturePhoto = () => {
+    const handleCapturePhoto = async () => {
         if (videoRef.current) {
+            setLivePhotoModal(false); // Close modal immediately
+            // Stop camera immediately after capture
+            const videoWidth = videoRef.current.videoWidth;
+            const videoHeight = videoRef.current.videoHeight;
             const canvas = document.createElement("canvas");
-            canvas.width = videoRef.current.videoWidth;
-            canvas.height = videoRef.current.videoHeight;
+            canvas.width = videoWidth;
+            canvas.height = videoHeight;
             const ctx = canvas.getContext("2d");
             if (ctx) {
-                ctx.drawImage(videoRef.current, 0, 0);
+                ctx.drawImage(videoRef.current, 0, 0, videoWidth, videoHeight);
                 const url = canvas.toDataURL("image/png");
                 const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
                 const fileName = `LivePhoto_${timestamp}.png`;
+                // Stop camera stream right after capture
+                if (videoRef.current && videoRef.current.srcObject) {
+                    (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
+                    videoRef.current.srcObject = null;
+                }
+                setAnalyzing(true);
+                let description = '';
+                if (data.aiConsent) {
+                    try {
+                        // Convert dataURL to Blob
+                        const res = await fetch(url);
+                        const blob = await res.blob();
+                        const formData = new FormData();
+                        formData.append('file', blob, fileName);
+                        const result = await dispatch(analyzeImages(formData)).unwrap();
+                        if ((result as any).answer) description = (result as any).answer;
+                    } catch (err) {
+                        description = '';
+                    }
+                }
                 onUpdate({
                     siteAreas: data.siteAreas.map((a: any, i: number) =>
                         i === areaIdx
                             ? {
                                 ...a,
                                 subareas: a.subareas.map((s: any, si: number) =>
-                                    si === subIdx ? { ...s, photos: [...(s.photos || []), { url, fileName }] } : s
+                                    si === subIdx
+                                        ? {
+                                            ...s,
+                                            items: [
+                                                ...(s.items || []),
+                                                {
+                                                    id: `item-${Date.now()}`,
+                                                    status: '',
+                                                    dimensions: '',
+                                                    udm: '',
+                                                    quantity: '',
+                                                    description,
+                                                    photos: [{ url, fileName }]
+                                                }
+                                            ]
+                                        }
+                                        : s
                                 ),
                             }
                             : a
                     ),
                 });
+                setAnalyzing(false);
             }
-        }
-        setLivePhotoModal(false);
-        // Stop camera
-        if (videoRef.current && videoRef.current.srcObject) {
-            (videoRef.current.srcObject as MediaStream).getTracks().forEach(track => track.stop());
-            videoRef.current.srcObject = null;
         }
     };
 
@@ -94,7 +128,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                         };
                         onUpdate(updated);
                         dispatch(setSiteVisit(updated));
-                        dispatch(resetSiteWorks());
                     }}
                     aria-label="Remove Subarea"
                 >
@@ -107,14 +140,14 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
             {/* Photo grid */}
             <div className="flex flex-col gap-4 mb-4">
                 {sub.items?.map((item: any, itemIdx: number) => (
-                    <div key={item.id} className="flex flex-row items-start bg-gray-50 rounded-xl border p-2 w-full relative min-h-[12rem]" style={{ minHeight: '200px' }}>
+                    <div key={item.id} className="flex flex-row items-start bg-gray-50 rounded-xl border p-2 w-full relative min-h-[12rem] flex-wrap" style={{ minHeight: '200px' }}>
                         {/* Show first photo if exists */}
                         {item.photos && item.photos.length > 0 && (
                             <img
                                 src={item.photos[0].url}
                                 alt="Subarea Item"
                                 className="w-40 h-full max-h-[300px] object-cover rounded-xl border bg-gray-200"
-                                style={{ objectFit: 'cover', height: '100%', maxHeight: '300px' }}
+                                style={{ objectFit: 'cover', height: '100%', maxHeight: '300px', width: '160px' }}
                             />
                         )}
                         <Button
@@ -176,7 +209,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         ),
                                     });
                                 }}
-                                onBlur={() => dispatch(resetSiteWorks())}
                                 className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
                                 placeholder="Site status"
                             />
@@ -203,7 +235,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         ),
                                     });
                                 }}
-                                onBlur={() => dispatch(resetSiteWorks())}
                                 className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
                                 placeholder="Dimensions"
                             />
@@ -231,7 +262,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                             ),
                                         });
                                     }}
-                                    onBlur={() => dispatch(resetSiteWorks())}
                                     className="w-1/2 bg-white/80 placeholder:text-gray-400 text-sm"
                                     placeholder="UDM"
                                 />
@@ -258,7 +288,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                             ),
                                         });
                                     }}
-                                    onBlur={() => dispatch(resetSiteWorks())}
                                     className="w-1/2 bg-white/80 placeholder:text-gray-400 text-sm"
                                     placeholder="Quantity"
                                 />
@@ -286,7 +315,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         ),
                                     });
                                 }}
-                                onBlur={() => dispatch(resetSiteWorks())}
                                 className="bg-white/80 placeholder:text-gray-400 text-sm"
                                 placeholder="Subarea description"
                                 rows={2}
