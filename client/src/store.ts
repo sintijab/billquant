@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+
 import wizardReducer from './features/wizardSlice';
 import siteWorksReducer from './features/siteWorksSlice';
+import siteVisitReducer from './features/siteVisitSlice';
 
 export const store = configureStore({
   reducer: {
-    wizard: wizardReducer,
-    siteWorks: siteWorksReducer,
+  wizard: wizardReducer,
+  siteWorks: siteWorksReducer,
+  siteVisit: siteVisitReducer,
   },
 });
 

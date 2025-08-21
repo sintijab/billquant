@@ -1,0 +1,12 @@
+@keyframes grow-bar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--tw-bar-width, 100%);
+  }
+}
+
+.animate-grow-bar {
+  animation: grow-bar 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}

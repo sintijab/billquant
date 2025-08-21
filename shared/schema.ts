@@ -25,7 +25,7 @@ export const projects = pgTable("projects", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export const siteAreas = pgTable("site_areas", {
+export const siteVisit = pgTable("site_areas", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   projectId: varchar("project_id").notNull().references(() => projects.id),
   name: text("name").notNull(),
@@ -37,7 +37,7 @@ export const siteAreas = pgTable("site_areas", {
 
 export const siteSubareas = pgTable("site_subareas", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  areaId: varchar("area_id").notNull().references(() => siteAreas.id),
+  areaId: varchar("area_id").notNull().references(() => siteVisit.id),
   name: text("name").notNull(),
   dimensions: text("dimensions"),
   area: decimal("area", { precision: 10, scale: 2 }),
@@ -98,7 +98,7 @@ export const insertProjectSchema = createInsertSchema(projects).omit({
   updatedAt: true,
 });
 
-export const insertSiteAreaSchema = createInsertSchema(siteAreas).omit({
+export const insertsiteVisitchema = createInsertSchema(siteVisit).omit({
   id: true,
   createdAt: true,
 });
@@ -127,8 +127,8 @@ export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;
-export type SiteArea = typeof siteAreas.$inferSelect;
-export type InsertSiteArea = z.infer<typeof insertSiteAreaSchema>;
+export type SiteArea = typeof siteVisit.$inferSelect;
+export type InsertSiteArea = z.infer<typeof insertsiteVisitchema>;
 export type SiteSubarea = typeof siteSubareas.$inferSelect;
 export type InsertSiteSubarea = z.infer<typeof insertSiteSubareaSchema>;
 export type ActivityCategory = typeof activityCategories.$inferSelect;

@@ -88,13 +88,12 @@ async def analyze_image_moondream(
         contents = await file.read()
         image = Image.open(io.BytesIO(contents))
         if ocr:
-            prompt = "Describe from image floor map notes all measurements, unity of measures and quantities, do not skip anything. You must describe each type of room that you can find in the image."
-        elif notes:
+            prompt = "Describe from image floor map notes all measurements, unity of measures and quantities, do not skip anything."
             prompt = (
                 f"Describe from image floor map notes all measurements, unity of measures and quantities, do not skip anything. You must describe each type of room that you can find in the image. If the following text- {notes} - is about the image of the building you should describe from construction site what is the state and what has to be renovated and repaired."
             )
         else:
-            prompt = "Describe from construction site what is the state and what has to be renovated and repaired. If it is floor map then give rooms and precise measurements the numbers. Add what objects are visible in the area if you find any."
+            prompt = "Describe from construction site what is the state and what has to be renovated and repaired. If it is floor map then give rooms and precise measurements the numbers. Add what objects are visible in the area if you find any. In addition you should add any suggestions for example paint and primer to be used for the walls and site access."
         result = model.query(image, prompt)
 
         answer = result.get("answer", "")
