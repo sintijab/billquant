@@ -35,8 +35,13 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   const siteVisitState = useSelector((state: any) => state.wizard);
   const siteWorksLoading = useSelector((state: any) => state.siteWorks.loading);
   const dispatch: AppDispatch = useDispatch();
+  const reduxGeneralAttachments = useSelector((state: any) => state.wizard?.generalAttachments || []);
   const [generalNotes, setGeneralNotes] = useState(data.generalNotes || "");
-  const [generalAttachments, setGeneralAttachments] = useState<{ url: string; title: string }[]>([]);
+  const [generalAttachments, setGeneralAttachments] = useState<{ url: string; title: string }[]>(
+    (reduxGeneralAttachments && reduxGeneralAttachments.length > 0)
+      ? reduxGeneralAttachments
+      : (data.generalAttachments || [])
+  );
   const [aiConsent, setAiConsent] = useState(true);
 
   const handleAddArea = () => {
