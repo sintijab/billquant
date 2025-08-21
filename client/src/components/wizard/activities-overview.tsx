@@ -91,7 +91,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
                     const workWords = w.Work.split(/\s+/).map((word: string) => word.toLowerCase());
                     const activityWords = activity.Activity.split(/\s+/).map((word: string) => word.toLowerCase());
                     const common = workWords.filter((word: string) => activityWords.includes(word));
-                    return common.length >= 3;
+                    return common.length >= 2;
                   });
                   return (
                     <div key={idx} className="flex flex-col w-full mb-4">
