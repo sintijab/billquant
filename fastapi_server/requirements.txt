@@ -8,3 +8,6 @@ PyMuPDF
 langchain
 langchain-mistralai
 pydantic
+torch
+sentence-transformers
+rank-bm25

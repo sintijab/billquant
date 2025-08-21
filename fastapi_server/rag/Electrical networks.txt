@@ -1,0 +1,894 @@
+Main Category: Reti elettriche
+Description: Edizione 2025
+
+La presente sezione è il frutto dell'analisi e dell'esperienza maturata nel settore da parte dell'Azienda Energia e Servizi Torino S.p.A. ed attualmente da Iren Energia S.p.A. di Torino (referente Riccardo BELLINI). 
+
+Come già illustrato nella nota metodologica, la stesura di tale edizione, facendo seguito all'edizione 2024, rappresenta, in ossequio alle previsioni di cui all'articolo 41 c.13 D.Lgs. n. 36/2023 e relativo Allegato I.14 e s.m.i., l'aggiornamento annuale del prezzario regionale, ed è stata redatta attraverso la conduzione di puntuale rilevazione dei prezzi di mercato mediante indagini condotte tra i principali fornitori/produttori dei materiali da costruzione più significativi nonché tra gli operatori del settore, anche avvalendosi del contributo degli enti e delle associazioni presenti su Tavolo Permanente di Lavoro regionale. L'indagine si è sviluppata nel secondo semestre 2024, consentendo la definizione dell'edizione 2025 qui presentata.
+
+I prezzi sono comprensivi del 27,60% (16% + 10%) per spese generali ed utili di impresa.
+
+Qualora le voci di prezzo della presente sezione siano impiegabili per l'attuazione delle previsioni finalizzate alla tutela della salute e sicurezza nei luoghi di lavoro, secondo quanto previsto nell'allegato XV del D.Lgs. 81/08 s.m.i. per la stima dei costi della sicurezza relativi, in coerenza con le previsioni di cui all'articolo 5 comma 9 dell'allegato I.14 del D.Lgs. 36/23, si dovrà preventivamente procedere ad un ricalcolo della stima del prezzo definendo il costo di sicurezza utilizzabile attraverso lo scorporo dal prezzo della singola voce utilizzata della quota di utile prevista del 10%. I costi così stimati non saranno ribassabili e verranno riconosciuti per le quantità eseguite, nell'ambito dello specifico computo metrico estimativo delle misure di sicurezza redatto.
+
+La mano d'opera edile (ed affine) utilizzata per la valorizzazione delle analisi è quella definita dal Ministero del Lavoro e delle Politiche sociali con Decreto della Direzione Generale dei rapporti di  lavoro e delle relazioni industriali n. 5 del 29 gennaio 2025, nel quale il Ministero ha fornito, attraverso apposite tabelle, il costo medio orario su base provinciale per il personale dipendente da imprese del settore dell'edilizia e attività affini (con decorrenza 29 gennaio 2025). 
+Per comodità di utilizzo il testo del decreto completo di tabelle è consultabile all'indirizzo: www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus-on/analisi-economiche-costo-lavoro/pagine/default
+
+Con riferimento alle previsioni di cui al paragrafo 2.2.1 della nota metodologica, si precisa che nella presente sezione le incidenze percentuali presunte di manodopera, per tutte le voci ad oggi prive di una analisi prezzi puntuale di dettaglio, sono state dedotte dalla tabella indici di congruità della manodopera come aggiornata dalla Commissione Nazionale Casse Edili (CNCE) con l'accordo collettivo tra le parti sociali sottoscritto nel 2022, in ottemperanza alle previsioni di cui al Decreto del Ministero del Lavoro e delle Politiche sociali n. 143 del 25 giugno 2021. Qualora si utilizzino voci di prezzo per le quali non si condivide la suddetta stima, resta l'onere del progettista di definire correttamente tale quota. 
+
+Per la stesura di nuove analisi prezzi il costo orario della manodopera da applicare per le singole categorie di lavori è da riferirsi alle tabelle ministeriali connesse allo specifico settore produttivo, laddove esistenti (Edilizia e affini, metalmeccanico-impiantistico ed affini etc.), ovvero alle tabelle fornite dalle associazioni di riferimento sulla base dei rispettivi Contratti Collettivi Nazionali di Lavoro (C.C.N.L.) vigenti.
+
+Category: SCAVI
+  Activity: Taglio, rottura, rimozione o svellimento di pavimentazione stradale e/o marciapiedi e dei relativi sottofondi per la larghezza di scavo commissionata, con l'uso del tagliasfalto, in conglomerato bituminoso
+    Work: ...
+      Codice: 14.P01.A05.005, U.M.: m², Euro: 6.68, Note: 
+  Activity: Rimozione, compreso l'accatastamento ed il trasporto in luogo indicato dalla D.L., di:
+    Work: - MASSELLI - LASTRE IN PIETRA
+      Codice: 14.P01.A10.005, U.M.: m², Euro: 18.75, Note: 
+    Work: - PORFIDO - CIOTTOLATO - AUTOBLOCCANTI
+      Codice: 14.P01.A10.010, U.M.: m², Euro: 12.73, Note: 
+  Activity: Taglio di pavimentazione stradale bitumata mediante l'uso di fresa, per ogni centimetro di spessore
+    Work: ...
+      Codice: 14.P01.A15.005, U.M.: m², Euro: 0.37, Note: 
+  Activity: Scavo in trincea, meccanico o manuale, di larghezza commissionata, eseguito su terreno compatto di tipo stradale o di qualsiasi natura, compreso il carico ed il trasporto del materiale estratto sino ad impianto di trattamento autorizzato fino a m 2,00 di profondita'
+    Work: ...
+      Codice: 14.P01.A20.005, U.M.: m³, Euro: 24.44, Note: 
+  Activity: Lo scavo meccanico o manuale, eseguito a profondità superiore a m 2,00 dal piano stradale verrà contabilizzato nel seguente modo:
+    Work: oltre m 2,00 e fino a m 2,50 di profondità
+      Codice: 14.P01.A25.005, U.M.: m³, Euro: 28.12, Note: 
+    Work: oltre m 2,50 e fino a m 3,00 di profondità
+      Codice: 14.P01.A25.010, U.M.: m³, Euro: 31.13, Note: 
+    Work: oltre m 3,00 di profondità
+      Codice: 14.P01.A25.015, U.M.: m³, Euro: 34.83, Note: 
+  Activity: Scavo su marciapiede in lastre di pietra o lastre di cemento compresa la rimozione e l'accatastamento delle stesse
+    Work: ...
+      Codice: 14.P01.A30.005, U.M.: m³, Euro: 52.53, Note: 
+  Activity: Scavo in galleria per attraversamenti di corsi, strade o pavimentazioni permanenti e per profondità uguali o maggiori di m 3,50 dal piano stradale, compresa l'armatura della galleria scavata
+    Work: ...
+      Codice: 14.P01.A35.005, U.M.: m³, Euro: 238.51, Note: 
+  Activity: Scavo in trincea comunque eseguito, di larghezza commissionata, su terreno compatto di tipo stradale o di qualsiasi natura, senza l'ausilio dell'autocarro per il carico ed il trasporto ad impianto di trattamento  autorizzato del materiale estratto, lasciando il materiale stesso a fianco dello scavo. Tale voce deve essere preventivamente autorizzata dall'Ente appaltante.
+    Work: fino a 2 m di profondità
+      Codice: 14.P01.A40.005, U.M.: m³, Euro: 14.73, Note: 
+    Work: oltre i 2 m di profondità
+      Codice: 14.P01.A40.010, U.M.: m³, Euro: 19.44, Note: 
+  Activity: Scavo in roccia tenera comunque eseguito
+    Work: tenera comunque eseguito
+      Codice: 14.P01.A45.005, U.M.: m³, Euro: 73.93, Note: 
+    Work: dura con l'utilizzo di esplosivo comunque eseguito
+      Codice: 14.P01.A45.010, U.M.: m³, Euro: 148.2, Note: 
+    Work: dura senza l'utilizzo di esplosivo comunque eseguito
+      Codice: 14.P01.A45.015, U.M.: m³, Euro: 185, Note: 
+  Activity: Scavo a mano da eseguirsi su terreno di qualsiasi natura, su giardini o proprieta similari della ripartizione XIII - Verde Pubblico - del Comune di Torino o di altre Autorità Competenti, previa richiesta ed autorizzazione della D. L., ed in località inaccessibili direttamente a qualsiasi mezzo meccanico. Tale voce non si utilizza per eventuali lavori di scavo in corrispondenza di altri coutenti del sottosuolo
+    Work: ...
+      Codice: 14.P01.A50.005, U.M.: m³, Euro: 60.99, Note: 
+
+Category: REINTERRI
+  Activity: Ricolmatura degli scavi, meccanica o manuale, utilizzando i materiali di scavo preesistenti, esecuzione dei prescritti costipamenti a strati. Tale voce deve esser preventivamente autorizzata dall'Ente appaltante.
+    Work: con materiale a bordo scavo
+      Codice: 14.P02.A05.005, U.M.: m³, Euro: 11.39, Note: 
+    Work: con materiale allontanato provvisoriamente
+      Codice: 14.P02.A05.010, U.M.: m³, Euro: 20.75, Note: 
+  Activity: Ricolmatura degli scavi con la provvista a pie d'opera di materiale inerte (ghiaia, naturale, stabilizzato, sabbia o limo) esecuzione dei prescritti costipamenti a strati
+    Work: ...
+      Codice: 14.P02.A10.005, U.M.: m³, Euro: 33.49, Note: 
+
+Category: POSA CAVI INTERRATI, STAFFATI E RELATIVI ACCESSORI
+  Activity: Tiro e posa in opera di:
+    Work: cavi BT fino a 4 x 25 mm² di sezione e IP derivazione
+      Codice: 14.P03.A05.005, U.M.: m, Euro: 3.06, Note: 
+    Work: cavi BT fino a 3 x 95 + 50 mm² di sezione
+      Codice: 14.P03.A05.010, U.M.: m, Euro: 3.6, Note: 
+    Work: cavi BT oltre 3 x 95 + 50 mm² di sezione, IP Serie e 6,3 kV ad elica visibile a 22 e 27 kV sez. 3 x (1 x 95) mm²
+      Codice: 14.P03.A05.015, U.M.: m, Euro: 4.67, Note: 
+    Work: cavi ad elica visibile a 22 e 27 kV sez. 3 x (1 x 185) mm² e cavi armati a 27 kV
+      Codice: 14.P03.A05.020, U.M.: m, Euro: 7.19, Note: 
+  Activity: Tiro e posa cavi staffati a muro, in cunicoli, intercapedini, gallerie e cantine, compresa l'applicazione, su appositi sostegni predisposti, del modulo reggicavo e/o della staffa a L (fornite dalla Ente appaltante), l'eventuale allentamento, scorrimento e rifissaggio di altri moduli preesistenti per far posto al nuovo impianto (compresa la posa dei cartelli monitori)
+    Work: cavi BT fino a 4 x 25 mm² di sezione e IP derivazione
+      Codice: 14.P03.A10.005, U.M.: m, Euro: 3.6, Note: 
+    Work: cavi BT fino a 3 x 95 + 50 mm² di sezione
+      Codice: 14.P03.A10.010, U.M.: m, Euro: 5.04, Note: 
+    Work: cavi BT oltre 3 x 95 + 50 mm² di sezione, IP Serie e 6,3 kV ad elica visibile 22 e 27 kV sez. 3 x (1 x 95) mm²
+      Codice: 14.P03.A10.015, U.M.: m, Euro: 6.47, Note: 
+    Work: cavi ad elica visibile a 22 e 27 kV sez. 3 x (1 x 185) mm² e cavi armati a 27 kV
+      Codice: 14.P03.A10.020, U.M.: m, Euro: 9.34, Note: 
+  Activity: Rimozione per recupero su muri di fabbricati, in cunicoli, intercapedini, gallerie di cavi staffati compresa la rimozione delle staffe.
+    Work: cavi BT fino a 4 x 25 mm² di sezione e IP derivazione
+      Codice: 14.P03.A15.005, U.M.: m, Euro: 4.16, Note: 
+    Work: cavi BT fino a 3 x 95 + 50 mm² di sezione
+      Codice: 14.P03.A15.010, U.M.: m, Euro: 5.53, Note: 
+    Work: cavi BT oltre 3 x 95 + 50 mm² di sezione, IP Serie, 6,3 kV, 22 kV e 27 kV tipo elica visibile
+      Codice: 14.P03.A15.015, U.M.: m, Euro: 6.22, Note: 
+    Work: cavi armati 27 kV
+      Codice: 14.P03.A15.020, U.M.: m, Euro: 8.97, Note: 
+  Activity: Confezione di rotoli e/o taglio in spezzoni del cavo recuperato
+    Work: per cavi BT, 6,3 kV, IP, 22 kV e 27 kV tipo elica visibile
+      Codice: 14.P03.A20.005, U.M.: m, Euro: 1.37, Note: 
+    Work: per cavi 27 kV armati
+      Codice: 14.P03.A20.010, U.M.: m, Euro: 2.76, Note: 
+  Activity: Avvolgimento su bobine presso il cantiere di lavoro, nel caso di recupero di:
+    Work: cavi BT fino a 4 x 25 mm² di sezione e IP derivazione
+      Codice: 14.P03.A25.005, U.M.: m, Euro: 1.37, Note: 
+    Work: cavi BT oltre 4 x 25 mm² di sezione
+      Codice: 14.P03.A25.010, U.M.: m, Euro: 2.76, Note: 
+    Work: cavi 6,3 kV, IP Serie, 22 kV e 27 kV tipo elica visibile
+      Codice: 14.P03.A25.015, U.M.: m, Euro: 4.16, Note: 
+  Activity: Svolgimento ed avvolgimento su bobine, in cantiere allestito presso il magazzino dell'Ente appaltante di:
+    Work: cavi BT fino a 4 x 25 mm² di sezione e IP derivazione
+      Codice: 14.P03.A30.005, U.M.: m, Euro: 2.76, Note: 
+    Work: cavi BT oltre 4 x 25 mm² di sezione
+      Codice: 14.P03.A30.010, U.M.: m, Euro: 4.83, Note: 
+    Work: cavi 6,3 kV, IP Serie, 22 kV e 27 kV tipo elica visibile
+      Codice: 14.P03.A30.015, U.M.: m, Euro: 6.22, Note: 
+  Activity: Tiro e posa in opera di treccia di rame, fino a 100 mm² per la rete di terra, compresa l'esecuzione delle connessioni di continuità a mezzo di morsetti tipo CRIMPIT m³ 95 - 95, forniti dall'Ente appaltante, da effettuarsi in presenza della D. L. negli attraversamenti stradali eseguiti con tubi PVC, la treccia di rame va posata all'esterno della tubazione.
+    Work: ...
+      Codice: 14.P03.A35.005, U.M.: m, Euro: 1.57, Note: 
+  Activity: Posa in opera o recupero di cavo BT, da 25 mm² a 95 mm² compreso, staffato a muro in abbinamento a cavo già esistente, compresa la fornitura e l'installazione dei mezzi collari in Fe zincato pesante necessari e la posa dei cartelli monitori
+    Work: Posa
+      Codice: 14.P03.A40.005, U.M.: m, Euro: 10.5, Note: 
+    Work: Recupero
+      Codice: 14.P03.A40.010, U.M.: m, Euro: 4.9, Note: 
+  Activity: Posa in opera di cavo BT, da 25 mm² a 95 mm², staffato a muro compresa l'installazione delle staffe in Fe zincato pesante ogni 60 cm di cavo e dei carrelli ammonitori quando necessari
+    Work: ...
+      Codice: 14.P03.A45.005, U.M.: m, Euro: 14.8, Note: 
+  Activity: Recupero di cavo BT, da 25 mm² a 95 mm², staffato a muro compresi il recupero delle staffe in Fe zincato pesante ogni 60 cm di cavo e dei carrelli ammonitori se esistenti
+    Work: ...
+      Codice: 14.P03.A50.005, U.M.: m, Euro: 8.09, Note: 
+  Activity: Posa in opera di cavo BT, da 150 mm², staffato a muro compresa l'installazione delle staffe in Fe zincato pesante ogni 60 cm di cavo e dei carrelli ammonitori quando necessari
+    Work: ...
+      Codice: 14.P03.A55.005, U.M.: m, Euro: 21.25, Note: 
+  Activity: Recupero di cavo BT, da 150 mm², staffato a muro compresi il recupero delle staffe in Fe zincato pesante ogni 60 cm di cavo e dei carrelli ammonitori se esistenti
+    Work: ...
+      Codice: 14.P03.A60.005, U.M.: m, Euro: 7.78, Note: 
+  Activity: Fornitura e posa in opera, su richiesta della D. L., di cappuccio termorestringente su cavi BT
+    Work: ...
+      Codice: 14.P03.A65.005, U.M.: cad, Euro: 4.67, Note: 
+  Activity: Fornitura e posa in opera, su richiesta della D. L., di cappuccio termorestringente su cavi IP e 6,3 kV
+    Work: ...
+      Codice: 14.P03.A70.005, U.M.: cad, Euro: 6.47, Note: 
+  Activity: Fornitura e messa in opera, su richiesta della D. L., di cappuccio termorestringente su cavi 22 kV e 27 kV ad elica visibile
+    Work: ...
+      Codice: 14.P03.A75.005, U.M.: cad, Euro: 3.09, Note: 
+  Activity: Posa in opera di nastro segnaletico, di fornitura, al di sopra di 20 cm dalla protezione meccanica dei cavi posati
+    Work: ...
+      Codice: 14.P03.A80.005, U.M.: m, Euro: 0.74, Note: 
+  Activity: Montaggio di tenda, sulla fossa giunti 27 o 22 kV e successivo smontaggio. Compreso il trasporto dai magazzini a pie d'opera e viceversa
+    Work: ...
+      Codice: 14.P03.A85.005, U.M.: cad, Euro: 203.33, Note: 
+
+Category: POSA CASSETTE, CANALETTE E TUBI STAFFATI
+  Activity: Posa in opera o recupero su pali o paline di cassette di derivazione complete degli accessori occorrenti:
+    Work: Posa cassette OEC e simili con carenature
+      Codice: 14.P04.A05.005, U.M.: cad, Euro: 24.9, Note: 
+    Work: Recupero cassette OEC e simili con carenature
+      Codice: 14.P04.A05.010, U.M.: cad, Euro: 9.69, Note: 
+    Work: Posa cassette B, B3, con carenature
+      Codice: 14.P04.A05.015, U.M.: cad, Euro: 18.81, Note: 
+    Work: Recupero cassette B, B3, con carenature
+      Codice: 14.P04.A05.020, U.M.: cad, Euro: 9.63, Note: 
+  Activity: Posa in opera o recupero su muro di fabbricati di frutti o cassette di derivazione e sezionamento, di qualsiasi tipo e dei contenitori per contatori comprensive degli accessori occorrenti (compresa la cassetta tipo M con sezionatore)
+    Work: Posa
+      Codice: 14.P04.A10.005, U.M.: cad, Euro: 14.14, Note: 
+    Work: Recupero
+      Codice: 14.P04.A10.010, U.M.: cad, Euro: 2.97, Note: 
+  Activity: Posa in opera o recupero di cassetta tipo OEC, di contenitori per contatori e/o gruppi di misura comprensivi di colonnina stradale ed eventuale basamento in cemento, compresi gli accessori occorrenti
+    Work: Posa
+      Codice: 14.P04.A15.005, U.M.: cad, Euro: 31.23, Note: 
+    Work: Recupero
+      Codice: 14.P04.A15.010, U.M.: cad, Euro: 18.81, Note: 
+  Activity: Posa in opera o recupero, a qualsiasi altezza, di canaletta in vetroresina per protezione cavi, completa degli accessori occorrenti:
+    Work: Posa su palo
+      Codice: 14.P04.A20.005, U.M.: cad, Euro: 6.47, Note: 
+    Work: Recupero su palo
+      Codice: 14.P04.A20.010, U.M.: cad, Euro: 2.04, Note: 
+    Work: Posa su muro
+      Codice: 14.P04.A20.015, U.M.: m, Euro: 8.58, Note: 
+    Work: Recupero su muro
+      Codice: 14.P04.A20.020, U.M.: m, Euro: 4.02, Note: 
+  Activity: Formazione in opera di basamento in cls dosato a 200 kg/m³ di impasto, di dimensioni 80 x 40 x 30 cm, come da allegata tavola "C", per la posa del cassone per contatori, compreso il tubo/i in PVC rigido o flessibile, per il passaggio del cavo in entrata ed eventualmente in uscita e la posa in opera del telaio in ferro o similare fornito dall'Ente appaltante
+    Work: basamento a 1 foro in entrata/uscita
+      Codice: 14.P04.A25.005, U.M.: cad, Euro: 48.67, Note: 
+    Work: basamento a 2 o piu fori in entrata/uscita
+      Codice: 14.P04.A25.010, U.M.: cad, Euro: 58.82, Note: 
+  Activity: Fornitura e posa in opera, a qualsiasi altezza, di tubazione in PVC rigido pesante, comprese le eventuali curve, marchiata Imq, staffate ogni 80 cm, con Fe zincato pesante, per protezione linee, complete degli accessori occorrenti: (per il recupero di tubi in Fe valgono le voci relative agli equivalenti tubi in PVC). Il recupero dei tubi è da intendersi comprensivo delle eventuali curve
+    Work: Posa tubo diam. esterno fino a 50 mm o di canalette in PVC sino a 40 x 40 mm
+      Codice: 14.P04.A30.005, U.M.: m, Euro: 6.94, Note: 
+    Work: Recupero tubo diam. esterno fino a 50 mm o di canalette in PVC sino a 40 x 40 mm
+      Codice: 14.P04.A30.010, U.M.: m, Euro: 3.79, Note: 
+    Work: Posa tubo diam. esterno 63 mm o di canalette in PVC sino a 60 x 60 mm
+      Codice: 14.P04.A30.015, U.M.: m, Euro: 8.23, Note: 
+    Work: Recupero tubo diam. esterno 63 mm o di canalette in PVC sino a 60 x 60 mm
+      Codice: 14.P04.A30.020, U.M.: m, Euro: 3.79, Note: 
+  Activity: Incassatura a qualsiasi altezza, su pareti in mattoni, di tubazioni sino a diam. 63 mm
+    Work: ...
+      Codice: 14.P04.A35.005, U.M.: m, Euro: 20.79, Note: 
+  Activity: Ripristino e riquadratura di cassetta ghisa indipendentemente dal tipo (semplice, doppia, tripla)
+    Work: ...
+      Codice: 14.P04.A40.005, U.M.: cad, Euro: 16.92, Note: 
+  Activity: Esecuzione di vano in muro di mattoni per incasso di cassette a qualsiasi altezza:
+    Work: Posa nei tipi I - L
+      Codice: 14.P04.A45.005, U.M.: cad, Euro: 15.44, Note: 
+    Work: Recupero nei tipi I - L
+      Codice: 14.P04.A45.010, U.M.: cad, Euro: 8.21, Note: 
+    Work: Posa nei tipi A - B - OEC e simili
+      Codice: 14.P04.A45.015, U.M.: cad, Euro: 20.65, Note: 
+    Work: Recupero nei tipi A - B - OEC e simili
+      Codice: 14.P04.A45.020, U.M.: cad, Euro: 11.36, Note: 
+  Activity: Posa in opera a qualsiasi altezza di tubo in Fe zincato pesante diam. 60 mm staffato ogni 80 cm con staffe doppie completo degli accessori occorrenti e, se necessario, sagomato
+    Work: ...
+      Codice: 14.P04.A50.005, U.M.: m, Euro: 7.07, Note: 
+
+Category: COPERTURE CAVI - TUBAZIONI - VARIE
+  Activity: Provvista a pie' d'opera canalette prefabbricate in calcestruzzo vibrato altamente compatto e impermeabile, per il passaggio di cavi, con o senza incastro maschio-femmina tra gli elementi passacavo
+    Work: canalette dimensioni interne in cm: 8x8
+      Codice: 14.P05.A05.006, U.M.: m, Euro: 15.63, Note: 
+    Work: canalette dimensioni interne in cm: 18x10
+      Codice: 14.P05.A05.007, U.M.: m, Euro: 17.42, Note: 
+    Work: Coperchi per canalette dimensioni  in cm: 8x8
+      Codice: 14.P05.A05.008, U.M.: m, Euro: 8.04, Note: 
+    Work: Coperchi per canalette dimensioni in cm: 18x10
+      Codice: 14.P05.A05.009, U.M.: m, Euro: 8.93, Note: 
+  Activity: Posa in opera o recupero di:
+    Work: canalette dimensioni varie
+      Codice: 14.P05.A10.006, U.M.: m, Euro: 2, Note: 
+    Work: coperchi canalette
+      Codice: 14.P05.A10.008, U.M.: m, Euro: 1.49, Note: 
+  Activity: Fornitura a pie' d'opera di tubi e relativi tappi di sigillatura in:
+    Work: PVC rigido spessorato tipo B arancio UNI EN 1329, diametro esterno cm 8 - 10
+      Codice: 14.P05.A15.005, U.M.: m, Euro: 4.79, Note: 
+    Work: PVC rigido spessorato tipo B arancio UNI EN 1329, diametro esterno cm 12
+      Codice: 14.P05.A15.010, U.M.: m, Euro: 7.13, Note: 
+    Work: PVC rigido spessorato tipo B arancio UNI EN 1329, diametro esterno cm 14
+      Codice: 14.P05.A15.015, U.M.: m, Euro: 7.91, Note: 
+    Work: Mannesmann diametro esterno cm 14
+      Codice: 14.P05.A15.020, U.M.: m, Euro: 40.1, Note: 
+    Work: PVC flessibile, parte interna liscia diametro esterno cm 9
+      Codice: 14.P05.A15.025, U.M.: m, Euro: 5.96, Note: 
+    Work: PVC flessibile, parte interna liscia, diametro esterno cm 11
+      Codice: 14.P05.A15.030, U.M.: m, Euro: 7.13, Note: 
+    Work: PVC flessibile, parte interna liscia, diametro esterno cm 14
+      Codice: 14.P05.A15.035, U.M.: m, Euro: 11.14, Note: 
+  Activity: Posa in opera tubi in Mannesmann, diametro esterno cm 14
+    Work: ...
+      Codice: 14.P05.A20.005, U.M.: m, Euro: 3.3, Note: 
+  Activity: Posa in opera di tubi PVC rigidi o flessibili e/o tubi in Polietilene tipo Pead, di diametro diverso con relativi tappi di sigillatura
+    Work: ...
+      Codice: 14.P05.A25.005, U.M.: m, Euro: 1.31, Note: 
+  Activity: Posa in opera di tubi in PVC di diametro diverso compresa la fornitura e la posa di sellette in materiale plastico (1 ogni 1,5 m)
+    Work: ...
+      Codice: 14.P05.A30.005, U.M.: m, Euro: 1.99, Note: 
+  Activity: Fornitura e posa in opera di tubi in polietilene tipo Alta Densita' Pead PN10. Tali tubi dovranno essere forniti in rotoli o a barre diritte. In quest'ultimo caso si dovrà garantirne la continuità senza pregiudicare la funzionalità della sezione utile interna
+    Work: Pead - PN 10 diametro esterno mm 63
+      Codice: 14.P05.A35.005, U.M.: m, Euro: 4.54, Note: 
+    Work: Pead - PN 10 diametro esterno mm 75
+      Codice: 14.P05.A35.010, U.M.: m, Euro: 6.93, Note: 
+    Work: Pead - PN 10 diametro esterno mm 90
+      Codice: 14.P05.A35.015, U.M.: m, Euro: 9.77, Note: 
+    Work: Pead - PN 10 diametro esterno mm 110
+      Codice: 14.P05.A35.020, U.M.: m, Euro: 13.93, Note: 
+    Work: Pead - PN 10 diametro esterno mm 125
+      Codice: 14.P05.A35.025, U.M.: m, Euro: 18.76, Note: 
+    Work: Pead - PN 10 diametro esterno mm 140
+      Codice: 14.P05.A35.030, U.M.: m, Euro: 22.89, Note: 
+    Work: Pead - PN 10 diametro esterno mm 160
+      Codice: 14.P05.A35.035, U.M.: m, Euro: 31.05, Note: 
+  Activity: Provvista e posa in scavo predisposto, di tubo/i rigidi o flessibili con relativi tappi di sigillatura in PVC, coperti con getto di calcestruzzo cementizio, dosato a kg 200/m³ di spessore minimo di cm 10 sull'esterno della/e tubazione/i inteso come sottofondo, rinfianchi, parte superiore; compresa la sigillatura di tutte le tubazioni: per tubi in PVC rigido spessorato tipo B arancio UNI EN 1329, diametro esterno cm 10
+    Work: per manufatto ad 1 foro
+      Codice: 14.P05.A40.005, U.M.: m, Euro: 19.02, Note: 
+    Work: per ogni foro in piu oltre al primo
+      Codice: 14.P05.A40.010, U.M.: m, Euro: 11.14, Note: 
+  Activity: Provvista e posa in scavo predisposto, di tubo/i rigidi o flessibili con relativi tappi di sigillatura in PVC, coperti con getto di calcestruzzo cementizio, dosato a kg 200/m³ di spessore minimo di cm 10 sull'esterno della/e tubazione/i inteso come sottofondo, rinfianchi, parte superiore; compresa la sigillatura di tutte le tubazioni: per tubi in PVC rigido spessorato tipo B arancio UNI EN 1329, diametro esterno cm 14
+    Work: per manufatto ad 1 foro
+      Codice: 14.P05.A45.005, U.M.: m, Euro: 23.83, Note: 
+    Work: per ogni foro in piu oltre al primo
+      Codice: 14.P05.A45.010, U.M.: m, Euro: 14.31, Note: 
+  Activity: Provvista e posa in scavo predisposto, di tubo/i rigidi o flessibili con relativi tappi di sigillatura in PVC, coperti con getto di calcestruzzo cementizio, dosato a kg 200/m³ di spessore minimo di cm 10 sull'esterno della/e tubazione/i inteso come sottofondo, rinfianchi, parte superiore; compresa la sigillatura di tutte le tubazioni: per tubi in PVC rigido spessorato tipo B arancio UNI EN 1329, diametro esterno oltre cm 14
+    Work: per manufatto ad 1 foro
+      Codice: 14.P05.A50.005, U.M.: m, Euro: 27.39, Note: 
+    Work: per ogni foro in piu oltre al primo
+      Codice: 14.P05.A50.010, U.M.: m, Euro: 15.93, Note: 
+  Activity: Provvista e posa in scavo predisposto, di tubo/i rigidi o flessibili con relativi tappi di sigillatura in PVC, coperti con getto di calcestruzzo cementizio, dosato a kg 200/m³ di spessore minimo di cm 10 sull'esterno della/e tubazione/i inteso come sottofondo, rinfianchi, parte superiore; compresa la sigillatura di tutte le tubazioni:per tubi Mannesmann diametro esterno cm 14 e spessore minimo mm 6,5 e controtubo in PVC con relativi tappi di sigillatura
+    Work: per manufatto ad 1 foro
+      Codice: 14.P05.A55.005, U.M.: m, Euro: 70.47, Note: 
+    Work: per ogni foro in piu oltre al primo
+      Codice: 14.P05.A55.010, U.M.: m, Euro: 64.99, Note: 
+  Activity: Provvista e posa in scavo predisposto, di tubo/i rigidi o flessibili con relativi tappi di sigillatura in PVC, coperti con getto di calcestruzzo cementizio, dosato a kg 200/m³ di spessore minimo di cm 10 sull'esterno della/e tubazione/i inteso come sottofondo, rinfianchi, parte superiore; compresa la sigillatura di tutte le tubazioni:per tubi in PVC flessibile parte interna liscia diametro esterno cm 9
+    Work: per manufatto ad 1 foro
+      Codice: 14.P05.A60.005, U.M.: m, Euro: 22.26, Note: 
+    Work: per ogni foro in piu oltre al primo
+      Codice: 14.P05.A60.010, U.M.: m, Euro: 13.52, Note: 
+  Activity: Provvista e posa in scavo predisposto, di tubo/i rigidi o flessibili con relativi tappi di sigillatura in PVC, coperti con getto di calcestruzzo cementizio, dosato a kg 200/m³ di spessore minimo di cm 10 sull'esterno della/e tubazione/i inteso come sottofondo, rinfianchi, parte superiore; compresa la sigillatura di tutte le tubazioni:per tubi in PVC flessibile parte interna liscia diametro esterno cm 11
+    Work: per manufatto ad 1 foro
+      Codice: 14.P05.A65.005, U.M.: m, Euro: 23.83, Note: 
+    Work: per ogni foro in piu oltre al primo
+      Codice: 14.P05.A65.010, U.M.: m, Euro: 15.12, Note: 
+  Activity: Provvista e posa in scavo predisposto, di tubo/i rigidi o flessibili con relativi tappi di sigillatura in PVC, coperti con getto di calcestruzzo cementizio, dosato a kg 200/m³ di spessore minimo di cm 10 sull'esterno della/e tubazione/i inteso come sottofondo, rinfianchi, parte superiore; compresa la sigillatura di tutte le tubazioni:per tubi in PVC flessibile parte interna liscia diametro esterno cm 14
+    Work: per manufatto ad 1 foro
+      Codice: 14.P05.A70.005, U.M.: m, Euro: 30.91, Note: 
+    Work: per ogni foro in piu oltre al primo
+      Codice: 14.P05.A70.010, U.M.: m, Euro: 20.63, Note: 
+
+Category: PROVVISTE
+  Activity: Armatura e disarmo delle fosse per esecuzione giunti
+    Work: ...
+      Codice: 14.P06.A05.005, U.M.: m², Euro: 14.26, Note: 
+  Activity: Provvista e posa in opera, entro casseri o entro scavo, di calcestruzzo di confezione totalmente meccanica, con cemento tipo 325
+    Work: dosatura kg 50/m³ di impasto
+      Codice: 14.P06.A10.005, U.M.: m³, Euro: 85.26, Note: 
+    Work: dosatura kg 75/m³ di impasto
+      Codice: 14.P06.A10.010, U.M.: m³, Euro: 89, Note: 
+    Work: dosatura kg 100/m³ di impasto
+      Codice: 14.P06.A10.015, U.M.: m³, Euro: 92.77, Note: 
+    Work: dosatura kg 150/m³ di impasto
+      Codice: 14.P06.A10.020, U.M.: m³, Euro: 97.27, Note: 
+    Work: dosatura kg 200/m³ di impasto
+      Codice: 14.P06.A10.025, U.M.: m³, Euro: 102.56, Note: 
+    Work: dosatura kg 250/m³ di impasto
+      Codice: 14.P06.A10.030, U.M.: m³, Euro: 106.7, Note: 
+    Work: dosatura kg 300/m³ di impasto
+      Codice: 14.P06.A10.035, U.M.: m³, Euro: 111.27, Note: 
+    Work: malta di cemento, calce e sabbia con dosatura kg 350/m³
+      Codice: 14.P06.A10.040, U.M.: m³, Euro: 136.91, Note: 
+  Activity: Provvista e posa in opera di casseri in legname per getti in calcestruzzo, compreso il disarmo
+    Work: ...
+      Codice: 14.P06.A15.005, U.M.: m², Euro: 17, Note: 
+  Activity: Realizzazione di pareti in cemento armato compresi l'armatura e il disarmo dei casseri
+    Work: ...
+      Codice: 14.P06.A20.005, U.M.: m³, Euro: 313.32, Note: 
+  Activity: Realizzazione di solette portanti carrabili in cemento armato compresi l'armatura e il disarmo dei casseri
+    Work: ...
+      Codice: 14.P06.A25.005, U.M.: m³, Euro: 447.84, Note: 
+  Activity: Fornitura, lavorazione e posa in opera di tondino di ferro, di qualsiasi sezione, a norma per calcestruzzo
+    Work: per quantità fino a 50 kg
+      Codice: 14.P06.A30.005, U.M.: kg, Euro: 3.33, Note: 
+    Work: oltre a 50 kg e fino a 100 kg
+      Codice: 14.P06.A30.010, U.M.: kg, Euro: 2.4, Note: 
+    Work: oltre a 100 kg
+      Codice: 14.P06.A30.015, U.M.: kg, Euro: 1.56, Note: 
+  Activity: Rinzaffatura a calce/cemento di murature, compresa la fornitura dei materiali
+    Work: ...
+      Codice: 14.P06.A35.005, U.M.: m², Euro: 17.06, Note: 
+  Activity: Esecuzione di tramezzo di dimensione superiore a 0,5 m² in mattoni semipieni o forati disposti in piano (spessore di una testa) con malta in calce idraulica
+    Work: ...
+      Codice: 14.P06.A40.005, U.M.: m², Euro: 40.56, Note: 
+
+Category: FORI PASSANTI ESEGUITI CON TRIVELLA O CAROTATRICE PER INTRODUZIONE DI CAVI O TUBI IN STABILI O LOCALI CABINA
+  Activity: In manufatto di laterizi, compresa mano d'opera e materiali per il ripristino di qualsiasi diametro
+    Work: fino a cm 25 di spessore
+      Codice: 14.P07.A05.005, U.M.: cad, Euro: 28.09, Note: 
+    Work: ogni cm in piu
+      Codice: 14.P07.A05.010, U.M.: cm, Euro: 0.74, Note: 
+  Activity: In manufatto di calcestruzzo o pietrame, compresa mano d'opera e materiali per il ripristino di qualsiasi diametro
+    Work: fino a cm 25 di spessore
+      Codice: 14.P07.A10.005, U.M.: cad, Euro: 35.58, Note: 
+    Work: ogni cm in piu
+      Codice: 14.P07.A10.010, U.M.: cm, Euro: 1.2, Note: 
+  Activity: Esecuzione e finitura di fori passanti all'interno degli stabili per tubi o cavi di qualsiasi diametro e relativa sigillatura:
+    Work: in muro di mattone spessore sino a 30 cm compreso
+      Codice: 14.P07.A15.005, U.M.: cad, Euro: 9.28, Note: 
+    Work: in muro di mattone oltre cm 30
+      Codice: 14.P07.A15.010, U.M.: cm, Euro: 0.63, Note: 
+    Work: in muro di pietrisco o cls sino a 20 cm compreso
+      Codice: 14.P07.A15.015, U.M.: cad, Euro: 20.57, Note: 
+    Work: in muro di pietrisco o cls oltre i 20 cm
+      Codice: 14.P07.A15.020, U.M.: cm, Euro: 0.96, Note: 
+
+Category: DEMOLIZIONI
+  Activity: Demolizione di manufatti e/o sottofondi stradali in cls e di murature in mattoni pieni
+    Work: ...
+      Codice: 14.P08.A05.005, U.M.: m³, Euro: 79.89, Note: 
+  Activity: Demolizione di manufatti in cemento armato
+    Work: ...
+      Codice: 14.P08.A10.005, U.M.: m³, Euro: 177.55, Note: 
+
+Category: INFISSIONE E RECUPERI DI PALI
+  Activity: Esecuzione dello scavo su terreno di qualsiasi natura, prelievo del palo presso il magazzino dell'Ente appaltante e trasporto a pie' d'opera, infissione e controllo della verticalita', reinterro e costipamento del terreno, trasporto terra eccedente ad impianto di trattamento autorizzato
+    Work: ...
+      Codice: 14.P09.A05.005, U.M.: cad, Euro: 271.74, Note: 
+  Activity: Prelievo di palo presso il magazzino dell'Ente appaltante e trasporto a pie d'opera, posa in foro predisposto nel basamento in calcestruzzo cementizio, controllo della verticalità e bloccaggio con sabbia asciutta e collare superiore in calcestruzzo di cm 10 di spessore.
+    Work: ...
+      Codice: 14.P09.A10.005, U.M.: cad, Euro: 176.39, Note: 
+  Activity: Recupero di palo infisso nel terreno, compresa la ricolmatura della fossa con naturale e relativo costipamento, trasporto del palo ad impianto di trattamento autorizzato o il magazzino dell'Ente appaltante.
+    Work: ...
+      Codice: 14.P09.A15.005, U.M.: cad, Euro: 162.28, Note: 
+  Activity: Frantumazione palo e separazione ferro da cls per il trasporto ad impianto di trattamento autorizzato
+    Work: ...
+      Codice: 14.P09.A20.005, U.M.: cad, Euro: 56.67, Note: 
+
+Category: BLOCCHI DI FONDAZIONE PER PALI
+  Activity: Formazione del blocco in cls dosato a 250 kg/m³ tipo 325, esecuzione della nicchia per l'incastro del palo con l'impiego della cassaforma cilindrica, formazione della scanalatura per il passaggio del cavo, fornitura e posa di spezzone di tubo in PVC entro il blocco in cls nel caso di esistenza di cavi, comprese la casseratura in legname ed il suo disarmo, la fornitura e la posa del cls, l'esecuzione dello scavo ed il reinterro perimetrale del blocco con materiale di risulta o con ghiaia naturale accuratamente costipata e trasporto ad impianto di trattamento autorizzato del materiale eccedente. Misurato con il metodo del vuoto per pieno
+    Work: ...
+      Codice: 14.P10.A05.005, U.M.: m³, Euro: 161.81, Note: 
+  Activity: Formazione di blocco di fondazione speciale per palo a piastra da installare in corrispondenza di servizi gia' esistenti, costituito da cls dosato a 300 kg/m³, comprese la fornitura e la posa del cls stesso, della casseratura in legname ed il suo disarmo, del ferro di armatura sino ad un massimo di 55 kg/m3, della saldatura dei bulloni di ancoraggio della piastra all'armatura in ferro, nonche' l'esecuzione dello scavo, la posa delle canaline di protezione, il reinterro perimetrale del blocco ed il trasporto ad impianto di trattamento autorizzato del materiale eccedente. Misurato sul volume effettivo di cls
+    Work: ...
+      Codice: 14.P10.A10.005, U.M.: m³, Euro: 296.11, Note: 
+
+Category: VARIE
+  Activity: Sistemazione di dispositivi di messa a terra compreso lo scavo se necessario:
+    Work: piastra di terra
+      Codice: 14.P11.A05.005, U.M.: cad, Euro: 12.62, Note: 
+    Work: puntazza
+      Codice: 14.P11.A05.010, U.M.: cad, Euro: 5.9, Note: 
+  Activity: Sistemazione canaletta zincata tipo TELECOM nelle interferenze con cavi telefonici (canaletta zincata fornita dall'Ente appaltante).
+    Work: ...
+      Codice: 14.P11.A10.005, U.M.: cad, Euro: 4.64, Note: 
+  Activity: 11. 03. Sistemazione lamiera striata (spessore mm 4 pari kg/m² 34 fornita dall'Ente appaltante).
+    Work: ...
+      Codice: 14.P11.A15.005, U.M.: cad, Euro: 2.65, Note: 
+  Activity: Applicazione di staffe a muro, in cantiere, mediante infissione di chiodi con pistola chiodatrice o tasselli con foratura a trapano, in muratura di cls, pietra o mattoni, ecc., compresa la manodopera ed ogni altro materiale occorrente all'esecuzione, con saldatura delle staffe (di fornitura dell'Ente appaltante) per ogni chiodo sparato o per tassello
+    Work: fino a 2,5 metri di altezza
+      Codice: 14.P11.A20.005, U.M.: cad, Euro: 3.14, Note: 
+    Work: oltre a 2,5 metri di altezza
+      Codice: 14.P11.A20.010, U.M.: cad, Euro: 3.74, Note: 
+
+Category: CARTOGRAFIA
+  Activity: Aggiornamenti della cartografia relativa alla posa dei cavi b. t. e/o MT di lunghezza superiore a m 20, secondo le indicazioni della D. L.
+    Work: ...
+      Codice: 14.P12.A05.005, U.M.: m, Euro: 0.48, Note: 
+
+Category: POZZETTI
+  Activity: Posa in opera sotterranea di pozzetto prefabbricato in cls vibrato di fornitura dell'Ente appaltante compresa la sigillatura dei tubi
+    Work: ...
+      Codice: 14.P13.A05.005, U.M.: cad, Euro: 31.41, Note: 
+  Activity: Provvista e posa in opera sotterranea di pozzetto prefabbricato in cls vibrato, compresa la sigillatura dei tubi di qualsiasi dimensione
+    Work: ...
+      Codice: 14.P13.A10.005, U.M.: cad, Euro: 79.85, Note: 
+  Activity: Esecuzione pozzetto tipo traffico incontrollato di mattoni pieni spessore minimo cm 12,5 o in cls spessore minimo cm 10 compreso scavo, trasporto ad impianto di trattamento  autorizzato del materiale eccedente, ricolmatura, fornitura dei materiali necessari per l'esecuzione a regola d'arte dei lavori, sottofondo in cls spessore minimo cm 20, sigillatura tubi: dimensioni interne minime 50 x 50 x 90h
+    Work: primo pozzetto
+      Codice: 14.P13.A15.005, U.M.: cad, Euro: 108.4, Note: 
+    Work: per ogni pozzetto oltre il primo
+      Codice: 14.P13.A15.010, U.M.: cad, Euro: 97, Note: 
+  Activity: Esecuzione pozzetto tipo traffico incontrollato di mattoni pieni spessore minimo cm 12,5 o in cls spessore minimo cm 10 compreso scavo, trasporto ad impianto di trattamento  autorizzato del materiale eccedente, ricolmatura, fornitura dei materiali necessari per l'esecuzione a regola d'arte dei lavori, sottofondo in cls spessore minimo cm 20, sigillatura tubi: dimensioni interne minime 50 x 50 x 140h
+    Work: primo pozzetto
+      Codice: 14.P13.A20.005, U.M.: cad, Euro: 155.02, Note: 
+    Work: per ogni pozzetto oltre il primo
+      Codice: 14.P13.A20.010, U.M.: cad, Euro: 140.42, Note: 
+  Activity: Esecuzione pozzetto tipo traffico incontrollato di mattoni pieni spessore minimo cm 12,5 o in cls spessore minimo cm 10 compreso scavo, trasporto ad impianto di trattamento autorizzato del materiale eccedente, ricolmatura, fornitura dei materiali necessari per l'esecuzione a regola d'arte dei lavori, sottofondo in cls spessore minimo cm 20, sigillatura tubi: dimensioni interne minime 50 x 70 x 90h
+    Work: primo pozzetto
+      Codice: 14.P13.A25.005, U.M.: cad, Euro: 125.83, Note: 
+    Work: per ogni pozzetto oltre il primo
+      Codice: 14.P13.A25.010, U.M.: cad, Euro: 106.18, Note: 
+  Activity: Esecuzione pozzetto tipo traffico incontrollato di mattoni pieni spessore minimo cm 12,5 o in cls spessore minimo cm 10 compreso scavo, trasporto ad impianto di trattamento autorizzato del materiale eccedente, ricolmatura, fornitura dei materiali necessari per l'esecuzione a regola d'arte dei lavori, sottofondo in cls spessore minimo cm 20, sigillatura tubi: dimensioni interne minime 50 x 70 x 140h
+    Work: primo pozzetto
+      Codice: 14.P13.A30.005, U.M.: cad, Euro: 183.82, Note: 
+    Work: per ogni pozzetto oltre il primo
+      Codice: 14.P13.A30.010, U.M.: cad, Euro: 164.12, Note: 
+
+Category: CHIUSINI
+  Activity: Posa in opera di chiusino in ghisa dal peso di circa kg 86 (50 x 50), per pozzetto ispezionabile, di fornitura dell'Ente appaltante
+    Work: ...
+      Codice: 14.P14.A05.005, U.M.: cad, Euro: 17.27, Note: 
+  Activity: Provvista e posa in opera di chiusino in ghisa completo di telaio tipo "traffico incontrollato", del peso di circa kg 86 (50 x 50)
+    Work: ...
+      Codice: 14.P14.A10.005, U.M.: cad, Euro: 147.41, Note: 
+  Activity: Posa in opera di chiusino in ghisa completo di telaio tipo "traffico incontrollato", del peso di circa kg 110 (50 x 70) di fornitura dell'Ente appaltante
+    Work: ...
+      Codice: 14.P14.A15.005, U.M.: cad, Euro: 19.94, Note: 
+  Activity: Provvista e posa in opera di chiusino in ghisa completo di telaio tipo "traffico incontrollato", del peso di circa kg 110 (50 x 70)
+    Work: ...
+      Codice: 14.P14.A20.005, U.M.: cad, Euro: 180.73, Note: 
+  Activity: Formazione in opera di cordolo in cls al 200 kg/m³ attorno al chiusino in ghisa tipo "traffico incontrollato", la fornitura dei materiali necessari all'esecuzione a regola d'arte dei lavori, la lisciatura del cls finito.
+    Work: ...
+      Codice: 14.P14.A25.005, U.M.: cad, Euro: 32.43, Note: 
+
+Category: GIUNTI
+  Activity: Fornitura e posa in opera di giunto quadripolare per cavi armati ad isolamento in carta impregnata o ad isolamento estruso 0,6 - 1 kV comprensiva dei codoli, di tutti i materiali necessari ad eseguire il lavoro e dell'eventuale smaltimento dei rifiuti. Per giunto eseguito sia nelle fosse predisposte, che nelle intercapedini e/o staffata a parete sino a 150 mm². Conforme alla vigente normativa CEI. (Matr: 16861 - 16862 - 16866 - 16867)
+    Work: ...
+      Codice: 14.P15.A05.005, U.M.: cad, Euro: 100.57, Note: 
+  Activity: Fornitura e confezionamento di giunto tripolare 10 kV isolato in gomma autoagglomerante e resina epossidica per cavi tipo SCOLNJ/8,7 - 10kV e ASCOLNJ/8,7 - 10 kV completo degli accessori occorrenti (connettori per giunzioni di cavi con sezione non uniforme verranno forniti dall'Ente appaltante es.: 50 mm² - 16 mm²). Conforme alla vigente normativa CEI. (Matr. 20122)
+    Work: per cavo rame di sezione sino a 95 mm²
+      Codice: 14.P15.A10.005, U.M.: cad, Euro: 307.11, Note: 
+    Work: per cavo alluminio di sezione sino a 150 mm²
+      Codice: 14.P15.A10.010, U.M.: cad, Euro: 426.72, Note: 
+  Activity: Fornitura e confezionamento di giunto unipolare per cavo tipo RC4HLRX/12 - 20 kV per conduttori sino a 185 mm² :
+    Work: con miscela colabile a freddo completo degli accessori occorrenti (connettori, fascette, ecc.) come da tabella di unificazione ENEL DJ 4373 (Matr. 24501)
+      Codice: 14.P15.A15.005, U.M.: cad, Euro: 320.06, Note: 
+    Work: termorestringente 22 kV come da tabella di unificazione ENEL DJ 4373 (Matr. 13080)
+      Codice: 14.P15.A15.010, U.M.: cad, Euro: 128.95, Note: 
+    Work: autorestringente 22 kV come da tabella di unificazione ENEL DJ 4373 (Matr. 16502)
+      Codice: 14.P15.A15.015, U.M.: cad, Euro: 113.86, Note: 
+  Activity: Fornitura e confezionamento di giunto unipolare per cavo tipo RG7H1RX/12 - 20kV per conduttori sino a 185 mm², completo degli accessori occorrenti (connettori, fascette, ecc.) come da tabella di unificazione ENEL DJ 4376
+    Work: termorestringente (Matr. 16500)
+      Codice: 14.P15.A20.005, U.M.: cad, Euro: 165.6, Note: 
+    Work: autorestringente (Matr. 21765)
+      Codice: 14.P15.A20.010, U.M.: cad, Euro: 203.33, Note: 
+  Activity: Fornitura e confezionamento di giunto e unipolare termorestringente per cavo tipo ARG7H5EXY/18 - 30 kV per conduttori sino a 150 mm², completo degli accessori occorrenti (connettori, fascette, ecc.), conforme alla vigente normativa CEI. (Matr. 21761)
+    Work: ...
+      Codice: 14.P15.A25.005, U.M.: cad, Euro: 341.95, Note: 
+  Activity: Fornitura e confezionamento di giunto unipolare termorestringente tra cavo tipo ARG7H5EXY/18 - 30kV e cavo RC4HLRX/18 - 30 kV per conduttori sino a 150 mm², completo degli accessori occorrenti (connettori, fascette, ecc.), conforme alla vigente normativa CEI. (Matr. 21760)
+    Work: ...
+      Codice: 14.P15.A30.005, U.M.: cad, Euro: 349.85, Note: 
+  Activity: Fornitura e confezionamento di giunto unipolare per cavi RC4HLRX/18 - 30kV e RCHLONJ/18 - 30 kV con miscela colabile a freddo per conduttori sino a 240 mm² completo degli accessori occorrenti (connettori per giunzioni di cavi con sezione non uniforme verranno forniti dall'Ente appaltante), conforme alla vigente normativa CEI. (Matr. 16874)
+    Work: ...
+      Codice: 14.P15.A35.005, U.M.: cad, Euro: 312.86, Note: 
+  Activity: Confezionamento di giunto asimmetrico tra cavi RC4HLRX/18 - 30 kV e RCHOLNJ/18 - 30 kV con miscela colabile a freddo per conduttori sino a 240 mm² completo degli accessori occorrenti (connettori per giunzioni di cavi con sezione non uniforme verranno forniti dall'Ente appaltante), conforme alla vigente normativa CEI. (Matr. 24464)
+    Work: ...
+      Codice: 14.P15.A40.005, U.M.: cad, Euro: 214.81, Note: 
+  Activity: Disarmo di cavo tipo RCHLONJ/18 - 30 kV necessario per il posizionamento della terminazione autosigillante e delle guaine termorestringenti
+    Work: ...
+      Codice: 14.P15.A45.005, U.M.: m, Euro: 8.6, Note: 
+  Activity: Fornitura e posa di calotta termorestringente (Matr. 09965)
+    Work: ...
+      Codice: 14.P15.A50.005, U.M.: cad, Euro: 72.9, Note: 
+  Activity: Fornitura e posa guaina termorestringente (Matr. 24557)
+    Work: ...
+      Codice: 14.P15.A55.005, U.M.: m, Euro: 17.62, Note: 
+  Activity: Fornitura e posa guaina termorestringente avvolgibile (Matr. 33651)
+    Work: ...
+      Codice: 14.P15.A60.005, U.M.: m, Euro: 52.81, Note: 
+  Activity: Individuazione delle fasi conseguente al taglio di un cavo in 2 o piu punti distanti tra loro, tra i quali vi siano giunzioni interrate o non ispezionabili e comunque in tutte le circostanze richieste dall'Ente appaltante Per ogni individuazione
+    Work: ...
+      Codice: 14.P15.A65.005, U.M.: cad, Euro: 10.43, Note: 
+  Activity: Taglio cavo di qualunque tipo, sezione e di tensione a seguito di guasti o per modificare la rete esistente, eseguito esclusivamente con pinza taglia cavi oleodinamica comandata a distanza, l'impiego di tutti i dispositivi antinfortunistici previsti dalle norme di sicurezza. Il taglio si dovrà effettuare solo in presenza degli assistenti di cantiere e dopo l'autorizzazione dei medesimi. (Per ogni taglio)
+    Work: ...
+      Codice: 14.P15.A70.005, U.M.: cad, Euro: 23.43, Note: 
+
+Category: TERMINALI
+  Activity: Esecuzione terminazione su linea in cavo tipo SCOLNJ/0,6 - 1 kV quadripolare isolato in carta, sino a 95 mm², compreso l'allacciamento in cassetta e la fornitura dei materiali occorrenti, (guaina termorestringente, capicorda e calotta multipolare, ecc.)
+    Work: ...
+      Codice: 14.P16.A05.005, U.M.: cad, Euro: 48.17, Note: 
+  Activity: Esecuzione terminazione su cavo RG7OR/0,6 - 1 kV quadripolare (posa esterna) compresa la fornitura dei capicorda, della calotta multipolare, la nastratura e l'allacciamento in cassetta di qualunque tipo per derivazioni quadripolari sino a 150 mm²
+    Work: ...
+      Codice: 14.P16.A10.005, U.M.: cad, Euro: 35.44, Note: 
+  Activity: Esecuzione terminazione quadripolare su cavo RG7OR/0,6 - 1 kV (posa interna), compresa la fornitura dei capicorda, la nastratura e l'allacciamento in cassetta di qualunque tipo
+    Work: ...
+      Codice: 14.P16.A15.005, U.M.: cad, Euro: 24.11, Note: 
+  Activity: Fornitura e confezionamento di terminale tripolare termorestringente 10 kV per interno per cavo tipo SCOLNJ/8,7 - 10 kV compresa la fornitura dei capicorda MT, il posizionamento, il collegamento, la messa a terra della guaina in piombo e schermo esterno, per cavi rame sino a 95 mm², conforme alla vigente normativa CEI. (Matr. 33329 - 22939)
+    Work: ...
+      Codice: 14.P16.A20.005, U.M.: cad, Euro: 191.99, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare per interno per cavi tipo RC4HLRX/12 - 20 kV per conduttori sino a 185 mm², completo degli accessori occorrenti, con miscela colabile a freddo compresa la fornitura dei capicorda MT, il posizionamento, il collegamento, la messa a terra della guaina in piombo e l'eventuale montaggio e/o smontaggio di lamiere e il posizionamento della staffa portaterminale, come da tabella di unificazione ENEL DJ 4453 (Matr. 24500)
+    Work: ...
+      Codice: 14.P16.A25.005, U.M.: cad, Euro: 199.79, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare termorestringente per interno per cavi 22 kV sino a 185 mm² completo degli accessori occorrenti, compresa la fornitura dei capicorda MT, il collegamento, la messa a terra della guaina in piombo e l'eventuale montaggio e/o smontaggio di lamiere e il posizionamento della staffa porta terminale
+    Work: per cavo RC4HLRX/12 - 20 kV come da tabella di unificazione ENEL DJ 4453 (Matr. 24524)
+      Codice: 14.P16.A30.005, U.M.: cad, Euro: 126.79, Note: 
+    Work: per cavo RG5H1R/12 - 20 kV, RG7H1R/12 - 20 kV come da tabella di unificazione ENEL DJ 4456 (Matr. 23429 - 24562)
+      Codice: 14.P16.A30.010, U.M.: cad, Euro: 96.7, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare autorestringente per interno per cavi 22 kV sino a 185 mm² completo degli accessori occorrenti, compresa la fornitura dei capicorda MT, il posizionamento, il collegamento, la messa a terra della guaina in piombo e l'eventuale montaggio e/o smontaggio di lamiere e il posizionamento della staffa portaterminale:
+    Work: per cavo RC4HLRX/12 - 20 kV come da tabella di unificazione ENEL DJ 4453 (Matr. 21757)
+      Codice: 14.P16.A35.005, U.M.: cad, Euro: 112.26, Note: 
+    Work: per cavo RG5H1R/12 - 20 kV, RG7H1R/12 - 20 kV come da tabella di unificazione ENEL DJ 4456 (Matr. 21759)
+      Codice: 14.P16.A35.010, U.M.: cad, Euro: 100.26, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare sconnettibile grandezza 1 per cavi 22 kV sino a 185 mm² completo degli accessori occorrenti, compreso l'inserimento, la messa a terra dello schermo del terminale e del cavo, il collegamento dei rilevatori di presenza tensione ed il montaggio e/o smontaggio di eventuali lamiere:
+    Work: per cavo RC4HLRX/12 - 20 kV, come da tabella di unificazione ENEL DJ 1114 (Matr. 08551)
+      Codice: 14.P16.A40.005, U.M.: cad, Euro: 172.12, Note: 
+    Work: per cavo RG5H1R/12 - 20 kV, RG7H1R/12 - 20 kV, come da tabella di unificazione ENEL DJ 1136 (Matr. 08550)
+      Codice: 14.P16.A40.010, U.M.: cad, Euro: 191.28, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare termorestringente per esterno per cavi RG5H1R/12 - 20 kV, RG7H1R/12 - 20 kV sino a 185 mm² completo degli accessori occorrenti, compresa la fornitura dei capicorda MT, il collegamento, la messa a terra dello schermo, come da tabella di unificazione ENEL DJ 4476 (Matr. 24565 - 24566)
+    Work: ...
+      Codice: 14.P16.A45.005, U.M.: cad, Euro: 117.95, Note: 
+  Activity: Posizionamento e collegamento di tutto quanto necessario per il rilevamento del passaggio della corrente di guasto e all'eventuale telemisura dei parametri elettrici dei cavi (toroidi, cassetta tipo ELFIN, ecc.) compreso lo smontaggio e il posizionamento di lamiere se necessario.
+    Work: ...
+      Codice: 14.P16.A50.005, U.M.: cad, Euro: 26.22, Note: 
+  Activity: Fornitura e confezionamento di terminale termorestringente per esterno per cavo tipo ARG7H5EXY/18 - 30 kV per conduttori sino a 150 mm² , completo degli accessori occorrenti (connettori, fascette, ecc.), conforme alla vigente normativa CEI. (Matr. 21763)
+    Work: ...
+      Codice: 14.P16.A55.005, U.M.: cad, Euro: 263.55, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare termorestringente per interno per cavo tipo ARG7H5EXY/18 - 30 kV per conduttori sino a 150 mm², completo degli accessori occorrenti (connettori, fascette, ecc.), conforme alla vigente normativa CEI. (Matr. 21762)
+    Work: ...
+      Codice: 14.P16.A60.005, U.M.: cad, Euro: 211.45, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare termorestringente per cavi RG5H1R/18 - 30 kV e RG7H1R/18 - 30 kV sino a 185 mm² completo degli accessori occorrenti, compresa la fornitura dei capicorda MT, il collegamento, la messa a terra dello schermo e l'eventuale montaggio e/o smontaggio di lamiere e il posizionamento della staffa portaterminale, conforme alla vigente normativa CEI
+    Work: per interno (Matr. 24563 - 24564)
+      Codice: 14.P16.A65.005, U.M.: cad, Euro: 113, Note: 
+    Work: per esterno (Matr. 24567)
+      Codice: 14.P16.A65.010, U.M.: cad, Euro: 230.96, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare termorestringente per interno per cavo RC4HLRX/18 - 30 kV, sino a 240 mm² completo degli accessori occorrenti, compresa la fornitura dei capicorda MT, il collegamento, la messa a terra della guaina in piombo e l'eventuale montaggio e/o smontaggio di lamiere e il posizionamento della staffa portaterminale, conforme alla vigente normativa CEI. (Matr. 26441)
+    Work: ...
+      Codice: 14.P16.A70.005, U.M.: cad, Euro: 197.66, Note: 
+  Activity: Fornitura e confezionamento di terminale unipolare per interno e/o esterno a miscela colabile a freddo, per cavi tipo RC4HLRX/18 - 30 kV, RCHLONJ/18 - 30 kV sino a 240 mm² completo degli accessori occorrenti, compresa la fornitura dei capicorda MT, il collegamento, la messa a terra della guaina in piombo e l'eventuale montaggio e/o smontaggio di lamiere e il posizionamento della staffa portaterminale (se necessaria), conforme alla vigente normativa CEI. (Matr. 24479)
+    Work: ...
+      Codice: 14.P16.A75.005, U.M.: cad, Euro: 363.08, Note: 
+
+Category: MAGGIORAZIONI
+  Activity: Per gli interventi su guasto richiesti dall'Ente appaltante in qualsiasi ora del giorno o della notte sia telefonicamente che via fax con l'inizio lavori entro due ore dalla chiamata, verrà riconosciuto un fisso pari
+    Work: ...
+      Codice: 14.P17.A05.005, U.M.: h, Euro: 207.94, Note: 
+  Activity: Per lavori di cui venga richiesta l'immediata esecuzione, anche al di fuori del normale orario di lavoro giornaliero, sara riconosciuta (per la fase di lavoro che intercorre fra l'inizio del medesimo e la prima sospensione per il riposo del personale) una maggiorazione del 20% quale intervento urgente.
+    Work: ...
+      Codice: 14.P17.A10.005, U.M.: %, Euro: 21, Note: 
+  Activity: La D. L. riconoscera' inoltre una maggiorazione sull'importo dei lavori eseguiti fuori del territorio del comunale:
+    Work: entro una distanza massima di km 30 + 10%
+      Codice: 14.P17.A15.005, U.M.: %, Euro: 10.5, Note: 
+    Work: per distanze superiori e fino a 100 km + 20%
+      Codice: 14.P17.A15.010, U.M.: %, Euro: 21, Note: 
+  Activity: Per lavori programmati (no guasti), la cui richiesta di esecuzione viene da parte della D. L. e per giorni festivi o prefestivi, sarà riconosciuta
+    Work: maggiorazione
+      Codice: 14.P17.A20.005, U.M.: %, Euro: 31.5, Note: 
+
+Category: TERMINALI
+  Activity: Terminale tripolare per cavi SCOLNJ/8,7 - 10 kV, sezione da 15 a 25 mm², con calotta tripolare e guaine isolanti in materiale termorestringente, conforme alla vigente normativa CEI.
+    Work: ...
+      Codice: 14.P18.A05.005, U.M.: cad, Euro: 88.01, Note: 
+  Activity: Terminale tripolare per cavi SCOLNJ/8,7 - 10 kV, sezione da 50 a 95 mm², con calotta tripolare e guaine isolanti in materiale termorestringente, conforme alla vigente normativa CEI.
+    Work: ...
+      Codice: 14.P18.A10.005, U.M.: cad, Euro: 91.39, Note: 
+  Activity: Terminale unipolare per interno, per cavi RC4HLRX/12 - 20 kV, sezione da 50 a 185 mm², con miscela colabile a freddo, conforme alla tabella di unificazione ENEL DJ 4453. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n (46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P18.A15.005, U.M.: cad, Euro: 120.34, Note: 
+  Activity: Terminali autorestringenti unipolari per interno, per cavo RC4HLRX/12 - 20 kV sezione da 50 a 185 mm², conforme alla tabella di unificazione ENEL DJ 4453.
+    Work: ...
+      Codice: 14.P18.A20.005, U.M.: cad, Euro: 60.16, Note: 
+  Activity: Terminali termorestringenti unipolari per interno, per cavo RC4HLRX/12 - 20 kV sezione da 50 a 185 mm², conformi alla tabella di unificazione ENEL DJ 4453. Confezione composta da tre terminali unipolari
+    Work: ...
+      Codice: 14.P18.A25.005, U.M.: cad, Euro: 188.03, Note: 
+  Activity: Terminali autorestringenti unipolari per interno, per cavo RG7H1RX/12 - 20 kV sezione da 50 a 185 mm², conforme alla tabella di unificazione ENEL DJ 4456.
+    Work: ...
+      Codice: 14.P18.A30.005, U.M.: cad, Euro: 52.65, Note: 
+  Activity: Terminali termorestringenti unipolari per interno, per cavo RG7H1R/12 - 20 kV con schermo a fili, sezione 25 mm², conformi alla tabella di unificazione ENEL DJ 4456 (senza staffa portaterminale)
+    Work: ...
+      Codice: 14.P18.A35.005, U.M.: cad, Euro: 50.38, Note: 
+  Activity: Terminali termorestringenti unipolari per interno, per cavo RG7H1R/12 - 20 kV con schermo a fili, sezione da 400 a 630 mm², conformi alla tabella di unificazione ENEL DJ 4456 (senza staffa porta terminale). Confezione composta da tre terminali unipolari
+    Work: ...
+      Codice: 14.P18.A45.005, U.M.: cad, Euro: 116.44, Note: 
+  Activity: Terminali termorestringenti unipolari per esterno, per cavo RG7H1R/12 - 20 kV con schermo a fili, sezione da 25 a 50 mm², conformi alla tabella di unificazione ENEL DJ 4476 (senza staffa portaterminale). Confezione composta da tre terminali unipolari
+    Work: ...
+      Codice: 14.P18.A50.005, U.M.: cad, Euro: 157.94, Note: 
+  Activity: Terminali termorestringenti unipolari per esterno, per cavo RG7H1R/12 - 20 kV con schermo a fili, sezione da 50 a 185 mm², conformi alla tabella di unificazione ENEL DJ 4476 (senza staffa portaterminale). Confezione composta da tre terminali unipolari
+    Work: ...
+      Codice: 14.P18.A55.005, U.M.: cad, Euro: 158.7, Note: 
+  Activity: Terminali termorestringenti unipolari per esterno, per cavo RG7H1R/12 - 20 kV con schermo a fili, sezione da 400 a 630 mm², conformi alla tabella di unificazione ENEL DJ 4476 (senza staffa porta terminale). Confezione composta da tre terminali unipolari
+    Work: ...
+      Codice: 14.P18.A60.005, U.M.: cad, Euro: 247.44, Note: 
+  Activity: Terminale sconnettibile unipolare, grandezza 1, per cavo RC4HLRX/12 - 20 kV, con spina di contatto In=400 A, sezione 95 mm², conforme alla tabella di unificazione ENEL DJ 1114.
+    Work: ...
+      Codice: 14.P18.A65.005, U.M.: cad, Euro: 112.81, Note: 
+  Activity: Terminale sconnettibile unipolare, grandezza 0, per cavo RG7H1R/12 - 20 kV con schermo a fili, con spina di contatto In=250 A, sezione 25 mm², conforme alla tabella di unificazione ENEL DJ 1119.
+    Work: ...
+      Codice: 14.P18.A70.005, U.M.: cad, Euro: 77.48, Note: 
+  Activity: Terminale sconnettibile unipolare, grandezza 1, per cavo con schermo a fili tipo RG7H1R/12 - 20 kV, con spina di contatto In=400 A, sezione 95 mm², conforme alla tabella di unificazione ENEL DJ 1136.
+    Work: ...
+      Codice: 14.P18.A75.005, U.M.: cad, Euro: 127.84, Note: 
+  Activity: Terminale unipolare per esterno e/o esterno, per cavi RC4HLRX/18 - 30 kV o RCHLONJ/18 - 30 kV, sezione da 50 a 240 mm², con miscela colabile a freddo, conforme alla vigente normativa CEI. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa autocertificazione su carta intestata come stabilito dal D. M. n 46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P18.A80.005, U.M.: cad, Euro: 244.44, Note: 
+  Activity: Terminali termorestringenti unipolari per interno per cavo RC4HLRX/18 - 30 kV sezione 59 a 185 mm², conformi alla vigente normativa CEI.
+    Work: ...
+      Codice: 14.P18.A85.005, U.M.: cad, Euro: 124.12, Note: 
+  Activity: Terminali termorestringenti unipolari per interno, per cavo RG7H1R/18 - 30 kV con schermo a fili, sezione da 35 a 95 mm², conformi alla vigente normativa CEI.
+    Work: ...
+      Codice: 14.P18.A90.005, U.M.: cad, Euro: 43.63, Note: 
+  Activity: Terminali termorestringenti unipolari per interno, per cavo RG7H1R/18 - 30 kV con schermo a fili, sezione da 95 a 185 mm², conformi alla vigente normativa CEI. Confezione composta da tre terminali unipolari
+    Work: ...
+      Codice: 14.P18.A95.005, U.M.: cad, Euro: 135.37, Note: 
+  Activity: Terminali termorestringenti unipolari per esterno, per cavo RG7H1R/18 - 30 kV con schermo a fili, sezione da 25 a 95 mm², conformi alla vigente normativa CEI. Confezione composta da tre terminali unipolari
+    Work: ...
+      Codice: 14.P18.B05.005, U.M.: cad, Euro: 219.6, Note: 
+
+Category: GIUNTI
+  Activity: Giunto quadripolare per cavi SCOLNJ/RG7OR/0,6 - 1 kV, sezione da 10 a 25 mm², a resina colata, conformi alla vigente normativa CEI. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa autocertificazione su carta intestata come stabilito dal D. M. n 46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P19.A05.005, U.M.: cad, Euro: 24.88, Note: 
+  Activity: Giunto quadripolare per cavi SCOLNJ/RG7OR/0,6 - 1 kV, sezione da 50 a 95 mm², a resina colata, conformi alla vigente normativa CEI. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n 46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P19.A10.005, U.M.: cad, Euro: 37.69, Note: 
+  Activity: Giunto termorestringente quadripolare per cavi RG7OR/0,6 - 1 kV, sezione da 25 a 50 mm², corredato di guaina termorestringente avvolgibile idonea al confezionamento dello stesso, conforme alla vigente normativa CEI.
+    Work: ...
+      Codice: 14.P19.A15.005, U.M.: cad, Euro: 24.88, Note: 
+  Activity: Giunto termorestringente quadripolare per cavi RG7OR/0,6 - 1 kV, sezione da 70 a 150 mm², corredato di guaina termorestringente avvolgibile idonea al confezionamento dello stesso, conforme alla vigente normativa CEI.
+    Work: ...
+      Codice: 14.P19.A20.005, U.M.: cad, Euro: 33.92, Note: 
+  Activity: Giunto tripolare per cavi SCOLNJ/8,7 - 10 kV, sezione da 16 a 95 mm², a resina epossidica iniettata, conformi alla vigente normativa CEI. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n (46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P19.A25.005, U.M.: cad, Euro: 148.48, Note: 
+  Activity: Giunto diritto unipolare per cavi RC4HLRX/12 - 20 kV, sezione da 50 a 185 mm², con miscela colabile a freddo, conforme alla tabella di unificazione ENEL DJ 4373. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n (46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P19.A30.005, U.M.: cad, Euro: 188.4, Note: 
+  Activity: Giunto unipolare autorestringente per cavo RC4HLRX/12 - 20 kV, sezione da 95 a 240 mm² conforme alla tabella di unificazione ENEL DJ 4373
+    Work: ...
+      Codice: 14.P19.A35.005, U.M.: cad, Euro: 135.64, Note: 
+  Activity: Giunto unipolare termorestringente per cavo RC4HLRX/12 - 20 kV, sezione da 95 a 240 mm² conforme alla tabella di unificazione ENEL DJ 4373
+    Work: ...
+      Codice: 14.P19.A40.005, U.M.: cad, Euro: 128.1, Note: 
+  Activity: Giunto unipolare autorestringente per cavo RG7H1RX/12 - 20 kV, sezione da 50 a 185 mm² conforme alla tabella di unificazione ENEL DJ 4376
+    Work: ...
+      Codice: 14.P19.A45.005, U.M.: cad, Euro: 128.1, Note: 
+  Activity: Giunto unipolare termorestringente per cavo RG7H1RX/12 - 20 kV, sezione da 50 a 185 mm² conforme alla tabella di unificazione ENEL DJ 4376
+    Work: ...
+      Codice: 14.P19.A50.005, U.M.: cad, Euro: 90.42, Note: 
+  Activity: Giunto diritto unipolare per cavi RC4HLRX/18 - 30 kV o RCHLONJ/18 - 30 kV, sezione da 50 a 240 mm², con miscela colabile a freddo, conforme alla vigente normativa CEI. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n (46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P19.A55.005, U.M.: cad, Euro: 188.4, Note: 
+  Activity: Giunto tripolare asimmetrico tra cavi RC4HLRX/18 - 30 kV e tipo SCOLR/18 - 30 kV, sezione 95 mm², con miscela colabile a freddo, conforme alla vigente normativa CEI. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n (46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P19.A60.005, U.M.: cad, Euro: 678.22, Note: 
+
+Category: ACCESSORI
+  Activity: Calotta termorestringente in poliolefina nera, autosigillante,
+    Work: a quattro uscite per cavi quadripolari, sezioni da 50 a 95 mm²
+      Codice: 14.P20.A05.005, U.M.: cad, Euro: 2.97, Note: 
+    Work: a quattro uscite per cavi quadripolari, sezioni da 10 a 25 mm²
+      Codice: 14.P20.A05.010, U.M.: cad, Euro: 2.3, Note: 
+    Work: a tre uscite per cavi tripolari armati 30 kV, sezioni da 95 a 240 mm²
+      Codice: 14.P20.A05.015, U.M.: cad, Euro: 44.97, Note: 
+    Work: a quattro uscite per cavi quadripolari, sezione 150 mm²
+      Codice: 14.P20.A05.020, U.M.: cad, Euro: 5.61, Note: 
+  Activity: Cappuccio termorestringente in poliolefina nera, autosigillante, per cavi sezione 3 x 150 + 95 mm²
+    Work: ...
+      Codice: 14.P20.A10.005, U.M.: cad, Euro: 2.69, Note: 
+  Activity: Guaina termorestringente tubolare in poliolefina nera, con collante.
+    Work: ...
+      Codice: 14.P20.A15.005, U.M.: cad, Euro: 18.66, Note: 
+  Activity: Guaina termorestringente tubolare in poliolefina nera, con collante.
+    Work: ...
+      Codice: 14.P20.A20.005, U.M.: cad, Euro: 10.51, Note: 
+  Activity: Cappuccio termorestringente in poliolefina nera, autosigillante, per cavi di sezione 3x50+25 o 3x95+50 o 1x185 mm²
+    Work: ...
+      Codice: 14.P20.A25.005, U.M.: cad, Euro: 1.33, Note: 
+  Activity: Cappuccio termorestringente in poliolefina nera, autosigillante, per cavi di sezione 4x25 o 1x95 mm²
+    Work: ...
+      Codice: 14.P20.A30.005, U.M.: cad, Euro: 1.33, Note: 
+  Activity: Guaina termorestringente tubolare in poliolefina nera, con collante.
+    Work: ...
+      Codice: 14.P20.A35.005, U.M.: cad, Euro: 3.74, Note: 
+  Activity: Guaina termorestringente tubolare in poliolefina nera, con collante.
+    Work: ...
+      Codice: 14.P20.A40.005, U.M.: cad, Euro: 2.09, Note: 
+  Activity: Confezione da 400/440 g di resina epossidica isolante per giunti di cavi elettrici a resina iniettata compatibile con altre simili. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n 46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P20.A45.005, U.M.: cad, Euro: 13.18, Note: 
+  Activity: Confezione da 5 kg di miscela isolante per terminali 30 kV di cavi elettrici a miscela colata tipo A4T colorata. L'offerta dovrà essere accompagnata, così come il materiale, dalla scheda di sicurezza e dalla relativa auto certificazione su carta intestata come stabilito dal D. M. n 46 del 28/01/1992; tale documentazione deve essere indirizzata al Servizio Prove e Assistenza Tecnica della stazione appaltante per il controllo della conformità ai sensi di legge della medesima. L'etichettatura e l'imballaggio devono rispondere alla normativa vigente.
+    Work: ...
+      Codice: 14.P20.A50.005, U.M.: kg, Euro: 10.12, Note: 
+  Activity: Guaina termorestringente tubolare in poliolefina nera, con collante.
+    Work: ...
+      Codice: 14.P20.A55.005, U.M.: cad, Euro: 10.73, Note: 
+  Activity: Connettore di giunzione o derivazione a "C" in rame elettrolitico ricotto per corda in rame nudo in formazione rotonda compatta di sezione 95/95 mm², il connettore dovrà inoltre essere munito delle seguenti marcature: il marchio di fabbrica, il tipo, la sezione del conduttore passante, la sezione del conduttore derivato, il numero di compressioni da effettuare, il tipo di matrice da usare per la compressione.
+    Work: ...
+      Codice: 14.P20.A60.005, U.M.: cad, Euro: 2.35, Note: 
+  Activity: Connettore di giunzione o derivazione a "C" in rame elettrolitico ricotto per corda in rame nudo in formazione rotonda compatta di sezione 95/50 mm², il connettore dovrà inoltre essere munito delle seguenti marcature: il marchio di fabbrica, il tipo, la sezione del conduttore passante, la sezione del conduttore derivato, il numero di compressioni da effettuare, il tipo di matrice da usare per la compressione.
+    Work: ...
+      Codice: 14.P20.A65.005, U.M.: cad, Euro: 1.99, Note: 
+  Activity: Fascette serratubo a vite tangenziale da mm 33/53 altezza 8 mm
+    Work: ...
+      Codice: 14.P20.A70.005, U.M.: cad, Euro: 2.25, Note: 
+  Activity: Fascette serratubo a vite tangenziale da mm 40/60 altezza 14 mm
+    Work: ...
+      Codice: 14.P20.A75.005, U.M.: cad, Euro: 2.44, Note: 
+  Activity: Fascette serratubo a vite tangenziale da mm 78/99 altezza 14 mm
+    Work: ...
+      Codice: 14.P20.A80.005, U.M.: cad, Euro: 2.63, Note: 
+  Activity: Guaina avvolgibile termorestringente.
+    Work: ...
+      Codice: 14.P20.A85.005, U.M.: m, Euro: 34.94, Note: 
+  Activity: Guaina avvolgibile termorestringente
+    Work: ...
+      Codice: 14.P20.A90.005, U.M.: m, Euro: 33.01, Note: 
+
+Category: SOSTEGNI
+  Activity: Fornitura e posa in opera di sostegno in lamiera saldata a sezione poligonale in tronchi innestabili, completo di fasciatura anticorrosione in foro predisposto nel basamento in calcestruzzo cementizio, controllo della verticalità e bloccaggio con sabbia asciutta e collare superiore di cm 10 di spessore
+    Work: per palo tipo 12 D 14
+      Codice: 14.P21.A05.005, U.M.: cad, Euro: 689.33, Note: 
+    Work: per palo tipo 14 D 14
+      Codice: 14.P21.A05.010, U.M.: cad, Euro: 844.1, Note: 
+    Work: per palo tipo 16 D 14
+      Codice: 14.P21.A05.015, U.M.: cad, Euro: 1019.95, Note: 
+    Work: per palo tipo 12 E 17
+      Codice: 14.P21.A05.020, U.M.: cad, Euro: 837.08, Note: 
+    Work: per palo tipo 14 E 17
+      Codice: 14.P21.A05.025, U.M.: cad, Euro: 1160.62, Note: 
+    Work: per palo tipo 16 E 17
+      Codice: 14.P21.A05.030, U.M.: cad, Euro: 1325.93, Note: 
+    Work: per palo tipo 12 F 17
+      Codice: 14.P21.A05.035, U.M.: cad, Euro: 1019.95, Note: 
+    Work: per palo tipo 14 F 17
+      Codice: 14.P21.A05.040, U.M.: cad, Euro: 1266.12, Note: 
+    Work: per palo tipo 16 E 17
+      Codice: 14.P21.A05.045, U.M.: cad, Euro: 1547.48, Note: 
+    Work: per palo tipo 12 G 24
+      Codice: 14.P21.A05.050, U.M.: cad, Euro: 1392.74, Note: 
+    Work: per palo tipo 14 G 24
+      Codice: 14.P21.A05.055, U.M.: cad, Euro: 1688.17, Note: 
+    Work: per palo tipo 16 G 24
+      Codice: 14.P21.A05.060, U.M.: cad, Euro: 2039.88, Note: 
+    Work: per palo tipo 12 H 24
+      Codice: 14.P21.A05.065, U.M.: cad, Euro: 2096.15, Note: 
+    Work: per palo tipo 14 H 24
+      Codice: 14.P21.A05.070, U.M.: cad, Euro: 2602.59, Note: 
+    Work: per palo tipo 16 H 24
+      Codice: 14.P21.A05.075, U.M.: cad, Euro: 3130.13, Note: 
+    Work: per palo tipo 12 J 28
+      Codice: 14.P21.A05.080, U.M.: cad, Euro: 3657.69, Note: 
+    Work: per palo tipo 14 J 28
+      Codice: 14.P21.A05.085, U.M.: cad, Euro: 4572.12, Note: 
+    Work: per palo tipo 16 J 28
+      Codice: 14.P21.A05.090, U.M.: cad, Euro: 5486.54, Note: 
+  Activity: Fornitura dei materiali ed esecuzione dell'impianto di messa a terra del sostegno tramite infissione di 2 picchetti sugli angoli opposti dello scavo del blocco di fondazione e relativo collegamento della treccia di terra di sezione 95 mm² chiusa ad anello lungo il perimetro dello stesso.
+    Work: ...
+      Codice: 14.P21.A10.005, U.M.: cad, Euro: 147.37, Note: 
+
+Category: ACCESSORI E CAVO AUTOPORTANTE
+  Activity: Fornitura e posa in opera di canaletta in vetroresina diam. 76 lunghezza m 3 e relativo fissaggio con nastro band'it 1/2"
+    Work: ...
+      Codice: 14.P22.A05.005, U.M.: cad, Euro: 58.85, Note: 
+  Activity: Fornitura e posa in opera di collare per il fissaggio del cavo su palo o su muro
+    Work: ...
+      Codice: 14.P22.A10.005, U.M.: cad, Euro: 37.69, Note: 
+  Activity: Fornitura e posa in opera del supporto di sospensione
+    Work: ...
+      Codice: 14.P22.A15.005, U.M.: cad, Euro: 102.36, Note: 
+  Activity: Fornitura e posa in opera del supporto di amarro
+    Work: ...
+      Codice: 14.P22.A20.005, U.M.: cad, Euro: 102.19, Note: 
+  Activity: Fornitura e posa in opera del supporto per giunti diritti unipolari
+    Work: ...
+      Codice: 14.P22.A25.005, U.M.: cad, Euro: 182.37, Note: 
+  Activity: Fornitura e posa in opera di supporto per terminale
+    Work: ...
+      Codice: 14.P22.A30.005, U.M.: cad, Euro: 231.97, Note: 
+  Activity: Fornitura e posa in opera di morsetto di sospensione per fune portante di acciaio rivestito in alluminio diam. 9 mm
+    Work: ...
+      Codice: 14.P22.A35.005, U.M.: cad, Euro: 145.85, Note: 
+  Activity: Fornitura e posa in opera di morsa di amarro a cuneo per fune portante di acciaio rivestita in alluminio diam. 9 mm
+    Work: ...
+      Codice: 14.P22.A40.005, U.M.: cad, Euro: 183.78, Note: 
+  Activity: Posa di rulliera o carrozzino e relativo supporto
+    Work: ...
+      Codice: 14.P22.A45.005, U.M.: cad, Euro: 20.13, Note: 
+  Activity: Fornitura e posa in opera di traversa di acciaio per linee aeree M. T.
+    Work: ...
+      Codice: 14.P22.A50.005, U.M.: cad, Euro: 275.58, Note: 
+  Activity: Fornitura e posa in opera su accessori già predisposti di cavo aereo cordato su fune portante tipo ARG7H5EXY/18 - 30 kV (stendimento, tiro e regolazione) per sezione 3x1x150 mm²
+    Work: ...
+      Codice: 14.P22.A55.005, U.M.: m, Euro: 33.82, Note: 
+
+Category: LAVORI PROVVISORI, RECUPERI E DEMOLIZIONI
+  Activity: Recupero di terna di conduttori di qualsiasi sezione costituenti le vecchie linee e il recupero degli accessori (morse, isolatori), la selezione dei conduttori, l'eventuale taglio in spezzoni, il loro riavvolgimento in bobine o matasse e il trasporto dei materiali ai magazzini.
+    Work: ...
+      Codice: 14.P23.A05.005, U.M.: m, Euro: 1.15, Note: 
+  Activity: Recupero di sostegno e relativi accessori (cetre, mensole e traverse), il trasporto ad impianto di recupero e riciclo  autorizzato compreso lo smontaggio delle parti metalliche che dovranno essere versate presso i magazzini.
+    Work: ...
+      Codice: 14.P23.A10.005, U.M.: cad, Euro: 141.62, Note: 
+  Activity: Demolizione e recupero di fondazione di sostegno sino ad una profondita' di 0,80 m, salvo diverse disposizioni della Direzione Lavori, trasporto ad impianto di trattamento autorizzato del materiale e ripristino del piano di campagna con terra di coltura
+    Work: ...
+      Codice: 14.P23.A15.005, U.M.: m³, Euro: 212.08, Note: 
+  Activity: Recupero di mensola in c. a. c.
+    Work: ...
+      Codice: 14.P23.A20.005, U.M.: cad, Euro: 40.67, Note: 
+  Activity: Spostamento provvisorio di conduttori costituenti la vecchia linea per garantire la possibilità di ripristino del servizio compresa la fornitura degli accessori occorrenti
+    Work: su palo di amarro
+      Codice: 14.P23.A25.005, U.M.: cad, Euro: 92.6, Note: 
+    Work: su palo di sospensione
+      Codice: 14.P23.A25.010, U.M.: cad, Euro: 28.97, Note: 
+  Activity: Spostamento dei collegamenti dei terminali per garantire la possibilità di ripristino del servizio
+    Work: ...
+      Codice: 14.P23.A30.005, U.M.: cad, Euro: 23.42, Note: 
+  Activity: Apposizione di cartello ammonitore e sigla di identificazione del palo di fornitura dell'Ente appaltante, comprensiva degli accessori occorrenti
+    Work: ...
+      Codice: 14.P23.A35.005, U.M.: cad, Euro: 12.04, Note: 
+  Activity: Verniciatura dei sostegni mediante strisce alternate tracciate sull'ostacolo bianche rifrangenti e nere, inclinate a 45° (sino ad 1,5 m da terra. (Art. 42 Cod. Str. DL 285 del 30/04/1992, art. 175 del DPR 495 del 16/12/1992)
+    Work: ...
+      Codice: 14.P23.A40.005, U.M.: cad, Euro: 35.58, Note: 
+
+Category: TIRO E MANIPOLAZIONE DEI CAVI
+  Activity: Fornitura e posa in opera di cavo elicord tipo ARG7H5EXY/18 - 30 kV sezione 150 mm²
+    Work: ...
+      Codice: 14.P24.A05.005, U.M.: m, Euro: 33.89, Note: 
+
+Category: FORNITURA A CARATTERE SOMMINISTRATIVO
+  Activity: Cavo aereo cordato su fune portante tipo ARG7H5EXY/18 - 30 kV sezione 150 mm²
+    Work: ...
+      Codice: 14.P25.A05.005, U.M.: m, Euro: 31.42, Note: 
+  Activity: Giunto diritto unipolare per cavo tipo ARG7H5EXY/18 - 30 kV, per conduttori in Al di sezione 150 mm²
+    Work: ...
+      Codice: 14.P25.A10.005, U.M.: cad, Euro: 207.52, Note: 
+  Activity: Terminale termorestringente unipolare per esterno per cavo tipo ARG7H5EXY/18 - 30 kV, per conduttori in Al di sezione 150 mm²
+    Work: ...
+      Codice: 14.P25.A15.005, U.M.: cad, Euro: 207.52, Note: 
+  Activity: Supporti di sospensione (ENEL DS 3062/1)
+    Work: ...
+      Codice: 14.P25.A20.005, U.M.: cad, Euro: 60.19, Note: 
+  Activity: Supporti di amarro tipo A1 (ENEL DS 3064/1)
+    Work: ...
+      Codice: 14.P25.A25.005, U.M.: cad, Euro: 60.19, Note: 
+  Activity: Supporti di amarro tipo A2 (ENEL DS 3064/2)
+    Work: ...
+      Codice: 14.P25.A30.005, U.M.: cad, Euro: 60.19, Note: 
+  Activity: Supporti per giunti unipolari (ENEL DS 3066)
+    Work: ...
+      Codice: 14.P25.A35.005, U.M.: cad, Euro: 117.56, Note: 
+  Activity: Supporti per terminali (ENEL DS 3068)
+    Work: ...
+      Codice: 14.P25.A40.005, U.M.: cad, Euro: 165.99, Note: 
+  Activity: Morsetti di sospensione per fune portante di acciaio rivestita in alluminio diam. 9 mm (ENEL DM 3164)
+    Work: ...
+      Codice: 14.P25.A45.005, U.M.: cad, Euro: 69.17, Note: 
+  Activity: Morsa di amarro a cuneo per fune portante di acciaio rivestita in alluminio diam. 9 mm (ENEL DM 3180)
+    Work: ...
+      Codice: 14.P25.A50.005, U.M.: cad, Euro: 72.62, Note: 
+

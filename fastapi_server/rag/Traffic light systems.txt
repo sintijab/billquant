@@ -1,0 +1,813 @@
+Main Category: Impianti semaforici
+Description: Edizione 2025
+
+La presente sezione è il frutto dell'analisi e dell'esperienza maturata nel settore da parte della Società Iren Energia S.p.A. di Torino. 
+
+Come già illustrato nella nota metodologica, la stesura di tale edizione, facendo seguito all'edizione 2024, rappresenta, in ossequio alle previsioni di cui all'articolo 41 c.13 D.Lgs. n. 36/2023 e relativo Allegato I.14 e s.m.i., l'aggiornamento annuale del prezzario regionale, ed è stata redatta attraverso la conduzione di puntuale rilevazione dei prezzi di mercato mediante indagini condotte tra i principali fornitori/produttori dei materiali da costruzione più significativi nonché tra gli operatori del settore, anche avvalendosi del contributo degli enti e delle associazioni presenti su Tavolo Permanente di Lavoro regionale. L'indagine si è sviluppata nel secondo semestre 2024, consentendo la definizione dell'edizione 2025 qui presentata.
+
+Per quanto non contenuto nella sezione in oggetto si fa riferimento dunque alle sezioni facenti parte integrante del presente elenco prezzi, in particolare a quelle riferite alla sezione 06 "Impianti elettrici e speciali", 05 "Impianti termici" e 01 "Opere edili".
+
+Tale sezione è altresì seguita da uno specifico allegato riportante le caratteristiche prestazionali in termini di dimensioni, materiali e modalità di posa che gli specifici componenti un impianto semaforico dovranno rispettare; le singole voci, per quanto possibile, richiamano le tavole relative di tale allegato.
+
+I prezzi sono comprensivi del 27,60% (16% + 10%) per spese generali ed utili di impresa.
+
+Qualora le voci di prezzo della presente sezione siano impiegabili per l'attuazione delle previsioni finalizzate alla tutela della salute e sicurezza nei luoghi di lavoro, secondo quanto previsto nell'allegato XV del D.Lgs. 81/08 s.m.i. per la stima dei costi della sicurezza relativi, in coerenza con le previsioni di cui all'articolo 5 comma 9 dell'allegato I.14 del D.Lgs. 36/23, si dovrà preventivamente procedere ad un ricalcolo della stima del prezzo definendo il costo di sicurezza utilizzabile attraverso lo scorporo dal prezzo della singola voce utilizzata della quota di utile prevista del 10%. I costi così stimati non saranno ribassabili e verranno riconosciuti per le quantità eseguite, nell'ambito dello specifico computo metrico estimativo delle misure di sicurezza redatto.
+
+Anche per l'edizione 2025 il Tavolo Permanente del prezzario ha condiviso la volontà di meglio dettagliare i valori presunti di manodopera impiegata con riferimento alle lavorazioni di natura prettamente impiantistica (metalmeccanico-impiantistico e affini), all'interno delle singole analisi prezzi nelle 32 sezioni tematiche, utilizzando per le sezioni prettamente impiantistiche - sezione 05 "Impianti termici", sezione 06 "Impianti elettrici e speciali" e sezione 15 "Impianti semaforici", i costi della manodopera definiti dal Ministero del Lavoro e delle Politiche sociali per il settore dell'industria metalmeccanica privata e dell'installazione di impianti  di cui al Decreto direttoriale n. 73 del 22 novembre 2024 della Direzione Generale dei rapporti di lavoro e delle relazioni industriali, nel quale è stato fornito il costo medio orario per il personale dipendente da imprese del settore dell'impiantistica e attività affini (con decorrenza giugno 2024). 
+Per comodità di utilizzo il testo del decreto completo di tabelle è consultabile all'indirizzo: www.lavoro.gov.it/temi-e-priorita/rapporti-di-lavoro-e-relazioni-industriali/focus-on/analisi-economiche-costo-lavoro/pagine/default
+
+Per la stesura di nuove analisi prezzi il costo orario della manodopera da applicare per le singole categorie di lavori è da riferirsi alle tabelle ministeriali connesse allo specifico settore produttivo, laddove esistenti (Impiantistica e affini, metalmeccanico-impiantistico ed affini etc.), ovvero alle tabelle fornite dalle associazioni di riferimento sulla base dei rispettivi Contratti Collettivi Nazionali di Lavoro (C.C.N.L.) vigenti.
+
+Category: LANTERNE SEMAFORICHE
+  Activity: Lanterna semaforica con lampade ad incandescenza o con ottiche a LED, completa dei braccetti di sostegno di qualsiasi tipo, delle visiere, dei conduttori per il cablaggio elettrico interno e per il collegamento al supporto superiore o del cavo per il collegamento alle cassette di derivazione (1 m di cavo tipo FG16OR16 0,6-1Kv o FG7OR 0,6-1Kv), dei puntalini di terminazione preisolati per i vari conduttori e degli accessori di fissaggio di qualsiasi tipo. Il recupero e posa sono comprensivi della codifica, del corretto orientamento, dell'eventuale posa delle lampade ad incandescenza e di tutto quanto necessario per renderla funzionante.
+    Work: Lanterna Semaforica a 3 luci diametro 200 mm con lampade ad incandescenza (FORNITURA)
+      Codice: 15.P01.A05.005, U.M.: cad, Euro: 138.45, Note: 
+    Work: Lanterna Semaforica a 1 luce diam 200 mm con lampade ad incandescenza (FORNITURA)
+      Codice: 15.P01.A05.030, U.M.: cad, Euro: 46.15, Note: 
+    Work: Lanterna Semaforica a 1 luce diam 200 mm con lampade ad incandescenza (FORNITURA)
+      Codice: 15.P01.A05.035, U.M.: cad, Euro: 74.43, Note: 
+    Work: Lanterna Semaforica a 3 luci diam. 200 mm completa di mascherine nelle varie tipologie previste dal Codice della Strada con lampade ad incandescenza
+      Codice: 15.P01.A05.040, U.M.: cad, Euro: 158.22, Note: 
+    Work: Lanterna semaforica di qualsiasi tipologia e composizione ad altezza < di 4 m da terra (POSA)
+      Codice: 15.P01.A05.055, U.M.: cad, Euro: 36.95, Note: 
+    Work: Lanterna semaforica di qualsiasi tipologia e composizione da altezza < di 4 m da terra (RECUPERO)
+      Codice: 15.P01.A05.060, U.M.: cad, Euro: 9.87, Note: 
+    Work: Lanterna semaforica di qualsiasi tipologia e composizione ad altezza > di 4 m da terra (POSA)
+      Codice: 15.P01.A05.065, U.M.: cad, Euro: 66.95, Note: 
+    Work: Lanterna semaforica di qualsiasi tipologia e composizione da altezza > di 4 m da terra (RECUPERO)
+      Codice: 15.P01.A05.070, U.M.: cad, Euro: 17.41, Note: 
+    Work: Assemblaggio di lanterna semaforica di qualsiasi tipologia mediante l'unione di moduli singoli, comprensiva dei sistemi di fissaggio, del cablaggio (con fornitura del conduttore e dei morsetti) della posa dei braccetti in policarbonato eventualmente necessari. L'assemblaggio comprende inoltre tutte le operazioni di posa e recupero di parti di lanterne quali parabole, portalampade, sportelli, dischi di unione ecc.. per ogni modulo aggiunto o recuperato (POSA)
+      Codice: 15.P01.A05.075, U.M.: cad, Euro: 12.34, Note: 
+    Work: Oscuramento o disoscuramento provvisorio di lanterna semaforica mediante l'ausilio di sacchi in polietilene di colore nero (tipo Raccolta Rifiuti) o altro metodo similare atto a mascherare le luci delle lanterne i cui segnali potrebbero ingenerare confusione all'utenza durante le varie fasi di un cantiere o in attesa della realizzazione di manufatti stradali. Compresa la fornitura del materiale occorrente. Ad altezza < 4m da terra  (POSA)
+      Codice: 15.P01.A05.080, U.M.: cad, Euro: 8.35, Note: 
+    Work: Oscuramento o disoscuramento provvisorio di lanterna semaforica mediante l'ausilio di sacchi in polietilene di colore nero (tipo Raccolta Rifiuti) o altro metodo similare atto a mascherare le luci delle lanterne i cui segnali potrebbero ingenerare confusione all'utenza durante le varie fasi di un cantiere o in attesa della realizzazione di manufatti stradali. Compresa la fornitura del materiale occorrente. Ad altezza > 4m da terra  (POSA)
+      Codice: 15.P01.A05.085, U.M.: cad, Euro: 26.91, Note: 
+    Work: Lanterna Semaforica a 1 luce diam. 300 mm tensione 220V con ottiche a LED (FORNITURA)
+      Codice: 15.P01.A05.090, U.M.: cad, Euro: 131.85, Note: 
+    Work: Lanterna semaforica a 3 luci diam. 200 mm tensione 220V con ottiche a LED (FORNITURA)
+      Codice: 15.P01.A05.095, U.M.: cad, Euro: 329.85, Note: 
+    Work: Lanterna Semaforica a 1 luce diam. 200 mm tensione 220V con ottiche a LED (FORNITURA)
+      Codice: 15.P01.A05.100, U.M.: cad, Euro: 109.95, Note: 
+    Work: Lanterna semaforica a 3 luci diam. 200 mm tensione 42V con ottiche a LED (FORNITURA)
+      Codice: 15.P01.A05.105, U.M.: cad, Euro: 374.51, Note: 
+    Work: Lanterna Semaforica a 1 luce diam. 200 mm tensione 42V con ottiche a LED (FORNITURA)
+      Codice: 15.P01.A05.110, U.M.: cad, Euro: 124.83, Note: 
+    Work: Lanterna Semaforica a 1 luce diam. 300 mm tensione 42V con ottiche a LED (FORNITURA)
+      Codice: 15.P01.A05.115, U.M.: cad, Euro: 149.29, Note: 
+    Work: Lanterna semaforica a 3 luci diam. 200 mm tensione 220V con ottiche a LED e mascherine di qualsiasi tipo (FORNITURA)
+      Codice: 15.P01.A05.120, U.M.: cad, Euro: 348.99, Note: 
+    Work: Lanterna semaforica a 3 luci diam. 200 mm tensione 42V con ottiche a LED e mascherine di qualsiasi tipo (FORNITURA)
+      Codice: 15.P01.A05.125, U.M.: cad, Euro: 393.65, Note: 
+    Work: Lanterna semaforica tranviaria a 3 luci diam. 200 mm tensione 220V con ottiche a LED e mascherine (FORNITURA)
+      Codice: 15.P01.A05.130, U.M.: cad, Euro: 368.13, Note: 
+    Work: Lanterna semaforica tranviaria a 3 luci diam. 200 mm tensione 42V con ottiche a LED e mascherine (FORNITURA)
+      Codice: 15.P01.A05.135, U.M.: cad, Euro: 438.31, Note: 
+    Work: Ottica a LED colore rosso o giallo diam. 200 mm, tensione 220V, compreso il cavo di collegamento alla morsettiera della lanterna (FORNITURA)
+      Codice: 15.P01.A05.140, U.M.: cad, Euro: 75.6, Note: 
+    Work: Ottica a LED colore verde diam. 200 mm, tensione 220V, compreso il cavo di collegamento alla morsettiera della lanterna (FORNITURA)
+      Codice: 15.P01.A05.145, U.M.: cad, Euro: 88.36, Note: 
+    Work: Ottica a LED colore bianco diam. 200 mm, tensione 220V, compreso il cavo di collegamento alla morsettiera della lanterna (FORNITURA)
+      Codice: 15.P01.A05.150, U.M.: cad, Euro: 81.98, Note: 
+    Work: Ottica a LED colore rosso o giallo diam. 200 mm, tensione 42V, compreso il cavo di collegamento alla morsettiera della lanterna (FORNITURA)
+      Codice: 15.P01.A05.155, U.M.: cad, Euro: 98.57, Note: 
+    Work: Ottica a LED colore verde diam. 200 mm, tensione 42V, compreso il cavo di collegamento alla morsettiera della lanterna (FORNITURA)
+      Codice: 15.P01.A05.160, U.M.: cad, Euro: 111.33, Note: 
+    Work: Ottica a LED colore bianco diam. 200 mm, tensione 42V, compreso il cavo di collegamento alla morsettiera della lanterna (FORNITURA)
+      Codice: 15.P01.A05.165, U.M.: cad, Euro: 98.57, Note: 
+  Activity: Pannello di contrasto  per lanterne semaforiche costruito secondo le prescrizioni del Nuovo Codice della Strada (fondo nero con bordo bianco), comprensivo dei materiali di fissaggio. La posa e il recupero sono da intendersi a e da qualsiasi altezza.
+    Work: Pannello di contrasto avente dimensioni  di mm 900 x 600 (FORNITURA)
+      Codice: 15.P01.A10.005, U.M.: cad, Euro: 199.06, Note: 
+    Work: Pannello di contrasto avente dimensioni  di mm 700 x 1000 (FORNITURA)
+      Codice: 15.P01.A10.010, U.M.: cad, Euro: 229.68, Note: 
+    Work: Pannello di contrasto avente dimensioni  di mm 900 x 1350 (FORNITURA)
+      Codice: 15.P01.A10.015, U.M.: cad, Euro: 297.95, Note: 
+    Work: Pannello di contrasto di qualsiasi dimensione e a qualsiasi altezza (POSA)
+      Codice: 15.P01.A10.020, U.M.: cad, Euro: 13.39, Note: 
+    Work: Pannello di contrasto di qualsiasi dimensione e da qualsiasi altezza (RECUPERO)
+      Codice: 15.P01.A10.025, U.M.: cad, Euro: 10.71, Note: 
+    Work: Supporto multiplo superiore completo di morsettiera, cappellotto, bulloni di fissaggio, tappi per la chiusura dei fori per il fissaggio delle lanterne (min. n. 3).     La posa comprende il collegamento dei conduttori del cavo in arrivo dal regolatore, cassetta giunzione  o da altro sostegno, alla morsettiera.    Ad ogni singolo conduttore in arrivo deve essere applicato un puntalino preisolato di dimensione adeguata. Qualora richiestogli l'Appaltatore dovrà provvedere alla fornitura del capocorda e del conduttore per il "filo pilota" effettuandone il relativo collegamento fra la palina e la morsettiera del supporto.  L'operazione di recupero comprende il distacco dei conduttori (FORNITURA)
+      Codice: 15.P01.A10.030, U.M.: cad, Euro: 44.02, Note: 
+    Work: Supporto superiore per lanterne  (FORNITURA E POSA)
+      Codice: 15.P01.A10.035, U.M.: cad, Euro: 66.23, Note: 
+    Work: Supporto superiore per lanterne  (POSA)
+      Codice: 15.P01.A10.040, U.M.: cad, Euro: 22.21, Note: 
+    Work: Supporto superiore per lanterne  (RECUPERO)
+      Codice: 15.P01.A10.045, U.M.: cad, Euro: 4.12, Note: 
+    Work: Supporto inferiore per lanterne  (FORNITURA)
+      Codice: 15.P01.A10.050, U.M.: cad, Euro: 18.5, Note: 
+    Work: Supporto inferiore per lanterne  (FORNITURA E POSA)
+      Codice: 15.P01.A10.055, U.M.: cad, Euro: 20.97, Note: 
+    Work: Supporto inferiore per lanterne  (POSA)
+      Codice: 15.P01.A10.060, U.M.: cad, Euro: 3.3, Note: 
+    Work: Supporto inferiore per lanterne  (RECUPERO)
+      Codice: 15.P01.A10.065, U.M.: cad, Euro: 2.47, Note: 
+  Activity: Braccetto di sostegno superiore od inferiore in policarbonato, con attacco a palina  o del tipo  a Band - it o con bulloni  per lanterne semaforiche
+    Work: Braccetto sup/inf per lanterne semaforiche (FORNITURA)
+      Codice: 15.P01.A15.005, U.M.: cad, Euro: 16.59, Note: 
+    Work: Braccetto sup/inf per lanterne semaforiche (POSA)
+      Codice: 15.P01.A15.015, U.M.: cad, Euro: 5.76, Note: 
+    Work: Braccetto sup/inf per lanterne semaforiche (RECUPERO)
+      Codice: 15.P01.A15.020, U.M.: cad, Euro: 5.76, Note: 
+    Work: Braccetto di sostegno superiore/inferiore o elemento di raccordo, di qualsiasi tipologia, tra lanterna semaforica e modulo/i laterale/i, sostituito su lanterna in opera compreso lo stacco e il riattacco dei conduttori, l'apertura e chiusura dello sportello, la posa e il recupero della lampada e della parabola o di ottica. Sostituito su lanterna in opera ad altezza < 4 m da terra (POSA E RECUPERO)
+      Codice: 15.P01.A15.025, U.M.: cad, Euro: 12.34, Note: 
+    Work: Braccetto di sostegno superiore/inferiore o elemento di raccordo, di qualsiasi tipologia, tra lanterna semaforica e modulo/i laterale/i, sostituito su lanterna in opera compreso lo stacco e il riattacco dei conduttori, l'apertura e chiusura dello sportello, la posa e il recupero della lampada e della parabola o di ottica. Sostituito su lanterna in opera ad altezza > 4 m da terra (POSA E RECUPERO)
+      Codice: 15.P01.A15.030, U.M.: cad, Euro: 36.15, Note: 
+  Activity: Elemento di raccordo, di qualsiasi tipologia, tra lanterna semaforica e modulo/i laterale/i, comprensivo degli anelli di fissaggio, del cablaggio elettrico, dell'eventuale recupero del braccetto della lanterna e della staffa e del tappo di chiusura,superiore al modulo, quando previsti. La  posa è da intendersi effettuata a qualsiasi altezza da terra
+    Work: Elemento di raccordo per un modulo laterale  con tappo di chiusura e staffa di fissaggio (FORNITURA)
+      Codice: 15.P01.A20.005, U.M.: cad, Euro: 55.8, Note: 
+    Work: Elemento di raccordo per due moduli laterali con tappo di chiusura e staffa di fissaggio (FORNITURA)
+      Codice: 15.P01.A20.010, U.M.: cad, Euro: 94.96, Note: 
+  Activity: Ricambi per lanterne semaforiche quali lenti,  mascherine, sportelli, visiere ecc. Trattandosi di ricambi tutti gli elementi forniti dovranno essere completamente compatibili con le lanterne su cui saranno installati
+    Work: Cappellotto di protezione per supporto superiore (FORNITURA)
+      Codice: 15.P01.A25.005, U.M.: cad, Euro: 12.76, Note: 
+    Work: Lente colorata in pasta per lanterne semaforiche avente diam. 200 mm, di qualsiasi colore (FORNITURA)
+      Codice: 15.P01.A25.010, U.M.: cad, Euro: 7.21, Note: 
+    Work: Lente colorata in pasta per lanterne semaforiche avente diam. 300 mm, di qualsiasi colore,  di qualsiasi tipologia.  (FORNITURA)
+      Codice: 15.P01.A25.015, U.M.: cad, Euro: 12.65, Note: 
+    Work: Mascherine per qualsiasi tipo di lanterna in materiale plastico diam. 200 mm, di colorazione nera, con scanalature per impedirne la rotazione, riportanti qualunque tipo di simbologia prevista dal nuovo codice della strada (FORNITURA)
+      Codice: 15.P01.A25.030, U.M.: cad, Euro: 11.48, Note: 
+    Work: Mascherine per qualsiasi tipo di lanterna in materiale plastico diam. 300 mm, di colorazione nera, con scanalature per impedirne la rotazione, riportanti qualunque tipo di simbologia prevista dal nuovo codice della strada (FORNITURA)
+      Codice: 15.P01.A25.035, U.M.: cad, Euro: 20.42, Note: 
+    Work: Visiera paraluce per lanterne semaforiche diam. 200 mm (FORNITURA)
+      Codice: 15.P01.A25.040, U.M.: cad, Euro: 16.59, Note: 
+    Work: Visiera paraluce per lanterne semaforiche diam. 300 mm (FORNITURA)
+      Codice: 15.P01.A25.045, U.M.: cad, Euro: 24.24, Note: 
+    Work: Parabola in alluminio per modulo con diam 200 mm  (FORNITURA)
+      Codice: 15.P01.A25.050, U.M.: cad, Euro: 11.28, Note: 
+    Work: Parabola in alluminio per modulo con diam 300 mm  (FORNITURA)
+      Codice: 15.P01.A25.055, U.M.: cad, Euro: 19.08, Note: 
+    Work: Tappo di chiusura per lanterne semaforiche (FORNITURA)
+      Codice: 15.P01.A25.060, U.M.: cad, Euro: 3.62, Note: 
+    Work: Sportello per lanterna semaforica con lente di diam. 200 mm e guarnizione (FORNITURA)
+      Codice: 15.P01.A25.065, U.M.: cad, Euro: 33.18, Note: 
+    Work: Sportello per lanterna semaforica con lente di diam. 300 mm e guarnizione (FORNITURA)
+      Codice: 15.P01.A25.070, U.M.: cad, Euro: 54.87, Note: 
+  Activity: Installazione degli elementi quali cappellotto, lenti, pannelli, sportelli, visiere, tappi, mascherine, in contemporanea ad altre operazioni sul medesimo sostegno o lanterna (con fissaggio secondo le disposizioni della stazione appaltante).
+    Work: Elementi quali cappellotto, lenti, pannelli, sportelli, visiere, tappi, mascherine ecc., in contemporanea ad altre operazioni sul medesimo sostegno o lanterna ad altezza < di 4 m da terra (POSA e/o RECUPERO)
+      Codice: 15.P01.A30.005, U.M.: cad, Euro: 2.47, Note: 
+    Work: Elementi quali cappellotto, lenti, pannelli, sportelli, visiere, tappi, mascherine ecc., in contemporanea ad altre operazioni sul medesimo sostegno o lanterna ad altezza > di 4 m da terra (POSA e/o RECUPERO)
+      Codice: 15.P01.A30.010, U.M.: cad, Euro: 9.37, Note: 
+  Activity: Installazione degli elementi quali cappellotto, lenti, pannelli, sportelli, visiere, tappi, mascherine, non in contemporanea ad altre operazioni sul medesimo sostegno o lanterna (con fissaggio secondo le disposizioni della stazione appaltante).
+    Work: Elementi quali cappellotto, lenti, pannelli, sportelli, visiere, tappi, mascherine ecc., non in contemporanea ad altre operazioni sul medesimo sostegno o lanterna ad altezza < di 4 m da terra (POSA e/o RECUPERO)
+      Codice: 15.P01.A35.005, U.M.: cad, Euro: 9.87, Note: 
+    Work: Elementi quali cappellotto, lenti, pannelli, sportelli, visiere, tappi, mascherine ecc., non in contemporanea ad altre operazioni sul medesimo sostegno o lanterna ad altezza > di 4 m da terra (POSA e/o RECUPERO)
+      Codice: 15.P01.A35.010, U.M.: cad, Euro: 24.1, Note: 
+  Activity: Interventi su segnalazione e richiesta della stazione appaltante eseguiti per il ripristino di anomalie
+    Work: Chiusura di sportello di lanterna semaforica ad altezza < di 4 m da terra (POSA)
+      Codice: 15.P01.A40.005, U.M.: cad, Euro: 7.4, Note: 
+    Work: Chiusura di sportello di lanterna semaforica ad altezza > di 4 m da terra (POSA)
+      Codice: 15.P01.A40.010, U.M.: cad, Euro: 20.08, Note: 
+    Work: Orientamento di lanterna semaforica di qualsiasi tipologia comprendente l'apertura e la chiusura dello sportello, rimozione di lampada e parabola e serraggio dei bulloni di fissaggio ad altezza < di 4 m da terra (POSA)
+      Codice: 15.P01.A40.015, U.M.: cad, Euro: 9.05, Note: 
+    Work: Orientamento di lanterna semaforica di qualsiasi tipologia comprendente l'apertura e la chiusura dello sportello, rimozione di lampada e parabola e serraggio dei bulloni di fissaggio ad altezza > di 4 m da terra (POSA)
+      Codice: 15.P01.A40.020, U.M.: cad, Euro: 29.46, Note: 
+    Work: Riparazione definitiva di sportello o visiera su lanterna semaforica in opera mediante l'utilizzo di viti autofilettanti, o altro metodo atto a garantire la tenuta nel tempo, comprensiva della fornitura dei materiali. Ad altezza < 4 m da terra.  (POSA)
+      Codice: 15.P01.A40.025, U.M.: cad, Euro: 4.94, Note: 
+    Work: Riparazione definitiva di sportello o visiera su lanterna semaforica in opera mediante l'utilizzo di viti autofilettanti, o altro metodo atto a garantire la tenuta nel tempo, comprensiva della fornitura dei materiali. Ad altezza > 4 m da terra.  (POSA)
+      Codice: 15.P01.A40.030, U.M.: cad, Euro: 12.05, Note: 
+  Activity: Attraversaento Pedonale Luinoso (A.P.L.) realizzato con struttura in alluminio pressofuso o acciaio zincato a caldo con fattore di protezione IP 65 o superiore, del tipo bifacciale retroilluminato a LED, con lastre in plexiglass o similari dello spessore minimo di 3 mm, indicante normalmente la Figura II 303 dell'art. 135 del Regolamento di Attuazione del Nuovo Codice della Strada; comprensivo del corpo illuminante o della barra luminosa a LED con fattore di protezione IP 55, specifica per l'illuminazione del passaggio pedonale sottostante, delle staffe di fissaggio regolabili per la posa sul palo a sbraccio o in tesata e di quanto necessario per il suo funzionamento (conduttori, collegamenti elettrici, ecc.)
+    Work: A.P.L. con lastre in plexiglass o similari ricoperte con pellicola retroriflettente ad elevata efficienza (Classe 2) (FORNITURA)
+      Codice: 15.P01.A50.011, U.M.: cad, Euro: 1595, Note: 
+    Work: A.P.L. con lastre in plexiglass o similari senza pellicola retroriflettente ad elevata efficienza (FORNITURA)
+      Codice: 15.P01.A50.012, U.M.: cad, Euro: 1276, Note: 
+    Work: Corpo illuminante a LED tensione 230 VAC, con ottica asimmetrica a destra o sinistra di potenza maggiore o uguale a 100W (FORNITURA)
+      Codice: 15.P01.A50.013, U.M.: cad, Euro: 574.2, Note: 
+    Work: Corpo illuminante a LED tensione 230 VAC, con ottica simmetrica di potenza maggiore o uguale a 40W (FORNITURA)
+      Codice: 15.P01.A50.014, U.M.: cad, Euro: 574.2, Note: 
+    Work: Segnale A.P.L. a qualsiasi altezza (POSA)
+      Codice: 15.P01.A50.015, U.M.: cad, Euro: 123.55, Note: 
+    Work: Segnale A.P.L. a qualsiasi altezza (RECUPERO)
+      Codice: 15.P01.A50.020, U.M.: cad, Euro: 46.43, Note: 
+    Work: Pannello per segnale stradale APL  con dimensioni  935 x 935 mm (FORNITURA)
+      Codice: 15.P01.A50.025, U.M.: cad, Euro: 233.1, Note: 
+    Work: Interruttore crepuscolare per accensione/spegnimento di segnale stradale tipo - APL - o similari, dotato di fotocellula incorporata  con sensibilità regolabile. Con portata sino a 3000W (FORNITURA)
+      Codice: 15.P01.A50.030, U.M.: cad, Euro: 37.31, Note: 
+    Work: Interruttore crepuscolare con relativi collegamenti elettrici (FORNITURA E POSA)
+      Codice: 15.P01.A50.035, U.M.: cad, Euro: 51.81, Note: 
+    Work: Interruttore crepuscolare con relativi collegamenti elettrici (POSA)
+      Codice: 15.P01.A50.040, U.M.: cad, Euro: 14.53, Note: 
+    Work: Interruttore crepuscolare (RECUPERO)
+      Codice: 15.P01.A50.045, U.M.: cad, Euro: 3.65, Note: 
+    Work: Complesso lampeggiatore con caratteristiche tali da alimentare n. 4 gruppi di 2 lampade ciascuno con accensione delle stesse in alternanza fra loro ad una frequenza di 1 Hz. , posato su basetta in poliestere e contenuto all'interno di una cassetta in poliestere  dotata degli attacchi per il fissaggio a palo o a muro.Il cablaggio interno dovrà essere eseguito secondo lo schema fornito dalla stazione appaltante con attestazione dei cavi su morsetti per conduttori tipo EDM da 6 a 16 mm² montati su basetta in poliestere GP03 di colore rosso, La cassetta dovrà essere dotata di pressacavi. Lo stesso complesso dovrà permettere l'accensione di un impianto APL e dovrà essere fornito completo di interruttore magnetotermico da 20A e blocco differenziale con valore di (In) secondo richiesta. . (FORNITURA)
+      Codice: 15.P01.A50.050, U.M.: cad, Euro: 410.53, Note: 
+    Work: Complesso lampeggiatore e comando accensione APL  con fornitura dei relativi accessori di fissaggio, sia a palo che a muro (Tasselli, staffe, viti, Band-it, ecc.) (FORNITURA E POSA)
+      Codice: 15.P01.A50.055, U.M.: cad, Euro: 430.97, Note: 
+    Work: Complesso lampeggiatore e comando accensione APL  con fornitura dei relativi accessori di fissaggio, sia a palo che a muro (Tasselli, staffe, viti, Band-it, ecc.) (POSA)
+      Codice: 15.P01.A50.060, U.M.: cad, Euro: 20.47, Note: 
+    Work: Complesso lampeggiatore e comando accensione APL (RECUPERO)
+      Codice: 15.P01.A50.065, U.M.: cad, Euro: 4.95, Note: 
+  Activity: Impianto segnaletico di preavviso semaforico, composto da n.1 triangolo lato 90 cm in alluminio 25/10 rivestito in pellicola Classe 2° speciale Fig. II 31/a art.99, avente il disco semaforico centrale realizzato con un lampeggiatore a 30 led gialli ad alta intensità protetti da una lente focale in policarbonato ed  installato nel triangolo procurando un foro per il solo passaggio dei cavi elettrici senza alterare la consistenza del supporto stesso; il tutto posato su di un palo in acciao zincato antirotazione diam. 60 avente altezza fuori terra di m 310.
+    Work: Cartello SEMAFORO con relativi accessori (FORNITURA)
+      Codice: 15.P01.A55.005, U.M.: cad, Euro: 324.97, Note: 
+    Work: Cartello SEMAFORO con relativi accessori (POSA)
+      Codice: 15.P01.A55.010, U.M.: cad, Euro: 39.62, Note: 
+    Work: Cartello SEMAFORO con relativi accessori (RECUPERO)
+      Codice: 15.P01.A55.015, U.M.: cad, Euro: 14.53, Note: 
+  Activity: Portalampade e  Lampade  -  Le lampade fornite dovranno essere fabbricate da primaria ditta, avere una durata media di almeno 8000h ed avere una percentuale di mortalità infantile contenuta nel 2% nelle prime 3000 h di funzionamento.
+    Work: Portalampada di qualsiasi tipologia con attacco tipo "Edison E 27", per lampade ad incandescenza o a scarica di gas. La sostituzione comprende: - apertura e chiusura dello sportello della lanterna - recupero e posa della lampada - recupero e posa della parabola - collegamento elettrico (FORNITURA)
+      Codice: 15.P01.A60.005, U.M.: cad, Euro: 8.13, Note: 
+    Work: Portalampada  con altre operazioni  < 4 metri da terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.010, U.M.: cad, Euro: 2.96, Note: 
+    Work: Portalampada  con altre operazioni  > 4 metri da terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.015, U.M.: cad, Euro: 6.38, Note: 
+    Work: Portalampada  intervento singolo < 4 metri da terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.020, U.M.: cad, Euro: 8.89, Note: 
+    Work: Portalampada  intervento singolo > 4 metri da terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.025, U.M.: cad, Euro: 23.82, Note: 
+    Work: Lampada semaforica con filamento rinforzato da 67 w /240v  con flusso luminoso di 700 lumen, attacco E27  (FORNITURA)
+      Codice: 15.P01.A60.035, U.M.: cad, Euro: 1.76, Note: 
+    Work: Lampada semaforica con filamento rinforzato da 100 w /235v  con flusso luminoso di 1350 lumen, attacco E27  (FORNITURA)
+      Codice: 15.P01.A60.040, U.M.: cad, Euro: 1.76, Note: 
+    Work: Lampada tubolare al neon  30 w/32 (FORNITURA)
+      Codice: 15.P01.A60.045, U.M.: cad, Euro: 3.02, Note: 
+    Work: Sostituzione di lampada in aleatoria ad altezza < 4 m da  terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.070, U.M.: cad, Euro: 8.52, Note: 
+    Work: Sostituzione di lampada in aleatoria ad altezza > 4 m da  terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.075, U.M.: cad, Euro: 20.08, Note: 
+    Work: Sostituzione di lampada a programma ad altezza < 4 m da  terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.080, U.M.: cad, Euro: 2, Note: 
+    Work: Sostituzione di lampada a programma ad altezza > 4 m da  terra (POSA e RECUPERO)
+      Codice: 15.P01.A60.085, U.M.: cad, Euro: 8.03, Note: 
+    Work: Sostituzione di lampada a programma ad altezza < 4 m da  terra in contemporanea alla pulizia del punto luce.  (POSA e RECUPERO)
+      Codice: 15.P01.A60.090, U.M.: cad, Euro: 1.65, Note: 
+    Work: Sostituzione di lampada a programma ad altezza > 4 m da  terra in contemporanea alla pulizia del punto luce.  (POSA e RECUPERO)
+      Codice: 15.P01.A60.095, U.M.: cad, Euro: 1.87, Note: 
+  Activity: Pulizia e lavaggio di lanterna semaforica eseguita a programma, o durante l'installazione di lanterne semaforiche, comprendente il totale lavaggio esterno del corpo lanterna comprese le visiere. Se lanterna ad incandescenza, compreso il lavaggio interno della lente, la spolveratura della parabola riflettente compresa la eventuale rimozione e posa di mascherina e l'apertura e chiusura degli sportelli. L'operazione di lavaggio deve essere seguita dall'asciugatura della lanterna con mezzi idonei.
+    Work: Pulizia completa di punto luce semaforico ad incandescenza e a LED, compresa la scocca del modulo della lanterna, visiera, ecc., di qualsiasi dimensione ad una altezza < di 4 m da terra (POSA)
+      Codice: 15.P01.A65.005, U.M.: cad, Euro: 3.51, Note: 
+    Work: Pulizia completa di punto luce semaforico ad incandescenza e a LED, compresa la scocca del modulo della lanterna, visiera, ecc., di qualsiasi dimensione; o pulizia di pannello di contrasto di qualsiasi dimensione, il tutto ad una altezza > di 4 m da terra (POSA)
+      Codice: 15.P01.A65.010, U.M.: cad, Euro: 8.03, Note: 
+    Work: Pulizia e lavaggio del sistema ottico di punto luce semaforico ad incandescenza (pulizia lente interna ed esterna, parabola interna, ecc.) o a LED (pulizia della parte esterna dell'ottica) - esclusa la pulizia esterna della scocca del modulo della lanterna e della visiera - di qualsiasi dimensione, a programma. Ad altezza < di 4 m da terra (POSA)
+      Codice: 15.P01.A65.011, U.M.: cad, Euro: 2.51, Note: 
+    Work: Pulizia e lavaggio del sistema ottico di punto luce semaforico ad incandescenza (pulizia lente interna ed esterna, parabola interna, ecc.) o a LED (pulizia della parte esterna dell'ottica) - esclusa la pulizia esterna della scocca del modulo della lanterna e della visiera - di qualsiasi dimensione, a programma. Ad altezza > di 4 m da terra (POSA)
+      Codice: 15.P01.A65.012, U.M.: cad, Euro: 6.69, Note: 
+    Work: Pulizia e lavaggio di segnale di Attraversamento Pedonale Luminoso APL posato a qualsiasi altezza (POSA)
+      Codice: 15.P01.A65.025, U.M.: cad, Euro: 29.46, Note: 
+  Activity: Staffa di supporto in acciaio  verniciato per il fissaggio di lanterne al sospeso, su pali a sbraccio o tesate, predisposta per il montaggio dei pannelli di contrasto, come prescritto dal nuovo codice della strada, completa di collare per fissaggio allo sbraccio con snodo per regolare la verticalità della lanterna.
+    Work: Staffa di supporto  in acciaio  verniciato per fissaggio al sospeso, su pali a sbraccio, predisposto per il montaggio dei pannelli di contrasto come prescritto dal nuovo codice della strada,  completo di collare per fissaggio allo sbraccio con snodo per regolare la verticalità della lanterna. (FORNITURA E POSA)
+      Codice: 15.P01.A70.005, U.M.: cad, Euro: 171.78, Note: 
+    Work: Staffa di supporto per tesate, predisposto per il montaggio dei pannelli di contrasto e completo di attacco a fune, sbarra o tubo di prolunga per il corretto posizionamento delle lanterne alle altezze prescritte dal Nuovo Codice della Strada, attacchi per controvento. Per posa sino a 4 lanterne. (FORNITURA E POSA)
+      Codice: 15.P01.A70.015, U.M.: cad, Euro: 631.53, Note: 
+    Work: Staffa di supporto per lanterne sospese di qualsiasi tipologia (POSA)
+      Codice: 15.P01.A70.020, U.M.: cad, Euro: 22.76, Note: 
+    Work: Staffa di supporto per lanterne sospese di qualsiasi tipologia (RECUPERO)
+      Codice: 15.P01.A70.025, U.M.: cad, Euro: 16.07, Note: 
+
+Category: SOSTEGNI
+  Activity: SOSTEGNI IN GENERE - La posa si deve intendere comprensiva di: verniciatura con fornitura delle vernici occorrenti, messa a piombo del sostegno, eventuale sabbiatura o fissaggio all'interno di bussola, sigillatura alla base mediante collarino in cls, collegamento di messa a terra e codifica alfanumerica.
+    Work: Palina semaforica in acciaio zincato a caldo lunghezza  mm 3.600 completa di piastrina per la messa a terra, camicia di rinforzo e asola per ingresso cavi costruita secondo quanto indicato nella relativa scheda tecnica (FORNITURA E POSA) 
+Scheda Tecnica Allegato 1
+      Codice: 15.P02.A05.005, U.M.: cad, Euro: 193.96, Note: 
+    Work: Palina semaforica in acciaio zincato a caldo lunghezza  mm 4.500 completa di piastrina per la messa a terra, camicia di rinforzo e asola per ingresso cavi costruita secondo quanto indicato nella relativa scheda tecnica (FORNITURA E POSA) 
+Scheda Tecnica Allegato 2
+      Codice: 15.P02.A05.010, U.M.: cad, Euro: 245.77, Note: 
+    Work: Palina semaforica in acciaio zincato a caldo lunghezza  mm 3.600  dotata di piastra di fissaggio completa di piastrina per la messa a terra, camicia di rinforzo e asola per ingresso cavi costruita secondo quanto indicato nella relativa scheda tecnica. Completa di tirafondi o tasselli. (FORNITURA E POSA) 
+Scheda Tecnica Allegato 3
+      Codice: 15.P02.A05.015, U.M.: cad, Euro: 274.72, Note: 
+    Work: Palina semaforica  L = 3.600 mm (POSA)
+      Codice: 15.P02.A05.020, U.M.: cad, Euro: 81.27, Note: 
+    Work: Palina semaforica  L = 4.500 mm (POSA
+      Codice: 15.P02.A05.025, U.M.: cad, Euro: 90.01, Note: 
+    Work: Palina semaforica  L = 3.600 mm con piastra di fissaggio (POSA)
+      Codice: 15.P02.A05.030, U.M.: cad, Euro: 100.16, Note: 
+    Work: Palina semaforica di qualsiasi tipologia  (RECUPERO)
+      Codice: 15.P02.A05.035, U.M.: cad, Euro: 13.96, Note: 
+    Work: Bussola per il fissaggio di paline semaforiche costruita come indicato nella relativa scheda tecnica (FORNITURA) 
+Scheda Tecnica Allegato 4
+      Codice: 15.P02.A05.040, U.M.: cad, Euro: 78.54, Note: 
+    Work: Bussola per palina. Compresa la demolizione del blocco di cls. (RECUPERO)
+      Codice: 15.P02.A05.045, U.M.: cad, Euro: 37.73, Note: 
+    Work: Ripristino della primitiva verticalità di palina semaforica di qualsiasi tipologia, comprensivo della demolizione del collare in cls e dei materiali per il ripristino del blocco di fondazione, del collarino e l'eventuale posa e recupero delle lanterne installate (POSA)
+      Codice: 15.P02.A05.050, U.M.: cad, Euro: 31.17, Note: 
+    Work: Palo a sbraccio  in acciaio zincato a caldo con aggetto di m 3 costruito per la posa con pannelli di contrasto, per basamenti normali e tipo piastra, come  indicato nella relativa scheda tecnica, compreso l'eventuale foro per il collegamento del filo pilota di terra con relativo capocorda (FORNITURA E POSA) 
+Scheda Tecnica Allegato 5
+      Codice: 15.P02.A05.070, U.M.: cad, Euro: 1097.61, Note: 
+    Work: Palo a sbraccio  in acciaio zincato a caldo con aggetto di m 5,5 costruito per la posa con pannelli di contrasto, come  indicato nella relativa scheda tecnica, compreso l'eventuale foro per il collegamento del filo pilota di terra con relativo capocorda (FORNITURA E POSA) 
+Scheda Tecnica Allegato 6
+      Codice: 15.P02.A05.075, U.M.: cad, Euro: 1488.44, Note: 
+    Work: Palo a sbraccio  in acciaio zincato a caldo con aggetto di m 7 costruito per la posa con pannelli di contrasto, come  indicato nella relativa scheda tecnica, compreso l'eventuale foro per il collegamento del filo pilota di terra con relativo capocorda (FORNITURA E POSA) 
+Scheda Tecnica Allegato 7
+      Codice: 15.P02.A05.080, U.M.: cad, Euro: 1615.39, Note: 
+    Work: Palo a sbraccio di qualsiasi tipo con qualsiasi aggetto (POSA)
+      Codice: 15.P02.A05.095, U.M.: cad, Euro: 390.09, Note: 
+    Work: Palo a sbraccio di qualsiasi tipo con qualsiasi aggetto (RECUPERO)
+      Codice: 15.P02.A05.100, U.M.: cad, Euro: 90.92, Note: 
+    Work: Ripristino della primitiva verticalità di palo a sbraccio di qualsiasi tipologia, comprensivo della demolizione del collare in cls e dei materiali per il ripristino del blocco di fondazione, del collarino e dell'eventuale posa e recupero delle lanterne installate (POSA)
+      Codice: 15.P02.A05.105, U.M.: cad, Euro: 68.64, Note: 
+    Work: Palo da  tesata in acciaio per campate sino a 60 metri, costruito come indicato nella relativa scheda tecnica, con altezza di mm 12.000 (10.500 f.t.), diametro di base mm 355,6 e diametro di testa mm 273. Completo di n. 2 collari per l'ancoraggio della tesata e della losanga di sicurezza. (FORNITURA E POSA) 
+Scheda Tecnica Allegato 8
+      Codice: 15.P02.A05.110, U.M.: cad, Euro: 5408.01, Note: 
+    Work: Palo da tesata di qualsiasi tipologia (POSA)
+      Codice: 15.P02.A05.115, U.M.: cad, Euro: 607.9, Note: 
+    Work: Palo da tesata di qualsiasi tipologia (RECUPERO)
+      Codice: 15.P02.A05.120, U.M.: cad, Euro: 175.36, Note: 
+    Work: Taglio di palo da tesata o a sbraccio per demolizione o per riduzione della lunghezza, eseguito a qualsiasi altezza da terra. L'operazione, se richiesto, comprende anche la rifinitura della parte soggetta a taglio mediante verniciatura. Per ogni taglio (POSA)
+      Codice: 15.P02.A05.125, U.M.: cad, Euro: 14.74, Note: 
+    Work: Orientamento di palo a sbraccio comprensivo del riallineamento delle lanterne installate e degli eventuali pannelli di contrasto (POSA)
+      Codice: 15.P02.A05.130, U.M.: cad, Euro: 33.47, Note: 
+    Work: Palina Mobile installata provvisoriamente su impianto semaforico. La posa comprende il basamento fornito dalla Stazione Appaltante, l'identificazione dei conduttori, il montaggio e/o lo smontaggio di eventuali parti di essa, il corretto orientamento delle lanterne, l'eventuale oscuramento di lanterne in eccesso e il trasporto dai magazzini dell'Ente appaltante o da altro impianto indicato dalla Direzione Lavori (POSA)
+      Codice: 15.P02.A05.135, U.M.: cad, Euro: 97.95, Note: 
+    Work: Palina Mobile installata provvisoriamente su impianto semaforico. Il recupero comprende il basamento fornito dalla Stazione Appaltante, il distacco dei conduttori, lo smontaggio eventuale in parti trasportabili e il trasporto presso i magazzini dell'Ente appaltante (con montaggio in unico corpo) o altro impianto indicato dalla Direzione Lavori (RECUPERO)
+      Codice: 15.P02.A05.140, U.M.: cad, Euro: 53.57, Note: 
+  Activity: LAVORAZIONI ESEGUITE SU SOSTEGNI
+    Work: Formazione su palo in acciaio in opera o a terra, di foro fino a 30 mm di diametro (POSA)
+      Codice: 15.P02.A10.010, U.M.: cad, Euro: 5.93, Note: 
+    Work: Dado saldato con relativo bullone su sostegni in opera o a terra, comprensivo delle necessarie forniture e del successivo ripristino della parte interessata dalla saldatura mediante l'apporto di una mano di vernice di zinco a freddo, di aggrappante e di vernice colore verde ral 6009 (FORNITURA e POSA)
+      Codice: 15.P02.A10.015, U.M.: cad, Euro: 11.42, Note: 
+    Work: Sostituzione di bullone per bussola . L'operazione comprende il recupero del vecchio bullone, l'eventuale riparazione della slabbratura della bussola, la ripassatura del filetto del dado  e la fornitura e posa di un bullone in acciaio inox  M12 x 45 o M12 x 50 (FORNITURA E POSA)
+      Codice: 15.P02.A10.020, U.M.: cad, Euro: 3.46, Note: 
+  Activity: BLOCCHI DI FONDAZIONE - Blocchi di fondazione e collegamenti con  pozzetti adiacenti. I blocchi di fondazione vengono eseguiti mediante getto di cls all'interno di uno scavo predisposto senza l'utilizzo di ferri per armatura. In casi particolari  la Stazione Appaltante potrà richiedere l'armatura del blocco con quantità e tipologia di ferri definita di volta in volta.
+    Work: Blocco di fondazione, eseguito su qualsiasi tipo di terreno, comprendente lo scavo, l'esecuzione del foro di incastro del palo, o la posa di bussola, la fornitura e posa di tubi in pvc sino a diam. 110 mm per l'ingresso cavi, la fornitura e posa di cls tipo C28/35, la fornitura e posa di un eventuale pezzo di tubo flessibile con diam. sino a 63 mm che dal pozzetto adiacente si inserisce all'interno del sostegno sino a raggiungere l'altezza del punto di interramento del sostegno stesso,  il trasporto delle macerie ad impianto di trattamento  autorizzato, il ripristino del suolo pubblico sulla superficie interessata dal blocco con asfalto a freddo. Secondo le misure ed indicazioni della Direzione Lavori per volume di scavo sino a m³ 0,50 (FORNITURA e POSA)
+      Codice: 15.P02.A15.005, U.M.: cad, Euro: 104.41, Note: 
+    Work: Blocco di fondazione, eseguito su qualsiasi tipo di terreno, comprendente lo scavo, l'esecuzione del foro di incastro del palo, o la posa di bussola, la fornitura e posa di tubi in pvc sino a diam. 110 mm per l'ingresso cavi, la fornitura e posa di cls tipo 28/35, la fornitura e posa di un pezzo di tubo flessibile con diam. sino a 63 mm che dal pozzetto adiacente si inserisce all'interno del sostegno sino a raggiungere l'altezza del punto di interramento del sostegno stesso,  il trasporto delle macerie ad impianto di trattamento  autorizzato, il ripristino del suolo pubblico sulla superficie interessata dal blocco con asfalto a freddo. Secondo le misure ed indicazioni della Direzione Lavori per volume di scavo superiore a m³ 0,50 (FORNITURA e POSA)
+      Codice: 15.P02.A15.010, U.M.: m³, Euro: 299.25, Note: 
+    Work: Blocco di fondazione eseguito su basamento esistente, comprendente la demolizione del vecchio blocco, l'esecuzione del foro di incastro del palo, la fornitura e posa di tubi in pvc sino a diam. 110 mm per l'ingresso o la salita cavi, la fornitura e posa di cls tipo C28/35, il trasporto delle macerie ad impianto di trattamento autorizzato, il ripristino del suolo pubblico sulla superficie interessata dal blocco. Secondo le misure ed indicazioni della Direzione Lavori per volume di scavo sino a m³ 0,50 (FORNITURA e POSA)
+      Codice: 15.P02.A15.015, U.M.: cad, Euro: 143.6, Note: 
+    Work: Blocco di fondazione eseguito su basamento esistente, comprendente la demolizione del vecchio blocco, l'esecuzione del foro di incastro del palo, la fornitura e posa di tubi in pvc sino a diam. 110 mm per l'ingresso o la salita cavi tipo C28/35, il trasporto delle macerie ad impianto di trattamento autorizzato, il ripristino del suolo pubblico sulla superficie interessata dal blocco. Secondo le misure ed indicazioni della Direzione Lavori per volume di scavo superiore a m³ 0,50 (FORNITURA e POSA)
+      Codice: 15.P02.A15.020, U.M.: m³, Euro: 473.42, Note: 
+    Work: Basamento provvisorio per palina semaforica costituito da un blocco di cls tipo C25/30 avente dimensioni minime di 60 x 60 x 60 cm  costruito in modo da permettere l'infissione di una palina e la fuoriuscita laterale del cavo di alimentazione elettrica. Predisposto con anelli metallici per il sollevamento e lo spostamento tramite autogru (FORNITURA)
+      Codice: 15.P02.A15.021, U.M.: cad, Euro: 84.19, Note: 
+    Work: Basamento provvisorio per palina semaforica (POSA)
+      Codice: 15.P02.A15.022, U.M.: cad, Euro: 33.26, Note: 
+    Work: Basamento provvisorio per palina semaforica (RECUPERO)
+      Codice: 15.P02.A15.023, U.M.: cad, Euro: 33.26, Note: 
+    Work: Demolizione di fondazione in cls, eventualmente armata, di qualsiasi dimensione, in qualsiasi tipo di terreno, successivo riempimento dello scavo con misto granulare anidro di cava di nuovo apporto e trasporto delle macerie ad impianto di trattamento (RECUPERO)
+      Codice: 15.P02.A15.025, U.M.: m³, Euro: 257.05, Note: 
+    Work: Basamento a piastra tipo passante per palo con sbraccio 3 m, compreso il foglio di polietilene a base scavo, la rete elettrosaldata, i tubi corrugati per il passaggio dei cavi, la formazione del cassero in legno per il getto di cls e la fornitura e posa del calcestruzzo. Esclusa la fornitura della struttura in ferro  (FORNITURA E POSA)
+      Codice: 15.P02.A15.026, U.M.: cad, Euro: 435.54, Note: 
+    Work: Basamento a piastra tipo passante per palo con sbraccio da 5,5 m o 7 m, compreso il foglio di polietilene a base scavo, la rete elettrosaldata, i tubi corrugati per il passaggio dei cavi, la formazione del cassero in legno per il getto di cls e la fornitura e posa del calcestruzzo. Esclusa la fornitura della struttura in ferro  (FORNITURA E POSA)
+      Codice: 15.P02.A15.027, U.M.: cad, Euro: 598.89, Note: 
+    Work: Conglomerato cementizio tipo C28/35 fornito e posato a realizzazione di manufatti di varia tipologia, comprensivo della costruzione e dell'utilizzo di eventuali casseforme, secondo le indicazioni della Direzione Lavori (FORNITURA e POSA)
+      Codice: 15.P02.A15.030, U.M.: m³, Euro: 133.66, Note: 
+    Work: Demolizione del collarino di fissaggio in cls di un palo semaforico di qualsiasi tipologia e successiva ricostruzione, comprensiva della fornitura del cls e del materiale per il ripristino provvisorio. (FORNITURA e POSA)
+      Codice: 15.P02.A15.035, U.M.: cad, Euro: 8.91, Note: 
+    Work: Esecuzione di basamento per armadio portaregolatore, in cls tipo C25/30 di altezza 80 cm di cui 30 cm fuori terra, compreso lo scavo in qualsiasi tipo di terreno, la posa della cassaforma, dei tubi in pvc o di unico vano per l'uscita dei conduttori, della posa del telaio di fissaggio o dei tirfoni, di cui si intende compresa la fornitura, intonacatura della parte esterna, secondo le indicazioni della Direzione Lavori. (FORNITURA e POSA)
+      Codice: 15.P02.A15.040, U.M.: cad, Euro: 130.9, Note: 
+    Work: Demolizione di basamento per armadio portaregolatore comprendente il telaio ed il trasporto delle macerie ad impianto di recupero e riciclo autorizzato (RECUPERO)
+      Codice: 15.P02.A15.046, U.M.: cad, Euro: 86.13, Note: 
+    Work: Esecuzione di basamento per la posa di cassetta tipo OEC , in cls tipo C25/30, di altezza cm 50 di cui 10 cm fuori terra, compreso lo scavo in qualsiasi tipo di terreno, la posa della cassaforma, dei tubi in pvc per l'ingresso dei conduttori, la posa della staffa di fissaggio, l'intonacatura della parte esterna, secondo le indicazioni della stazione appaltante (FORNITURA e POSA)
+      Codice: 15.P02.A15.050, U.M.: cad, Euro: 47.2, Note: 
+    Work: Demolizione di basamento per cassetta tipo OEC comprendente il trasporto delle macerie ad impianto di recupero e riciclo autorizzato (RECUPERO)
+      Codice: 15.P02.A15.056, U.M.: cad, Euro: 17.54, Note: 
+    Work: Esecuzione di basamento per cassetta valvole "a colonna", in cls tipo C25/30,compreso lo scavo in qualsiasi tipo di terreno, di dimensioni 50 x 50 x 50 cm comprensivo del foro per il fissaggio della colonna, dei tubi in pvc per l'ingresso dei conduttori, il ripristino del suolo pubblico sulla superficie interessata dal blocco. Il recupero si intende comprensivo della demolizione del vecchio basamento in cls (FORNITURA E POSA)
+      Codice: 15.P02.A15.060, U.M.: cad, Euro: 39.35, Note: 
+    Work: Demolizione di basamento per cassetta "a colonna"  comprendente il trasporto delle macerie ad impianto di recupero e riciclo autorizzato (RECUPERO)
+      Codice: 15.P02.A15.066, U.M.: cad, Euro: 11.26, Note: 
+    Work: Collegamento di pozzetto a palina, palo a sbraccio, o palo di tesata, o fra pozzetti, effettuato con un tubo in pvc pesante, comprensivo di scavo in qualsiasi tipo di terreno ad una profondità di almeno 30 cm, fornitura e posa del tubo in pvc sino a diam. 110 - formazione di manufatto in cls tipo C12/15 - successivo riempimento dello scavo e ripristino del suolo pubblico con asfalto a freddo. Per il primo tubo (FORNITURA e POSA)
+      Codice: 15.P02.A15.070, U.M.: m, Euro: 33.63, Note: 
+    Work: Collegamento di pozzetto a palina, palo a sbraccio, o palo di tesata, o fra pozzetti, effettuato con un tubo in pvc pesante, comprensivo di scavo in qualsiasi tipo di terreno ad una profondità di almeno 30 cm, fornitura e posa del tubo in pvc sino a diam. 110 - formazione di manufatto in cls dosato a 250 kg di cemento 325 per ogni m³ di impasto successivo riempimento dello scavo e ripristino del suolo pubblico con asfalto a freddo. Per ogni tubo successivo (FORNITURA e POSA)
+      Codice: 15.P02.A15.075, U.M.: m, Euro: 4.31, Note: 
+
+Category: LINEE AEREE
+  Activity: LINEE AEREE
+    Work: Fune di acciaio diam 12 (FORNITURA)
+      Codice: 15.P03.A05.005, U.M.: m, Euro: 5.59, Note: 
+    Work: Fune di acciaio diam 6 (FORNITURA)
+      Codice: 15.P03.A05.010, U.M.: m, Euro: 3.7, Note: 
+    Work: Fune di Parafil con carico rottura 1000 kg (FORNITURA)
+      Codice: 15.P03.A05.015, U.M.: m, Euro: 5.08, Note: 
+    Work: Fune di Acciaio o Parafil (POSA)
+      Codice: 15.P03.A05.020, U.M.: m, Euro: 10.71, Note: 
+    Work: Fune di Acciaio o Parafil (RECUPERO)
+      Codice: 15.P03.A05.025, U.M.: m, Euro: 2.68, Note: 
+    Work: Losanga (FORNITURA e POSA)
+      Codice: 15.P03.A05.030, U.M.: cad, Euro: 17.32, Note: 
+    Work: Losanga (RECUPERO)
+      Codice: 15.P03.A05.035, U.M.: cad, Euro: 2.41, Note: 
+    Work: Terminale in  acciaio inox per fune in  Parafil   (FORNITURA E POSA)
+      Codice: 15.P03.A05.040, U.M.: cad, Euro: 15.01, Note: 
+  Activity: ACCESSORI PER IL FISSAGGIO DI TESATE A PALO O MURO
+    Work: Occhio a muro per l'ammarro di tesata, compresa l'esecuzione del foro la sigillatura ed il ripristino della facciata alla colorazione di origine, su qualsiasi tipo di muratura; ogni singolo occhio a muro dopo l'installazione deve essere sottoposto a verifica di tiro secondo le indicazioni della Direzione Lavori (FORNITURA e POSA)
+      Codice: 15.P03.A10.005, U.M.: cad, Euro: 30.64, Note: 
+    Work: Occhio a muro  comprensivo del ripristino  dell'intonaco della parte interessata dai lavori e la tinteggiatura con colore adeguato (RECUPERO)
+      Codice: 15.P03.A10.010, U.M.: cad, Euro: 25.9, Note: 
+    Work: Gancio di ammarro semplice in acciaio zincato, chiuso ad anello per l'ancoraggio di tesata a palo, completo di collare per lo staffaggio e dei bulloni di fissaggio (FORNITURA)
+      Codice: 15.P03.A10.015, U.M.: cad, Euro: 24.22, Note: 
+    Work: Gancio di ammarro doppio  in acciaio zincato, chiuso ad anello per l'ancoraggio di tesata a palo, completo di collare per lo staffaggio e dei bulloni di fissaggio (FORNITURA)
+      Codice: 15.P03.A10.020, U.M.: cad, Euro: 27.55, Note: 
+    Work: Gancio di ammarro di qualsiasi tipologia (POSA)
+      Codice: 15.P03.A10.025, U.M.: cad, Euro: 5.97, Note: 
+    Work: Gancio di ammarro di qualsiasi tipologia (RECUPERO)
+      Codice: 15.P03.A10.030, U.M.: cad, Euro: 5.04, Note: 
+    Work: Tenditore per fune metallica da 3/4" (FORNITURA)
+      Codice: 15.P03.A10.035, U.M.: cad, Euro: 21.73, Note: 
+    Work: Tenditore per fune metallica da 1/2" (FORNITURA)
+      Codice: 15.P03.A10.040, U.M.: cad, Euro: 12.26, Note: 
+    Work: Tenditore di qualsiasi tipologia ed a qualsiasi altezza (POSA)
+      Codice: 15.P03.A10.045, U.M.: cad, Euro: 5.04, Note: 
+    Work: Tenditore di qualsiasi tipologia e da qualsiasi altezza (RECUPERO)
+      Codice: 15.P03.A10.050, U.M.: cad, Euro: 4.31, Note: 
+    Work: Isolatore a noce in ceramica o vetro per l'isolamento di funi per tesata e controventi comprensivo dei morsetti necessari per la posa. (FORNITURA)
+      Codice: 15.P03.A10.055, U.M.: cad, Euro: 12.63, Note: 
+    Work: Isolatore a Noce (POSA)
+      Codice: 15.P03.A10.060, U.M.: cad, Euro: 4.31, Note: 
+    Work: Isolatore a Noce (RECUPERO)
+      Codice: 15.P03.A10.065, U.M.: cad, Euro: 0.71, Note: 
+    Work: Morsa di ammarro per tesata di cavo ottico  autoportante sino a 60 m (FORNITURA)
+      Codice: 15.P03.A10.070, U.M.: cad, Euro: 35.68, Note: 
+    Work: Morsa di sospensione e aggancio per tesata di cavo ottico  autoportante sino a 60 m (FORNITURA)
+      Codice: 15.P03.A10.075, U.M.: cad, Euro: 30.75, Note: 
+
+Category: CAVI - GIUNZIONI - TUBAZIONI
+  Activity: CAVI
+    Work: Conduttore unipolare FS17  (ex N0/V/K) in rame flessibile ed  isolato in PVC  con colorazione  secondo richiesta della Stazione Appaltante, marchiato IMQ  avente sezione  di 4 mm² (FORNITURA)
+      Codice: 15.P04.A05.005, U.M.: m, Euro: 0.59, Note: 
+    Work: Conduttore unipolare FS17  (ex N0/V/K) in rame flessibile ed  isolato in PVC  con colorazione  secondo richiesta della Stazione Appaltante, marchiato IMQ  avente sezione  di 6 mm² (FORNITURA)
+      Codice: 15.P04.A05.010, U.M.: m, Euro: 0.87, Note: 
+    Work: Conduttore unipolare FS17  (ex N0/V/K) in rame flessibile ed  isolato in PVC  con colorazione  secondo richiesta della Stazione Appaltante, marchiato IMQ  avente sezione  di 10 mm² (FORNITURA)
+      Codice: 15.P04.A05.015, U.M.: m, Euro: 1.24, Note: 
+    Work: Conduttore unipolare FS17  (ex N0/V/K) in rame flessibile ed  isolato in PVC  con colorazione  secondo richiesta della Stazione Appaltante, marchiato IMQ  avente sezione  di 16 mm² (FORNITURA)
+      Codice: 15.P04.A05.020, U.M.: m, Euro: 2.05, Note: 
+    Work: Conduttore unipolare FS17  (ex N0/V/K) in rame flessibile ed  isolato in PVC  con colorazione  secondo richiesta della Stazione Appaltante, marchiato IMQ  avente sezione  di 25 mm² (FORNITURA)
+      Codice: 15.P04.A05.025, U.M.: m, Euro: 3.18, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 3 x 2,5 mm² (FORNITURA)
+      Codice: 15.P04.A05.030, U.M.: m, Euro: 1.49, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 3 x 4 mm² (FORNITURA)
+      Codice: 15.P04.A05.035, U.M.: m, Euro: 2.13, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 3 x 6 mm² (FORNITURA)
+      Codice: 15.P04.A05.040, U.M.: m, Euro: 2.99, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 2 x 10 mm² (FORNITURA)
+      Codice: 15.P04.A05.045, U.M.: m, Euro: 3.55, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 2 x 16 mm² (FORNITURA)
+      Codice: 15.P04.A05.050, U.M.: m, Euro: 5.45, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 2 x 25 mm² (FORNITURA)
+      Codice: 15.P04.A05.055, U.M.: m, Euro: 7.76, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 2 x 1,5 mm² (FORNITURA)
+      Codice: 15.P04.A05.060, U.M.: m, Euro: 0.83, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 5 x 1,5 mm² (FORNITURA)
+      Codice: 15.P04.A05.065, U.M.: m, Euro: 1.57, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 12 x 1,5 mm² (FORNITURA)
+      Codice: 15.P04.A05.070, U.M.: m, Euro: 4.01, Note: 
+    Work: Cavo in rame multipolare FG16OR  0,6-1 kV con conduttori singoli rivestiti e colorati secondo le normative vigenti. (unicamente di colore nero e numerati singolarmente per formazioni superiori a 4 conduttori), marchiato IMQ  avente sezione  di 24 x 1,5 mm² (FORNITURA)
+      Codice: 15.P04.A05.075, U.M.: m, Euro: 7.54, Note: 
+    Work: Cavo telefonico  TE 2x(2 x 0,6) H/R   simmetrico, con dielettrico in polivinilcloruro, a coppie da 0,6 mm, schermatura totale con nastro di alluminio  e protezione con guaina in polivinilcloruro. A due coppie (FORNITURA)
+      Codice: 15.P04.A05.086, U.M.: m, Euro: 1.35, Note: 
+    Work: Cavo telefonico  TE 4x(2 x 0,6) H/R   simmetrico, con dielettrico in polivinilcloruro, a coppie da 0,6 mm, schermatura totale con nastro di alluminio  e protezione con guaina in polivinilcloruro. A quattro coppie (FORNITURA)
+      Codice: 15.P04.A05.087, U.M.: m, Euro: 2.14, Note: 
+    Work: Treccia di rame nudo, di sezione 50 mm², con diametro del singolo filo  non inferiore a 1,8 mm  (FORNITURA)
+      Codice: 15.P04.A05.115, U.M.: m, Euro: 4.75, Note: 
+    Work: Treccia di rame posata sul fondo dello scavo eseguito per i cavidotti,  ricoperta con sabbia o terreno naturale in modo da non essere inglobata nel getto di calcestruzzo. L'operazione di collegamento ai morsetti posti alle estremità deve intendersi compresa nella posa. (POSA)
+      Codice: 15.P04.A05.120, U.M.: m, Euro: 0.53, Note: 
+    Work: Morsetto universale a pettine o bifilare per il collegamento dei conduttori di terra. L'eventuale recupero e da intendersi comprensivo (FORNITURA E POSA)
+      Codice: 15.P04.A05.121, U.M.: cad, Euro: 8.72, Note: 
+    Work: Cavo uni-multipolare, telefonico, coassiale, ottico, ecc. di ogni tipologia e formazione, posato entro tubazioni di qualsiasi tipologia (cavidotto, in cunicolo, intercapedine, cavedio, su palo , ecc.), ed a qualsiasi altezza o profondità.  (POSA)
+      Codice: 15.P04.A05.125, U.M.: m, Euro: 0.88, Note: 
+    Work: Cavo uni-multipolare, telefonico, coassiale, ottico, ecc. di ogni tipologia e formazione, da tubazioni di qualsiasi tipologia (cavidotto,  cunicolo, intercapedine, cavedio, su palo , ecc.), e da qualsiasi altezza o profondità.  (RECUPERO)
+      Codice: 15.P04.A05.130, U.M.: m, Euro: 0.66, Note: 
+    Work: Cavo uni-multipolare, telefonico, coassiale, ottico, ecc. di ogni tipologia e formazione,  fascettato ogni 20 cm  su fune metallica o in parafil a qualsiasi altezza oppure posato graffettato, con graffette ad ogni 40 cm, comprensivo della fornitura delle graffette (o collari) di fissaggio necessari. Compresa la fornitura delle fascette, per il primo cavo (POSA)
+      Codice: 15.P04.A05.145, U.M.: m, Euro: 3.16, Note: 
+    Work: Cavo uni-multipolare, telefonico, coassiale, ottico, ecc. di ogni tipologia e formazione,  fascettato ogni 20 cm  su fune metallica o in parafil a qualsiasi altezza oppure posato graffettato, con graffette ad ogni 40 cm, comprensivo della fornitura delle graffette (o collari) di fissaggio necessari. Compresa la fornitura delle fascette, per i cavi successivi al primo (POSA)
+      Codice: 15.P04.A05.150, U.M.: m, Euro: 1.38, Note: 
+    Work: Cavi fascettati o graffettati (comprensivo dello scollegamento dei conduttori). (RECUPERO)
+      Codice: 15.P04.A05.155, U.M.: m, Euro: 0.7, Note: 
+    Work: Rifascettatura  di conduttori o di cavi esistenti, compresa la fornitura delle fascette di fissaggio in pvc nero, posate ogni 20 cm, eseguita a qualsiasi altezza. (POSA)
+      Codice: 15.P04.A05.160, U.M.: m, Euro: 3.45, Note: 
+  Activity: GIUNZIONI
+    Work: Muffola di giunzione del tipo miscelato SCOTCHCAST o similari, per cavi multipolari avente formazione sino a 8 x  1,5 mm²  oppure  bipolari da 1,5 a 10 mm² (FORNITURA e POSA)
+      Codice: 15.P04.A10.005, U.M.: cad, Euro: 40.37, Note: 
+    Work: Muffola di giunzione del tipo miscelato SCOTCHCAST o similari, per cavi multipolari avente formazione da 9 a 14 x  1,5 mm²  oppure  bipolari da 16 a 25 mm² (FORNITURA E POSA)
+      Codice: 15.P04.A10.010, U.M.: cad, Euro: 73.16, Note: 
+    Work: Muffola di giunzione del tipo miscelato SCOTCHCAST o similari, per cavi multipolari avente formazione da 15 a 30  x  1,5 mm²  oppure  bipolari da > 25 a 95 mm² (FORNITURA E POSA)
+      Codice: 15.P04.A10.015, U.M.: cad, Euro: 97.46, Note: 
+    Work: Muffola di derivazione o di giunzione di qualsiasi tipologia e dimensione, comprensiva dei collegamenti dei cavi, previa individuazione dei singoli conduttori e della fornitura e posa di puntalini per la giunzione degli stessi. (POSA)
+      Codice: 15.P04.A10.020, U.M.: cad, Euro: 21.45, Note: 
+    Work: Muffola di derivazione o di giunzione di qualsiasi tipologia e dimensione (RECUPERO)
+      Codice: 15.P04.A10.025, U.M.: cad, Euro: 2.5, Note: 
+    Work: Giunzione tra cavo telefonico o coassiale o 2x1,5 mm² ad altro cavo telefonico o coassiale o 2x1,5 mm² o spira di rilevamento, mediante saldatura dei capi o utilizzo di morsetti tipo "Picabond" (con miscela), rivestimento con guaina termorestringente di adeguata sezione ad ogni singola giunzione, tamponamento con mastice, successivo rivestimento con guaina termorestringente (con collante) e, se richiesto, definizione del cavo tramite apposizione di "grafoplast" con codifica alfanumerica. L'operazione si intende comprensiva della preparazione ed individuazione di ogni singolo conduttore nonché della fornitura dei materiali occorrenti. Per ogni giunto di cavi aventi qualsiasi formazione (FORNITURA E POSA)
+      Codice: 15.P04.A10.040, U.M.: cad, Euro: 9.03, Note: 
+    Work: Collegamento all'interno di regolatore o armadio spire di conduttore di tipo telefonico o coassiale o 2 x 1,5 mm² comprensivo della individuazione e preparazione di ogni singolo conduttore, della fornitura e posa di puntalino preisolato, rivestimento dei conduttori e del cavo, dove richiesto, con guaina termorestringente di adeguata sezione o nastratura  - eventuale fornitura e posa di "grafoplast" per la numerazione con caratteri alfa - numerici dei singoli conduttori; secondo disposizioni della stazione appaltante.  Per ogni coppia  (POSA)
+      Codice: 15.P04.A10.045, U.M.: cad, Euro: 4.66, Note: 
+    Work: Collegamento di cavi multipolari di qualsiasi formazione alle morsettiere di cassette di derivazione, supporti a palina, regolatori semaforici, ecc...ed a qualsiasi altezza, comprensivo di: - esecuzione della terminazione del cavo - individuazione dei singoli conduttori - collegamento, ove richiesto dello schermo metallico a terra mediante utilizzo di apposita fascetta, del conduttore giallo - verde di sez. 2,5 mm² e relativo capocorda; del filo pilota di terra (fornitura dei materiali compresa) - fornitura e posa ad ogni singolo conduttore di puntalino preisolato - eventuale fornitura e posa di "grafoplast" per la numerazione con caratteri alfa - numerici dei singoli conduttori (POSA)
+      Codice: 15.P04.A10.050, U.M.: cad, Euro: 14.31, Note: 
+    Work: Prolungamento di conduttori mediante l'utilizzo di conduttore N07V - K di pari sezione e connettore di giunzione testa - testa. La fornitura dei materiali occorrenti si intende comprensiva nella posa. Per ogni conduttore  (FORNITURA E POSA)
+      Codice: 15.P04.A10.055, U.M.: cad, Euro: 0.89, Note: 
+    Work: Individuazione e definizione del collegamento in campagna, dei singoli punti luce di un impianto semaforico, comprensiva della numerazione provvisoria di ogni singolo conduttore (e successiva rimozione in fase di numerazione definitiva mediante "grafoplast"), della compilazione di una apposita tabella morsettiera e dell'eventuale ricollegamento del conduttore alla morsettiera secondo le indicazioni della Direzione Lavori. Per ogni singolo conduttore in uscita dalla morsettiera (POSA)
+      Codice: 15.P04.A10.060, U.M.: cad, Euro: 1.52, Note: 
+  Activity: TUBAZIONI
+    Work: Tubo in acciaio zincato a caldo di diam. 60,3 mm  eventualmente sagomato secondo le rastremazioni del palo o la cornice di un muro per il passaggio dei conduttori (FORNITURA)
+      Codice: 15.P04.A15.005, U.M.: m, Euro: 21.64, Note: 
+    Work: Tubo in acciaio zincato a caldo di diam. 60,3 mm, eventualmente sagomato secondo le rastremazioni del palo o la cornice di un muro per il passaggio dei conduttori, compresa la verniciatura, la fornitura e posa degli eventuali elementi di fissaggio (tasselli, collari, nastro band - it, staffe, ecc...) e del bloccaggio con malta di cemento alla base (FORNITURA E POSA)
+      Codice: 15.P04.A15.006, U.M.: m, Euro: 41.11, Note: 
+    Work: Tubo in acciaio zincato a caldo di diam. 60,3 mm, compresa la verniciatura, la fornitura e posa degli eventuali elementi di fissaggio (tasselli, collari, nastro band - it, staffe, ecc...) e del bloccaggio con malta di cemento alla base (POSA)
+      Codice: 15.P04.A15.010, U.M.: m, Euro: 18.5, Note: 
+    Work: Tubazioni in acciaio zincato diam. 4" (diam. 101,6 mm)  (FORNITURA E POSA)
+      Codice: 15.P04.A15.011, U.M.: m, Euro: 22.07, Note: 
+    Work: Tubazioni in acciaio zincato diam. 5" (diam. 127 mm) (FORNITURA E POSA)
+      Codice: 15.P04.A15.012, U.M.: m, Euro: 30.79, Note: 
+    Work: Tubo PVC rigido  "senza alogeni" - D.50 mm (FORNITURA)
+      Codice: 15.P04.A15.020, U.M.: m, Euro: 3.88, Note: 
+    Work: Tubo flessibile corrugato per impianto elettrico senza alogenuri sino a diam. 63 mm (FORNITURA)
+      Codice: 15.P04.A15.025, U.M.: m, Euro: 4.19, Note: 
+    Work: Tubo corrugato PEAD (polietilene alta densità) a doppia parete 750 N in barre da 3-6 m del  diam. 110 mm, compreso il manicotto di giunzione (FORNITURA)
+      Codice: 15.P04.A15.030, U.M.: m, Euro: 4.68, Note: 
+    Work: Tubo di qualsiasi materiale, tipologia e del diametro sino a 63 mm., compresa la fornitura e posa degli eventuali elementi di fissaggio (tasselli, collari, nastro band - it, staffe, ecc...) e del bloccaggio con malta di cemento alla base (POSA)
+      Codice: 15.P04.A15.035, U.M.: m, Euro: 2.47, Note: 
+    Work: Tubo corrugato PEAD in barre da 3-6 m del diam. 110 mm, compreso il manicotto di giunzione (POSA)
+      Codice: 15.P04.A15.040, U.M.: m, Euro: 4.63, Note: 
+    Work: Tubo di qualsiasi materiale, tipologia e diametro (RECUPERO)
+      Codice: 15.P04.A15.045, U.M.: m, Euro: 1.25, Note: 
+
+Category: OPERE DA TERRAZZIERE
+  Activity: Scavo in trincea con le modalità previste dalle norme tecniche di capitolato comprendente il rilievo dei servizi appartenenti agli altri coutenti del sottosuolo, la tracciatura del percorso dello scavo, il taglio dell'asfalto o del cls, lo svellimento, la rimozione ed accatastamento, previa eventuale numerazione, entro un raggio di 300 m dall'area di cantiere,  di lastre, masselli, porfido, autobloccanti, ecc.. Trasporto di tutto il materiale di risulta ad impianto di recupero e riciclo autorizzato. Pulizia finale dell'area interessata dai lavori. Operazione eseguita indistintamente con mezzi meccanici che manuali, nelle seguenti misure e tipologie di terreno come anche indicato nella allegata scheda tecnica. (Eventuali scavi di sezione superiore a quelle indicate,  per estensione, saranno contabilizzate rapportando la superficie effettivamente scavata alla superficie unitaria degli scavi di larghezza 0,30 e/o 0,40 m). Scheda Tecnica allegato 10
+    Work: Scavo larghezza 0,3 m e profondità 0,80 m in terreno naturale - in massicciata ordinaria o acciottolato (POSA)
+      Codice: 15.P05.A05.005, U.M.: m, Euro: 9, Note: 
+    Work: Scavo larghezza 0,3 m e profondità 0,80 m in massicciata bitumata (es. carreggiata stradale) - in marciapiede con rottura dell'asfalto e degli eventuali strati di cls (POSA)
+      Codice: 15.P05.A05.010, U.M.: m, Euro: 27.74, Note: 
+    Work: Scavo larghezza 0,3 m e profondità 0,80 m in marciapiede o massicciata con lastre, masselli, porfido, autobloccanti, ecc..., e nei tratti di attraversamento dei binari tranviari e ferroviari  (POSA)
+      Codice: 15.P05.A05.015, U.M.: m, Euro: 33.13, Note: 
+    Work: Scavo larghezza 0,4 m e profondità 0,80 m in terreno naturale - in massicciata ordinaria o acciottolato (POSA)
+      Codice: 15.P05.A05.020, U.M.: m, Euro: 12, Note: 
+    Work: Scavo larghezza 0,4 m e profondità 0,80 m in massicciata bitumata (es. carreggiata stradale) - in marciapiede con rottura dell'asfalto e degli eventuali strati di cls (POSA)
+      Codice: 15.P05.A05.025, U.M.: m, Euro: 36.27, Note: 
+    Work: Scavo larghezza 0,4 m e profondità 0,80 min marciapiede o massicciata con lastre, masselli, porfido, autobloccanti, ecc..., e nei tratti di attraversamento dei binari tranviari e ferroviari  (POSA)
+      Codice: 15.P05.A05.030, U.M.: m, Euro: 42.48, Note: 
+    Work: Scavo per fosse giunti o per saggi  sino alla profondità di m1,40, eseguito su qualsiasi tipo di terreno, compreso la demolizione dello strato di asfalto o di calcestruzzo sovrastante, per qualsiasi  superficie  di scavo  (POSA)
+      Codice: 15.P05.A05.035, U.M.: m³, Euro: 95.69, Note: 
+  Activity: Esecuzione di cavidotto con le modalità e dimensioni prescritte dalla stazione appaltante e comprensivo di: - esecuzione del letto di posa, fornitura e posa di  tubi in pvc con diam esterno 110 mm come prescritte nelle specifiche tecniche, fornitura e posa di cls C 12/15, riempimento dello scavo con misto cementato compattato in modo tale da evitare qualsiasi spargimento di ghiaia ed altri inerti, eseguito come indicato nelle prescrizioni e schede tecniche. In casi particolari, qualora sia richiesto dai Settori comunali competenti, può essere richiesto il riempimento con terreno vegetale. Scheda Tecnica allegato 10
+    Work: Cavidotto a 1 tubo riempimento con misto cementato (FORNITURA E POSA)
+      Codice: 15.P05.A06.005, U.M.: m, Euro: 32.6, Note: 
+    Work: Cavidotto a 2 tubi riempimento con misto cementato (FORNITURA E POSA)
+      Codice: 15.P05.A06.010, U.M.: m, Euro: 48.26, Note: 
+    Work: Cavidotto a 3 tubi riempimento con misto cementato (FORNITURA E POSA)
+      Codice: 15.P05.A06.015, U.M.: m, Euro: 58.09, Note: 
+    Work: Cavidotto a 4 tubi riempimento  con misto cementato (FORNITURA E POSA)
+      Codice: 15.P05.A06.020, U.M.: m, Euro: 67.93, Note: 
+  Activity: Esecuzione di cavidotto con le modalità e dimensioni prescritte dalla stazione appaltante e comprensivo di: - esecuzione del letto di posa, fornitura e posa di  tubi in pvc con diam esterno 110 mm come prescritte nelle specifiche tecniche, fornitura e posa di cls C 12/15, riempimento dello scavo con misto granulare anidro di cava o di fiume di nuovo apporto  compattato in modo tale da evitare qualsiasi spargimento di ghiaia ed altri inerti, eseguito come indicato nelle prescrizioni e schede tecniche. In casi particolari, qualora sia richiesto dai Settori comunali competenti, può essere richiesto il riempimento con terreno vegetale. Scheda Tecnica allegato 10
+    Work: Cavidotto a 1 tubo riempimento con anidro di cava (FORNITURA E POSA)
+      Codice: 15.P05.A10.005, U.M.: m, Euro: 23.94, Note: 
+    Work: Cavidotto a 2 tubi  riempimento con anidro di cava (FORNITURA E POSA)
+      Codice: 15.P05.A10.010, U.M.: m, Euro: 37.31, Note: 
+    Work: Cavidotto a 3 tubi  riempimento con anidro di cava (FORNITURA E POSA)
+      Codice: 15.P05.A10.015, U.M.: m, Euro: 47.6, Note: 
+    Work: Cavidotto a 4 tubi  riempimento con anidro di cava (FORNITURA E POSA)
+      Codice: 15.P05.A10.020, U.M.: m, Euro: 57.89, Note: 
+  Activity: Esecuzione di cavidotto con le modalità e dimensioni prescritte dalla stazione appaltante e comprensivo di: esecuzione del letto di posa, fornitura e posa di  tubi in pvc con diam esterno 110 mm, fornitura e posa di cls C 12/15, riempimento dello scavo con  materiali preesistenti compattati in modo tale da evitare qualsiasi spargimento di ghiaia ed altri inerti, eseguito come indicato nelle prescrizioni e schede tecniche. In casi particolari, qualora sia richiesto dai Settori comunali competenti, può essere richiesto il riempimento con terreno vegetale. Scheda Tecnica allegato 10
+    Work: Cavidotto a 1 tubo riempimento con materiale preesistente (FORNITURA E POSA)
+      Codice: 15.P05.A15.005, U.M.: m, Euro: 19.34, Note: 
+    Work: Cavidotto a 2 tubi  riempimento  con materiale preesistente (FORNITURA E POSA)
+      Codice: 15.P05.A15.010, U.M.: m, Euro: 31.46, Note: 
+    Work: Cavidotto a 3 tubi  riempimento  con materiale preesistente (FORNITURA E POSA)
+      Codice: 15.P05.A15.015, U.M.: m, Euro: 41.96, Note: 
+    Work: Cavidotto a 4 tubi  riempimento  con materiale preesistente (FORNITURA E POSA)
+      Codice: 15.P05.A15.020, U.M.: m, Euro: 52.46, Note: 
+  Activity: Esecuzione di cavidotto con le modalità e dimensioni prescritte dalla stazione appaltante e comprensivo di: esecuzione del letto di posa, fornitura e posa di  tubi in acciaio zincato dotati di manicotti di giunzione filettati, come prescritto nelle specifiche tecniche, fornitura e posa di cls C12/15, riempimento dello scavo con misto granulare anidro di cava o di fiume di nuovo apporto, compattato in modo tale da evitare qualsiasi spargimento di ghiaia ed altri inerti, eseguito come indicato nelle prescrizioni e schede tecniche. In casi particolari, qualora sia richiesto dai Settori comunali competenti, può essere richiesto il riempimento con terreno vegetale. Scheda Tecnica allegato 10
+    Work: per ogni singolo tubo diam. 4" riempimento anidro di cava (FORNITURA E POSA)
+      Codice: 15.P05.A20.005, U.M.: m, Euro: 50.55, Note: 
+    Work: per ogni singolo tubo diam. 5" riempimento anidro di cava (FORNITURA E POSA)
+      Codice: 15.P05.A20.010, U.M.: m, Euro: 57.97, Note: 
+  Activity: Esecuzione di cavidotto con le modalità e dimensioni prescritte dalla stazione appaltante e comprensivo di: esecuzione del letto di posa, fornitura e posa di  tubi in acciaio zincato dotati di manicotti di giunzione filettati, fornitura e posa di cls C 12/15, riempimento dello scavo con misto cementato, compattato in modo tale da evitare qualsiasi spargimento di ghiaia ed altri inerti, eseguito come indicato nelle prescrizioni e schede tecniche. In casi particolari, qualora sia richiesto dai Settori comunali competenti, può essere richiesto il riempimento con terreno vegetale. Scheda Tecnica allegato 10
+    Work: Cavidotto con tubo acciaio per ogni singolo tubo diam. 4" spessore 2,6 mm, riempimento con misto cementato (FORNITURA E POSA)
+      Codice: 15.P05.A21.005, U.M.: m, Euro: 65.15, Note: 
+    Work: Cavidotto con tubo acciaio per ogni singolo tubo diam. 5" spessore 2,6 mm, riempimento con misto cementato (FORNITURA E POSA)
+      Codice: 15.P05.A21.010, U.M.: m, Euro: 72.56, Note: 
+  Activity: Esecuzione in trincea di solo manufatto secondo le modalità e dimensioni prescritte dalla stazione appaltante ma con l'esclusione del riempimento dello scavo e del ripristino provvisorio. Scheda Tecnica allegato 10
+    Work: Solo manufatto per ogni tubo in pvc diam. 110 mm  (FORNITURA E POSA)
+      Codice: 15.P05.A25.005, U.M.: m, Euro: 11.83, Note: 
+    Work: Solo manufatto per ogni tubo in acciaio zincato diam. 4"  (FORNITURA E POSA)
+      Codice: 15.P05.A25.010, U.M.: m, Euro: 22.11, Note: 
+    Work: Solo manufatto per ogni tubo in acciaio zincato diam. 5"  (FORNITURA E POSA)
+      Codice: 15.P05.A25.015, U.M.: m, Euro: 26.98, Note: 
+    Work: Riempimento del solo scavo con l'utilizzo di materiali preesistenti, ed esecuzione del costipamento a strati (FORNITURA E POSA)
+      Codice: 15.P05.A25.021, U.M.: m³, Euro: 14.52, Note: 
+    Work: Riempimento del solo scavo con misto cementato ed esecuzione del costipamento a strati (FORNITURA E POSA)
+      Codice: 15.P05.A25.026, U.M.: m³, Euro: 83.1, Note: 
+    Work: Riempimento del solo scavo con anidro di cava ed esecuzione del costipamento a strati (FORNITURA E POSA)
+      Codice: 15.P05.A25.027, U.M.: m³, Euro: 37.49, Note: 
+  Activity: Ripristino a carattere provvisorio di attraversamenti o massicciate stradali su larghezza di scavo commissionate mediante stesa di conglomerato bituminoso a freddo per uno spessore minimo di cm 5.
+    Work: Ripristino provvisorio con conglomerato bituminoso a freddo per larghezza di scavo pari a 30 cm spessore 5 cm (FORNITURA E POSA)
+      Codice: 15.P05.A30.005, U.M.: m, Euro: 15.08, Note: 
+    Work: Ripristino provvisorio con conglomerato bituminoso a freddo per larghezza di scavo pari a 40 cm spessore 5 cm (FORNITURA E POSA)
+      Codice: 15.P05.A30.010, U.M.: m, Euro: 19.13, Note: 
+    Work: Ripristino provvisorio con conglomerato bituminoso a freddo per superfici estese  ed irregolari spessore 5 cm (FORNITURA E POSA)
+      Codice: 15.P05.A30.015, U.M.: m², Euro: 45.77, Note: 
+    Work: Ripristino provvisorio con conglomerato bituminoso a freddo tipo Propatc o similari, per larghezza di scavo pari a 30 cm spessore 5 cm (FORNITURA E POSA)
+      Codice: 15.P05.A30.020, U.M.: m, Euro: 20.77, Note: 
+    Work: Ripristino provvisorio con conglomerato bituminoso a freddo tipo Propatc o similari, per larghezza di scavo pari a 40 cm spessore 5 cm (FORNITURA E POSA)
+      Codice: 15.P05.A30.025, U.M.: m, Euro: 27.21, Note: 
+    Work: Ripristino provvisorio con conglomerato bituminoso a freddo tipo Propatch o similari, per superfici estese e irregolari spessore 5 cm (FORNITURA E POSA)
+      Codice: 15.P05.A30.030, U.M.: m², Euro: 65.96, Note: 
+  Activity: Ricollocamento a carattere provvisorio di cordoli in pietra o cls, retti o curvi, comprendente lo scavo per far posto al cordolo  ed il suo livellamento ed allineamento a quelli preesistenti. Si deve anche intendere compresa la fornitura e posa della malta eventualmente necessaria per il fissaggio.
+    Work: Ricollocamento provvisorio di cordoli (POSA)
+      Codice: 15.P05.A35.005, U.M.: m, Euro: 40.69, Note: 
+  Activity: Ricollocamento a carattere provvisorio di lastre di marciapiede  in pietra o cls, di autobloccanti o cubetti in porfido, previo lo spianamento del sottostrato in materiale inerte per il livellamento del piano di calpestio. Si deve anche intendere compresa la fornitura e posa della malta e/o della sabbia eventualmente necessaria per il fissaggio e la stuccatura dei giunti affinché non si creino pericoli per l'utenza.
+    Work: Ricollocamento provvisorio di lastre in pietra o marmette autobloccanti per ogni intervento (POSA)
+      Codice: 15.P05.A40.005, U.M.: m², Euro: 64.04, Note: 
+  Activity: SCAVI ACCESSORI
+    Work: Scavo su qualunque tipo di terreno, anche di tipo speciale, con demolizione del blocco di fondazione del sostegno in cls fino alla profondità di 10 - 15 cm, compresa la fornitura e posa del tubo flessibile a protezione del conduttore di terra, del conduttore di terra, il ripristino del blocco di fondazione, del suolo pubblico, ed il trasporto delle macerie ad impianto di recupero e riciclo autorizzato.  Operazione da eseguirsi per la messa a terra di sostegni cui sia stata rilevata la mancanza del collegamento all'impianto di terra. (FORNITURA E POSA)
+      Codice: 15.P05.A45.005, U.M.: cad, Euro: 41.6, Note: 
+    Work: Scavo di fossa sino a 0,8 m³. di volume mediante l'uso di attrezzature meccaniche o manuali in qualsiasi tipo di terreno, per il ripristino dei cavidotti interrotti, fornitura dei tratti di tubo in pvc, del cls occorrente al ripristino del manufatto, della treccia di rame e dei morsetti necessari per il ripristino della continuità di terra, del successivo riempimento dello scavo con i materiali preesistenti, del ripristino provvisorio. (FORNITURA E POSA)
+      Codice: 15.P05.A45.010, U.M.: cad, Euro: 177.55, Note: 
+    Work: Verifica su specifica richiesta della Direzione Lavori e per ogni singola tubazione appartenente ad un tratto di cavidotto esistente di: - numero dei tubi e relativo diametro - quantità di cavi transitanti in ogni tubo - agibilità mediante inserimento di sonda - eventuali punti di interruzione per ogni tratto di cavidotto indipendentemente dal numero di tubi che lo compongono. L'operazione si intende completata con la compilazione della scheda, in ogni sua parte, al fine di determinare la posizione di eventuali interruzioni dei cavidotti ed il numero di cavi inseribili nei tubi. (POSA) 
+Scheda Tecnica Allegato 11
+      Codice: 15.P05.A45.015, U.M.: m, Euro: 2.16, Note: 
+    Work: Scovolatura di cavidotti esistenti, su specifica richiesta della Direzione Lavori, previa rimozione dei conduttori, compresa dello stasamento delle tubazioni, della rimozione dei materiali terrosi e del loro trasporto alla discarica (POSA)
+      Codice: 15.P05.A45.020, U.M.: m, Euro: 5.86, Note: 
+    Work: Pulizia di pozzetto esistente, su specifica richiesta della Direzione Lavori, con asportazione di materiali terrosi e/o vegetali e lo trasporto ad impianto di recupero e riciclo autorizzato. (POSA)
+      Codice: 15.P05.A45.025, U.M.: cad, Euro: 10.18, Note: 
+    Work: Esecuzione di aperture su pareti di pozzetti esistenti, per consentire il collegamento degli stessi con tubazioni di nuova posa, compreso della demolizione parziale della parete del pozzetto, della posa delle tubazioni, del successivo ripristino della parete con malta cementizia. Per ogni parete di pozzetto (POSA)
+      Codice: 15.P05.A45.030, U.M.: cad, Euro: 24.44, Note: 
+    Work: Formazione di pozzetto in cls come descritto dalle norme tecniche di capitolato, comprensivo dello scavo in qualsiasi tipo di terreno, della fornitura e posa del cls, (in casi particolari e su autorizzazione della stazione appaltante e consentita la costruzione del manufatto in mattoni), rinzaffatura delle pareti interne con malta di cemento. Completo di  fornitura e posa del chiusino in ghisa sferoidale avente misura di luce  interna del telaio pari a mm 500 x 500  di classe D400 costruito secondo quanto indicato dalla Norma UNI EN 124 completo di coperchio dotato di rilievi antisdrucciolo e chiusura a tenuta ermetica. Dicitura "SERVIZIO SEMAFORI" riportata sul coperchio , ripristino provvisorio del suolo a contorno del chiusino. (FORNITURA E POSA) 
+Scheda Tecnica Allegato 12
+      Codice: 15.P05.A45.035, U.M.: cad, Euro: 300.05, Note: 
+    Work: Formazione di pozzetto in cls  50 x 50 cm luce interna, esclusa la fornitura e posa del chiusino in ghisa (FORNITURA E POSA).  
+Scheda Tecnica allegato 12
+      Codice: 15.P05.A45.040, U.M.: cad, Euro: 165.91, Note: 
+    Work: Formazione di pozzetto con dimensioni 30 x 30 x 40 cm (prof.), comprensivo della fornitura del chiusino  in ghisa sferoidale avente misura di luce  interna del telaio pari a mm 300 x 300  di classe C250 costruito secondo quanto indicato dalla Norma UNI EN 124 completo di coperchio dotato di rilievi antisdrucciolo e chiusura a tenuta ermetica. (FORNITURA E POSA)
+      Codice: 15.P05.A45.045, U.M.: cad, Euro: 126.03, Note: 
+    Work: Formazione di pozzetto in cls  30 x 30 x 40 cm (prof) luce interna, esclusa la fornitura del chiusino in ghisa (FORNITURA E POSA)
+      Codice: 15.P05.A45.050, U.M.: cad, Euro: 55.5, Note: 
+    Work: Chiusino semaforico in ghisa sferoidale secondo ISO 1083/EN1563 classe D400 EN124; luce interna netta 500 x 500 mm, con scritta "SERVIZIO SEMAFORI" dimensione minima lettere 20 mm, coperchio a rilievi antisdrucciolo, bloccaggio del coperchio con linguette di contrasto e munito di tasche di sollevamento per manovra a mezzo di picco, piccone o apposito dispositivo (FORNITURA)
+      Codice: 15.P05.A45.055, U.M.: cad, Euro: 122.69, Note: 
+    Work: Eliminazione della scritta 'SERVIZIO SEMAFORI' dal chiusino, comprensivo delle attrezzature e di tutto quanto necessario (POSA)
+      Codice: 15.P05.A45.056, U.M.: cad, Euro: 9.85, Note: 
+    Work: Chiusino in ghisa sferoidale,avente misura di luce  interna del telaio pari a mm 300 x 300  di classe C250 costruito secondo quanto indicato dalla Norma UNI EN 124 completo di coperchio dotato di rilievi antisdrucciolo e chiusura a tenuta ermetica (FORNITURA)
+      Codice: 15.P05.A45.060, U.M.: cad, Euro: 60.34, Note: 
+    Work: Chiusino in ghisa  sino a 50 x 50 cm, comprese le eventuali opere murarie necessarie al livellamento del chiusino alla strada (POSA)
+      Codice: 15.P05.A45.065, U.M.: cad, Euro: 39.55, Note: 
+    Work: Chiusino in ghisa di qualsiasi tipologia (RECUPERO)
+      Codice: 15.P05.A45.070, U.M.: cad, Euro: 16.64, Note: 
+    Work: Rimozione di lastre in pietra per consentire l'esecuzione di un pozzetto oppure di un basamento per sostegno compreso l'accantonamento della pietra e il ripristino provvisorio della parte rimasta scopetrta; per ogni m²  (POSA)
+      Codice: 15.P05.A45.075, U.M.: m², Euro: 47.47, Note: 
+    Work: Rilivellamento del chiusino rispetto al piano stradale compresa l'eventuale esecuzione di anello in muratura o demolizione della parte di pozzetto eccedente (POSA e RECUPERO)
+      Codice: 15.P05.A45.080, U.M.: cad, Euro: 63.16, Note: 
+    Work: Anello in muratura o in cls per esecuzione di pozzetti, in maggiorazione o in detrazione, da applicarsi per altezze pari a 10 cm., rispetto a quelle indicate nella scheda tecnica.  (FORNITURA E POSA) 
+Scheda Tecnica Allegato 12
+      Codice: 15.P05.A45.100, U.M.: cad, Euro: 10.5, Note: 
+    Work: Maggiorazione o detrazione di scavo per cavidotto effettuato con mezzi meccanici o manuali, di larghezza 30/40 cm., con riempimento misto cementato per profondità superiori o inferiori a quelle di progetto, per strati di spessore 10 cm. secondo le indicazione della D.L. (FORNITURA E POSA). Scheda Tecnica allegato 12
+      Codice: 15.P05.A45.105, U.M.: m, Euro: 6.96, Note: 
+    Work: Maggiorazione o detrazione di scavo per cavidotto effettuato con mezzi meccanici o manuali, di larghezza 30/40 cm., con riempimento del materiale preesistente per profondità superiori o inferiori a quelle di progetto, per strati di spessore 10 cm. secondo le indicazione della D.L. (FORNITURA E POSA). Scheda Tecnica allegato 12
+      Codice: 15.P05.A45.110, U.M.: m, Euro: 5.38, Note: 
+
+Category: DISPOSITIVI DI CHIAMATA
+  Activity: DISPOSITIVI ACUSTICI ED ACCESSORI  PER PASSAGGI PEDONALI
+    Work: Pulsante di chiamata pedonale, di tipo antivandalo, completo di connessioni per il collegamento del cavo, di curvatura adatta al diametro del sostegno su cui dovrà essere installato (FORNITURA)
+      Codice: 15.P06.A05.010, U.M.: cad, Euro: 165.88, Note: 
+    Work: Pulsante di chiamata normale o antivandalo o dispositivo di richiesta per pedoni e non vedenti. Compreso l'eventuale orientamento della freccia di direzione posizionata nella parte inferiore del dispositivo di chiamata per non vedente. Compresa la posa dell'attacco e di tutto quanto necessario per il fissaggio a qualsiasi tipo di sostegno con la fornitura e posa del nastro band-it, dei collegamenti elettrici ed accorgimenti per renderlo funzionante (POSA).
+      Codice: 15.P06.A05.015, U.M.: cad, Euro: 10.62, Note: 
+    Work: Pulsante di chiamata normale o antivandalo o dispositivo di richiesta per pedoni e/o non vedenti. Compreso il recupero dell'attacco e di tutto quanto utilizzato per il fissaggio a qualsiasi tipo di sostegno e dei relativi collegamenti elettrici (RECUPERO)
+      Codice: 15.P06.A05.020, U.M.: cad, Euro: 2.48, Note: 
+    Work: Dispositivo di richiesta per pedoni e non vedenti (pulsante) - tensione a 220 V /42V, composto da pulsante per la normale prenotazione pedonale, segnalazione luminosa dell'accettazione della prenotazione, pulsante per richiesta del non vedente e segnalatore acustico per conferma della richiesta del non vedente. Costituito da contenitore in policarbonato IP55 di colore verde RAL 6009, con eventuali serigrafie (diciture o immagini) sul prospetto anteriore. Il pulsante per la chiamata dei pedoni deve essere di tipo antivandalo ed avere la segnalazione della prenotazione tramite luce ad alta intensità luminosa. Il pulsante per non vedenti deve essere posto nella parte inferiore del contenitore e dotato di freccia di direzione. L'entrata dei cavi deve essere protetta in modo da assicurare la tenuta all'acqua ed alle polveri. Il fissaggio al palo deve essere effettuato mediante bulloni da applicare in sedi predisposte o tramite band-it. Compresi tutti i collegamenti elettrici ed accorgimenti per renderlo funzionante. Il tutto  omologato e realizzato secondo le vigenti normative            
+(FORNITURA)
+      Codice: 15.P06.A05.025, U.M.: cad, Euro: 118.67, Note: 
+    Work: Dispositivo acustico per non vedenti - tensione a 42V (dicitura da riportare esternamente sul contenitore mediante targhetta adesiva ed all'interno del contenitore stesso) - composto da logica a microprocessore, sensore di misura del rumore e trasduttore sonoro per l'emissione del segnale di via libera. Realizzato con contenitore in materiale plastico di colore verde Ral 6009 con grado di protezione IP55, con foro diam. 25 mm per l'ingresso del cavo e di eventuali raccordi per guaine, supporti per fascette e fascette per il fissaggio dei conduttori all'interno, corredato di m. 3 di cavo per il collegamento al pulsante, secondo quanto indicato dalla Committente. Comprensivo di staffa-attacco di colore verde Ral 6009 e di tutto quanto necessario per il fissaggio al sostegno e dei collegamenti elettrici per il suo regolare funzionamento.  Il tutto deve essere omologato e realizzato secondo quanto disposto dalle vigenti normative  (FORNITURA)
+      Codice: 15.P06.A05.030, U.M.: cad, Euro: 287.1, Note: 
+    Work: Dispositivo acustico per non vedenti - tensione a 220 V - composto da logica a microprocessore, sensore di misura del rumore e trasduttore sonoro per l'emissione del segnale di via libera. Realizzato con contenitore in materiale plastico di colore verde Ral 6009 con grado di protezione IP55, con foro diam. 25 mm per l'ingresso del cavo e di eventuali raccordi per guaine, supporti per fascette e fascette per il fissaggio dei conduttori all'interno,corredato di m. 3 di cavo per il collegamento al pulsante, secondo quanto indicato dalla Committente. Comprensivo di staffa-attacco di colore verde Ral 6009 e di tutto quanto necessario per il fissaggio al sostegno e dei collegamenti elettrici per il suo regolare funzionamento. Il tutto deve essere omologato e realizzato secondo quanto disposto dalle vigenti normative (FORNITURA)
+      Codice: 15.P06.A05.035, U.M.: cad, Euro: 287.1, Note: 
+    Work: Dispositivo acustico per non vedenti con foro per l'ingresso del cavo, compresa la fornitura e posa di raccordo per guaina spiralata IP 64 passo gas Ral 7035 diam. 20 mm,  della chiusura delle fascette per il fissaggio dei conduttori al suo interno e di tutti i collegamenti elettrici interni per il suo funzionamento. Compresa la posa della staffa-attacco e di tutto quanto necessario per il fissaggio a qualsiasi tipo di sostegno, con fornitura e posa del band-it necessario. Compresa la fornitura e posa del cavo di tipo FR-OR (6x0,5 mmq con tensione di esercizio 450/750V) avente diametro massimo di 6 mm verso il dispositivo di richiesta e la fornitura e posa dei conduttori unipolari da 1,5 mmq verso la lanterna. Compresa la fornitura e posa di tubo flessibile corrugato sino a diam. 63 mm e del fissaggio con fascette alla staffa-attacco al sostegno.  Compresi tutti i collegamenti elettrici del cavo in arrivo dal regolatore (escluso quello nel regolatore), del cavo verso la lanterna semaforica e di quelli necessari per il suo regolare funzionamento (POSA).
+      Codice: 15.P06.A05.040, U.M.: cad, Euro: 42.08, Note: 
+    Work: Dispositivo acustico per non vedenti compresivo del recupero della staffa-attacco, di tutto quanto posato per il fissaggio al sostegno, del band-it, dei cavi, del tubo flessibile corrugato, del raccordo per guaina spiralata, delle fascette e di tutti i collegamenti elettrici. (RECUPERO).
+      Codice: 15.P06.A05.045, U.M.: cad, Euro: 18.1, Note: 
+    Work: Frontale del dispositivo di richiesta per pedoni e non vedenti (pulsante), comprensivo del pulsante di prenotazione per vedenti e non vedenti, di freccia di direzione e di tutto quanto necessario per la sostituzione dell'involucro frontale esterno del dispositivo (FORNITURA)
+      Codice: 15.P06.A05.055, U.M.: cad, Euro: 51.04, Note: 
+
+Category: VARIE
+  Activity: ARMADI E CASSETTE STRADALI
+    Work: Cassetta stradale (tipo TEM/OEC o similari) idonea alla posa del gruppo di misura, per alimentazione dell'impianto semaforico o per giunzione dei cavi, contenente parti elettriche quali gruppo fusibili, morsetti di derivazione, ecc..., completa di piastra di fondo in pvc delle guide DIN necessarie per il fissaggio dei morsetti o dei portafusibili, delle canalette in pvc necessarie per il passaggio dei cavi, di eventuali tubi corrugati per la posa dei cavi e  di telaio in acciaio zincato per il fissaggio a basamento. Dimensioni 1075 x 520 x 219,5 (prof) mm (FORNITURA)
+      Codice: 15.P07.A05.020, U.M.: cad, Euro: 245.44, Note: 
+    Work: Cassetta stradale per alimentazione dell'impianto semaforico o per giunzione dei cavi, di qualsiasi dimensione posata su basamento predisposto in cls, compreso della fornitura dei bulloni di fissaggio (POSA)
+      Codice: 15.P07.A05.025, U.M.: cad, Euro: 33.39, Note: 
+    Work: Cassetta stradale per alimentazione dell'impianto semaforico o per giunzione dei cavi, di qualsiasi dimensione (RECUPERO)
+      Codice: 15.P07.A05.030, U.M.: cad, Euro: 4.11, Note: 
+    Work: Sostituzione piastra di fondo con o senza separatore all'interno di cassetta stradale di alimentazione o di smistamento, compresa la fornitura e posa degli accessori di fissaggio (tasselli, viti, ecc.) e di tutto quanto necessario per la corretta installazione (POSA)
+      Codice: 15.P07.A05.031, U.M.: cad, Euro: 13.96, Note: 
+    Work: Armadio portaregolatore di qualsiasi dimensione compreso il trasporto, la posa in opera, il collegamento del cavo di messa a terra e di alimentazione. Al termine delle operazioni dovra essere realizzato un tamponamento del vano cavi mediante stracci e successiva sigillatura mediante schiuma poliuretanica (tipo SISTA - Henkel o similari) di fornitura dell'appaltatore. (POSA)
+      Codice: 15.P07.A05.035, U.M.: cad, Euro: 108.94, Note: 
+    Work: Armadio portaregolatore di qualsiasi dimensione compreso lo sccollegamento di tutti i cavi ad esso collegati ed il trasporto. (RECUPERO)
+      Codice: 15.P07.A05.040, U.M.: cad, Euro: 38.6, Note: 
+    Work: Sigillatura del vano di accesso cavi all'interno dell'armadio portaregolatore consistente nella posa di stracci o carta per chiudere le grosse aperture e successiva posa di schiuma poliuretanica (tipo SISTA - Henkel o similari), di fornitura dell'Appaltatore, per permettere una definitiva chiusura di ogni interstizio. Per ogni intervento di sigillatura, sia completa che di ripristino dell'esistente a seguito di lavori su cavi (FORNITURA E POSA)
+      Codice: 15.P07.A05.041, U.M.: cad, Euro: 9.57, Note: 
+    Work: Manutenzione regolatore semaforico di qualsiasi tipo, compreso di tutte le apparecchiature e dei software necessari; consistente nella pulizia interno regolatore, nella verifica dello stato dell'armadio, della sigillatura cavedio, dello stato dei documenti ivi presenti e della funzionalità di tutti i sistemi di chiusura; della verifica della funzionalità della cassetta Vigili, magnetotermico, differenziale, sezionatote, scaricatore e relé wath dog, detector, sincronizzatore e filtri (se pesenti); della misura o rilevamento della tensione alimentatore o batteria; del controllo del serraggio dei morsetti e collegamenti a terra; del controllo e pulizia delle schede logiche e di potenza; della verifica della tipologia dei firmwatre installati; della verifica dell'ora/data e programmazione dell'orario impostate; della funzionalità dell'autoripristino; del controllo dei verdi nemici, del sincronismo ed allineamento; della fasatura/tempi previsti da progetto; delle attuazioni e dei guasi dell'ultimo periodo. Il tutto riportato su documento accertante le verifiche ed attività eseguite (POSA)
+      Codice: 15.P07.A05.042, U.M.: cad, Euro: 123.19, Note: 
+    Work: Manutenzione cassetta giunzioni, o armadio spire o cassette di alimentazione,  di qualsiasi tipo, compreso di tutte le apparecchiature necessarie; consistente nella pulizia interno armadio, nella verifica dello stato dell'armadio, della sigillatura cavedio, dello stato dei documenti ivi presenti e della funzionalità di tutti i sistemi di chiusura; dello stato dei documenti ivi presenti e della funzionalità di tutti i sistemi di chiusura; della verifica della funzionalità del magnetotermico, differenziale e scaricatore (se pesenti) e del controllo del serraggio dei morsetti e collegamenti a terra (POSA)
+      Codice: 15.P07.A05.043, U.M.: cad, Euro: 12.32, Note: 
+    Work: Manutenzione cassetta comando A.P.L. o lampeggianti, di qualsiasi tipo, compreso di tutte le apparecchiature necessarie; consistente nella pulizia interno armadio, nella verifica dello stato dell'armadio, della sigillatura cavedio, dello stato dei documenti ivi presenti e della funzionalità di tutti i sistemi di chiusura; dello stato dei documenti ivi presenti e della funzionalità di tutti i sistemi di chiusura; della verifica della funzionalità del magnetotermico, differenziale e scaricatore (se pesenti); del controllo del serraggio dei morsetti e collegamenti a terra; della fotocellula o dell'orologio astronomico e dell'effettiva accensione dell'APL (POSA)
+      Codice: 15.P07.A05.044, U.M.: cad, Euro: 31.21, Note: 
+    Work: Cassetta del tipo "a fungo" formata da una cassetta del tipo contenitore per Gruppo di misura Monofase Integrato (GMI), corredata di piastra di fondo e di sostegno tubolare in vetroresina per il fissaggio a pavimento (FORNITURA)
+      Codice: 15.P07.A05.045, U.M.: cad, Euro: 98.67, Note: 
+    Work: Cassetta del tipo "a fungo" formata da una cassetta del tipo contenitore per Gruppo di misura Trifase Integrato (GTY),corredata di due basette in poliestere di tipo GP03 di colore rosso e di palo in vetroresina per il fissaggio a pavimento. (FORNITURA)
+      Codice: 15.P07.A05.050, U.M.: cad, Euro: 107.06, Note: 
+    Work: Cassetta di interconnessione da posare fra il palo in vetroresina e la cassetta contenitore (FORNITURA)
+      Codice: 15.P07.A05.055, U.M.: cad, Euro: 27.05, Note: 
+    Work: Predisposizione di cassetta portafusibili tipo "a fungo" o similare di qualsiasi tipo, compresa l'esecuzione dei fori di ingresso - uscita cavi, la posa della base, e della guida "DIN" di lunghezza adeguata e della eventuale fornitura dei bulloni di fissaggio  degli elementi e la posa della cassetta di interconnessione, se richjesta.  (POSA)
+      Codice: 15.P07.A05.060, U.M.: cad, Euro: 8.19, Note: 
+    Work: Cassetta del  tipo "a fungo", comprensiva della messa a piombo, della sabbiatura del foro di incastro, della fornitura e posa del cls per la sigillatura mediante collarino. (POSA)
+      Codice: 15.P07.A05.065, U.M.: cad, Euro: 21.16, Note: 
+    Work: Cassetta del  tipo "a fungo", compresa la sigillatura del foro di incastro. (RECUPERO)
+      Codice: 15.P07.A05.070, U.M.: cad, Euro: 6.57, Note: 
+    Work: Cablaggio morsettiera regolatore semaforico o cassetta stradale, per ogni singolo morsetto cablato, esclusa la fornitura dei materiali, secondo le prescrizioni del Capitolato Tecnico (POSA)
+      Codice: 15.P07.A05.075, U.M.: cad, Euro: 2.46, Note: 
+    Work: Posa di trasformatore, di fornitura Iren, per impianti a 42 V all'interno di pozzetto Semafori, compresa la fornitura e posa dei tubi corrugati in ingresso/uscita dal trasformatore di almeno 2 m cadauno, il collegamento dei cavi, la posa di miscela isolante, delle targhette di fornitura Iren e di tutto quanto necessario per renderlo funzionante (POSA)
+      Codice: 15.P07.A05.080, U.M.: cad, Euro: 67.66, Note: 
+  Activity: CASSETTE DI DERIVAZIONE 
+Cassette di derivazione di colore grigio ral 7035, con grado di tenuta agli agenti atmosferici IP55, comprensiva di pressacavi, fornitura e posa di eventuali staffette di fissaggio che non comportino la foratura della cassetta, tasselli e nastro a band - it
+    Work: Cassetta di derivazione avente dimensioni fino a 190 x 140 x 70 mm (FORNITURA)
+      Codice: 15.P07.A10.005, U.M.: cad, Euro: 15.54, Note: 
+    Work: Cassetta di derivazione avente dimensioni  240 x 190 x 90 mm (FORNITURA)
+      Codice: 15.P07.A10.010, U.M.: cad, Euro: 25.42, Note: 
+    Work: Cassetta di derivazione avente dimensioni  300 x 220 x 120 mm (FORNITURA)
+      Codice: 15.P07.A10.015, U.M.: cad, Euro: 53.36, Note: 
+    Work: Cassetta di derivazione di qualsiasi dimensione,  installata a qualsiasi altezza sia su muro che su palo,  comprensiva del collegamento alla morsettiera interna di un cavo in arrivo da regolatore o da altra cassetta. (POSA)
+      Codice: 15.P07.A10.020, U.M.: cad, Euro: 37.64, Note: 
+    Work: Cassetta di derivazione, cassetta portafusibili (tipo SIS), ecc., compreso lo scollegamento dei conduttori (RECUPERO)
+      Codice: 15.P07.A10.025, U.M.: cad, Euro: 3.28, Note: 
+  Activity: RICERCA GUASTI
+    Work: Ricerca a seguito della richiesta della Direzione Lavori del punto di interruzione della continuità elettrica del conduttore di protezione, comprensiva di tutte le operazioni necessarie al buon esito della ricerca stessa. Per ogni sostegno semaforico (POSA)
+      Codice: 15.P07.A16.005, U.M.: cad, Euro: 6.57, Note: 
+    Work: Ricerca, a seguito della richiesta della Direzione Lavori, del punto di guasto del "complesso" formato dal cavo telefonico o coassiale collegato all'interno del regolatore semaforico o dell'armadio spire e dal sensore di traffico o pulsante di chiamata pedonale, comprensiva di tutte le operazioni necessarie al buon esito della ricerca stessa. Per ogni sensore o pulsante (POSA)
+      Codice: 15.P07.A16.010, U.M.: cad, Euro: 41.06, Note: 
+    Work: Ricerca di eventuale fusibile bruciato e sua sostituzione, su morsettiera di regolatore o cassetta di derivazione segnali o cassetta protezione impianto. La sostituzione comprende la fornitura del fusibile  e tutte quelle operazioni necessarie alla risoluzione dell'anomalia (FORNITURA E POSA)
+      Codice: 15.P07.A16.015, U.M.: cad, Euro: 10.71, Note: 
+    Work: Intervento occasionale su impianto semaforico non eseguito esclusivamente per errata segnalazione o per motivi di sicurezza (POSA)
+      Codice: 15.P07.A16.020, U.M.: cad, Euro: 4.93, Note: 
+  Activity: Nastro Band - it comprensivo delle graffette di fissaggio, a qualsiasi altezza, su espressa richiesta della stazione appaltante in quanto già previsto ove occorrente nella posa di lanterne, cassette, spostamento segnaletica, ecc.
+    Work: Nastro Band - it avente dimensione da 1/2"(FORNITURA)
+      Codice: 15.P07.A20.005, U.M.: m, Euro: 3.18, Note: 
+    Work: Nastro Band - it avente dimensione da 3/4" (FORNITURA)
+      Codice: 15.P07.A20.010, U.M.: m, Euro: 4.58, Note: 
+    Work: Nastro Band-it (POSA)
+      Codice: 15.P07.A20.015, U.M.: m, Euro: 1.54, Note: 
+    Work: Nastro Band-it (RECUPERO)
+      Codice: 15.P07.A20.020, U.M.: m, Euro: 0.93, Note: 
+  Activity: CODIFICA PARTI DI IMPIANTO
+    Work: Numerazione di pali esistenti, mediante apposizione di codice alfa - numerico ad una altezza di 1,75 m, costituito da una fascia autoadesiva su cui dovranno essere composti il codice dell'impianto ed il numero del sostegno, con lettere e fascia autoadesiva fornite dalla stazione appaltante; l'apposizione del codice comprende anche l'identificazione delle lanterne con apposita targhetta adesiva riportante un carattere alfabetico e l'eventuale cancellazione della precedente codifica mediante asportazione e successiva verniciatura con colore verde ral 6009.  (POSA) 
+Schede Tecniche allegati 13, 14, 15, 16, 17
+      Codice: 15.P07.A25.005, U.M.: cad, Euro: 3.5, Note: 
+    Work: Numerazione delle sole lanterne semaforiche mediante l'apposizione di targhetta adesiva riportante un carattere alfabetico. (POSA) 
+Schede Tecniche allegati 13, 14, 15, 16, 17
+      Codice: 15.P07.A25.010, U.M.: cad, Euro: 0.93, Note: 
+  Activity: SEGNALETICA VARIA
+    Work: Cartello stradale - dimensioni 900 x1350 mm - composto da tabella in alluminio 25/10 realizzata in pellicola rifrangente di classe 2° speciale fluororifrangente (DGF) e dotato di cavalletto in acciaio verniciato, completo di ancoraggio per sacche di appesantimento (FORNITURA)
+      Codice: 15.P07.A30.005, U.M.: cad, Euro: 281.35, Note: 
+    Work: Installazione di cartellonistica stradale su cavalletti predisposti o su sostegni esistenti, in loco per informazione all'utenza comprensivo di: - Prelevamento presso i magazzini dell'Ente appaltante - Trasporto e posa in loco secondo le indicazioni della stazione appaltante (POSA)
+      Codice: 15.P07.A30.015, U.M.: cad, Euro: 35.31, Note: 
+    Work: Rimozione e riconsegna ai magazzini della stazione appaltante di cartellonistica stradale (RECUPERO)
+      Codice: 15.P07.A30.020, U.M.: cad, Euro: 35.31, Note: 
+    Work: Spostamento di segnaletica verticale a seguito di qualunque tipo di attività svolta nell'ambito di un impianto semaforico, secondo le modalità indicate dal presente capitolato; l'operazione comprende il recupero, la posa provvisoria durante i lavori, il successivo collocamento definitivo mediante nastro band - it di cui si intende compresa la fornitura. Per ogni singolo segnale o gruppi di segnali su unico supporto (POSA E RECUPERO)
+      Codice: 15.P07.A30.025, U.M.: cad, Euro: 23.46, Note: 
+    Work: Segnaletica di diversa tipologia, di rinforzi provvisori per sostegni, dii strumenti luminosi, di proprietà dell'Ente appaltante, posati a seguito del primo intervento da parte del personale dell'Ente, comprensivo del trasporto presso i magazzini dell'Ente appaltante, per ogni segnale, rinforzo, ecc...recuperato. (RECUPERO)
+      Codice: 15.P07.A30.030, U.M.: cad, Euro: 4, Note: 
+  Activity: FERRAMENTA E VERNICIATURA
+    Work: Ferramenta lavorata e verniciata su disegno, comprensiva delle operazioni di taglio, saldatura, foratura, rullatura ecc. da eseguirsi a seguito di richiesta della stazione appaltante (FORNITURA)
+      Codice: 15.P07.A35.005, U.M.: kg, Euro: 12.05, Note: 
+    Work: Ferramenta lavorata e verniciata semplice e su disegno (POSA)
+      Codice: 15.P07.A35.010, U.M.: kg, Euro: 1.64, Note: 
+    Work: Ferramenta lavorata e verniciata semplice e su disegno (RECUPERO)
+      Codice: 15.P07.A35.015, U.M.: kg, Euro: 0.82, Note: 
+    Work: Verniciatura di sostegno, tigia, armadi regolatori o altri parti metalliche facenti parte dell'impianto su richiesta della stazione appaltante, comprendente la pulizia e la raschiatura preliminare, l'applicazione di una mano di minio o di aggrappante, e di due riprese di smalto sintetico, secondo quanto indicato dal presente capitolato. La stazione appaltante potrà richiedere colorazioni di diversa tonalità qualora necessita di arredo urbano lo richiedano. (FORNITURA E POSA)
+      Codice: 15.P07.A35.020, U.M.: m², Euro: 29.13, Note: 
+  Activity: COLLEGAMENTI DI TERRA
+    Work: Dispersore a puntazza per terre a croce in acciaio dolce zincato a fuoco 50x50x5 lunghezza mm 1500, completa di bulloni ed accessori per il collegamento del conduttore di terra (FORNITURA)
+      Codice: 15.P07.A40.006, U.M.: cad, Euro: 14.07, Note: 
+    Work: Dispersore a puntazza per terre comprensivo dei collegamenti (POSA)
+      Codice: 15.P07.A40.010, U.M.: cad, Euro: 9.65, Note: 
+    Work: Dispersore a puntazza per terre (RECUPERO)
+      Codice: 15.P07.A40.015, U.M.: cad, Euro: 1.54, Note: 
+    Work: Misura del valore della resistenza di terra di un impianto semaforico, a seguito di richiesta della Direzione Lavori, eseguita secondo le vigenti norme CEI. (POSA)
+      Codice: 15.P07.A40.020, U.M.: cad, Euro: 23.07, Note: 
+    Work: Misura della continuità del collegamento di un sostegno semaforico alla rete di terra, a seguito di richiesta della stazione appaltante, effettuata fra il sostegno ed il punto di riferimento all'interno del regolatore, eseguita secondo le vigenti norme CEI. (POSA)
+      Codice: 15.P07.A40.025, U.M.: cad, Euro: 9.79, Note: 
+    Work: Misura della continuità del collegamento di un sostegno semaforico alla rete di terra, a seguito di richiesta della Direzione Lavori, effettuata all'interno del regolatore mediante l'utilizzo del conduttore "pilota di terra", eseguita secondo le vigenti norme CEI. (POSA)
+      Codice: 15.P07.A40.030, U.M.: cad, Euro: 1.72, Note: 
+  Activity: STAZIONI DI RILEVAMENTO E SPIRE 
+Realizzazione di stazione di rilevamento mediante spire  comprensiva di: 
+- taglio con disco diamantato di larghezza  min di 6 mm e profondità di almeno 10 cm; 
+- fornitura e posa di cavetto flessibile tipo FS17 (ex N07V-K) numero di giri secondo indicazioni della stazione appaltante, il cavetto deve essere twistato nel tratto compreso fra il perimetro della spira ed il pozzetto di collegamento, con almeno 10 giri/m); 
+- apertura necessaria sulla parete del pozzetto per permettere l'inserimento del cavetto della spira nello stesso 
+- sigillatura con asfalto a freddo, eventualmente addittivato con malta di tipo premiscelato al fine di mantenere elasticità e adesività del prodotto ed un rapido indurimento che ne impedisca la totale asportazione da parte dei veicoli in transito; 
+- giunto della spira con il cavo presente nel pozzetto a cui la stessa viene collegata
+    Work: Realizzazione di stazione di rilevamento costituita da 1 spira
+      Codice: 15.P07.A45.005, U.M.: cad, Euro: 211.05, Note: 
+    Work: Realizzazione di stazione di rilevamento costituita da  2 spire
+      Codice: 15.P07.A45.010, U.M.: cad, Euro: 364.34, Note: 
+    Work: Realizzazione di stazione di rilevamento costituita da  3 spire
+      Codice: 15.P07.A45.015, U.M.: cad, Euro: 436.39, Note: 
+    Work: Realizzazione di stazione di rilevamento costituita da  4 spire
+      Codice: 15.P07.A45.020, U.M.: cad, Euro: 652.66, Note: 
+    Work: Fresatura di pavimentazione bitumata con doppia lama rotante al fine di ottenere una traccia di larghezza 12 mm. e profondità 100 mm, comprensiva della posa in opera di cavo telefonico, riempimento con sabbia per uno spessore di ca. 5 cm e successiva sigillatura con asfalto a freddo, addittivato con malta di tipo premiscelato al fine di mantenere elasticità e adesività del prodotto ed un rapido indurimento che ne impedisca la totale asportazione da parte dei veicoli in transito - PRIMO CAVO (FORNITURA E POSA)
+      Codice: 15.P07.A45.025, U.M.: m, Euro: 14.19, Note: 
+    Work: Fresatura di pavimentazione bitumata con doppia lama rotante al fine di ottenere una traccia di larghezza 12 mm. e profondità 100 mm, comprensiva della posa in opera di cavo telefonico, riempimento con sabbia per uno spessore di ca. 5 cm e successiva sigillatura con asfalto a freddo, addittivato con malta di tipo premiscelato al fine di mantenere elasticità e adesività del prodotto ed un rapido indurimento che ne impedisca la totale asportazione da parte dei veicoli in transito - SECONDO CAVO cavo (FORNITURA E POSA)
+      Codice: 15.P07.A45.030, U.M.: m, Euro: 3.6, Note: 
+    Work: Esecuzione di spira per il rilevamento del traffico eseguita mediante taglio con disco diamantato della larghezza di almeno 6 mm, fornitura e posa di cavetto flessibile da 1,5 mm² tipo N07V - K (n (di giri secondo indicazioni della stazione appaltante), successiva sigillatura con asfalto a freddo, eventualmente addittivato con malta di tipo premiscelato al fine di mantenere elasticità e adesività del prodotto ed un rapido indurimento che ne impedisca la totale asportazione da parte dei veicoli in transito. (FORNITURA E POSA)
+      Codice: 15.P07.A45.035, U.M.: m, Euro: 20.81, Note: 
+    Work: Ripristino del funzionamento di una spira per il rilevamento del traffico consistente nella demolizione dell'asfalto in prossimità del punto di guasto, il ripristino della continuati del cavetto flessibile mediante giunzione con puntalini testa - testa e cavetto flessibile da 1,5 mm² tipo NO7V - K, ripristino del manto stradale. Il tutto comprensivo della fornitura di tutti i materiali occorrenti (FORNITURA E POSA)
+      Codice: 15.P07.A45.040, U.M.: cad, Euro: 30.81, Note: 
+  Activity: IMPIANTO PROVVISORIO
+    Work: Fornitura di quanto necessario per rendere possibile l'installazione di un impianto semaforico provvisorio secondo le indicazione della stazione appaltante. (Esclusa fornitura  del palo e delle 3 lanterne). Insieme costituito da: n° 1 palo predisposto con attacchi per cavi e lanterne, n° 3 lanterne predisposte con connettori, n° 1 basamento con contrappesi, m 45 di cavo per allacciamento ad altro palo, cassetta con connettori Entra-Esci per segnali e uscite lanterne. (FORNITURA)
+      Codice: 15.P07.A50.005, U.M.: cad, Euro: 2935.53, Note: 
+    Work: Fornitura di quanto necessario per rendere possibile l'installazione di un impianto semaforico provvisorio secondo le indicazione della stazione appaltante. (Esclusa fornitura  del palo e delle 3 lanterne). Insieme costituito da: n° 1 palo predisposto con attacchi per cavi e lanterne, n° 3 lanterne predisposte con connettori, n° 1 basamento con contrappesi, m 45 di cavo per allacciamento ad altro palo, cassetta con connettori Entra-Esci per segnali e uscite lanterne. Basamento con predisposizione per posa regolatore. (FORNITURA)
+      Codice: 15.P07.A50.010, U.M.: cad, Euro: 3754.11, Note: 
+    Work: Sostegno per impianto semaforico provvisorio comprensivo di trasporto da magazzini AEM o da altra località nel territorio del Comune di Torino. Nell'operazione si deve intendere compresa l'installazione dei tre blocchi in cls, con eventuali spessori tali da rendere la bussola di incastro a piombo, la posa del sostegno in dotazione e suo fissaggio, della cassetta di attestazione cavi, di 4 lanterne con relativi collegamenti alla cassetta, di una matassa di cavo, con lunghezza sino a 50 metri, posata in aereo sino a raggiungere il palo successivo, dei collegamenti interni della cassetta per consentire il funzionamento secondo il progetto consegnato. E' inoltre compresa la posa del regolatore, con prelievo dai magazzini AEM, e la fornitura e posa del cavo di alimentazione e del tubo  
+protettivo flessibile per consentire  
+l'alimentazione dell'impianto. (POSA)
+      Codice: 15.P07.A50.015, U.M.: cad, Euro: 532.1, Note: 
+    Work: Sostegno per impianto semaforico provvisorio comprensivo di trasporto ai magazzini AEM o a altra località nel territorio del Comune di Torino. Nell'operazione si deve intendere compreso il recupero dei tre blocchi in cls, del sostegno in dotazione, della cassetta di attestazione cavi, di 4 lanterne , di una matassa di cavo, con lunghezza sino a 50 metri, posata in aereo dal palo successivo. E' inoltre compreso il recupero del regolatore, con consegna ai magazzini AEM, e il recupero del cavo di alimentazione e del tubo protettivo flessibile. (RECUPERO)
+      Codice: 15.P07.A50.020, U.M.: cad, Euro: 257.27, Note: 
+    Work: Cassetta di attestazione cavi, per impianto semaforico provvisorio, composta da: cassetta in poliestere con dimensioni mm 300x300x175  dotata staffa di ancoraggio a palo e  di piastra di fondo con 7 blocchi da 4  Morsetti Weidmuller BLZ/35 divisi da opportuni separatori; 4 connettori a 4 poli da pannello cablati con, all'estremità opposta, altrettanti Connettori BL a 4 poli; 1 connettore Maschio ed 1 Femmina, entrambi da pannello, a 24 poli della Weidmuller con fissaggio a gancio (quello femmina dotato di coperchio); canaline per passaggio conduttori di cablaggio e minuterie varie.  Si intende compresa la mano d'opera necessaria ai cablaggi dell'intera cassetta, per i fori per fissaggio connettori  e quant'altro necessario per rendere il tutto funzionante (FORNITURA)
+      Codice: 15.P07.A50.025, U.M.: cad, Euro: 620.9, Note: 
+    Work: Cassetta di attestazione cavi, per impianto semaforico provvisorio, composta da: cassetta in poliestere con dimensioni mm 485x300x175  dotata staffa di ancoraggio a palo e  di piastra di fondo con 14 blocchi da 4  Morsetti Weidmuller BLZ/35 (in due serie da 7 blocchi) divisi da opportuni separatori; 4 connettori a 4 poli da pannello cablati con, all'estremità opposta, altrettanti Connettori BL a 4 poli; 2 connettori Maschio e due Femmina, entrambi da pannello, a 24 poli della Weidmuller con fissaggio a gancio (quello femmina dotato di coperchio); canaline per passaggio conduttori di cablaggio e minuterie varie.  Si intende compresa la mano d'opera necessaria ai cablaggi dell'intera cassetta, per i fori per fissaggio connettori  e quant'altro necessario per rendere il tutto funzionante (FORNITURA)
+      Codice: 15.P07.A50.030, U.M.: cad, Euro: 995.93, Note: 
+    Work: Connettore a maschio da cavo a 4 poli con tenuta IP68 comprensivo dell'attestazione del cavo e del collegamento, con tutte le parti occorrenti (FORNITURA E POSA)
+      Codice: 15.P07.A50.035, U.M.: cad, Euro: 28.47, Note: 
+    Work: Connettore a 24 poli di tipo Weidmuller  comprensivo dell'attestazione del cavo e del collegamento, con tutte le parti occorrenti (FORNITURA E POSA)
+      Codice: 15.P07.A50.040, U.M.: cad, Euro: 44.06, Note: 
+
