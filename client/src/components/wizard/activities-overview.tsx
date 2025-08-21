@@ -86,12 +86,19 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
                   const percentOffset = (offset / (totalSpan || 1)) * 100;
                   const percentWidth = (duration / (totalSpan || 1)) * 100;
                   // Find all works matching this activity.Activity as Work
+                  const stopWords = ["of", "and"];
+                  const filterWords = (str: string) =>
+                    str
+                      .split(/\s+/)
+                      .map((word: string) => word.toLowerCase())
+                      .filter((word: string) => !stopWords.includes(word));
                   const matchingWorks = works.filter((w: any) => {
                     if (!w.Work || !activity.Activity) return false;
-                    const workWords = w.Work.split(/\s+/).map((word: string) => word.toLowerCase());
-                    const activityWords = activity.Activity.split(/\s+/).map((word: string) => word.toLowerCase());
+                    const workWords = filterWords(w.Work);
+                    const activityWords = filterWords(activity.Activity);
                     const common = workWords.filter((word: string) => activityWords.includes(word));
-                    return common.length >= 2;
+                    const eq = w.Work.trim().toLowerCase() === activity.Activity.trim().toLowerCase();
+                    return eq || common.length >= 3;
                   });
                   return (
                     <div key={idx} className="flex flex-col w-full mb-4">
