@@ -1,4 +1,3 @@
-
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch } from '@/store';
@@ -15,7 +14,7 @@ import NotificationProgressBar from './NotificationProgressBar';
 import Loader from "../ui/loader";
 import { formatAreaData } from "@/lib/formatAreaData";
 import { setSiteVisit } from "@/features/siteVisitSlice";
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 interface SiteVisitProps {
   data: ProjectWizardData;
@@ -202,13 +201,13 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                                   if (isPDF) {
                                     const formData = new FormData();
                                     formData.append('file', file);
-                                    const resp = await fetch('http://127.0.0.1:8000/extract_pdf_text', { method: 'POST', body: formData });
+                                    const resp = await fetch(`${API_BASE_URL}/extract_pdf_text`, { method: 'POST', body: formData });
                                     const data = await resp.json();
                                     extractedText = data.text || '';
                                   } else if (isImage) {
                                     const formData = new FormData();
                                     formData.append('file', file);
-                                    const resp = await fetch('http://127.0.0.1:8000/analyze_image_moondream?ocr=true', { method: 'POST', body: formData });
+                                    const resp = await fetch(`${API_BASE_URL}/analyze_image_moondream?ocr=true`, { method: 'POST', body: formData });
                                     const data = await resp.json();
                                     extractedText = data.answer || '';
                                   }
@@ -407,7 +406,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                           const url = typeof ev.target?.result === 'string' ? ev.target.result : '';
                           const formData = new FormData();
                           formData.append('file', file);
-                          const resp = await fetch('http://127.0.0.1:8000/extract_pdf_text', { method: 'POST', body: formData });
+                          const resp = await fetch(`${API_BASE_URL}/extract_pdf_text`, { method: 'POST', body: formData });
                           const data = await resp.json();
                           const newAttachment = { url, title: '', extractedText: data.text || '' };
                           setGeneralAttachments(prev => {
@@ -471,7 +470,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                               const blob = await res.blob();
                               const formData = new FormData();
                               formData.append('file', blob, `attachment_${i}.png`);
-                              const resp = await fetch(`http://127.0.0.1:8000/analyze_image_moondream?notes=${encodeURIComponent(newTitle)}`, { method: 'POST', body: formData });
+                              const resp = await fetch(`${API_BASE_URL}/analyze_image_moondream?notes=${encodeURIComponent(newTitle)}`, { method: 'POST', body: formData });
                               const data = await resp.json();
                               newAttachments = newAttachments.map((a, idx) =>
                                 idx === i ? { ...a, extractedText: data.answer || '' } : a

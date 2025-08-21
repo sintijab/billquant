@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { ProjectWizardData } from '@/lib/types';
 import { RootState } from '@/store';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export interface SiteVisitState {
   data: Partial<ProjectWizardData>;
@@ -18,7 +19,7 @@ const initialState: SiteVisitState = {
 export const analyzeImages = createAsyncThunk(
   'siteVisit/analyzeImages',
   async (formData: FormData, thunkAPI) => {
-    const resp = await fetch('http://127.0.0.1:8000/analyze_image_moondream', {
+    const resp = await fetch(`${API_BASE_URL}/analyze_image_moondream`, {
       method: 'POST',
       body: formData
     });

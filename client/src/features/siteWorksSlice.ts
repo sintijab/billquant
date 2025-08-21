@@ -1,6 +1,6 @@
-
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from '@/store';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export interface SiteWorkItem {
   Area: string;
@@ -54,7 +54,7 @@ export const fetchSiteWorks = createAsyncThunk(
   async (query: string, thunkAPI) => {
     const formData = new FormData();
     formData.append('query', query);
-    const resp = await fetch('http://127.0.0.1:8000/mistral_activity_list', {
+    const resp = await fetch(`${API_BASE_URL}/mistral_activity_list`, {
       method: 'POST',
       body: formData
     });
