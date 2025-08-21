@@ -14,6 +14,7 @@ import {
   Clock
 } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
+import { useSelector } from 'react-redux';
 
 interface ActivitiesOverviewProps {
   data: ProjectWizardData;
@@ -23,51 +24,18 @@ interface ActivitiesOverviewProps {
 }
 
 export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious }: ActivitiesOverviewProps) {
-  // Sample activities data based on the design
-  const sampleActivities = [
-    {
-      id: "demolition",
-      name: "Demolizioni e Rimozioni",
-      icon: Hammer,
-      totalArea: "120 m²",
-      activities: [
-        { id: "1", description: "Rimozione pavimento in legno esistente", location: "Soggiorno", quantity: "27.3", unit: "m²" },
-        { id: "2", description: "Demolizione cucina esistente", location: "Cucina", quantity: "14.0", unit: "m²" }
-      ]
-    },
-    {
-      id: "electrical",
-      name: "Impianti Elettrici",
-      icon: Settings,
-      totalArea: "15 punti",
-      activities: [
-        { id: "3", description: "Prese elettriche standard", location: "Soggiorno", quantity: "8", unit: "pz" },
-        { id: "4", description: "Punti luce a soffitto", location: "Cucina", quantity: "4", unit: "pz" }
-      ]
-    },
-    {
-      id: "finishes",
-      name: "Finiture e Rivestimenti",
-      icon: PaintBucket,
-      totalArea: "85 m²",
-      activities: [
-        { id: "5", description: "Piastrelle ceramiche per pavimento", location: "Soggiorno", quantity: "27.3", unit: "m²" },
-        { id: "6", description: "Tinteggiatura pareti", location: "Soggiorno, Cucina", quantity: "58.0", unit: "m²" }
-      ]
-    }
-  ];
 
-  const handleEditActivity = (activityId: string) => {
-    console.log("Edit activity:", activityId);
-  };
+  // Get siteWorks from Redux
+  const siteWorks = useSelector((state: any) => state.siteWorks);
+  const works = siteWorks.Works || [];
+  const timeline = siteWorks.GeneralTimeline?.Activities || [];
 
-  const handleDeleteActivity = (activityId: string) => {
-    console.log("Delete activity:", activityId);
-  };
-
-  const handleAddCategory = () => {
-    console.log("Add new category");
-  };
+  // Group works by Work (name)
+  const grouped = works.reduce((acc: any, work: any) => {
+    if (!acc[work.Work]) acc[work.Work] = [];
+    acc[work.Work].push(work);
+    return acc;
+  }, {});
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,80 +48,52 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
             </p>
           </div>
 
-          {/* Activity Categories */}
+          {/* Activity Categories from siteWorks */}
           <div className="space-y-6">
-            {sampleActivities.map((category) => {
-              const IconComponent = category.icon;
+            {Object.entries(grouped).map(([workName, activities], idx) => {
+              const acts = activities as any[];
               return (
-                <div key={category.id} className="border border-gray-200 rounded-xl overflow-hidden">
+                <div key={workName} className="border border-gray-200 rounded-xl overflow-hidden">
                   <div className="bg-surface-light p-4">
                     <div className="flex items-center justify-between">
                       <h3 className="text-lg font-semibold text-text-primary flex items-center">
-                        <IconComponent className="h-5 w-5 text-primary mr-2" />
-                        {category.name}
+                        {/* Optionally add an icon here if you want */}
+                        {workName}
                       </h3>
-                      <div className="text-sm text-text-secondary">
-                        {category.totalArea}
-                      </div>
                     </div>
                   </div>
                   <div className="overflow-x-auto">
                     <table className="w-full">
                       <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                          <th className="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider w-2/5">
                             Description
                           </th>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
                             Location
                           </th>
-                          <th className="px-4 py-3 text-right text-xs font-medium text-text-secondary uppercase tracking-wider">
+                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
                             Quantity
                           </th>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">
+                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
                             UDM
-                          </th>
-                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider">
-                            Actions
                           </th>
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-gray-200">
-                        {category.activities.map((activity) => (
-                          <tr key={activity.id} className="hover:bg-surface-light transition-colors">
-                            <td className="px-4 py-4 text-sm text-text-primary">
-                              {activity.description}
+                        {acts.map((activity: any, idx: number) => (
+                          <tr key={idx} className="hover:bg-surface-light transition-colors">
+                            <td className="px-4 py-4 text-sm text-text-primary w-2/5">
+                              {activity.Timeline}
                             </td>
-                            <td className="px-4 py-4 text-sm text-text-secondary">
-                              {activity.location}
+                            <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
+                              {activity.Area} {activity.Subarea ? `/ ${activity.Subarea}` : ''}
                             </td>
-                            <td className="px-4 py-4 text-sm text-text-primary text-right font-medium">
-                              {activity.quantity}
+                            <td className="px-4 py-4 text-sm text-text-primary font-medium w-1/5 text-center">
+                              {activity.Quantity}
                             </td>
-                            <td className="px-4 py-4 text-sm text-text-secondary">
-                              {activity.unit}
-                            </td>
-                            <td className="px-4 py-4 text-center">
-                              <div className="flex justify-center space-x-2">
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  onClick={() => handleEditActivity(activity.id)}
-                                  className="text-primary hover:text-primary-dark"
-                                  data-testid={`button-edit-activity-${activity.id}`}
-                                >
-                                  <Edit className="h-4 w-4" />
-                                </Button>
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  onClick={() => handleDeleteActivity(activity.id)}
-                                  className="text-red-500 hover:text-red-700"
-                                  data-testid={`button-delete-activity-${activity.id}`}
-                                >
-                                  <Trash2 className="h-4 w-4" />
-                                </Button>
-                              </div>
+                            <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
+                              {activity.Unit}
                             </td>
                           </tr>
                         ))}
@@ -163,46 +103,63 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
                 </div>
               );
             })}
-
-            <Button
-              variant="outline"
-              onClick={handleAddCategory}
-              className="w-full border-2 border-dashed border-primary text-primary hover:bg-primary hover:text-white"
-              data-testid="button-add-category"
-            >
-              <Plus className="h-4 w-4 mr-2" />
-              Add New Activity Category
-            </Button>
           </div>
 
-          {/* Timeline Summary */}
+          {/* Timeline Summary from GeneralTimeline */}
           <div className="mt-8 bg-surface-light rounded-xl p-6">
             <h3 className="text-lg font-semibold text-text-primary mb-4 flex items-center">
               <Calendar className="h-5 w-5 text-primary mr-2" />
-              Estimated Timeline
+              Estimated Timeline (days)
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary flex items-center justify-center">
-                  <Clock className="h-5 w-5 mr-1" />
-                  3-4
-                </div>
-                <div className="text-sm text-text-secondary">Weeks for Demolition</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary flex items-center justify-center">
-                  <Clock className="h-5 w-5 mr-1" />
-                  6-8
-                </div>
-                <div className="text-sm text-text-secondary">Weeks for Installation</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary flex items-center justify-center">
-                  <Clock className="h-5 w-5 mr-1" />
-                  2-3
-                </div>
-                <div className="text-sm text-text-secondary">Weeks for Finishing</div>
-              </div>
+            {/* Progress Bar Timeline */}
+            <div className="w-full flex flex-col gap-4">
+              {/* Calculate total timeline span */}
+              {(() => {
+                if (!timeline.length) return null;
+                // Find min start and max finish
+                const minStart = Math.min(...timeline.map((a: any) => a.Starting));
+                const maxFinish = Math.max(...timeline.map((a: any) => a.Finishing));
+                const totalSpan = maxFinish - minStart;
+                return timeline.map((activity: any, idx: number) => {
+                  const start = activity.Starting;
+                  const end = activity.Finishing;
+                  const duration = end - start;
+                  const offset = start - minStart;
+                  const percentOffset = (offset / (totalSpan || 1)) * 100;
+                  const percentWidth = (duration / (totalSpan || 1)) * 100;
+                  return (
+                    <div key={idx} className="flex flex-col w-full">
+                      <div className="flex flex-row items-center w-full text-base text-text-secondary mb-1 px-1">
+                        <span className="font-semibold text-text-primary flex-1 text-left truncate">{activity.Activity}</span>
+                        <span className="ml-4 flex-1 text-right text-text-secondary whitespace-nowrap flex items-center justify-end">
+                          <Clock className="h-5 w-5 mr-2 text-primary flex-shrink-0" />
+                          {activity.Starting}-{activity.Finishing} days
+                        </span>
+                      </div>
+                      <div className="w-full relative h-5 rounded-full overflow-hidden" style={{ background: 'linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 100%)' }}>
+                        <div
+                          className="absolute left-0 top-0 h-full rounded-full"
+                          style={{
+                            left: `${percentOffset}%`,
+                            width: 0,
+                            minWidth: '2%',
+                              background: 'linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)',
+                            opacity: 0.95,
+                            transition: 'width 1.2s cubic-bezier(0.4,0,0.2,1)',
+                          }}
+                          ref={el => {
+                            if (el) {
+                              setTimeout(() => {
+                                el.style.width = `${percentWidth}%`;
+                              }, 50);
+                            }
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  );
+                });
+              })()}
             </div>
           </div>
 

@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Plus, Camera, Upload } from "lucide-react";
 import React, { useRef, useState } from "react";
 import { useDispatch } from 'react-redux';
-import { setSiteVisit } from '@/features/wizardSlice';
+import type { AppDispatch } from '@/store';
+import { setSiteVisit, analyzeImages } from '@/features/siteVisitSlice';
+import { resetSiteWorks } from '@/features/siteWorksSlice';
 import Loader from "../ui/loader";
 
 interface SubareaCardProps {
@@ -17,7 +19,7 @@ interface SubareaCardProps {
 }
 
 const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdate, data, setGeneratingDesc }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const [photoPopover, setPhotoPopover] = useState(false);
     const [livePhotoModal, setLivePhotoModal] = useState(false);
     const [analyzing, setAnalyzing] = useState(false);
@@ -92,6 +94,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                         };
                         onUpdate(updated);
                         dispatch(setSiteVisit(updated));
+                        dispatch(resetSiteWorks());
                     }}
                     aria-label="Remove Subarea"
                 >
@@ -173,6 +176,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         ),
                                     });
                                 }}
+                                onBlur={() => dispatch(resetSiteWorks())}
                                 className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
                                 placeholder="Site status"
                             />
@@ -199,6 +203,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         ),
                                     });
                                 }}
+                                onBlur={() => dispatch(resetSiteWorks())}
                                 className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
                                 placeholder="Dimensions"
                             />
@@ -226,6 +231,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                             ),
                                         });
                                     }}
+                                    onBlur={() => dispatch(resetSiteWorks())}
                                     className="w-1/2 bg-white/80 placeholder:text-gray-400 text-sm"
                                     placeholder="UDM"
                                 />
@@ -252,13 +258,14 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                             ),
                                         });
                                     }}
+                                    onBlur={() => dispatch(resetSiteWorks())}
                                     className="w-1/2 bg-white/80 placeholder:text-gray-400 text-sm"
                                     placeholder="Quantity"
                                 />
                             </div>
                             <Textarea
                                 value={item.description || ''}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                                     onUpdate({
                                         siteAreas: data.siteAreas.map((a: any, i: number) =>
                                             i === areaIdx
@@ -279,6 +286,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         ),
                                     });
                                 }}
+                                onBlur={() => dispatch(resetSiteWorks())}
                                 className="bg-white/80 placeholder:text-gray-400 text-sm"
                                 placeholder="Subarea description"
                                 rows={2}
@@ -321,7 +329,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                     type="file"
                                     accept="image/*"
                                     style={{ display: 'none' }}
-                                    onChange={e => {
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                         const file = e.target.files?.[0];
                                         if (file) {
                                             setAnalyzing(true);
@@ -334,12 +342,8 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                                     try {
                                                         const formData = new FormData();
                                                         formData.append('file', file);
-                                                        const response = await fetch('http://127.0.0.1:8000/analyze_image_moondream', {
-                                                            method: 'POST',
-                                                            body: formData
-                                                        });
-                                                        const result = await response.json();
-                                                        if (result.answer) description = result.answer;
+                                                        const result = await dispatch(analyzeImages(formData)).unwrap();
+                                                        if ((result as any).answer) description = (result as any).answer;
                                                     } catch (err) {
                                                         description = '';
                                                     }

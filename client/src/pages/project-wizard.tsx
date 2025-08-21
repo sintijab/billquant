@@ -22,6 +22,7 @@ const INITIAL_DATA: ProjectWizardData = {
   activityCategories: [],
   boqItems: [],
   aiConsent: true,
+  generalAttachments: []
 };
 
 export default function ProjectWizard() {

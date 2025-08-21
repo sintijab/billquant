@@ -17,8 +17,10 @@ export interface SiteSubarea {
 export interface SiteArea {
   id: string;
   name: string;
+  statusDescription: string;
+  whatToDo: string;
   totalArea: string;
-  priority: "low" | "medium" | "high";
+  floorAttachments: { url: string; name?: string; extractedText?: string }[];
   subareas: SiteSubarea[];
 }
 

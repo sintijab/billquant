@@ -4,12 +4,10 @@ import { RootState } from '@/store';
 
 interface WizardState {
   projectSetup: Partial<ProjectWizardData>;
-  siteVisit: Partial<ProjectWizardData>;
 }
 
 const initialState: WizardState = {
   projectSetup: {},
-  siteVisit: {},
 };
 
 const wizardSlice = createSlice({
@@ -19,12 +17,8 @@ const wizardSlice = createSlice({
     setProjectSetup(state, action: PayloadAction<Partial<ProjectWizardData>>) {
       state.projectSetup = { ...state.projectSetup, ...action.payload };
     },
-    setSiteVisit(state, action: PayloadAction<Partial<ProjectWizardData>>) {
-      state.siteVisit = { ...state.siteVisit, ...action.payload };
-    },
     resetWizard(state) {
       state.projectSetup = {};
-      state.siteVisit = {};
     },
   },
 });
@@ -43,5 +37,5 @@ export const selectDigitalSignature = (state: RootState) =>
 //   </div>
 // );
 
-export const { setProjectSetup, setSiteVisit, resetWizard } = wizardSlice.actions;
+export const { setProjectSetup, resetWizard } = wizardSlice.actions;
 export default wizardSlice.reducer;

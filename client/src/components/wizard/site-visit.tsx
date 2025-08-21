@@ -1,8 +1,8 @@
 
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { setSiteVisit } from '@/features/wizardSlice';
-import { setSiteWorks } from '@/features/siteWorksSlice';
+import type { AppDispatch } from '@/store';
+import { fetchSiteWorks } from '@/features/siteWorksSlice';
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
@@ -11,8 +11,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, ArrowLeft, Plus, Upload, FileText, ImageIcon, X, SearchCheck } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import SubareaCard from "./subarea-card";
+import NotificationProgressBar from './NotificationProgressBar';
 import Loader from "../ui/loader";
 import { formatAreaData } from "@/lib/formatAreaData";
+import { setSiteVisit } from "@/features/siteVisitSlice";
 
 
 interface SiteVisitProps {
@@ -32,7 +34,8 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   const [showExtractedTextModal, setShowExtractedTextModal] = useState<{ open: boolean; text: string }>({ open: false, text: "" });
   // Get the full redux state for site visit
   const siteVisitState = useSelector((state: any) => state.wizard);
-  const dispatch = useDispatch();
+  const siteWorksLoading = useSelector((state: any) => state.siteWorks.loading);
+  const dispatch: AppDispatch = useDispatch();
   const [generalNotes, setGeneralNotes] = useState(data.generalNotes || "");
   const [generalAttachments, setGeneralAttachments] = useState<{ url: string; title: string }[]>([]);
   const [aiConsent, setAiConsent] = useState(true);
@@ -103,7 +106,12 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
           {/* Site Areas */}
           <div className="space-y-1">
             {data.siteAreas.map((area: any, areaIdx: number) => (
-              <div key={area.id} className="bg-gray-100 rounded-2xl shadow p-5 md:p-8 mb-8">
+              <div key={area.id} className="bg-gray-100 rounded-2xl shadow p-5 md:p-8 mb-8 relative">
+                {siteWorksLoading === 'pending' && (
+                  <div className="absolute inset-0 flex items-center justify-center z-50 bg-gray-100 bg-opacity-80 rounded-2xl">
+                    <Loader size="xs" />
+                  </div>
+                )}
                 <div className="flex flex-col md:flex-row gap-8">
                   {/* Area fields left column */}
                   <div className="md:w-2/5 w-full flex flex-col gap-4 bg-gray-100 text-white rounded-xl p-6 shadow-md relative">
@@ -274,15 +282,18 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                   {/* Subareas right column */}
                   <div className="md:w-3/5 w-full flex flex-col gap-6">
                     {area.subareas?.map((sub: any, subIdx: number) => (
-                      <SubareaCard
-                        key={sub.id}
-                        sub={sub}
-                        areaIdx={areaIdx}
-                        subIdx={subIdx}
-                        onUpdate={handleUpdate}
-                        data={data}
-                        setGeneratingDesc={() => { }}
-                      />
+                      <div key={sub.id} className="bg-white rounded-2xl p-6 border border-gray-200 relative">
+                        <SubareaCard
+                          sub={sub}
+                          areaIdx={areaIdx}
+                          subIdx={subIdx}
+                          onUpdate={handleUpdate}
+                          data={data}
+                          setGeneratingDesc={() => { }}
+                        />
+                        {/* Notification Progress Bar under each subarea */}
+                        <NotificationProgressBar areaName={area.name} subareaTitle={sub.title} />
+                      </div>
                     ))}
                     <Button
                       variant="outline"
@@ -300,22 +311,15 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                     variant="secondary"
                     className="px-8 py-4 rounded-full"
                     onClick={async () => {
+                      // Ensure we use the latest state from the UI before fetching site works
+                      const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? area : a);
+                      const updated = { siteAreas: updatedAreas };
+                      onUpdate(updated);
+                      dispatch(setSiteVisit(updated));
+                      // Now use the latest area data for fetchSiteWorks
                       const areaData = collectAllAreaAndSubareaFields([area])[0];
                       const formatted = formatAreaData(areaData);
-                      try {
-                        const formData = new FormData();
-                        formData.append('query', formatted);
-                        const resp = await fetch('http://127.0.0.1:8000/mistral_activity_list', {
-                          method: 'POST',
-                          body: formData
-                        });
-                        const data = await resp.json();
-                        if (data && data.SiteWorks && data.Missing) {
-                          dispatch(setSiteWorks({ SiteWorks: data.SiteWorks, Missing: data.Missing }));
-                        }
-                      } catch (err) {
-                        console.error('Error calling Mistral endpoint:', err);
-                      }
+                      dispatch(fetchSiteWorks(formatted));
                     }}
                   >
                     Save Area
