@@ -4,8 +4,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "VITE_API_BASE_URL=http://127.0.0.1:8000 vite",
+    "build": "VITE_API_BASE_URL=https://billquant-1.onrender.com vite build",
     "preview": "vite preview"
   },
   "dependencies": {
