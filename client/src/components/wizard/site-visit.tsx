@@ -24,6 +24,8 @@ interface SiteVisitProps {
 }
 
 export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVisitProps) {
+  // Track which areas have been saved
+  const [savedAreas, setSavedAreas] = useState(() => data.siteAreas.map(() => false));
   function collectAllAreaAndSubareaFields(siteAreas: any[]) {
     return siteAreas.map(area => ({
       ...area,
@@ -324,6 +326,8 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
                       const areaData = collectAllAreaAndSubareaFields([area])[0];
                       const formatted = formatAreaData(areaData);
                       dispatch(fetchSiteWorks(formatted));
+                      // Mark this area as saved
+                      setSavedAreas(prev => prev.map((v, i) => i === areaIdx ? true : v));
                     }}
                   >
                     Save Area
@@ -578,6 +582,8 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
               variant="link"
               className="text-lg px-8 py-4 rounded-full"
               data-testid="button-continue"
+              disabled={savedAreas.length !== data.siteAreas.length || savedAreas.some(v => !v)}
+              style={savedAreas.length !== data.siteAreas.length || savedAreas.some(v => !v) ? { opacity: 0.5, pointerEvents: 'none' } : {}}
             >
               Continue to Activity Overview
               <ArrowRight className="ml-2 h-4 w-4" />
