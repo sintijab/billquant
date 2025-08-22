@@ -108,7 +108,6 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
       });
     }
   }, [siteWorksError]);
-
   return (
     <div className="max-w-6xl mx-auto md:px-4 lg:px-8">
       <Card className="shadow-lg animate-fade-in">
@@ -126,7 +125,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
             {data.siteAreas.map((area: any, areaIdx: number) => (
               <div key={area.id} className="bg-gray-100 rounded-2xl shadow p-5 md:p-8 mb-8 relative">
                 {siteWorksLoading === 'pending' && (
-                  <div className="absolute inset-0 flex items-center justify-center z-50 bg-gray-100 bg-opacity-80 rounded-2xl">
+                  <div className="absolute inset-0 flex items-center justify-center z-50 bg-white/60 bg-opacity-80 rounded-2xl">
                     <Loader size="xs" />
                   </div>
                 )}

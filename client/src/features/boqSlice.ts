@@ -1,3 +1,21 @@
+// Thunk to fetch new activity data by price source for a specific row
+export const fetchActivityBySource = createAsyncThunk(
+  'boq/fetchActivityBySource',
+  async ({ activity, description, priceSource, rowIndex }: { activity: string, description: string, priceSource: string, rowIndex?: number }) => {
+    let endpoint = '';
+    if (priceSource === 'dei') endpoint = '/search_dei';
+    else if (priceSource === 'pat') endpoint = '/search_pat';
+    else if (priceSource === 'piemonte') endpoint = '/search_piemonte';
+    else throw new Error('Invalid price source');
+    const fd = new FormData();
+    fd.append('query', description);
+    const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}${endpoint}`, {
+      method: 'POST',
+      body: fd,
+    });
+    return { activity, priceSource, data: await resp.json(), rowIndex };
+  }
+);
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@/store';
 
@@ -206,6 +224,14 @@ interface BoqState {
   categoryData: Record<string, any>;
   loading: boolean;
   error: string | null;
+  modalCompare?: {
+    activity: string;
+    priceSource: string;
+    original: any;
+    newData: any;
+    rowIndex?: number;
+  } | null;
+  modalLoading?: boolean;
 }
 
 const initialState: BoqState = {
@@ -213,6 +239,8 @@ const initialState: BoqState = {
   categoryData: {},
   loading: false,
   error: null,
+  modalCompare: null,
+  modalLoading: false,
 };
 
 const boqSlice = createSlice({
@@ -228,8 +256,81 @@ const boqSlice = createSlice({
         state.categoryData[activity].error = undefined;
       }
     },
+    closeModalCompare: (state) => {
+      state.modalCompare = null;
+      state.modalLoading = false;
+    },
+    // Replace the original activity with the new one in the correct row
+    replaceActivityWithNew: (state) => {
+      const { modalCompare } = state;
+      if (!modalCompare || typeof modalCompare.rowIndex !== 'number') return;
+      const { activity, priceSource, newData, rowIndex } = modalCompare;
+      if (state.categories[activity]?.patItems && Array.isArray(state.categories[activity].patItems)) {
+        // Create a new array with the updated item
+        const updatedPatItems = state.categories[activity].patItems.map((item: any, idx: number) =>
+          idx === rowIndex ? { ...newData, priceSource } : item
+        );
+        state.categories[activity] = {
+          ...state.categories[activity],
+          patItems: updatedPatItems,
+        };
+      }
+      state.modalCompare = null;
+      state.modalLoading = false;
+    },
+    // Keep the original activity (do nothing, just close the panel)
+    keepCurrentActivity: (state) => {
+      state.modalCompare = null;
+      state.modalLoading = false;
+    },
+    // Insert the new activity as a new row (keep both)
+    keepBothActivities: (state) => {
+      const { modalCompare } = state;
+      if (!modalCompare || typeof modalCompare.rowIndex !== 'number') return;
+      const { activity, priceSource, newData, rowIndex } = modalCompare;
+      if (state.categories[activity]?.patItems && Array.isArray(state.categories[activity].patItems)) {
+        // Create a new array with the new item inserted after the current row
+        const patItems = state.categories[activity].patItems;
+        const updatedPatItems = [
+          ...patItems.slice(0, rowIndex + 1),
+          { ...newData, priceSource },
+          ...patItems.slice(rowIndex + 1)
+        ];
+        state.categories[activity] = {
+          ...state.categories[activity],
+          patItems: updatedPatItems,
+        };
+      }
+      state.modalCompare = null;
+      state.modalLoading = false;
+    },
   },
   extraReducers: builder => {
+    builder
+      .addCase(fetchActivityBySource.pending, (state) => {
+        state.modalLoading = true;
+      })
+      .addCase(fetchActivityBySource.fulfilled, (state, action) => {
+        state.modalLoading = false;
+        // Save both original and new data for modal
+        const { activity, priceSource, data, rowIndex } = action.payload;
+        // Find the original main activity from categories
+        let original = state.categories[activity]?.patItems;
+        if (Array.isArray(original) && typeof rowIndex === 'number') {
+          original = original[rowIndex];
+        }
+        state.modalCompare = {
+          activity,
+          priceSource,
+          original,
+          newData: data,
+          rowIndex,
+        };
+      })
+      .addCase(fetchActivityBySource.rejected, (state, action) => {
+        state.modalLoading = false;
+        state.error = action.error.message || 'Failed to fetch new activity data';
+      });
     builder
       .addCase(fetchCategoryData.pending, (state, action) => {
         state.loading = true;
@@ -320,5 +421,5 @@ const boqSlice = createSlice({
   },
 });
 
-export const { clearCategoryError } = boqSlice.actions;
+export const { clearCategoryError, closeModalCompare, replaceActivityWithNew, keepCurrentActivity, keepBothActivities } = boqSlice.actions;
 export default boqSlice.reducer;

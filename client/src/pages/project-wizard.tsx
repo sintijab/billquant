@@ -107,14 +107,15 @@ export default function ProjectWizard() {
 
   return (
     <div className="relative min-h-screen bg-surface-light overflow-hidden">
-      {/* Blurred BIM2 overlay background */}
-      <div className="pointer-events-none absolute inset-0 z-0 flex justify-center items-center">
+      {/* Blurred BIM2 overlay background with white overlay */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex justify-center items-start">
         <img
-          src="/bim1.jpeg"
+          src="/bim2.jpg"
           alt="BIM2 Overlay"
-          className="w-full opacity-60 blur select-none object-cover object-center"
-          style={{ filter: 'blur(7px)' }}
+          className="w-full opacity-90 select-none object-cover object-top"
+          style={{ filter: 'blur(5px)', marginTop: '20vh' }}
         />
+        <div className="absolute inset-0 bg-white opacity-90" />
       </div>
       <div className="relative z-10">
         <Navigation onGetStarted={handleGetStarted} />

@@ -6,6 +6,8 @@ import App from './App'
 import { ClerkProvider } from '@clerk/clerk-react'
 import { Provider } from 'react-redux';
 import { store } from './store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor } from './persistor';
 import process from 'process'
 
 // Import your Publishable Key
@@ -26,7 +28,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     </ClerkProvider>
   </StrictMode>

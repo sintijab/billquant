@@ -4,18 +4,15 @@ import { Badge } from "@/components/ui/badge";
 import { 
   ArrowRight, 
   ArrowLeft, 
-  Plus, 
-  Edit, 
-  Trash2,
-  Hammer,
-  Settings,
-  PaintBucket,
   Calendar,
   Clock
 } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
+import Loader from '@/components/ui/loader';
+import { AppDispatch, RootState } from "@/store";
+import { fetchActivityCategoryPat, fetchCategoryData } from "@/features/boqSlice";
 
 interface ActivitiesOverviewProps {
   data: ProjectWizardData;
@@ -30,6 +27,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
   const siteWorks = useSelector((state: any) => state.siteWorks);
   const works = siteWorks.Works || [];
   const timeline = siteWorks.GeneralTimeline?.Activities || [];
+  const boq = useSelector((state: RootState) => state.boq);
 
   // Group works by Work (name)
   const grouped = works.reduce((acc: any, work: any) => {
@@ -40,11 +38,54 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
 
   // State to track which timeline activities are expanded
   const [expanded, setExpanded] = useState<{ [activity: string]: boolean }>({});
+  // Loading state for refresh
+  const [loading, setLoading] = useState(false);
 
   // Helper to toggle expanded state
   const toggleExpanded = (activity: string) => {
     setExpanded((prev) => ({ ...prev, [activity]: !prev[activity] }));
   };
+ const dispatch: AppDispatch = useDispatch();
+    // Only refresh activities that are missing prices or errored for the selected source
+    const handleRefreshPrices = async () => {
+      for (const activity of timeline) {
+        if (!activity.Activity) continue;
+        const catObj = boq.categories[activity.Activity];
+        let missing = false;
+        missing = !catObj || (!catObj.patItems?.length && !catObj.error);
+        // Also refresh if there is an error
+        if (catObj && catObj.error) missing = true;
+        if (missing) {
+          try {
+            await dispatch(fetchCategoryData(activity.Activity)).unwrap();
+            await dispatch(fetchActivityCategoryPat(activity.Activity) as any);
+          } catch (e) {
+            // If a request fails, break and continue to next activity
+            continue;
+          }
+        }
+      }
+    };
+
+  // Run handleRefreshPrices, then onNext
+  const handleNext = async () => {
+    setLoading(true);
+    try {
+      await handleRefreshPrices();
+      onNext();
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-[300px] gap-4">
+        <Loader size="xs" />
+        <span className="text-text-primary text-md mt-2">Loading prices...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -246,7 +287,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               Back to Site Visit
             </Button>
             <Button 
-              onClick={onNext} 
+              onClick={handleNext} 
               className="btn-primary"
               data-testid="button-continue"
             >
@@ -254,7 +295,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
-                    <div className="hidden md:flex justify-between mt-8">
+          <div className="hidden md:flex justify-between mt-8">
             <Button
               variant="ghost"
               onClick={onPrevious}
@@ -265,7 +306,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               Back to Site Visit
             </Button>
             <Button 
-              onClick={onNext} 
+              onClick={handleNext} 
               className="btn-primary"
               data-testid="button-continue"
             >
