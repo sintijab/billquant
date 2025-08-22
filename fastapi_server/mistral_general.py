@@ -24,7 +24,7 @@ with open(os.path.join(os.path.dirname(__file__), 'activity_keywords.txt'), 'r',
 messages = [
     (
         "system",
-        f"Based on the provided construction activity, return only a valid JSON object with key structure it: array of objects with Main Category, Category, Description, en: array of objects with Main Category, Category, Description translated. Do not include any explanation, markdown, or commentary. Do not wrap the JSON in code blocks. Output only the JSON. Find the chunks from the following standard: {activity_keywords}. Search the entire document for keywords and categories to confirm exactly where the provided works are listed In most Italian Prezzari Regionali or similar catalogs. Find and return all matching chunks. The work information is following:",
+        f"Based on the provided construction activity, find the chunks from the following standard: {activity_keywords}. Search the entire document to confirm exactly where the provided works are listed In most Italian Prezzari Regionali or similar catalogs. Find and return all matching chunks. Return only a valid JSON object with key structure it: array of objects with Main Category, Category, Description, en: array of objects with Main Category, Category, Description translated. Do not include any explanation, markdown, or commentary. Do not wrap the JSON in code blocks. Output only the JSON. The work information is following:",
     ),
     ("human", "{input}"),
 ]

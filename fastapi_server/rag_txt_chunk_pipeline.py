@@ -74,7 +74,17 @@ def embed_and_retrieve(query, all_chunks_file="all_chunks.txt", top_k=3, embeddi
         all_chunks = [c.strip() for c in f if c.strip()]
     embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
     if os.path.exists(embeddings_path):
-        chunk_embeddings = torch.load(embeddings_path)
+        chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
+        # Fix: If chunk_embeddings is a meta tensor, reload properly
+        try:
+            if hasattr(chunk_embeddings, 'is_meta') and chunk_embeddings.is_meta:
+                print('[RAG] chunk_embeddings is meta tensor, re-encoding on CPU...')
+                chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
+                torch.save(chunk_embeddings, embeddings_path)
+        except Exception:
+            # Fallback: if any error, re-encode
+            chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
+            torch.save(chunk_embeddings, embeddings_path)
         if len(chunk_embeddings) != len(all_chunks):
             chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
             torch.save(chunk_embeddings, embeddings_path)
@@ -220,7 +230,7 @@ def embed_and_retrieve(query, all_chunks_file="all_chunks.txt", top_k=3, embeddi
     mapped = []
     for chunk in all_candidates:
         mapped.extend(parse_chunk(chunk))
-    return {"Results": mapped}
+    return mapped
 
 if __name__ == "__main__":
     load_and_chunk_rag_txt(rag_folder="./rag", out_file="all_chunks.txt")

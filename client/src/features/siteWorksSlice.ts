@@ -95,7 +95,13 @@ const siteWorksSlice = createSlice({
       .addCase(fetchSiteWorks.fulfilled, (state, action) => {
         state.loading = 'succeeded';
         state.Works = action.payload.Works;
-        state.Missing = action.payload.Missing;
+        // Merge Missing by Area: only add new areas
+        const existingAreas = new Set(state.Missing.map((m: MissingItem) => m.Area));
+        // Only add new items with a valid 'Missing' key (not undefined/null/empty)
+        const newMissing = action.payload.Missing
+          .filter((m: MissingItem) => !existingAreas.has(m.Area))
+          .filter((m: MissingItem) => typeof m.Missing !== 'undefined' && m.Missing !== null && m.Missing !== '');
+        state.Missing = [...state.Missing, ...newMissing];
         state.GeneralTimeline = action.payload.GeneralTimeline;
       })
       .addCase(fetchSiteWorks.rejected, (state, action) => {

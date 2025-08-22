@@ -39,11 +39,15 @@ async def mistral(query: str = Form(...)):
     if raw_answer.startswith('"') and raw_answer.endswith('"'):
         raw_answer = raw_answer[1:-1]
 
-    # Unescape escaped characters
-    raw_answer = raw_answer.encode('utf-8').decode('unicode_escape')
+    # Unescape escaped characters, but only if possible
+    try:
+        raw_answer = raw_answer.encode('utf-8').decode('unicode_escape')
+    except Exception:
+        pass
 
     # Extract JSON from code block
-    match = re.search(r"```json\s*({[\s\S]*?})\s*```", raw_answer, re.IGNORECASE)
+    # Extract JSON (object or array) from code block
+    match = re.search(r"```json\s*([\s\S]*?)\s*```", raw_answer, re.IGNORECASE)
     json_str = match.group(1) if match else raw_answer
 
     try:
@@ -51,7 +55,15 @@ async def mistral(query: str = Form(...)):
         if isinstance(parsed_json, str):
             parsed_json = json.loads(parsed_json)
     except json.JSONDecodeError:
-        parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
+        # Edge case: try to extract a JSON array from raw_answer/code block
+        array_match = re.search(r"\[\s*{[\s\S]*?}\s*\]", raw_answer)
+        if array_match:
+            try:
+                parsed_json = json.loads(array_match.group(0))
+            except Exception:
+                parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
+        else:
+            parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
     return parsed_json
 
 @app.post("/mistral_activity_categories")
@@ -61,23 +73,40 @@ async def mistral(query: str = Form(...)):
     if raw_answer.startswith('"') and raw_answer.endswith('"'):
         raw_answer = raw_answer[1:-1]
 
-    # Unescape escaped characters
-    raw_answer = raw_answer.encode('utf-8').decode('unicode_escape')
+    # Unescape escaped characters, but only if possible
+    try:
+        raw_answer = raw_answer.encode('utf-8').decode('unicode_escape')
+    except Exception:
+        pass
     
-    match = re.search(r"```json\s*({[\s\S]*?})\s*```", raw_answer, re.IGNORECASE)
+    match = re.search(r"```json\s*([\s\S]*?)\s*```", raw_answer, re.IGNORECASE)
     json_str = match.group(1) if match else raw_answer
-    
-    print(raw_answer)
-    # Extract JSON from code block
-    # match = re.search(r"```json\s*({[\s\S]*?})\s*```", raw_answer, re.IGNORECASE)
-    # json_str = match.group(1) if match else raw_answer
+
+    def try_parse_any_json(s):
+        # Try to extract and parse a JSON array or object from anywhere in the string
+        array_match = re.search(r"\[\s*{[\s\S]*?}\s*\]", s)
+        if array_match:
+            try:
+                return json.loads(array_match.group(0))
+            except Exception:
+                pass
+        obj_match = re.search(r"{[\s\S]*?}", s)
+        if obj_match:
+            try:
+                return json.loads(obj_match.group(0))
+            except Exception:
+                pass
+        return None
 
     try:
         parsed_json = json.loads(json_str)
         if isinstance(parsed_json, str):
             parsed_json = json.loads(parsed_json)
     except json.JSONDecodeError:
-        parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
+        # Try to extract and parse any JSON array or object from the string
+        parsed_json = try_parse_any_json(raw_answer)
+        if parsed_json is None:
+            parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
     return parsed_json
 
 @app.post("/extract_pdf_text")
@@ -110,13 +139,11 @@ async def analyze_image_moondream(
     If notes has text, uses a prompt focused on extracting all information from images with notes.
     """
     try:
-        model = md.vl(api_key=api_key)
         from PIL import Image
         import io
         contents = await file.read()
         image = Image.open(io.BytesIO(contents))
         if ocr:
-            prompt = "Describe from image floor map notes all measurements, unity of measures and quantities, do not skip anything."
             prompt = (
                 f"Describe from image floor map notes all measurements, unity of measures and quantities, do not skip anything. You must describe each type of room that you can find in the image. If the following text- {notes} - is about the image of the building you should describe from construction site what is the state and what has to be renovated and repaired."
             )
@@ -160,7 +187,6 @@ def search_piemonte(query: str = Form(...)):
         if isinstance(refined_query, dict) and "error" in refined_query:
             return refined_query
         # Use the refined query for retrieval
-        print(refined_query)
         results = embed_and_retrieve(refined_query, all_chunks_file="all_chunks.txt", top_k=3, embeddings_path="chunk_embeddings_piemonte.pt")
         return {"results": results}
     except Exception as e:
@@ -174,7 +200,6 @@ def search_piemonte(query: str = Form(...)):
         if isinstance(refined_query, dict) and "error" in refined_query:
             return refined_query
         # Use the refined query for retrieval
-        print(refined_query)
         results = embed_and_retrieve_dei(refined_query, all_chunks_file="DEI_chunks.txt", top_k=3, embeddings_path="chunk_embeddings_dei.pt")
         return {"results": results}
     except Exception as e:

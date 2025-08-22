@@ -1,3 +1,9 @@
+import os
+import re
+import torch
+from sentence_transformers import SentenceTransformer, util
+from rank_bm25 import BM25Okapi
+
 def is_footer(line):
     footers = [
         'Dipartimento Infrastrutture',
@@ -17,6 +23,8 @@ def is_footer(line):
     return False
 
 # --- Embedding and Corpus Loader ---
+
+# Global variables for model and data
 embedder = None
 chunk_embeddings = None
 corpus = None
@@ -26,7 +34,7 @@ def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chun
     if embedder is None:
         embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
     if os.path.exists(embeddings_path):
-        chunk_embeddings = torch.load(embeddings_path)
+        chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
     else:
         chunk_embeddings = None
     if os.path.exists(corpus_path):
@@ -37,11 +45,26 @@ def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chun
     else:
         corpus = None
         raise RuntimeError(f"Corpus file '{corpus_path}' not found. Please generate it before querying.")
-import os
-import re
-import torch
-from sentence_transformers import SentenceTransformer, util
-from rank_bm25 import BM25Okapi
+
+# Load embeddings and model at module load (startup)
+load_embeddings()
+
+def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chunks.txt"):
+    global embedder, chunk_embeddings, corpus
+    if embedder is None:
+        embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+    if os.path.exists(embeddings_path):
+        chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
+    else:
+        chunk_embeddings = None
+    if os.path.exists(corpus_path):
+        with open(corpus_path, "r", encoding="utf-8") as f:
+            corpus = [line.strip() for line in f if line.strip()]
+        if not corpus:
+            raise RuntimeError(f"Corpus file '{corpus_path}' is empty. Please generate or check your chunks.")
+    else:
+        corpus = None
+        raise RuntimeError(f"Corpus file '{corpus_path}' not found. Please generate it before querying.")
 
 def bm25_keyword_search(query, chunks, top_k=3):
     # Tokenize chunks and query
@@ -426,7 +449,7 @@ if __name__ == "__main__":
     embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
     if os.path.exists("chunk_embeddings_pat.pt"):
         print("[Main] Loading chunk embeddings from disk...")
-        chunk_embeddings = torch.load("chunk_embeddings_pat.pt")
+        chunk_embeddings = torch.load("chunk_embeddings_pat.pt", map_location='cpu')
     else:
         print("[Main] Encoding chunks for retrieval...")
         chunk_embeddings = embedder.encode(corpus, convert_to_tensor=True, show_progress_bar=True)
