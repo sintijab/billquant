@@ -39,8 +39,9 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   const sampleSubtotal = 1974.86;
   const sampleMarkup = 691.20;
   const sampleTotal = 2666.06;
-
+  const mainActivities = useSelector((state: any) => state.siteWorks.GeneralTimeline.Activities)
   // Generate document data from project data
+  console.log(mainActivities)
   const documentData: DocumentData = {
     client: {
       name: `${data?.clientFirstName || ''} ${data?.clientSurname || ''}`.trim(),
@@ -52,20 +53,16 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
       date: new Date().toLocaleDateString('it-IT'),
       totalCost: sampleTotal
     },
-    activities: [
-      { categoryName: "Demolizioni e Rimozioni", total: 647.50 },
-      { categoryName: "Impianti Elettrici", total: 366.40 },
-      { categoryName: "Finiture e Rivestimenti", total: 960.96 }
-    ],
-    timeline: [
-      { phase: "Demolition and removal", duration: "Week 1-4" },
-      { phase: "Electrical and installations", duration: "Week 5-12" },
-      { phase: "Finishing and painting", duration: "Week 13-15" }
-    ],
+    activities: mainActivities.map((activity: any) => ({ categoryName: activity.Activity, total: 123 })),
+    timeline: mainActivities.map((activity: any) => ({ phase: activity.Activity, duration: `Day ${activity.Starting} - ${activity.Finishing}` })),
     terms: [
-      "Payment: 30% upfront, 40% midway, 30% completion",
-      "Materials included as specified",
-      "12-month warranty on workmanship"
+      "I prezzi indicati includono tutti gli attrezzi, materiali e oneri di smaltimento necessari per completare il lavoro a regola d’arte, secondo le misure del Vostro capitolato.",
+      "In caso di esecuzione, sarà redatta una contabilità a consuntivo, verificata con la Direzione Lavori, basata sui prezzi unitari indicati e sulle misure effettivamente rilevate.",
+      "Eventuali lavorazioni extra o variazioni non previste nel presente capitolato saranno quotate a parte.",
+      "L’impresa garantirà l’assistenza tecnica e l’uso di materiali conformi alle normative vigenti.",
+      "A Vs carico: la fornitura di acqua, uno spazio dove riporre i materiali e gli attrezzi, eventuale occupazione suolo pubblico, autorizzazioni, iva.",
+      "Modalità di pagamento: acconto 40% alla conferma d’ordine e 30% alla conclusione.",
+      "Ringraziando per l’attenzione, porgiamo cordiali saluti."
     ]
   };
 
@@ -247,7 +244,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                   </div>
                   {/* Signature below Terms & Conditions */}
                   {data?.digitalSignature && (
-                    <div className="mt-4 flex flex-col items-end">
+                    <div className="mt-4 flex flex-col items-start">
                       <span className="text-xs text-gray-500 mb-1">Signature</span>
                       <img src={data.digitalSignature} alt="Signature" className="h-12 border rounded shadow" />
                     </div>
