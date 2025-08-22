@@ -46,37 +46,6 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
     setExpanded((prev) => ({ ...prev, [activity]: !prev[activity] }));
   };
  const dispatch: AppDispatch = useDispatch();
-    // Only refresh activities that are missing prices or errored for the selected source
-    const handleRefreshPrices = async () => {
-      for (const activity of timeline) {
-        if (!activity.Activity) continue;
-        const catObj = boq.categories[activity.Activity];
-        let missing = false;
-        missing = !catObj || (!catObj.patItems?.length && !catObj.error);
-        // Also refresh if there is an error
-        if (catObj && catObj.error) missing = true;
-        if (missing) {
-          try {
-            await dispatch(fetchCategoryData(activity.Activity)).unwrap();
-            await dispatch(fetchActivityCategoryPat(activity.Activity) as any);
-          } catch (e) {
-            // If a request fails, break and continue to next activity
-            continue;
-          }
-        }
-      }
-    };
-
-  // Run handleRefreshPrices, then onNext
-  const handleNext = async () => {
-    setLoading(true);
-    try {
-      await handleRefreshPrices();
-      onNext();
-    } finally {
-      setLoading(false);
-    }
-  };
 
   if (loading) {
     return (
@@ -287,7 +256,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               Back to Site Visit
             </Button>
             <Button 
-              onClick={handleNext} 
+              onClick={onNext} 
               className="btn-primary"
               data-testid="button-continue"
             >
@@ -306,7 +275,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               Back to Site Visit
             </Button>
             <Button 
-              onClick={handleNext} 
+              onClick={onNext} 
               className="btn-primary"
               data-testid="button-continue"
             >

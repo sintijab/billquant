@@ -42,6 +42,10 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     console.log("Selecting highest prices");
   };
 
+  useEffect(() => {
+    handleRefreshPrices();
+  }, [modalCompare]);
+
   // Only refresh activities that are missing prices or errored for the selected source
   const handleRefreshPrices = async () => {
     let fetchThunk;
@@ -94,8 +98,6 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     return false;
   });
 
-  console.log(sortedTableItems)
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <Card className="shadow-lg animate-fade-in">
@@ -106,12 +108,6 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
               Review and adjust pricing for construction activities with regional price lists
             </p>
           </div>
-          {
-            loading && (<div className="absolute inset-0 flex items-center justify-center z-50 bg-white/60 bg-opacity-80 rounded-2xl">
-              <Loader size="xs" />
-            </div>)
-          }
-
           {/* Always render both the table and the compare panel, toggle visibility with CSS */}
           <div className={modalCompare ? 'hidden' : ''}>
             <div className="w-full flex flex-col gap-4 mb-6">
@@ -229,6 +225,11 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
               onClose={() => dispatch(closeModalCompare())}
             />
           </div>
+          {
+            loading && (<div className="inset-0 flex items-center justify-center z-50 bg-white/60 bg-opacity-80 rounded-2xl">
+              <Loader size="xs" />
+            </div>)
+          }
           {/* Action Buttons */}
           <div className="flex justify-between">
             <Button

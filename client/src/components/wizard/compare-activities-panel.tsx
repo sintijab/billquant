@@ -64,13 +64,13 @@ const CompareActivitiesPanel: React.FC<CompareActivitiesPanelProps> = ({ modalCo
               <table className="w-full text-xs border-separate border-spacing-0 mb-2">
                 <thead>
                   <tr>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Code</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Description</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Unit</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Quantity</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Formula</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Price</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Total</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Code</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Description</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Unit</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Quantity</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Formula</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Price</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -96,12 +96,12 @@ const CompareActivitiesPanel: React.FC<CompareActivitiesPanelProps> = ({ modalCo
                 <table className="w-full text-xs border-separate border-spacing-0 mb-2">
                   <thead>
                     <tr>
-                      <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Activity</th>
-                      <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Category</th>
-                      <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Code</th>
-                      <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Title/Description</th>
-                      <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Unit</th>
-                      <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Quantity</th>
+                      <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Activity</th>
+                      <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Category</th>
+                      <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Code</th>
+                      <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Title/Description</th>
+                      <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Unit</th>
+                      <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Quantity</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -121,13 +121,13 @@ const CompareActivitiesPanel: React.FC<CompareActivitiesPanelProps> = ({ modalCo
                     <table className="w-full text-xs border-separate border-spacing-0">
                       <thead>
                         <tr>
-                          <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Code</th>
-                          <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Description</th>
-                          <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Unit</th>
-                          <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Quantity</th>
-                          <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Formula</th>
-                          <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Price</th>
-                          <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Total</th>
+                          <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Code</th>
+                          <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Description</th>
+                          <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Unit</th>
+                          <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Quantity</th>
+                          <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Formula</th>
+                          <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Price</th>
+                          <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Total</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -161,13 +161,13 @@ const CompareActivitiesPanel: React.FC<CompareActivitiesPanelProps> = ({ modalCo
               <table className="w-full text-xs border-separate border-spacing-0 mb-2">
                 <thead>
                   <tr>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Code</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Description</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Unit</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Quantity</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Formula</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Price</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Total</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Code</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Description</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Unit</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Quantity</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Formula</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Price</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -192,10 +192,10 @@ const CompareActivitiesPanel: React.FC<CompareActivitiesPanelProps> = ({ modalCo
               <table className="w-full text-xs border-separate border-spacing-0 mb-2">
                 <thead>
                   <tr>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Code</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Description</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Unit</th>
-                    <th className="px-2 py-2 text-left font-medium text-text-secondary border-b border-gray-200">Quantity</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Code</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Description</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Unit</th>
+                    <th className="px-2 py-2 text-left font-medium text-text-secondary border border-gray-200">Quantity</th>
                   </tr>
                 </thead>
                 <tbody>

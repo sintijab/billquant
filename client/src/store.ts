@@ -9,7 +9,7 @@ import boqReducer from './features/boqSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['wizard'], // persist only the wizard slice
+  whitelist: ['wizard', 'siteVisit', 'siteWorks', 'boq'], // persist only the wizard slice
 };
 
 const rootReducer = {

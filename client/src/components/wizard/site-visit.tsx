@@ -24,8 +24,9 @@ interface SiteVisitProps {
   onPrevious: () => void;
 }
 
-export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVisitProps) {
+export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious }: SiteVisitProps) {
   // Track which areas have been saved
+  const data = initial;
   const [savedAreas, setSavedAreas] = useState(() => data.siteAreas.map(() => false));
   function collectAllAreaAndSubareaFields(siteAreas: any[]) {
     return siteAreas.map(area => ({
@@ -35,10 +36,10 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   }
   const [showExtractedTextModal, setShowExtractedTextModal] = useState<{ open: boolean; text: string }>({ open: false, text: "" });
   // Get the full redux state for site visit
-  const siteVisitState = useSelector((state: any) => state.wizard);
+  const siteVisitState = data;
   const siteWorksLoading = useSelector((state: any) => state.siteWorks.loading);
   const dispatch: AppDispatch = useDispatch();
-  const reduxGeneralAttachments = useSelector((state: any) => state.wizard?.generalAttachments || []);
+  const reduxGeneralAttachments = useSelector((state: any) => state.siteVisit?.generalAttachments || []);
   const [generalNotes, setGeneralNotes] = useState(data.generalNotes || "");
   const [generalAttachments, setGeneralAttachments] = useState<{ url: string; title: string }[]>(
     (reduxGeneralAttachments && reduxGeneralAttachments.length > 0)
@@ -90,7 +91,6 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   // Whenever site visit data changes, update redux
   const handleUpdate = (updates: Partial<ProjectWizardData>) => {
     onUpdate(updates);
-    dispatch(setSiteVisit(updates));
   };
   const [attachmentPopover, setAttachmentPopover] = useState(false);
   const [areaPlanLoading, setAreaPlanLoading] = useState(false);
