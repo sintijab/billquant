@@ -68,6 +68,7 @@ export interface ProjectWizardData {
   siteAreas: SiteArea[];
   activityCategories: ActivityCategory[];
   boqItems: BOQItem[];
+  logo: string;
 }
 
 export interface DocumentData {

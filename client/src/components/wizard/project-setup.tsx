@@ -22,6 +22,20 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
   const dispatch = useDispatch();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [signature, setSignatureState] = useState<string>("");
+  const [logo, setLogo] = useState<string>(reduxSetup.logo || "");
+  // Handle logo upload as base64 for persistence
+  const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64 = reader.result as string;
+        setLogo(base64);
+        dispatch(setProjectSetup({ logo: base64 }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   useEffect(() => {
     // Always persist generalAttachments from Redux if available and non-empty
@@ -261,9 +275,35 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
               </div>
             </div>
 
+            {/* Logo Upload */}
+            <div className="text-left">
+                <input
+                  id="logo-upload-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleLogoUpload}
+                  style={{ display: 'none' }}
+                  data-testid="input-logo-upload"
+                />
+                <Button
+                  type="button"
+                  onClick={() => document.getElementById('logo-upload-input')?.click()}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-primary text-primary hover:bg-primary hover:text-white transition-colors shadow"
+                  data-testid="button-upload-logo"
+                >
+                  <Upload className="h-5 w-5" />
+                  {logo ? 'Change Logo' : 'Upload Logo'}
+                </Button>
+                {logo && (
+                  <div className="mt-4">
+                    <img src={logo} alt="Company logo" className="max-w-full h-20 mx-auto border rounded-2xl shadow" />
+                    <p className="text-green-400 text-sm mt-2">Logo uploaded successfully</p>
+                  </div>
+                )}
+              </div>
+
             {/* Digital Signature */}
-            <div className="space-y-6">
-              <h3 className="text-l font-semibold text-white mb-4">Digital Signature</h3>
+            <div>
               <div className="border border-dashed border-primary-blue rounded-2xl p-8 text-center hover:border-cad-blue transition-colors bg-white/40 backdrop-blur">
                 <div className="text-4xl text-cad-blue mb-4">
                   <i className="fas fa-signature"></i>

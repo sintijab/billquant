@@ -1,19 +1,34 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-
-
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import wizardReducer from './features/wizardSlice';
 import siteWorksReducer from './features/siteWorksSlice';
 import siteVisitReducer from './features/siteVisitSlice';
 import boqReducer from './features/boqSlice';
 
-export const store = configureStore({
-  reducer: {
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['wizard'], // persist only the wizard slice
+};
+
+const rootReducer = {
   wizard: wizardReducer,
   siteWorks: siteWorksReducer,
   siteVisit: siteVisitReducer,
   boq: boqReducer,
-  },
+};
+
+const persistedReducer = persistReducer(persistConfig, (state: any, action: any) => {
+  // mimic combineReducers
+  return Object.keys(rootReducer).reduce((acc, key) => {
+    acc[key] = rootReducer[key as keyof typeof rootReducer](state ? state[key] : undefined, action);
+    return acc;
+  }, {} as any);
+});
+
+export const store = configureStore({
+  reducer: persistedReducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;

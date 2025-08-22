@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -22,15 +23,17 @@ import {
 } from "lucide-react";
 import { ProjectWizardData, DocumentData, InternalCostData } from "@/lib/types";
 
+
 interface DocumentGenerationProps {
-  data: ProjectWizardData;
-  onUpdate: (updates: Partial<ProjectWizardData>) => void;
+  onUpdate?: (updates: Partial<ProjectWizardData>) => void;
   onPrevious: () => void;
   onNewProject: () => void;
 }
 
-export default function DocumentGeneration({ data, onUpdate, onPrevious, onNewProject }: DocumentGenerationProps) {
+export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject }: DocumentGenerationProps) {
   const [isGenerating, setIsGenerating] = useState(false);
+  // Load wizard/project data from Redux store (persisted)
+  const data = useSelector((state: any) => state.wizard.projectSetup);
 
   // Calculate project totals from sample data
   const sampleSubtotal = 1974.86;
@@ -40,12 +43,12 @@ export default function DocumentGeneration({ data, onUpdate, onPrevious, onNewPr
   // Generate document data from project data
   const documentData: DocumentData = {
     client: {
-      name: `${data.clientFirstName} ${data.clientSurname}`,
-      email: data.clientEmail,
-      phone: data.clientPhone
+      name: `${data?.clientFirstName || ''} ${data?.clientSurname || ''}`.trim(),
+      email: data?.clientEmail || '',
+      phone: data?.clientPhone || ''
     },
     project: {
-      address: data.siteAddress,
+      address: data?.siteAddress || '',
       date: new Date().toLocaleDateString('it-IT'),
       totalCost: sampleTotal
     },
@@ -143,20 +146,12 @@ export default function DocumentGeneration({ data, onUpdate, onPrevious, onNewPr
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Card className="shadow-lg animate-fade-in">
         <CardContent className="p-8">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-text-primary mb-4">Document Generation</h2>
-            <p className="text-text-secondary text-lg">
-              Generate professional quotation and internal cost documents
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
             {/* Price Quotation Document */}
             <div className="border border-gray-200 rounded-xl p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-text-primary flex items-center">
-                  <FileText className="h-5 w-5 text-primary mr-2" />
                   Price Quotation
                 </h3>
                 <div className="flex space-x-2">
@@ -184,28 +179,28 @@ export default function DocumentGeneration({ data, onUpdate, onPrevious, onNewPr
               {/* Document Preview */}
               <div className="bg-surface-light rounded-lg p-4 mb-6 h-96 overflow-y-auto">
                 <div className="text-xs space-y-3">
-                  {/* Document Header */}
-                  <div className="text-center border-b pb-3">
-                    <div className="flex items-center justify-center space-x-2 mb-2">
-                      <Building2 className="h-6 w-6 text-primary" />
-                      <div className="font-bold text-primary text-lg">ProQuote AI</div>
-                    </div>
-                    <div className="text-text-secondary">Construction Price Quotation</div>
-                  </div>
-
-                  {/* Client Info */}
-                  <div className="grid grid-cols-2 gap-4">
+                  {/* Logo and Project Info */}
+                  <div className="grid grid-cols-2 gap-4 items-center">
                     <div>
-                      <div className="font-semibold">Client:</div>
-                      <div>{documentData.client.name}</div>
-                      <div>{documentData.client.email}</div>
-                      {documentData.client.phone && <div>{documentData.client.phone}</div>}
+                      {data?.logo && (
+                        <img src={data.logo} alt="Company Logo" className="h-12 mb-2" style={{objectFit: 'contain', maxWidth: '120px'}} />
+                      )}
                     </div>
-                    <div>
-                      <div className="font-semibold">Project:</div>
-                      <div className="text-xs break-words">{documentData.project.address}</div>
+                    <div className="text-right">
+                      <div className="font-semibold">{documentData.project.address}</div>
                       <div>Date: {documentData.project.date}</div>
                     </div>
+                  </div>
+
+                  {/* Client Info (no label) */}
+                  <div className="mt-2">
+                    <div className="font-semibold">Client:</div>
+                    <div>{documentData.client.name}</div>
+                    {documentData.client.phone && <div>{documentData.client.phone}</div>}
+                  </div>
+                  {/* Email below Email: */}
+                  <div className="mt-1">
+                    <span className="font-semibold">Email:</span> {documentData.client.email}
                   </div>
 
                   {/* Activities Summary */}
@@ -250,6 +245,13 @@ export default function DocumentGeneration({ data, onUpdate, onPrevious, onNewPr
                       ))}
                     </div>
                   </div>
+                  {/* Signature below Terms & Conditions */}
+                  {data?.digitalSignature && (
+                    <div className="mt-4 flex flex-col items-end">
+                      <span className="text-xs text-gray-500 mb-1">Signature</span>
+                      <img src={data.digitalSignature} alt="Signature" className="h-12 border rounded shadow" />
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -280,8 +282,7 @@ export default function DocumentGeneration({ data, onUpdate, onPrevious, onNewPr
             <div className="border border-gray-200 rounded-xl p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-text-primary flex items-center">
-                  <Calculator className="h-5 w-5 text-primary mr-2" />
-                  Internal Costs Analysis
+                  Internal Costs
                 </h3>
                 <div className="flex space-x-2">
                   <Button

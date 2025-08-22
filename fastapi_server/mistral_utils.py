@@ -16,7 +16,6 @@ llm = ChatMistralAI(
     max_retries=2,
 )
 
-
 # Read activity keywords from file
 with open(os.path.join(os.path.dirname(__file__), 'activity_keywords.txt'), 'r', encoding='utf-8') as f:
     activity_keywords = f.read().strip()

@@ -1,7 +1,26 @@
+// Thunk to fetch new activity data by price source for a specific row
+export const fetchActivityBySource = createAsyncThunk(
+  'boq/fetchActivityBySource',
+  async ({ activity, description, priceSource, rowIndex }: { activity: string, description: string, priceSource: string, rowIndex?: number }) => {
+    let endpoint = '';
+    if (priceSource === 'dei') endpoint = '/search_dei';
+    else if (priceSource === 'pat') endpoint = '/search_pat';
+    else if (priceSource === 'piemonte') endpoint = '/search_piemonte';
+    else throw new Error('Invalid price source');
+    const fd = new FormData();
+    fd.append('query', description);
+    const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}${endpoint}`, {
+      method: 'POST',
+      body: fd,
+    });
+    return { activity, priceSource, data: await resp.json(), rowIndex };
+  }
+);
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { RootState } from '@/store';
 
-// Helper to fetch category data
-async function fetchCategoryData(activity: string) {
+// Helper to fetch category data (API call)
+async function fetchCategoryDataApi(activity: string) {
   try {
     const formData = new FormData();
     formData.append('query', activity);
@@ -15,6 +34,14 @@ async function fetchCategoryData(activity: string) {
   }
 }
 
+// Redux asyncThunk for fetching category data and storing in state
+export const fetchCategoryData = createAsyncThunk(
+  'boq/fetchCategoryData',
+  async (activity: string) => {
+    return await fetchCategoryDataApi(activity);
+  }
+);
+
 // Helper to normalize price response to always be an array
 function extractResults(source: any) {
   if (!source) return [];
@@ -25,192 +52,195 @@ function extractResults(source: any) {
 
 export const fetchActivityCategoryDei = createAsyncThunk(
   'boq/fetchActivityCategoryDei',
-  async (activity: string) => {
-    try {
-      const categoryData = await fetchCategoryData(activity);
-      if (categoryData && (categoryData.error || categoryData.raw_answer)) {
-        return { activity, category: null, deiItems: [], error: categoryData.error, raw_answer: categoryData.raw_answer };
-      }
-      let categories: any[] = [];
-      if (categoryData && Array.isArray(categoryData.it)) {
-        categories = categoryData.it;
-      } else if (categoryData && Array.isArray(categoryData.en)) {
-        categories = categoryData.en;
-      } else if (Array.isArray(categoryData)) {
-        categories = categoryData;
-      } else if (categoryData) {
-        categories = [categoryData];
-      }
-      const deiItems: any[] = [];
-      for (const cat of categories) {
-        const mainCategory = cat?.['Main Category'] || '';
-        const description = cat?.Description;
-        if (!description) continue;
-        const fd = new FormData();
-        fd.append('query', description);
-        const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_dei`, {
-          method: 'POST',
-          body: fd,
+  async (activity: string, { getState }) => {
+    const state = getState() as RootState;
+    const categoryData = state.boq.categoryData?.[activity];
+    if (!categoryData || categoryData.error) {
+      return { activity, category: null, deiItems: [], error: categoryData?.error || 'No category data', raw_answer: categoryData?.raw_answer };
+    }
+    let categories: any[] = [];
+    if (Array.isArray(categoryData.it)) {
+      categories = categoryData.it;
+    } else if (Array.isArray(categoryData.en)) {
+      categories = categoryData.en;
+    } else if (Array.isArray(categoryData)) {
+      categories = categoryData;
+    } else if (categoryData) {
+      categories = [categoryData];
+    }
+    const deiItems: any[] = [];
+    for (const cat of categories) {
+      const mainCategory = cat?.['Main Category'] || '';
+      const description = cat?.Description;
+      if (!description) continue;
+      const fd = new FormData();
+      fd.append('query', description);
+      const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_dei`, {
+        method: 'POST',
+        body: fd,
+      });
+      const raw = await resp.json();
+      const items = extractResults(raw);
+      for (const item of items) {
+        deiItems.push({
+          type: 'main',
+          activity,
+          mainCategory,
+          priceSource: 'dei',
+          ...item,
         });
-        const raw = await resp.json();
-        const items = extractResults(raw);
-        for (const item of items) {
-          deiItems.push({
-            type: 'main',
-            activity,
-            mainCategory,
-            priceSource: 'dei',
-            ...item,
-          });
-          if (Array.isArray(item.resources)) {
-            for (const res of item.resources) {
-              deiItems.push({
-                type: 'resource',
-                activity,
-                mainCategory,
-                priceSource: 'dei',
-                ...res,
-              });
-            }
+        if (Array.isArray(item.resources)) {
+          for (const res of item.resources) {
+            deiItems.push({
+              type: 'resource',
+              activity,
+              mainCategory,
+              priceSource: 'dei',
+              ...res,
+            });
           }
         }
       }
-      return { activity, category: categoryData, deiItems };
-    } catch (e: any) {
-      return { activity, category: null, deiItems: [], error: e?.message || 'Failed to fetch DEI prices' };
     }
+    return { activity, category: categoryData, deiItems };
   }
 );
 
 export const fetchActivityCategoryPat = createAsyncThunk(
   'boq/fetchActivityCategoryPat',
-  async (activity: string) => {
-    try {
-      const categoryData = await fetchCategoryData(activity);
-      if (categoryData && (categoryData.error || categoryData.raw_answer)) {
-        return { activity, category: null, patItems: [], error: categoryData.error, raw_answer: categoryData.raw_answer };
-      }
-      let categories: any[] = [];
-      if (categoryData && Array.isArray(categoryData.it)) {
-        categories = categoryData.it;
-      } else if (categoryData && Array.isArray(categoryData.en)) {
-        categories = categoryData.en;
-      } else if (Array.isArray(categoryData)) {
-        categories = categoryData;
-      } else if (categoryData) {
-        categories = [categoryData];
-      }
-      const patItems: any[] = [];
-      for (const cat of categories) {
-        const mainCategory = cat?.['Main Category'] || '';
-        const description = cat?.Description;
-        if (!description) continue;
-        const fd = new FormData();
-        fd.append('query', description);
-        const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_pat`, {
-          method: 'POST',
-          body: fd,
+  async (activity: string, { getState }) => {
+    const state = getState() as RootState;
+    const categoryData = state.boq.categoryData?.[activity];
+    if (!categoryData || categoryData.error) {
+      return { activity, category: null, patItems: [], error: categoryData?.error || 'No category data', raw_answer: categoryData?.raw_answer };
+    }
+    let categories: any[] = [];
+    if (Array.isArray(categoryData.it)) {
+      categories = categoryData.it;
+    } else if (Array.isArray(categoryData.en)) {
+      categories = categoryData.en;
+    } else if (Array.isArray(categoryData)) {
+      categories = categoryData;
+    } else if (categoryData) {
+      categories = [categoryData];
+    }
+    const patItems: any[] = [];
+    for (const cat of categories) {
+      const mainCategory = cat?.['Main Category'] || '';
+      const description = cat?.Description;
+      if (!description) continue;
+      const fd = new FormData();
+      fd.append('query', description);
+      const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_pat`, {
+        method: 'POST',
+        body: fd,
+      });
+      const raw = await resp.json();
+      const items = extractResults(raw);
+      for (const item of items) {
+        patItems.push({
+          type: 'main',
+          activity,
+          mainCategory,
+          priceSource: 'pat',
+          ...item,
         });
-        const raw = await resp.json();
-        const items = extractResults(raw);
-        for (const item of items) {
-          patItems.push({
-            type: 'main',
-            activity,
-            mainCategory,
-            priceSource: 'pat',
-            ...item,
-          });
-          if (Array.isArray(item.resources)) {
-            for (const res of item.resources) {
-              patItems.push({
-                type: 'resource',
-                activity,
-                mainCategory,
-                priceSource: 'pat',
-                ...res,
-              });
-            }
+        if (Array.isArray(item.resources)) {
+          for (const res of item.resources) {
+            patItems.push({
+              type: 'resource',
+              activity,
+              mainCategory,
+              priceSource: 'pat',
+              ...res,
+            });
           }
         }
       }
-      return { activity, category: categoryData, patItems };
-    } catch (e: any) {
-      return { activity, category: null, patItems: [], error: e?.message || 'Failed to fetch PAT prices' };
     }
+    return { activity, category: categoryData, patItems };
   }
 );
 
 export const fetchActivityCategoryPiemonte = createAsyncThunk(
   'boq/fetchActivityCategoryPiemonte',
-  async (activity: string) => {
-    try {
-      const categoryData = await fetchCategoryData(activity);
-      if (categoryData && (categoryData.error || categoryData.raw_answer)) {
-        return { activity, category: null, piemonteItems: [], error: categoryData.error, raw_answer: categoryData.raw_answer };
-      }
-      let categories: any[] = [];
-      if (categoryData && Array.isArray(categoryData.it)) {
-        categories = categoryData.it;
-      } else if (categoryData && Array.isArray(categoryData.en)) {
-        categories = categoryData.en;
-      } else if (Array.isArray(categoryData)) {
-        categories = categoryData;
-      } else if (categoryData) {
-        categories = [categoryData];
-      }
-      const piemonteItems: any[] = [];
-      for (const cat of categories) {
-        const mainCategory = cat?.['Main Category'] || '';
-        const description = cat?.Description;
-        if (!description) continue;
-        const fd = new FormData();
-        fd.append('query', description);
-        const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_piemonte`, {
-          method: 'POST',
-          body: fd,
+  async (activity: string, { getState }) => {
+    const state = getState() as RootState;
+    const categoryData = state.boq.categoryData?.[activity];
+    if (!categoryData || categoryData.error) {
+      return { activity, category: null, piemonteItems: [], error: categoryData?.error || 'No category data', raw_answer: categoryData?.raw_answer };
+    }
+    let categories: any[] = [];
+    if (Array.isArray(categoryData.it)) {
+      categories = categoryData.it;
+    } else if (Array.isArray(categoryData.en)) {
+      categories = categoryData.en;
+    } else if (Array.isArray(categoryData)) {
+      categories = categoryData;
+    } else if (categoryData) {
+      categories = [categoryData];
+    }
+    const piemonteItems: any[] = [];
+    for (const cat of categories) {
+      const mainCategory = cat?.['Main Category'] || '';
+      const description = cat?.Description;
+      if (!description) continue;
+      const fd = new FormData();
+      fd.append('query', description);
+      const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_piemonte`, {
+        method: 'POST',
+        body: fd,
+      });
+      const raw = await resp.json();
+      const items = extractResults(raw);
+      for (const item of items) {
+        piemonteItems.push({
+          type: 'main',
+          activity,
+          mainCategory,
+          priceSource: 'piemonte',
+          ...item,
         });
-        const raw = await resp.json();
-        const items = extractResults(raw);
-        for (const item of items) {
-          piemonteItems.push({
-            type: 'main',
-            activity,
-            mainCategory,
-            priceSource: 'piemonte',
-            ...item,
-          });
-          if (Array.isArray(item.resources)) {
-            for (const res of item.resources) {
-              piemonteItems.push({
-                type: 'resource',
-                activity,
-                mainCategory,
-                priceSource: 'piemonte',
-                ...res,
-              });
-            }
+        if (Array.isArray(item.resources)) {
+          for (const res of item.resources) {
+            piemonteItems.push({
+              type: 'resource',
+              activity,
+              mainCategory,
+              priceSource: 'piemonte',
+              ...res,
+            });
           }
         }
       }
-      return { activity, category: categoryData, piemonteItems };
-    } catch (e: any) {
-      return { activity, category: null, piemonteItems: [], error: e?.message || 'Failed to fetch PIEMONTE prices' };
     }
+    return { activity, category: categoryData, piemonteItems };
   }
 );
 
 
 interface BoqState {
   categories: Record<string, any>;
+  categoryData: Record<string, any>;
   loading: boolean;
   error: string | null;
+  modalCompare?: {
+    activity: string;
+    priceSource: string;
+    original: any;
+    newData: any;
+    rowIndex?: number;
+  } | null;
+  modalLoading?: boolean;
 }
 
 const initialState: BoqState = {
   categories: {},
+  categoryData: {},
   loading: false,
   error: null,
+  modalCompare: null,
+  modalLoading: false,
 };
 
 const boqSlice = createSlice({
@@ -222,10 +252,100 @@ const boqSlice = createSlice({
       if (state.categories[activity]) {
         state.categories[activity].error = undefined;
       }
+      if (state.categoryData[activity]) {
+        state.categoryData[activity].error = undefined;
+      }
+    },
+    closeModalCompare: (state) => {
+      state.modalCompare = null;
+      state.modalLoading = false;
+    },
+    // Replace the original activity with the new one in the correct row
+    replaceActivityWithNew: (state) => {
+      const { modalCompare } = state;
+      if (!modalCompare || typeof modalCompare.rowIndex !== 'number') return;
+      const { activity, priceSource, newData, rowIndex } = modalCompare;
+      if (state.categories[activity]?.patItems && Array.isArray(state.categories[activity].patItems)) {
+        // Create a new array with the updated item
+        const updatedPatItems = state.categories[activity].patItems.map((item: any, idx: number) =>
+          idx === rowIndex ? { ...newData, priceSource } : item
+        );
+        state.categories[activity] = {
+          ...state.categories[activity],
+          patItems: updatedPatItems,
+        };
+      }
+      state.modalCompare = null;
+      state.modalLoading = false;
+    },
+    // Keep the original activity (do nothing, just close the panel)
+    keepCurrentActivity: (state) => {
+      state.modalCompare = null;
+      state.modalLoading = false;
+    },
+    // Insert the new activity as a new row (keep both)
+    keepBothActivities: (state) => {
+      const { modalCompare } = state;
+      if (!modalCompare || typeof modalCompare.rowIndex !== 'number') return;
+      const { activity, priceSource, newData, rowIndex } = modalCompare;
+      if (state.categories[activity]?.patItems && Array.isArray(state.categories[activity].patItems)) {
+        // Create a new array with the new item inserted after the current row
+        const patItems = state.categories[activity].patItems;
+        const updatedPatItems = [
+          ...patItems.slice(0, rowIndex + 1),
+          { ...newData, priceSource },
+          ...patItems.slice(rowIndex + 1)
+        ];
+        state.categories[activity] = {
+          ...state.categories[activity],
+          patItems: updatedPatItems,
+        };
+      }
+      state.modalCompare = null;
+      state.modalLoading = false;
     },
   },
   extraReducers: builder => {
     builder
+      .addCase(fetchActivityBySource.pending, (state) => {
+        state.modalLoading = true;
+      })
+      .addCase(fetchActivityBySource.fulfilled, (state, action) => {
+        state.modalLoading = false;
+        // Save both original and new data for modal
+        const { activity, priceSource, data, rowIndex } = action.payload;
+        // Find the original main activity from categories
+        let original = state.categories[activity]?.patItems;
+        if (Array.isArray(original) && typeof rowIndex === 'number') {
+          original = original[rowIndex];
+        }
+        state.modalCompare = {
+          activity,
+          priceSource,
+          original,
+          newData: data,
+          rowIndex,
+        };
+      })
+      .addCase(fetchActivityBySource.rejected, (state, action) => {
+        state.modalLoading = false;
+        state.error = action.error.message || 'Failed to fetch new activity data';
+      });
+    builder
+      .addCase(fetchCategoryData.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(fetchCategoryData.fulfilled, (state, action) => {
+        state.loading = false;
+        const activity = action.meta.arg;
+        state.categoryData[activity] = action.payload;
+      })
+      .addCase(fetchCategoryData.rejected, (state, action) => {
+        state.loading = false;
+        const activity = action.meta.arg;
+        state.categoryData[activity] = { error: action.error.message || 'Failed to fetch activity categories' };
+        state.error = action.error.message || 'Failed to fetch activity categories';
+      })
       .addCase(fetchActivityCategoryDei.pending, (state) => {
         state.loading = true;
       })
@@ -301,5 +421,5 @@ const boqSlice = createSlice({
   },
 });
 
-export const { clearCategoryError } = boqSlice.actions;
+export const { clearCategoryError, closeModalCompare, replaceActivityWithNew, keepCurrentActivity, keepBothActivities } = boqSlice.actions;
 export default boqSlice.reducer;

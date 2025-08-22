@@ -1,19 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
-import { Building2, Menu, X } from "lucide-react";
-import { useState } from "react";
-
-interface NavigationProps {
-  onGetStarted: () => void;
-}
-
-export default function Navigation({ onGetStarted }: NavigationProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleLogin = () => {
-    console.log("Login clicked");
-  };
-
+export default function Navigation() {
   return (
     <header className="w-full px-8 flex items-center justify-between bg-white/80 shadow-sm sticky top-0 z-30 font-graphik-regular">
       <div className="flex items-center m-0 py-5">
