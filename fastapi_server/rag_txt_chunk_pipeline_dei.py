@@ -51,7 +51,7 @@ def embed_and_retrieve_dei(query, all_chunks_file="DEI_chunks.txt", top_k=3, emb
         all_chunks = [c.strip() for c in f if c.strip()]
     embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
     if os.path.exists(embeddings_path):
-        chunk_embeddings = torch.load(embeddings_path)
+        chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
         if len(chunk_embeddings) != len(all_chunks):
             chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
             torch.save(chunk_embeddings, embeddings_path)
@@ -175,7 +175,7 @@ def embed_and_retrieve_dei(query, all_chunks_file="DEI_chunks.txt", top_k=3, emb
     mapped = []
     for chunk in all_candidates:
         mapped.extend(parse_chunk(chunk))
-    return {"Results": mapped}
+    return mapped
 
 if __name__ == "__main__":
     user_query = input("Enter your query: ")

@@ -35,6 +35,7 @@ def answer_question(query: str) -> str:
     response = chain.invoke({
         "input": query,
     })
+        # Model loading logic can be added here if needed
     try:
         parsed_output = response.content
         return json.dumps(parsed_output, ensure_ascii=False)

@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { toast } from "@/hooks/use-toast";
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch } from '@/store';
 import { fetchSiteWorks } from '@/features/siteWorksSlice';
@@ -45,7 +46,7 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
       : (data.generalAttachments || [])
   );
   const [aiConsent, setAiConsent] = useState(true);
-
+  const siteWorksLength = useSelector((state: any) => state.siteWorks?.Works?.length || 0);
   const handleAddArea = () => {
     const areaIdx = data.siteAreas.length;
     const newArea = {
@@ -96,6 +97,17 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
   const [generalAttachmentLoading, setGeneralAttachmentLoading] = useState(false);
   const pdfInputRef = useRef<HTMLInputElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
+  const siteWorksError = useSelector((state: any) => state.siteWorks.error);
+
+  useEffect(() => {
+    if (siteWorksError) {
+      toast({
+        title: "Something went wrong. Please try again later.",
+        description: siteWorksError,
+        variant: "destructive",
+      });
+    }
+  }, [siteWorksError]);
 
   return (
     <div className="max-w-6xl mx-auto md:px-4 lg:px-8">
@@ -576,14 +588,12 @@ export default function SiteVisit({ data, onUpdate, onNext, onPrevious }: SiteVi
               onClick={() => {
                 // Collect all area and subarea info from redux
                 const allData = collectAllAreaAndSubareaFields(siteVisitState.siteAreas || []);
-                console.log('All Area and Subarea Data:', allData);
                 onNext();
               }}
               variant="link"
               className="text-lg px-8 py-4 rounded-full"
               data-testid="button-continue"
-              disabled={savedAreas.length !== data.siteAreas.length || savedAreas.some(v => !v)}
-              style={savedAreas.length !== data.siteAreas.length || savedAreas.some(v => !v) ? { opacity: 0.5, pointerEvents: 'none' } : {}}
+              disabled={!siteWorksLength}
             >
               Continue to Activity Overview
               <ArrowRight className="ml-2 h-4 w-4" />
