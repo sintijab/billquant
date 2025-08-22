@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte } from '@/features/boqSlice';
+import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte, fetchCategoryData } from '@/features/boqSlice';
 import { clearCategoryError } from '@/features/boqSlice';
 import { toast } from "@/hooks/use-toast";
 import { selectAllTableItems } from '@/features/boqSelectors';
@@ -62,6 +62,7 @@ const BOQPricing = ({ data, onUpdate, onNext, onPrevious }: BOQPricingProps) => 
         if (activity.Activity && priceListSource === 'dei') {
           const catObj = boq.categories[activity.Activity];
           if (!catObj || (!catObj.deiItems?.length && !catObj.deiError)) {
+            await dispatch(fetchCategoryData(activity.Activity)).unwrap();
             await dispatch(fetchActivityCategoryDei(activity.Activity)).unwrap();
             break;
           }
@@ -69,6 +70,7 @@ const BOQPricing = ({ data, onUpdate, onNext, onPrevious }: BOQPricingProps) => 
         if (activity.Activity && priceListSource === 'pat') {
           const catObj = boq.categories[activity.Activity];
           if (!catObj || (!catObj.patItems?.length && !catObj.patError)) {
+            await dispatch(fetchCategoryData(activity.Activity)).unwrap();
             await dispatch(fetchActivityCategoryPat(activity.Activity)).unwrap();
             break;
           }
@@ -76,6 +78,7 @@ const BOQPricing = ({ data, onUpdate, onNext, onPrevious }: BOQPricingProps) => 
         if (activity.Activity && priceListSource === 'piemonte') {
           const catObj = boq.categories[activity.Activity];
           if (!catObj || (!catObj.piemonteItems?.length && !catObj.piemonteError)) {
+            await dispatch(fetchCategoryData(activity.Activity)).unwrap();
             await dispatch(fetchActivityCategoryPiemonte(activity.Activity)).unwrap();
             break;
           }
@@ -83,6 +86,7 @@ const BOQPricing = ({ data, onUpdate, onNext, onPrevious }: BOQPricingProps) => 
       }
     };
     fetchSequentially();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSelectHighestPrices = () => {
@@ -90,7 +94,7 @@ const BOQPricing = ({ data, onUpdate, onNext, onPrevious }: BOQPricingProps) => 
   };
 
   // Only refresh activities that are missing prices or errored for the selected source
-  const handleRefreshPrices = () => {
+  const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
     else if (priceListSource === 'pat') fetchThunk = fetchActivityCategoryPat;
@@ -107,7 +111,8 @@ const BOQPricing = ({ data, onUpdate, onNext, onPrevious }: BOQPricingProps) => 
       if (catObj && catObj.error) missing = true;
       if (missing) {
         dispatch(clearCategoryError(activity.Activity));
-        dispatch(fetchThunk(activity.Activity) as any);
+        await dispatch(fetchCategoryData(activity.Activity)).unwrap();
+        await dispatch(fetchThunk(activity.Activity) as any);
       }
     }
   };
