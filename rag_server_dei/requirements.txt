@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pillow
+python-multipart
+python-dotenv
+langchain
+langchain-mistralai
+pydantic
+torch
+sentence-transformers
+rank-bm25
+numpy
