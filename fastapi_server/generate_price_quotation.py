@@ -172,10 +172,29 @@ def generate_price_quotation(data):
     context["logo"] = logo_img
     context["signature"] = signature_img
 
-    # (No need to save context as JSON file)
+    # Add introduction paragraph below client info, above first table (compact, font 11, no line breaks)
+    # Instruct template users to set line height 1.15 and no space before for this paragraph style
+    context["quotation_intro"] = (
+        "Il presente Rapporto di Preventivo Prezzi è stato redatto al fine di fornire una stima dettagliata e trasparente dei costi, delle risorse e dei tempi previsti per i lavori di costruzione e ristrutturazione proposti. "
+        "Lo scopo di questo documento è delineare l’ambito dei lavori, i materiali e le attrezzature necessari, nonché i costi della manodopera correlati, al fine di realizzare il progetto in conformità alle normative vigenti e agli standard di qualità applicabili."
+    )
 
     # Render DOCX
     doc.render(context)
-    doc.save("Price_Quotation_Report.docx")
+    # Post-process: justify intro and set line height 1.15
+    from docx import Document as DocxDocument
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.shared import Pt
+    output_path = "Price_Quotation_Report.docx"
+    doc.save(output_path)
 
-    return {"message": "Price quotation generated", "output": "Price_Quotation_Report.docx"}
+    # Open and adjust the intro paragraph
+    docx = DocxDocument(output_path)
+    for para in docx.paragraphs:
+        if para.text.strip().startswith("Il presente Rapporto di Preventivo Prezzi"):
+            para.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+            para.paragraph_format.line_spacing = 1.15
+            break
+    docx.save(output_path)
+
+    return {"message": "Price quotation generated", "output": output_path}

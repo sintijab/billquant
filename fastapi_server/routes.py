@@ -20,9 +20,17 @@ from rag_training import rag_query
 from fastapi import Form
 import os
 import re
+
 load_dotenv()
-api_key = os.environ.get("MOONDREAM_API_KEY")
-model = md.vl(api_key=api_key)
+
+# Lazy singleton for Moondream model
+_moondream_model = None
+def get_moondream_model():
+    global _moondream_model
+    if _moondream_model is None:
+        api_key = os.environ.get("MOONDREAM_API_KEY")
+        _moondream_model = md.vl(api_key=api_key)
+    return _moondream_model
 
 app = FastAPI()
 
@@ -156,6 +164,7 @@ async def analyze_image_moondream(
             )
         else:
             prompt = "Describe from construction site what is the state and what has to be renovated and repaired. If it is floor map then give rooms and precise measurements the numbers. Add what objects are visible in the area if you find any. In addition you should add any suggestions for example paint and primer to be used for the walls and site access."
+        model = get_moondream_model()
         result = model.query(image, prompt)
 
         answer = result.get("answer", "")
@@ -251,7 +260,9 @@ import os
 
 
 
+
 from generate_price_quotation import generate_price_quotation
+from generate_internal_costs import generate_internal_costs_doc
 
 @app.post("/generate_price_quotation_docx")
 async def generate_price_quotation_docx(request: Request):
@@ -275,3 +286,16 @@ async def generate_price_quotation_docx(request: Request):
     if not output_path or not isinstance(output_path, str) or not os.path.exists(output_path):
         return {"error": "Document not generated or file not found", "output_path": output_path}
     return FileResponse(output_path, filename="Price_Quotation_Report.docx", media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+
+
+# --- New endpoint for internal costs DOCX generation ---
+@app.post("/generate_internal_costs_docx")
+async def generate_internal_costs_docx(request: Request):
+    data = await request.json()
+    try:
+        output_path = generate_internal_costs_doc(data)
+    except Exception as e:
+        return {"error": f"Failed to generate internal costs document: {str(e)}"}
+    if not output_path or not isinstance(output_path, str) or not os.path.exists(output_path):
+        return {"error": "Document not generated or file not found", "output_path": output_path}
+    return FileResponse(output_path, filename="Internal_Costs_Report.docx", media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")

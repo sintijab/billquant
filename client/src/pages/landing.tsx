@@ -21,19 +21,19 @@ export default function LandingPage() {
   // Features for new section
   const features = [
     {
-      title: 'Professional Templates',
-      desc: 'Choose from industry-specific templates for every project type. Customize with your brand and content.',
-      img: 'https://archdesk.com/_next/image?url=%2Fproduct%2Festimate-section-view.png&w=1920&q=75',
+      title: 'On-site Inspection',
+      desc: 'Create price proposals on-site during the site visit. Fast-forward construction planning with AI and visual introspection.',
+      img: 'https://images.ctfassets.net/fqtbha7ac6p4/4CVEovT1wFr0EMk0u4H92L/5b03570f24b33955fa51775a28c2fb2b/Inpections_with_Fieldwire.jpg',
     },
     {
-      title: 'Accurate Cost Estimation',
+      title: 'Cost Saving',
       desc: 'Integrate BOQs, pricing schedules, and real-time cost data for precise, error-free proposals.',
-      img: 'https://archdesk.com/_next/image?url=%2Fproduct%2Fproject-tender-comparison.png&w=1920&q=75',
+      img: 'https://img.freepik.com/free-photo/construction-plans-with-yellow-helmet-drawing-tools-bluep_1232-1726.jpg?semt=ais_hybrid&w=740&q=80',
     },
     {
-      title: 'Collaboration & Analytics',
-      desc: 'Collaborate in real time, track submissions, and analyze win rates to improve your bidding strategy.',
-      img: 'https://archdesk.com/_next/image?url=%2Fproduct%2Fenquiries-dashboard.png&w=1920&q=75',
+      title: 'Smart Analytics',
+      desc: 'Compare the pricing and construction standard across local regions and analyze win rates to improve your bidding strategy.',
+      img: 'https://vercida-prod-public.s3.eu-west-2.amazonaws.com/images/23/Construction%20industry.jpg',
     },
   ];
 
@@ -118,7 +118,6 @@ export default function LandingPage() {
           <img src="/billquant_logo.png" alt="BillQuant Logo" width="170px" />
         </div>
         <nav>
-        <SignedOut><SignUpButton mode="modal" /><div className="hidden md:inline-block bg-[#071330] text-white px-6 py-2 rounded-lg font-graphik-bold shadow-md hover:bg-[#163b7c] transition ml-5"><SignInButton mode="modal" /></div></SignedOut>
           <SignedIn>
             <span className="md:hidden sm:inline-block ml-2 align-middle">
             <UserButton showName={false} />
@@ -131,7 +130,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 hero-section font-graphik-light">
+      <section className="max-w-7xl mx-auto px-6 py-10 hero-section font-graphik-light">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-graphik-semibold text-[#071330] mb-6" style={{ lineHeight: 1.25 }}>
@@ -144,7 +143,13 @@ export default function LandingPage() {
               <SignedIn>
                 <button onClick={handleGetStarted} className="bg-[#f9a825] text-[#071330] px-8 py-3 rounded-lg font-graphik-bold text-lg shadow-md hover:bg-[#ffd95a] transition">Get Started</button>
               </SignedIn>
-              <button className="border-2 border-[#071330] text-[#071330] px-8 py-3 rounded-lg font-graphik-semibold text-lg hover:bg-[#e3eafc] transition">Watch Demo</button>
+              <SignedOut>
+                <div className="hidden md:inline-block">
+                  <SignInButton mode="modal"
+                    className="bg-[#071330] text-white px-8 py-3 rounded-lg font-graphik-bold text-lg shadow-md hover:bg-[#163b7c] transition ml-0"
+                  >Get started</SignInButton>
+                </div>
+              </SignedOut>
             </div>
             <div className="flex gap-8">
               <div className="flex flex-col items-start">
@@ -163,14 +168,14 @@ export default function LandingPage() {
           </div>
           <div className="flex-1 flex justify-center">
             <img
-              src="/bill.jpg"
+              src="/preview.jpg"
               alt="BillQuant UI"
               className="rounded-2xl shadow-2xl border-4 border-white w-full max-w-lg"
             />
           </div>
         </div>
       </section>
-            <section className=" mx-auto py-20 font-graphik-light" id="how-it-works">
+            <section className=" mx-auto lg:py-20 font-graphik-light" id="how-it-works">
         <div className="flex flex-col md:flex-row items-center gap-12 justify-center">
         <nav className="hidden md:flex font-graphik-semibold mt-0 w-screen left-1/2 right-1/2 relative " style={{transform: 'translateX(-50%)'}}>
           <ul className="flex gap-20 w-full justify-center items-center from-primary to-primary-dark h-14 px-8 shadow-lg text-white">
@@ -181,69 +186,14 @@ export default function LandingPage() {
               <a href="#how-it-works" className="px-8 py-4 rounded-lg transition-all duration-200 text-primary h-full flex items-center text-lg hover:underline focus:underline">How it Works</a>
             </li>
             <li className="h-full flex items-centerrounded-lg">
-              <a href="#testimonials" className="px-8 py-4 rounded-lg transition-all duration-200 text-primary h-full flex items-center text-lg hover:underline focus:underline">Testimonials</a>
-            </li>
-            <li className="h-full flex items-centerrounded-lg">
               <a href="#contact" className="px-8 py-4 rounded-lg transition-all duration-200 text-primary h-full flex items-center text-lg hover:underline focus:underline">Contact</a>
             </li>
           </ul>
         </nav>
           </div>
           </section>
-
-
-      {/* AI Quotation & BIM-Inspired Benefits Horizontal Slider */}
-      <div className="relative overflow-hidden">
-        {/* Background fade transition */}
-        <div
-          key={sliderIndex}
-          className={`w-full absolute left-0 top-0 transition-opacity duration-[1200ms] z-0
-              ${animating ? 'opacity-0' : 'opacity-100'}`}
-          style={{
-            height: '540px', // constant height for background
-            background: `linear-gradient(rgba(248,250,252,0.52), rgba(248,250,252,0.82)), url(${sliderSections[sliderIndex].bg}) center/cover no-repeat`,
-            transition: 'background-image 1.2s',
-          }}
-        />
-        <section
-          className="relative w-full z-10"
-          style={{ minHeight: '540px', display: 'flex', alignItems: 'center' }}
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-center">
-              <div className="w-full max-w-2xl min-h-[220px] flex flex-col items-center justify-center relative overflow-hidden">
-                <div
-                  key={sliderIndex}
-                  className={`bg-white bg-opacity-95 rounded-2xl shadow-xl px-8 py-10 w-full transition-all duration-[1200ms]
-                      ${animating ? 'translate-y-16 opacity-0' : 'translate-y-0 opacity-100'}
-                    `}
-                  style={{
-                    willChange: 'transform, opacity',
-                  }}
-                >
-                  <h2 className="text-3xl font-bold text-text-primary mb-6 text-center">{sliderSections[sliderIndex].title}</h2>
-                  <div className="text-lg text-text-secondary text-center mb-6 text-justify">
-                    {sliderSections[sliderIndex].content}
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-row justify-center items-center gap-3 mt-2">
-                {sliderSections.map((_, idx) => (
-                  <button
-                    key={idx}
-                    className={`w-3 h-3 rounded-full border-2 ${sliderIndex === idx ? 'bg-[#1a4ca3] border-[#1a4ca3]' : 'bg-white border-[#1a4ca3]'} transition-all`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                    onClick={() => goTo(idx)}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
+                {/* Features Section */}
+      <section id="features" className="lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
@@ -252,23 +202,25 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {features.map((f) => (
-              <div key={f.title} className="bg-[#f5f7fa] rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow duration-200">
+              <div key={f.title} className="bg-[#f5f7fa] rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col h-full">
                 <h3 className="text-lg font-semibold text-[#071330] mb-3">{f.title}</h3>
                 <p className="text-[#444] mb-4">{f.desc}</p>
-                <img src={f.img} alt={f.title} className="rounded-lg shadow-md" />
+                <div className="mt-auto">
+                  <img src={f.img} alt={f.title} className="rounded-lg shadow-md" />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+            {/* Features Section */}
 
-      <section id="features" className="py-20 bg-white">
+      <section id="features" className="lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-text-primary mb-6">
-              Features for Construction Professionals
+              Features of software
             </h2>
           </div>
           <ul className="flex flex-row flex-wrap gap-x-8 gap-y-6 max-w-8xl mx-auto justify-center">
@@ -318,84 +270,54 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-surface-light" id="testimonials">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-text-primary mb-6">
-              Trusted by Construction Companies Across Europe
-            </h2>
-            <p className="text-xl text-text-secondary">
-              See how contractors are saving time and winning more projects
-            </p>
+      {/* AI Quotation & BIM-Inspired Benefits Horizontal Slider */}
+      <div className="relative overflow-hidden">
+        {/* Background fade transition */}
+        <div
+          key={sliderIndex}
+          className={`w-full absolute left-0 top-0 z-0 transition-all duration-[1200ms] ${animating ? 'opacity-0 blur-md' : 'opacity-100 blur-none'}`}
+          style={{
+            height: '540px',
+            background: `linear-gradient(rgba(248,250,252,0.52), rgba(248,250,252,0.82)), url(${sliderSections[sliderIndex].bg}) center/cover no-repeat`,
+            transition: 'background-image 1.2s, filter 1.2s, opacity 1.2s',
+          }}
+        />
+        <section
+          className="relative w-full z-10"
+          style={{ minHeight: '540px', display: 'flex', alignItems: 'center' }}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-2xl min-h-[220px] flex flex-col items-center justify-center relative overflow-hidden">
+                <div
+                  key={sliderIndex}
+                  className={`bg-white bg-opacity-95 rounded-2xl shadow-xl px-8 py-10 w-full transition-all duration-[1200ms]
+                      ${animating ? 'translate-y-16 opacity-0' : 'translate-y-0 opacity-100'}
+                    `}
+                  style={{
+                    willChange: 'transform, opacity',
+                  }}
+                >
+                  <h2 className="text-3xl font-bold text-text-primary mb-6 text-center">{sliderSections[sliderIndex].title}</h2>
+                  <div className="text-lg text-text-secondary text-center mb-6 text-justify">
+                    {sliderSections[sliderIndex].content}
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-row justify-center items-center gap-3 mt-2">
+                {sliderSections.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`w-3 h-3 rounded-full border-2 ${sliderIndex === idx ? 'bg-[#1a4ca3] border-[#1a4ca3]' : 'bg-white border-[#1a4ca3]'} transition-all`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                    onClick={() => goTo(idx)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="shadow-lg">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-current" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-text-secondary mb-4">
-                  "BillQuant reduced our quotation time from 8 hours to 5 minutes. The accuracy is incredible and our clients love the professional documents."
-                </p>
-                <div className="flex items-center">
-                  <div>
-                    <div className="font-semibold text-text-primary">Marco Bellini</div>
-                    <div className="text-sm text-text-secondary">Bellini Costruzioni, Milano</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-lg">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-current" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-text-secondary mb-4">
-                  "The pricing customization is perfect for our dynamic projects. We can compare prices automatically and always select the most risk-safe prices."
-                </p>
-                <div className="flex items-center">
-                  <div>
-                    <div className="font-semibold text-text-primary">Giuseppe Romano</div>
-                    <div className="text-sm text-text-secondary">Romano & Partners, Roma</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-lg">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-current" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-text-secondary mb-4">
-                  "Our win rate increased by 40% since we started using BillQuant. The professional presentation and accurate pricing give us a huge competitive advantage."
-                </p>
-                <div className="flex items-center">
-                  <div>
-                    <div className="font-semibold text-text-primary">Luca Moretti</div>
-                    <div className="text-sm text-text-secondary">Moretti Edilizia, Torino</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-primary-dark text-white" id="contact">
