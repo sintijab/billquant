@@ -1,6 +1,5 @@
 fastapi
 uvicorn
-moondream
 pillow
 python-multipart
 python-dotenv
@@ -11,4 +10,3 @@ torch
 sentence-transformers
 rank-bm25
 numpy
-ast

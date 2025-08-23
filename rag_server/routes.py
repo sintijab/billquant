@@ -3,7 +3,6 @@ from fastapi import Request
 
 from rag_txt_chunk_pipeline import embed_and_retrieve
 from rag_txt_chunk_pipeline_dei import embed_and_retrieve_dei
-import moondream as md
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
@@ -16,15 +15,6 @@ import os
 import re
 
 load_dotenv()
-
-# Lazy singleton for Moondream model
-_moondream_model = None
-def get_moondream_model():
-    global _moondream_model
-    if _moondream_model is None:
-        api_key = os.environ.get("MOONDREAM_API_KEY")
-        _moondream_model = md.vl(api_key=api_key)
-    return _moondream_model
 
 app = FastAPI()
 
