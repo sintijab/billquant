@@ -1,11 +1,15 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import type { RootState } from '@/store';
+
+
 // Thunk to fetch new activity data by price source for a specific row
 export const fetchActivityBySource = createAsyncThunk(
   'boq/fetchActivityBySource',
   async ({ activity, description, priceSource, rowIndex }: { activity: string, description: string, priceSource: string, rowIndex?: number }) => {
     let endpoint = '';
-    if (priceSource === 'dei') endpoint = 'https://billquant-rag-dei.onrender.com/search_dei';
+    if (priceSource === 'dei') endpoint = 'https://billquant-dei.onrender.com/search_dei';
     else if (priceSource === 'pat') endpoint = 'https://billquant-rag-pat.onrender.com/search_pat';
-    else if (priceSource === 'piemonte') endpoint = 'https://billquant-rag-piemonte.onrender.com/search_piemonte';
+    else if (priceSource === 'piemonte') endpoint = 'https://billquant-piemonte.onrender.com/search_piemonte';
     else throw new Error('Invalid price source');
     const fd = new FormData();
     fd.append('query', description);
@@ -16,8 +20,6 @@ export const fetchActivityBySource = createAsyncThunk(
     return { activity, priceSource, data: await resp.json(), rowIndex };
   }
 );
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { RootState } from '@/store';
 
 // Helper to fetch category data (API call)
 async function fetchCategoryDataApi(activity: string) {
@@ -75,7 +77,7 @@ export const fetchActivityCategoryDei = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`https://billquant-rag-dei.onrender.com/search_dei`, {
+      const resp = await fetch(`https://billquant-dei.onrender.com/search_dei`, {
         method: 'POST',
         body: fd,
       });
@@ -187,7 +189,7 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`https://billquant-rag-piemonte.onrender.com/search_piemonte`, {
+      const resp = await fetch(`https://billquant-piemonte.onrender.com/search_piemonte`, {
         method: 'POST',
         body: fd,
       });
