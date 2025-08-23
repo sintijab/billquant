@@ -1,21 +1,15 @@
-from fastapi.responses import FileResponse
 # --- New endpoint for DOCX generation ---
 from fastapi import Request
 
 from rag_txt_chunk_pipeline import embed_and_retrieve
 from rag_txt_chunk_pipeline_dei import embed_and_retrieve_dei
 import moondream as md
-from fastapi import FastAPI, UploadFile, File
-from pydantic import BaseModel
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from fastapi import Query, Body
-import json
 from mistral_utils import answer_question
 from mistral_general import find_categories
-
-from mistral_price_quotation import create_quotation
-
 from rag_training import rag_query
 from fastapi import Form
 import os
