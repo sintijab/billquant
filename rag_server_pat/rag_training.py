@@ -24,15 +24,21 @@ def is_footer(line):
 
 # --- Embedding and Corpus Loader ---
 
+
 # Global variables for model and data
 embedder = None
 chunk_embeddings = None
 corpus = None
 
-def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chunks.txt"):
-    global embedder, chunk_embeddings, corpus
+def get_embedder():
+    global embedder
     if embedder is None:
+        from sentence_transformers import SentenceTransformer
         embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+    return embedder
+
+def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chunks.txt"):
+    global chunk_embeddings, corpus
     if os.path.exists(embeddings_path):
         chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
     else:
@@ -45,9 +51,6 @@ def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chun
     else:
         corpus = None
         raise RuntimeError(f"Corpus file '{corpus_path}' not found. Please generate it before querying.")
-
-# Load embeddings and model at module load (startup)
-load_embeddings()
 
 def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chunks.txt"):
     global embedder, chunk_embeddings, corpus
@@ -78,7 +81,8 @@ def bm25_keyword_search(query, chunks, top_k=3):
 
 def hybrid_retrieve(query, top_k=1, alpha=0.1):
     # Semantic search
-    query_emb = embedder.encode(query, convert_to_tensor=True)
+    embedder_local = get_embedder()
+    query_emb = embedder_local.encode(query, convert_to_tensor=True)
     semantic_hits = util.semantic_search(query_emb, chunk_embeddings, top_k=len(corpus))[0]
     semantic_scores = {hit['corpus_id']: hit['score'] for hit in semantic_hits}
 
@@ -333,14 +337,15 @@ def load_txt_chunks(txt_path):
 
 def retrieve(query, top_k=1):
     print("[Retrieval] Encoding query and searching for relevant chunks...")
-    query_emb = embedder.encode(query, convert_to_tensor=True)
+    embedder_local = get_embedder()
+    query_emb = embedder_local.encode(query, convert_to_tensor=True)
     hits = util.semantic_search(query_emb, chunk_embeddings, top_k=top_k)[0]
     print(f"[Retrieval] Top {top_k} chunks retrieved.")
     return [corpus[hit['corpus_id']] for hit in hits]
 
 def rag_query(query):
-    global embedder, chunk_embeddings, corpus
-    if embedder is None or chunk_embeddings is None or corpus is None:
+    global chunk_embeddings, corpus
+    if chunk_embeddings is None or corpus is None:
         try:
             load_embeddings()
         except Exception as e:
@@ -444,13 +449,13 @@ if __name__ == "__main__":
     chunks = load_txt_chunks(txt_file)
     corpus = [chunk_to_text(chunk) for chunk in chunks]
     # --- Embedding Retriever ---
-    embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
+    embedder_local = get_embedder()
     if os.path.exists("chunk_embeddings_pat.pt"):
         print("[Main] Loading chunk embeddings from disk...")
         chunk_embeddings = torch.load("chunk_embeddings_pat.pt", map_location='cpu')
     else:
         print("[Main] Encoding chunks for retrieval...")
-        chunk_embeddings = embedder.encode(corpus, convert_to_tensor=True, show_progress_bar=True)
+        chunk_embeddings = embedder_local.encode(corpus, convert_to_tensor=True, show_progress_bar=True)
         torch.save(chunk_embeddings, "chunk_embeddings_pat.pt")
         print("[Main] Chunk embeddings saved to disk.")
     print("[Main] Chunk embeddings ready.")
