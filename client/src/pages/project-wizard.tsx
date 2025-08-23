@@ -8,6 +8,7 @@ import ActivitiesOverview from "@/components/wizard/activities-overview";
 import BOQPricing from "@/components/wizard/boq-pricing";
 import DocumentGeneration from "@/components/wizard/document-generation";
 import { ProjectWizardData } from "@/lib/types";
+import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 
 const INITIAL_DATA: ProjectWizardData = {
   projectType: "site_visit",
@@ -112,17 +113,29 @@ export default function ProjectWizard() {
         />
         <div className="absolute inset-0 bg-white opacity-80" />
       </div>
-      <div className="relative z-10">
+      <div className="relative z-10"> <SignedIn>
         <Navigation />
         <div className="py-8">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <StepIndicator currentStep={currentStep} />
           </div>
         </div>
-        <div className="pb-20">
+        <div className="pb-10">
           {renderStep()}
+          <div className="flex flex-col items-center justify-center mt-12 mb-6 text-xs text-gray-500">
+            <div className="text-base">All rights reserved by European Management.</div>
+            <div className="flex items-center justify-center mt-2">
+              <span>AI software developed with</span>
+              <a href="https://cofun.digital/" target="_blank" className="block" rel="noopener noreferrer">
+                <img src="/CO-FUN_logo.png" alt="CO-FUN Logo" className="inline-block h-2 align-middle ml-2" />
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
+      </SignedIn>
+        <SignedOut>
+          <RedirectToSignIn />
+        </SignedOut></div>
     </div>
   );
 }

@@ -10,7 +10,6 @@ import {
 import { ProjectWizardData } from "@/lib/types";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte, fetchCategoryData, fetchActivityBySource, closeModalCompare } from '@/features/boqSlice';
-import { fetchMistralPriceQuotation } from '@/features/priceQuotationSlice';
 import CompareActivitiesPanel from "./compare-activities-panel";
 import { selectAllTableItems } from '@/features/boqSelectors';
 
@@ -228,26 +227,14 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
               className="text-text-secondary hover:text-text-primary"
               data-testid="button-back"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Activities
             </Button>
             <Button
-              onClick={() => {
-                // Compose payload for document generation
-                const worksTimeline = siteWorks.GeneralTimeline?.Activities?.map((a: any) => a.Activity).join(', ') || '';
-                const siteVisitDescription = (siteWorks.siteVisitDescription || '');
-                const patItems = boq.categories || {};
-                const billOfQuantities = JSON.stringify(patItems, null, 2);
-                const priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitDescription}. Bill of quantities is following: ${billOfQuantities}.`;
-                if (priceQuotationPayload) {
-                  dispatch(fetchMistralPriceQuotation(priceQuotationPayload));
-                }
-                onNext();
-              }}
+              onClick={onNext}
               className="btn-primary"
               data-testid="button-continue"
             >
-              Create Documents
+              Create Price Quote
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>

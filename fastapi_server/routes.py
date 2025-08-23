@@ -251,7 +251,9 @@ import os
 
 
 
+
 from generate_price_quotation import generate_price_quotation
+from generate_internal_costs import generate_internal_costs_doc
 
 @app.post("/generate_price_quotation_docx")
 async def generate_price_quotation_docx(request: Request):
@@ -274,4 +276,23 @@ async def generate_price_quotation_docx(request: Request):
         output_path = output
     if not output_path or not isinstance(output_path, str) or not os.path.exists(output_path):
         return {"error": "Document not generated or file not found", "output_path": output_path}
-    return FileResponse(output_path, filename="Price_Quotation_Report.docx", media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+    from datetime import datetime
+    dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"Price_Quotation_{dt_str}.docx"
+    return FileResponse(output_path, filename=filename, media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+
+
+# --- New endpoint for internal costs DOCX generation ---
+@app.post("/generate_internal_costs_docx")
+async def generate_internal_costs_docx(request: Request):
+    data = await request.json()
+    try:
+        output_path = generate_internal_costs_doc(data)
+    except Exception as e:
+        return {"error": f"Failed to generate internal costs document: {str(e)}"}
+    if not output_path or not isinstance(output_path, str) or not os.path.exists(output_path):
+        return {"error": "Document not generated or file not found", "output_path": output_path}
+    from datetime import datetime
+    dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"Internal_Costs_{dt_str}.docx"
+    return FileResponse(output_path, filename=filename, media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")

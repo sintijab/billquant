@@ -144,8 +144,27 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
 
   const handleDownloadInternalCosts = async () => {
     setIsGenerating(true);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log("Downloading internal costs");
+    const payload = {
+      ...data, // projectSetup
+      priceQuotation: priceQuotationData?.price_quotation,
+      internalCosts: priceQuotationData?.internal_costs,
+    };
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_internal_costs_docx`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (response.ok) {
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Internal_Costs_Report.docx';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    }
     setIsGenerating(false);
   };
 
