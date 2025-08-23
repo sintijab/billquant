@@ -227,7 +227,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Card className="shadow-lg animate-fade-in">
-        <CardContent className="p-8">
+        <CardContent className="p-2 lg:p-8">
           {/* Project Summary - now at the top and centered */}
           <div className="w-full flex flex-col items-center justify-center">
             <div className="bg-success-green/10 rounded-xl flex flex-col items-center p-6 w-full max-w-xl">
