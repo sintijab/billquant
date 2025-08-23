@@ -145,33 +145,23 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                   </Label>
                 </div>
 
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="upload_boq" id="upload_boq" className="sr-only" />
+                <div className="flex items-center space-x-2 opacity-50 pointer-events-none select-none">
+                  <RadioGroupItem value="upload_boq" id="upload_boq" className="sr-only" disabled />
                   <Label
                     htmlFor="upload_boq"
-                    className={`flex-1 cursor-pointer border rounded-xl p-6 transition-all hover:shadow-lg ${
-                      data.projectType === "upload_boq"
-                        ? "border-primary bg-primary/5"
-                        : "border-gray-300 hover:border-primary bg-white"
-                    }`}
+                    className={`flex-1 border rounded-xl p-6 bg-gray-100 border-gray-300 cursor-not-allowed`}
                     data-testid="option-upload-boq"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                        data.projectType === "upload_boq" ? "bg-primary text-white" : "bg-gray-100 text-gray-600"
-                      }`}>
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-gray-100 text-gray-400">
                         <Upload className="h-6 w-6" />
                       </div>
                       <div className="flex-1">
                         <h4 className="text-lg font-semibold text-text-primary mb-2">Upload Bill of Quantities</h4>
                         <p className="text-text-secondary text-sm">Import existing BOQ file for processing</p>
                       </div>
-                      <div className={`w-6 h-6 border-2 rounded-full flex items-center justify-center ${
-                        data.projectType === "upload_boq" ? "border-primary" : "border-gray-300"
-                      }`}>
-                        {data.projectType === "upload_boq" && (
-                          <div className="w-3 h-3 bg-primary rounded-full"></div>
-                        )}
+                      <div className="w-6 h-6 border-2 rounded-full flex items-center justify-center border-gray-300">
+                        {/* Disabled, so no inner dot */}
                       </div>
                     </div>
                   </Label>

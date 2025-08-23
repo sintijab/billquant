@@ -6,12 +6,12 @@ import { useSelector } from "react-redux";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  ArrowLeft, 
-  Plus, 
-  Download, 
-  Mail, 
-  Edit, 
+import {
+  ArrowLeft,
+  Plus,
+  Download,
+  Mail,
+  Edit,
   Eye,
   CheckCircle,
   Save,
@@ -43,7 +43,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   const sampleMarkup = 691.20;
   const sampleTotal = 2666.06;
   const mainActivities = useSelector((state: any) => state.siteWorks.GeneralTimeline.Activities)
-  
+
   const worksTimeline = useSelector(selectWorksDescription);
   const siteVisitDescription = useSelector(selectSiteVisitDescription);
   const billOfQuantities = useSelector(selectAllPatItemsStructured);
@@ -51,9 +51,10 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   const client = useSelector(selectProjectSetup);
   const patItemsStr = JSON.stringify(patItems, null, 2); // for pretty-print, or just JSON.stringify(patItems)
   const priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitDescription}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity is following: ${patItemsStr}`;
-  
+
   // Get LLM response from priceQuotation slice
   const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
+  const priceQuotationLoading = useSelector((state: any) => state.priceQuotation.loading);
   const priceQuotation = priceQuotationData?.price_quotation || [];
   const internalCosts = priceQuotationData?.internal_costs || {};
   // Compose documentData from LLM response
@@ -69,10 +70,13 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
       totalCost: priceQuotation.reduce((sum: number, item: any) => sum + (parseFloat(item.summary?.totalPriceWithVAT || 0) || 0), 0)
     },
     activities: priceQuotation.map((item: any) => ({ categoryName: item.activityName || item.activity, total: parseFloat(item.summary?.totalPriceWithVAT || 0) || 0 })),
-    timeline: mainActivities.map((activity: any) => ({ phase: activity.Activity, duration: `Day ${activity.Starting} - ${activity.Finishing}` })),
-  terms: (priceQuotationData?.terms && Array.isArray(priceQuotationData.terms)) ? priceQuotationData.terms : [],
+    timeline: (priceQuotationData?.internal_costs?.projectSchedule || []).map((activity: any) => ({
+      phase: activity.activity,
+      duration: `Day ${activity.starting} - ${activity.finishing}`
+    })),
+    terms: (priceQuotationData?.terms && Array.isArray(priceQuotationData.terms)) ? priceQuotationData.terms : [],
   };
-  console.log(data)
+
   // Compose internalCostData from LLM response
   const internalCostData: InternalCostData = {
     costBreakdown: {
@@ -93,7 +97,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
       duration: person.duration
     }))
   };
-    // Handler for manual document generation
+  // Handler for manual document generation
   const handleGenerateDocuments = () => {
     if (priceQuotationPayload) {
       dispatch(fetchMistralPriceQuotation(priceQuotationPayload));
@@ -101,7 +105,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   };
   // Auto-generate on mount if not in Redux
   useEffect(() => {
-    if (!priceQuotationData?.priceQuotation) {
+    if (!priceQuotationData?.price_quotation) {
       handleGenerateDocuments();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -136,9 +140,32 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
 
   const handleEmailQuotation = async () => {
     setIsGenerating(true);
-    // Simulate email sending
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log("Sending quotation via email");
+    // Generate and download the quotation DOCX
+    const payload = {
+      ...data, // projectSetup
+      priceQuotation: priceQuotationData?.price_quotation,
+      internalCosts: priceQuotationData?.internal_costs,
+    };
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (response.ok) {
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Price_Quotation_Report.docx';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+      // Open email client with subject and body
+      const subject = encodeURIComponent('Price Quotation');
+      const body = encodeURIComponent('Please find attached the Price Quotation document.\n\n(If the file is not attached automatically, please attach the downloaded Price_Quotation_Report.docx file to this email.)');
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
     setIsGenerating(false);
   };
 
@@ -170,29 +197,31 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
 
   const handleEmailMaterialsList = async () => {
     setIsGenerating(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    console.log("Emailing materials list");
+    // Compose email subject
+    const subject = encodeURIComponent("Materials to order");
+    // Compose bullet list body from priceQuotationData.materials
+    const materials = priceQuotationData?.internal_costs?.materials || [];
+    let body = "";
+    if (materials.length > 0) {
+      body += `Materials to order:%0D%0A%0D%0A`;
+      materials.forEach((mat: any, idx: number) => {
+        body += `• Material ${idx + 1}:%0D%0A`;
+        body += `  Name: ${mat.name || ''}%0D%0A`;
+        body += `  Quantity: ${mat.quantity || ''}%0D%0A`;
+        body += `  Unit: ${mat.unity || ''}%0D%0A`;
+        body += `  Price per unit: ${mat.price_per_unit || ''}%0D%0A`;
+        body += `  Provider price: ${mat.price_of_unity_provider || ''}%0D%0A`;
+        body += `  Company cost (EUR): ${mat.company_cost_eur || ''}%0D%0A`;
+        body += `  Markup (%): ${mat.markup_percentage || ''}%0D%0A`;
+        body += `  Final cost for client (EUR): ${mat.final_cost_for_client_eur || ''}%0D%0A%0D%0A`;
+      });
+    } else {
+      body = "No materials to order.";
+    }
+    // Compose mailto link
+    const mailto = `mailto:?subject=${subject}&body=${body}`;
+    window.location.href = mailto;
     setIsGenerating(false);
-  };
-
-  const handleEditQuotation = () => {
-    console.log("Edit quotation");
-  };
-
-  const handlePreviewQuotation = () => {
-    console.log("Preview quotation");
-  };
-
-  const handleEditInternalCosts = () => {
-    console.log("Edit internal costs");
-  };
-
-  const handlePreviewInternalCosts = () => {
-    console.log("Preview internal costs");
-  };
-
-  const handleSaveProject = () => {
-    console.log("Saving project");
   };
 
   return (
@@ -214,14 +243,14 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
             </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
+
             {/* Price Quotation Document */}
             <div className="border border-gray-200 rounded-xl p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-text-primary flex items-center">
                   Price Quotation
                 </h3>
-                <div className="flex space-x-2">
+                {/* <div className="flex space-x-2">
                   <Button
                     variant="ghost"
                     size="sm"
@@ -240,7 +269,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                   >
                     <Eye className="h-4 w-4" />
                   </Button>
-                </div>
+                </div> */}
               </div>
 
               {/* Document Preview */}
@@ -256,7 +285,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     </div>
                     <div className="flex-shrink-0 flex flex-col items-end">
                       {data?.logo && (
-                        <img src={data.logo} alt="Company Logo" className="h-14 mb-2" style={{objectFit: 'contain', maxWidth: '140px'}} />
+                        <img src={data.logo} alt="Company Logo" className="h-14 mb-2" style={{ objectFit: 'contain', maxWidth: '140px' }} />
                       )}
                     </div>
                   </div>
@@ -299,7 +328,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     </div>
                     <div className="space-y-1 text-xs">
                       {documentData.timeline.map((phase, index) => (
-                          <div key={index}>{phase.phase}</div>
+                        <div key={index}>{phase.phase}</div>
                       ))}
                     </div>
                   </div>
@@ -310,11 +339,11 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     <div className="text-[10px] space-y-1">
                       {(documentData.terms && documentData.terms.length > 0)
                         ? documentData.terms.map((term, index) => (
-                            <div key={index}>• {term}</div>
-                          ))
+                          <div key={index}>• {term}</div>
+                        ))
                         : (
-                            <div className="italic text-text-secondary">Nessuna condizione disponibile.</div>
-                          )}
+                          <div className="italic text-text-secondary">Nessuna condizione disponibile.</div>
+                        )}
                     </div>
                   </div>
                   {/* Signature below Terms & Conditions */}
@@ -334,12 +363,12 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                   className="flex-1 text-white py-2 rounded-full bg-[#f9a825] text-[#071330] px-8 font-graphik-bold text-xl shadow-md hover:bg-[#ffd95a] text-white  transition"
                   data-testid="button-download-quotation"
                 >
-                      <Download className="h-6 w-6 mr-2" />
+                  <Download className="h-6 w-6 mr-2" />
                 </Button>
                 <Button
                   onClick={handleEmailQuotation}
-                  disabled={isGenerating}
-                  className="flex-1 border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white py-3 rounded-lg font-semibold transition-all"
+                  disabled={true}
+                  className="flex-1 border-2 border-primary text-primary bg-transparent py-3 rounded-lg font-semibold transition-all opacity-50 cursor-not-allowed"
                   data-testid="button-email-quotation"
                 >
                   <Mail className="h-4 w-4 mr-2" />
@@ -354,7 +383,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                 <h3 className="text-xl font-semibold text-text-primary flex items-center">
                   Internal Costs
                 </h3>
-                <div className="flex space-x-2">
+                {/* <div className="flex space-x-2">
                   <Button
                     variant="ghost"
                     size="sm"
@@ -373,7 +402,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                   >
                     <Eye className="h-4 w-4" />
                   </Button>
-                </div>
+                </div> */}
               </div>
 
               {/* Internal Costs Preview */}
@@ -448,7 +477,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     </div>
                     <div className="bg-white p-2 rounded border">
                       {Array.isArray(internalCosts?.projectSchedule) && internalCosts.projectSchedule.length > 0 ? (
-                         <div className="w-full flex flex-col gap-1">
+                        <div className="w-full flex flex-col gap-1">
                           {/* Calculate min/max for timeline */}
                           {(() => {
                             const minStart = Math.min(...internalCosts.projectSchedule.map((a: any) => parseInt(a.starting)));
@@ -462,10 +491,10 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                               const percentOffset = (offset / totalSpan) * 100;
                               const percentWidth = (duration / totalSpan) * 100;
                               return (
-                                 <div key={idx} className="flex items-center gap-2 mb-0.5">
+                                <div key={idx} className="flex items-center gap-2 mb-0.5">
                                   <span className="font-medium text-text-primary text-[10px] whitespace-nowrap min-w-[80px]">{phase.activity}</span>
-                                   <div className="flex-1">
-                                     <div className="relative h-2.5 rounded-full overflow-hidden" style={{ background: '#f3f4f6' }}>
+                                  <div className="flex-1">
+                                    <div className="relative h-2.5 rounded-full overflow-hidden" style={{ background: '#f3f4f6' }}>
                                       <div
                                         className="absolute left-0 top-0 h-full rounded-full"
                                         style={{
@@ -503,7 +532,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                   className="flex-1 text-white py-2 rounded-full bg-[#f9a825] text-[#071330] px-8 font-graphik-bold text-xl shadow-md hover:bg-[#ffd95a] text-white  transition"
                   data-testid="button-download-quotation"
                 >
-                      <Download className="h-6 w-6 mr-2" />
+                  <Download className="h-6 w-6 mr-2" />
                 </Button>
                 <Button
                   onClick={handleEmailMaterialsList}
@@ -520,16 +549,26 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
 
 
           {/* Final Actions */}
-          <div className="flex justify-between mt-8">
-            <Button
-              variant="ghost"
-              onClick={onPrevious}
-              className="text-text-secondary hover:text-text-primary"
-              data-testid="button-back"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Pricing
-            </Button>
+          <div className="flex flex-col gap-4 mt-8">
+            <div className="flex justify-between">
+              <Button
+                variant="ghost"
+                onClick={onPrevious}
+                className="text-text-secondary hover:text-text-primary"
+                data-testid="button-back"
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Pricing
+              </Button>
+              <Button
+                onClick={handleGenerateDocuments}
+                disabled={priceQuotationLoading}
+                className="bg-primary text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-primary-dark transition"
+                data-testid="button-regenerate-quotation"
+              >
+                {priceQuotationLoading ? 'Regenerating...' : 'Regenerate Quotation'}
+              </Button>
+            </div>
           </div>
         </CardContent>
       </Card>

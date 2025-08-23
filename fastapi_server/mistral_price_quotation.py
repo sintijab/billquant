@@ -30,30 +30,30 @@ boq = [
             {
                 "code": "B.39.05.0052.010",
                 "description": "VERNICIATURA DI STRUTTURE E MANUFATTI ZINCATI - CLASSE C3 fuori opera: strutture e manufatti con elementi reticolari kg 1",
-                "formula": "",
+                "formula": "0.2",
                 "unit": "kg",
-                "quantity": "None",
-                "price": "None",
+                "quantity": "3",
+                "price": "16.43",
                 "total": "None"
             },
             {
                 "code": "Z.55.85.0052.010",
                 "description": "VERNICIATURA DI STRUTTURE E MANUFATTI ZINCATI - CLASSE C3 fuori opera: strutture e manufatti con elementi reticolari (Costo materiali fc - Costo materiali fc) kg 1,00 1,19 1,190 Spese generali del 15% 0,179 Utile dell'Impresa del 10% 0,137 Per arrotondamento 0,004",
-                "formula": "",
+                "formula": "2",
                 "unit": "kg",
-                "quantity": "None",
-                "price": "None",
-                "total": "None"
+                "quantity": "3",
+                "price": "16.43",
+                "total": "72"
             }
         ],
         "summary": {
-            "totalPrice": "",
-            "totalPriceWithVAT": "",
+            "totalPrice": "4210",
+            "totalPriceWithVAT": "6201",
             "breakdown": {
-                "materials": "None",
-                "labor": "None",
-                "subcontractors": "None",
-                "equipment": "None"
+                "materials": "2340",
+                "labor": "1204",
+                "subcontractors": "2345",
+                "equipment": "900"
             }
         },
         "activityName": "Demolizione di finestre esistenti"
