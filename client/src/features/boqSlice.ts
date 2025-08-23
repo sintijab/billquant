@@ -3,13 +3,13 @@ export const fetchActivityBySource = createAsyncThunk(
   'boq/fetchActivityBySource',
   async ({ activity, description, priceSource, rowIndex }: { activity: string, description: string, priceSource: string, rowIndex?: number }) => {
     let endpoint = '';
-    if (priceSource === 'dei') endpoint = '/search_dei';
-    else if (priceSource === 'pat') endpoint = '/search_pat';
-    else if (priceSource === 'piemonte') endpoint = '/search_piemonte';
+    if (priceSource === 'dei') endpoint = 'https://billquant-rag-dei.onrender.com/search_dei';
+    else if (priceSource === 'pat') endpoint = 'https://billquant-rag-pat.onrender.com/search_pat';
+    else if (priceSource === 'piemonte') endpoint = 'https://billquant-rag-piemonte.onrender.com/search_piemonte';
     else throw new Error('Invalid price source');
     const fd = new FormData();
     fd.append('query', description);
-    const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}${endpoint}`, {
+    const resp = await fetch(endpoint, {
       method: 'POST',
       body: fd,
     });
@@ -75,7 +75,7 @@ export const fetchActivityCategoryDei = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_dei`, {
+      const resp = await fetch(`https://billquant-rag-dei.onrender.com/search_dei`, {
         method: 'POST',
         body: fd,
       });
@@ -131,7 +131,7 @@ export const fetchActivityCategoryPat = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_pat`, {
+      const resp = await fetch(`https://billquant-rag-pat.onrender.com/search_pat`, {
         method: 'POST',
         body: fd,
       });
@@ -187,7 +187,7 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/search_piemonte`, {
+      const resp = await fetch(`https://billquant-rag-piemonte.onrender.com/search_piemonte`, {
         method: 'POST',
         body: fd,
       });
