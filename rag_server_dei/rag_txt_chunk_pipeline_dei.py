@@ -1,6 +1,16 @@
+embedder_global = None
+def get_embedder():
+    global embedder_global
+    if embedder_global is None:
+        from sentence_transformers import SentenceTransformer
+        embedder_global = SentenceTransformer('./paraphrase-multilingual-MiniLM-L12-v2')
+    return embedder_global
+from sentence_transformers import util
 from rank_bm25 import BM25Okapi
-def hybrid_retrieve(query, all_chunks, chunk_embeddings, embedder, top_k=3, alpha=0.7):
+def hybrid_retrieve(query, all_chunks, chunk_embeddings, embedder=None, top_k=3, alpha=0.7):
     # Semantic search
+    if embedder is None:
+        embedder = get_embedder()
     query_emb = embedder.encode(query, convert_to_tensor=True)
     semantic_hits = util.semantic_search(query_emb, chunk_embeddings, top_k=len(all_chunks))[0]
     semantic_scores = {hit['corpus_id']: hit['score'] for hit in semantic_hits}
@@ -49,7 +59,7 @@ def embed_and_retrieve_dei(query, all_chunks_file="DEI_chunks.txt", top_k=3, emb
             return q  # fallback: identity
     with open(all_chunks_file, "r", encoding="utf-8") as f:
         all_chunks = [c.strip() for c in f if c.strip()]
-    embedder = SentenceTransformer('./paraphrase-multilingual-MiniLM-L12-v2')
+    embedder = get_embedder()
     if os.path.exists(embeddings_path):
         chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
         if len(chunk_embeddings) != len(all_chunks):
