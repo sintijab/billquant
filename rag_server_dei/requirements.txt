@@ -6,3 +6,6 @@ sentence-transformers
 rank-bm25
 numpy
 python-multipart
+pillow
+langchain
+langchain-mistralai
