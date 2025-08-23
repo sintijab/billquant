@@ -11,3 +11,5 @@ pydantic
 torch
 sentence-transformers
 rank-bm25
+docxtpl
+docx

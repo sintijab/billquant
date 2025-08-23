@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { ProjectWizardData, DocumentData, InternalCostData } from "@/lib/types";
 import { selectWorksDescription, selectSiteVisitDescription, selectAllPatItemsStructured } from "@/features/priceQuotationSelectors";
+import { selectProjectSetup } from "@/features/wizardSlice";
 
 
 interface DocumentGenerationProps {
@@ -47,31 +48,14 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   const siteVisitDescription = useSelector(selectSiteVisitDescription);
   const billOfQuantities = useSelector(selectAllPatItemsStructured);
   const patItems = useSelector(selectAllPatItemsStructured);
+  const client = useSelector(selectProjectSetup);
   const patItemsStr = JSON.stringify(patItems, null, 2); // for pretty-print, or just JSON.stringify(patItems)
   const priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitDescription}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity is following: ${patItemsStr}`;
-
-
-  // Handler for manual document generation
-  const handleGenerateDocuments = () => {
-    if (priceQuotationPayload) {
-      dispatch(fetchMistralPriceQuotation(priceQuotationPayload));
-    }
-  };
-
-  // Auto-generate on mount if not in Redux
-  useEffect(() => {
-    if (!priceQuotationData) {
-      handleGenerateDocuments();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   
   // Get LLM response from priceQuotation slice
   const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
   const priceQuotation = priceQuotationData?.price_quotation || [];
   const internalCosts = priceQuotationData?.internal_costs || {};
-  console.log(priceQuotationData)
   // Compose documentData from LLM response
   const documentData: DocumentData = {
     client: {
@@ -88,7 +72,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     timeline: mainActivities.map((activity: any) => ({ phase: activity.Activity, duration: `Day ${activity.Starting} - ${activity.Finishing}` })),
   terms: (priceQuotationData?.terms && Array.isArray(priceQuotationData.terms)) ? priceQuotationData.terms : [],
   };
-
+  console.log(data)
   // Compose internalCostData from LLM response
   const internalCostData: InternalCostData = {
     costBreakdown: {
@@ -109,11 +93,44 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
       duration: person.duration
     }))
   };
+    // Handler for manual document generation
+  const handleGenerateDocuments = () => {
+    if (priceQuotationPayload) {
+      dispatch(fetchMistralPriceQuotation(priceQuotationPayload));
+    }
+  };
+  // Auto-generate on mount if not in Redux
+  useEffect(() => {
+    if (!priceQuotationData?.priceQuotation) {
+      handleGenerateDocuments();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
 
   const handleDownloadQuotation = async () => {
     setIsGenerating(true);
-    // Simulate document generation
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    const payload = {
+      ...data, // projectSetup
+      priceQuotation: priceQuotationData?.price_quotation,
+      internalCosts: priceQuotationData?.internal_costs,
+    };
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (response.ok) {
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Price_Quotation_Report.docx';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    }
     setIsGenerating(false);
   };
 
