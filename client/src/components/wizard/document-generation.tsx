@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "@/store";
+import { fetchMistralPriceQuotation } from "@/features/priceQuotationSlice";
 import { useSelector } from "react-redux";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,11 +13,8 @@ import {
   Mail, 
   Edit, 
   Eye,
-  FileText,
-  Calculator,
   CheckCircle,
   Save,
-  Building2,
   Calendar,
   BarChart3,
   Users,
@@ -22,6 +22,7 @@ import {
   Clock
 } from "lucide-react";
 import { ProjectWizardData, DocumentData, InternalCostData } from "@/lib/types";
+import { selectWorksDescription, selectSiteVisitDescription, selectAllPatItemsStructured } from "@/features/priceQuotationSelectors";
 
 
 interface DocumentGenerationProps {
@@ -32,6 +33,7 @@ interface DocumentGenerationProps {
 
 export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject }: DocumentGenerationProps) {
   const [isGenerating, setIsGenerating] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
   // Load wizard/project data from Redux store (persisted)
   const data = useSelector((state: any) => state.wizard.projectSetup);
 
@@ -40,8 +42,37 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   const sampleMarkup = 691.20;
   const sampleTotal = 2666.06;
   const mainActivities = useSelector((state: any) => state.siteWorks.GeneralTimeline.Activities)
-  // Generate document data from project data
-  console.log(mainActivities)
+  
+  const worksTimeline = useSelector(selectWorksDescription);
+  const siteVisitDescription = useSelector(selectSiteVisitDescription);
+  const billOfQuantities = useSelector(selectAllPatItemsStructured);
+  const patItems = useSelector(selectAllPatItemsStructured);
+  const patItemsStr = JSON.stringify(patItems, null, 2); // for pretty-print, or just JSON.stringify(patItems)
+  const priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitDescription}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity is following: ${patItemsStr}`;
+
+
+  // Handler for manual document generation
+  const handleGenerateDocuments = () => {
+    if (priceQuotationPayload) {
+      dispatch(fetchMistralPriceQuotation(priceQuotationPayload));
+    }
+  };
+
+  // Auto-generate on mount if not in Redux
+  useEffect(() => {
+    if (!priceQuotationData) {
+      handleGenerateDocuments();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  
+  // Get LLM response from priceQuotation slice
+  const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
+  const priceQuotation = priceQuotationData?.price_quotation || [];
+  const internalCosts = priceQuotationData?.internal_costs || {};
+  console.log(priceQuotationData)
+  // Compose documentData from LLM response
   const documentData: DocumentData = {
     client: {
       name: `${data?.clientFirstName || ''} ${data?.clientSurname || ''}`.trim(),
@@ -51,49 +82,38 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     project: {
       address: data?.siteAddress || '',
       date: new Date().toLocaleDateString('it-IT'),
-      totalCost: sampleTotal
+      totalCost: priceQuotation.reduce((sum: number, item: any) => sum + (parseFloat(item.summary?.totalPriceWithVAT || 0) || 0), 0)
     },
-    activities: mainActivities.map((activity: any) => ({ categoryName: activity.Activity, total: 123 })),
+    activities: priceQuotation.map((item: any) => ({ categoryName: item.activityName || item.activity, total: parseFloat(item.summary?.totalPriceWithVAT || 0) || 0 })),
     timeline: mainActivities.map((activity: any) => ({ phase: activity.Activity, duration: `Day ${activity.Starting} - ${activity.Finishing}` })),
-    terms: [
-      "I prezzi indicati includono tutti gli attrezzi, materiali e oneri di smaltimento necessari per completare il lavoro a regola d’arte, secondo le misure del Vostro capitolato.",
-      "In caso di esecuzione, sarà redatta una contabilità a consuntivo, verificata con la Direzione Lavori, basata sui prezzi unitari indicati e sulle misure effettivamente rilevate.",
-      "Eventuali lavorazioni extra o variazioni non previste nel presente capitolato saranno quotate a parte.",
-      "L’impresa garantirà l’assistenza tecnica e l’uso di materiali conformi alle normative vigenti.",
-      "A Vs carico: la fornitura di acqua, uno spazio dove riporre i materiali e gli attrezzi, eventuale occupazione suolo pubblico, autorizzazioni, iva.",
-      "Modalità di pagamento: acconto 40% alla conferma d’ordine e 30% alla conclusione.",
-      "Ringraziando per l’attenzione, porgiamo cordiali saluti."
-    ]
+  terms: (priceQuotationData?.terms && Array.isArray(priceQuotationData.terms)) ? priceQuotationData.terms : [],
   };
 
+  // Compose internalCostData from LLM response
   const internalCostData: InternalCostData = {
     costBreakdown: {
-      materials: 1200.00,
-      labor: 480.00,
-      subcontractors: 294.86,
-      equipment: 150.00,
-      overhead: 531.22,
-      profit: 265.61
+      materials: parseFloat(internalCosts?.costBreakdown?.materials || 0),
+      labor: parseFloat(internalCosts?.costBreakdown?.labor || 0),
+      subcontractors: parseFloat(internalCosts?.costBreakdown?.subcontractors || 0),
+      equipment: parseFloat(internalCosts?.costBreakdown?.equipment || 0),
+      overhead: parseFloat(internalCosts?.costBreakdown?.overhead || 0),
+      profit: parseFloat(internalCosts?.costBreakdown?.totalCost || 0)
     },
-    materialsList: [
-      { item: "Ceramic tiles: 30 m²", quantity: "30", unitPrice: "€35/m²" },
-      { item: "Electrical outlets: 8 pcs", quantity: "8", unitPrice: "€25/pc" },
-      { item: "Paint: 15L premium", quantity: "15", unitPrice: "€45/L" },
-      { item: "Adhesive: 10 bags", quantity: "10", unitPrice: "€12/bag" }
-    ],
-    personnel: [
-      { role: "Demolition crew: 2 workers", duration: "3 days" },
-      { role: "Electrician: 1 specialist", duration: "5 days" },
-      { role: "Tile installer: 1 expert", duration: "4 days" },
-      { role: "Painter: 1 worker", duration: "2 days" }
-    ]
+    materialsList: (internalCosts?.materialsList || []).map((mat: any) => ({
+      item: `${mat.item}${mat.unit ? `: ${mat.quantity} ${mat.unit}` : ''}`,
+      quantity: mat.quantity,
+      unitPrice: mat.unitPrice
+    })),
+    personnel: (internalCosts?.personnel || []).map((person: any) => ({
+      role: `${person.role}${person.count ? `: ${person.count} workers` : ''}`,
+      duration: person.duration
+    }))
   };
 
   const handleDownloadQuotation = async () => {
     setIsGenerating(true);
     // Simulate document generation
     await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log("Downloading quotation PDF");
     setIsGenerating(false);
   };
 
@@ -143,6 +163,20 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Card className="shadow-lg animate-fade-in">
         <CardContent className="p-8">
+          {/* Project Summary - now at the top and centered */}
+          <div className="w-full flex flex-col items-center justify-center">
+            <div className="bg-success-green/10 rounded-xl flex flex-col items-center p-6 w-full max-w-xl">
+              <div className="w-16 h-16 bg-success-green text-white rounded-full flex items-center justify-center mb-3">
+                <CheckCircle className="h-8 w-8" />
+              </div>
+              <h3 className="text-3xl font-bold text-text-primary mb-4">
+                Price Quotation Completed
+              </h3>
+              <p className="text-text-secondary text-center">
+                Your price quotation and internal costs are ready to share.
+              </p>
+            </div>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
             {/* Price Quotation Document */}
@@ -176,29 +210,30 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
               {/* Document Preview */}
               <div className="bg-surface-light rounded-lg p-4 mb-6 h-96 overflow-y-auto">
                 <div className="text-xs space-y-3">
-                  {/* Logo and Project Info */}
-                  <div className="grid grid-cols-2 gap-4 items-center">
-                    <div>
+
+                  <div className="flex flex-row items-start justify-between mb-2">
+                    <div className="flex-1 flex flex-col items-start">
+                      <div className="text-[10px] text-text-secondary">{documentData.client.name}</div>
+                      <div className="text-[10px] text-text-secondary">{documentData.project.address}</div>
+                      {documentData.client.phone && <div className="text-[10px] text-text-secondary">{documentData.client.phone}</div>}
+                      <div className="text-[10px] text-text-secondary">{documentData.client.email}</div>
+                    </div>
+                    <div className="flex-shrink-0 flex flex-col items-end">
                       {data?.logo && (
-                        <img src={data.logo} alt="Company Logo" className="h-12 mb-2" style={{objectFit: 'contain', maxWidth: '120px'}} />
+                        <img src={data.logo} alt="Company Logo" className="h-14 mb-2" style={{objectFit: 'contain', maxWidth: '140px'}} />
                       )}
                     </div>
-                    <div className="text-right">
-                      <div className="font-semibold">{documentData.project.address}</div>
-                      <div>Date: {documentData.project.date}</div>
+                  </div>
+                  {/* Quotation Title and Committente above date */}
+                  <div className="mb-2">
+                    <div className="text-[13pt] leading-6 max-w-sm leading-2 font-semibold text-text-primary text-left mb-1">
+                      QUOTAZIONE LAVORI DI RISTRUTTURAZIONE – Comune di Trento
+                    </div>
+                    <div className="flex flex-row items-center text-xs text-text-secondary mb-1">
+                      <span className="font-semibold mr-1">Committente:</span>
                     </div>
                   </div>
-
-                  {/* Client Info (no label) */}
-                  <div className="mt-2">
-                    <div className="font-semibold">Client:</div>
-                    <div>{documentData.client.name}</div>
-                    {documentData.client.phone && <div>{documentData.client.phone}</div>}
-                  </div>
-                  {/* Email below Email: */}
-                  <div className="mt-1">
-                    <span className="font-semibold">Email:</span> {documentData.client.email}
-                  </div>
+                  <div className="text-xs text-text-secondary">{documentData.project.date}</div>
 
                   {/* Activities Summary */}
                   <div>
@@ -228,7 +263,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     </div>
                     <div className="space-y-1 text-xs">
                       {documentData.timeline.map((phase, index) => (
-                        <div key={index}>{phase.duration}: {phase.phase}</div>
+                          <div key={index}>{phase.phase}</div>
                       ))}
                     </div>
                   </div>
@@ -236,10 +271,14 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                   {/* Terms */}
                   <div>
                     <div className="font-semibold mb-2">Terms & Conditions:</div>
-                    <div className="text-xs space-y-1">
-                      {documentData.terms.map((term, index) => (
-                        <div key={index}>• {term}</div>
-                      ))}
+                    <div className="text-[10px] space-y-1">
+                      {(documentData.terms && documentData.terms.length > 0)
+                        ? documentData.terms.map((term, index) => (
+                            <div key={index}>• {term}</div>
+                          ))
+                        : (
+                            <div className="italic text-text-secondary">Nessuna condizione disponibile.</div>
+                          )}
                     </div>
                   </div>
                   {/* Signature below Terms & Conditions */}
@@ -252,21 +291,19 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                 </div>
               </div>
 
-              <div className="flex space-x-3">
+              <div className="flex space-x-3 gap-4">
                 <Button
                   onClick={handleDownloadQuotation}
                   disabled={isGenerating}
-                  className="flex-1 bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-medium transition-colors"
+                  className="flex-1 text-white py-2 rounded-full bg-[#f9a825] text-[#071330] px-8 font-graphik-bold text-xl shadow-md hover:bg-[#ffd95a] text-white  transition"
                   data-testid="button-download-quotation"
                 >
-                  <Download className="h-4 w-4 mr-2" />
-                  {isGenerating ? "Generating..." : "Download PDF"}
+                      <Download className="h-6 w-6 mr-2" />
                 </Button>
                 <Button
                   onClick={handleEmailQuotation}
                   disabled={isGenerating}
-                  variant="outline"
-                  className="flex-1 bg-surface-light hover:bg-gray-200 text-text-primary py-3 rounded-lg font-medium transition-colors"
+                  className="flex-1 border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white py-3 rounded-lg font-semibold transition-all"
                   data-testid="button-email-quotation"
                 >
                   <Mail className="h-4 w-4 mr-2" />
@@ -367,39 +404,75 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     </div>
                   </div>
 
-                  {/* Gantt Chart Placeholder */}
+                  {/* Project Schedule Progress Bar */}
                   <div>
                     <div className="font-semibold mb-2 flex items-center">
                       <Clock className="h-4 w-4 mr-1" />
                       Project Schedule:
                     </div>
-                    <div className="bg-white p-4 rounded border">
-                      <div className="text-xs text-center text-text-secondary">
-                        <BarChart3 className="h-8 w-8 mx-auto text-gray-300 mb-2" />
-                        Gantt Chart View
-                        <br />
-                        <span className="text-xs">Interactive timeline will be available in final document</span>
-                      </div>
+                    <div className="bg-white p-2 rounded border">
+                      {Array.isArray(internalCosts?.projectSchedule) && internalCosts.projectSchedule.length > 0 ? (
+                         <div className="w-full flex flex-col gap-1">
+                          {/* Calculate min/max for timeline */}
+                          {(() => {
+                            const minStart = Math.min(...internalCosts.projectSchedule.map((a: any) => parseInt(a.starting)));
+                            const maxFinish = Math.max(...internalCosts.projectSchedule.map((a: any) => parseInt(a.finishing)));
+                            const totalSpan = maxFinish - minStart + 1;
+                            return internalCosts.projectSchedule.map((phase: any, idx: number) => {
+                              const start = parseInt(phase.starting);
+                              const end = parseInt(phase.finishing);
+                              const duration = end - start + 1;
+                              const offset = start - minStart;
+                              const percentOffset = (offset / totalSpan) * 100;
+                              const percentWidth = (duration / totalSpan) * 100;
+                              return (
+                                 <div key={idx} className="flex items-center gap-2 mb-0.5">
+                                  <span className="font-medium text-text-primary text-[10px] whitespace-nowrap min-w-[80px]">{phase.activity}</span>
+                                   <div className="flex-1">
+                                     <div className="relative h-2.5 rounded-full overflow-hidden" style={{ background: '#f3f4f6' }}>
+                                      <div
+                                        className="absolute left-0 top-0 h-full rounded-full"
+                                        style={{
+                                          left: `${percentOffset}%`,
+                                          width: `${percentWidth}%`,
+                                          background: 'linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)',
+                                          opacity: 0.95,
+                                          minWidth: '2%',
+                                          transition: 'width 1.2s cubic-bezier(0.4,0,0.2,1)',
+                                        }}
+                                      ></div>
+                                    </div>
+                                  </div>
+                                  <span className="text-text-secondary text-[10px] whitespace-nowrap ml-2"></span>
+                                </div>
+                              );
+                            });
+                          })()}
+                        </div>
+                      ) : (
+                        <div className="text-xs text-center text-text-secondary">
+                          <BarChart3 className="h-8 w-8 mx-auto text-gray-300 mb-2" />
+                          No project schedule available
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="flex space-x-3">
+              <div className="flex space-x-3 gap-4">
                 <Button
                   onClick={handleDownloadInternalCosts}
                   disabled={isGenerating}
-                  className="flex-1 bg-accent-orange hover:bg-orange-600 text-white py-3 rounded-lg font-medium transition-colors"
-                  data-testid="button-download-internal-costs"
+                  className="flex-1 text-white py-2 rounded-full bg-[#f9a825] text-[#071330] px-8 font-graphik-bold text-xl shadow-md hover:bg-[#ffd95a] text-white  transition"
+                  data-testid="button-download-quotation"
                 >
-                  <Download className="h-4 w-4 mr-2" />
-                  Download
+                      <Download className="h-6 w-6 mr-2" />
                 </Button>
                 <Button
                   onClick={handleEmailMaterialsList}
                   disabled={isGenerating}
-                  variant="outline"
-                  className="flex-1 bg-surface-light hover:bg-gray-200 text-text-primary py-3 rounded-lg font-medium transition-colors"
+                  className="flex-1 border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white py-3 rounded-lg font-semibold transition-all"
                   data-testid="button-email-materials"
                 >
                   <Package className="h-4 w-4 mr-2" />
@@ -409,22 +482,6 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
             </div>
           </div>
 
-          {/* Project Summary */}
-          <div className="mt-8 bg-success-green/10 border border-success-green rounded-xl p-6">
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-success-green text-white rounded-full flex items-center justify-center mr-4">
-                <CheckCircle className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-text-primary mb-1">
-                  Project Documentation Complete
-                </h3>
-                <p className="text-text-secondary">
-                  Your professional quotation and internal cost analysis are ready for download and sharing.
-                </p>
-              </div>
-            </div>
-          </div>
 
           {/* Final Actions */}
           <div className="flex justify-between mt-8">
@@ -437,25 +494,6 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Pricing
             </Button>
-            <div className="flex space-x-4">
-              <Button
-                variant="outline"
-                onClick={handleSaveProject}
-                className="bg-surface-light hover:bg-gray-200 text-text-primary px-8 py-3 rounded-lg font-semibold transition-colors"
-                data-testid="button-save-project"
-              >
-                <Save className="h-4 w-4 mr-2" />
-                Save Project
-              </Button>
-              <Button
-                onClick={onNewProject}
-                className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-semibold transition-all"
-                data-testid="button-new-project"
-              >
-                <Plus className="h-4 w-4 mr-2" />
-                New Project
-              </Button>
-            </div>
           </div>
         </CardContent>
       </Card>

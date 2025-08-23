@@ -47,10 +47,6 @@ export default function ProjectWizard() {
     setProjectData(prev => ({ ...prev, ...updates }));
   };
 
-  const handleGetStarted = () => {
-    setLocation("/");
-  };
-
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -91,7 +87,6 @@ export default function ProjectWizard() {
       case 5:
         return (
           <DocumentGeneration
-            data={projectData}
             onUpdate={handleDataUpdate}
             onPrevious={() => handleStepChange(4)}
             onNewProject={() => {
@@ -110,15 +105,15 @@ export default function ProjectWizard() {
       {/* Blurred BIM2 overlay background with white overlay */}
       <div className="pointer-events-none absolute inset-0 z-0 flex justify-center items-start">
         <img
-          src="/bim2.jpg"
+          src="/bim1.jpeg"
           alt="BIM2 Overlay"
           className="w-full opacity-90 select-none object-cover object-top"
           style={{ filter: 'blur(5px)', marginTop: '20vh' }}
         />
-        <div className="absolute inset-0 bg-white opacity-90" />
+        <div className="absolute inset-0 bg-white opacity-80" />
       </div>
       <div className="relative z-10">
-        <Navigation onGetStarted={handleGetStarted} />
+        <Navigation />
         <div className="py-8">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <StepIndicator currentStep={currentStep} />

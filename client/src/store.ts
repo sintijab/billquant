@@ -5,11 +5,12 @@ import wizardReducer from './features/wizardSlice';
 import siteWorksReducer from './features/siteWorksSlice';
 import siteVisitReducer from './features/siteVisitSlice';
 import boqReducer from './features/boqSlice';
+import priceQuotationReducer from './features/priceQuotationSlice';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['wizard', 'siteVisit', 'siteWorks', 'boq'], // persist only the wizard slice
+  whitelist: ['wizard', 'siteVisit', 'siteWorks', 'boq', 'priceQuotation'],
 };
 
 const rootReducer = {
@@ -17,6 +18,7 @@ const rootReducer = {
   siteWorks: siteWorksReducer,
   siteVisit: siteVisitReducer,
   boq: boqReducer,
+  priceQuotation: priceQuotationReducer,
 };
 
 const persistedReducer = persistReducer(persistConfig, (state: any, action: any) => {
