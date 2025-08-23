@@ -1,3 +1,7 @@
+from fastapi.responses import FileResponse
+# --- New endpoint for DOCX generation ---
+from fastapi import Request
+
 from rag_txt_chunk_pipeline import embed_and_retrieve
 from rag_txt_chunk_pipeline_dei import embed_and_retrieve_dei
 import moondream as md
@@ -242,3 +246,32 @@ async def mistral_price_quotation(query: str = Form(...)):
     except Exception as e:
         return {"error": str(e)}
     
+    
+import os
+
+
+
+from generate_price_quotation import generate_price_quotation
+
+@app.post("/generate_price_quotation_docx")
+async def generate_price_quotation_docx(request: Request):
+    data = await request.json()
+    # Try to call generate_price_quotation with both dict and object input
+    try:
+        output = generate_price_quotation(data)
+    except Exception:
+        # fallback: try to import and instantiate model if available
+        try:
+            from generate_price_quotation import PriceQuotationRequest
+            req_obj = PriceQuotationRequest(**data)
+            output = generate_price_quotation(req_obj)
+        except Exception:
+            return {"error": "Failed to generate price quotation document."}
+    # Support both dict and string return for backward compatibility
+    if isinstance(output, dict):
+        output_path = output.get("output")
+    else:
+        output_path = output
+    if not output_path or not isinstance(output_path, str) or not os.path.exists(output_path):
+        return {"error": "Document not generated or file not found", "output_path": output_path}
+    return FileResponse(output_path, filename="Price_Quotation_Report.docx", media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")

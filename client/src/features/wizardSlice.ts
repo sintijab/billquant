@@ -26,6 +26,8 @@ const wizardSlice = createSlice({
 export const selectDigitalSignature = (state: RootState) =>
   state.wizard.projectSetup.digitalSignature;
 
+export const selectProjectSetup = (state: RootState) => state.wizard.projectSetup;
+
 // import { useSelector } from 'react-redux';
 // import { selectDigitalSignature } from '@/features/wizardSlice';
 

@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, ArrowLeft, Plus, Upload, FileText, ImageIcon, X, SearchCheck } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import SubareaCard from "./subarea-card";

@@ -247,7 +247,7 @@ const boqSlice = createSlice({
   name: 'boq',
   initialState,
   reducers: {
-    clearCategoryError: (state, action) => {
+  clearCategoryError: (state, action) => {
       const activity = action.payload;
       if (state.categories[activity]) {
         state.categories[activity].error = undefined;
@@ -256,6 +256,14 @@ const boqSlice = createSlice({
         state.categoryData[activity].error = undefined;
       }
     },
+  resetBoqState: (state) => {
+    state.categories = {};
+    state.categoryData = {};
+    state.loading = false;
+    state.error = null;
+    state.modalCompare = null;
+    state.modalLoading = false;
+  },
     closeModalCompare: (state) => {
       state.modalCompare = null;
       state.modalLoading = false;
@@ -463,5 +471,5 @@ const boqSlice = createSlice({
   },
 });
 
-export const { clearCategoryError, closeModalCompare, replaceActivityWithNew, keepCurrentActivity, keepBothActivities } = boqSlice.actions;
+export const { clearCategoryError, closeModalCompare, replaceActivityWithNew, keepCurrentActivity, keepBothActivities, resetBoqState } = boqSlice.actions;
 export default boqSlice.reducer;

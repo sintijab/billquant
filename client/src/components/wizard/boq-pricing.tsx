@@ -5,12 +5,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import {
   ArrowRight,
   ArrowLeft,
-  Plus,
   RefreshCw,
 } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte, fetchCategoryData, fetchActivityBySource, closeModalCompare } from '@/features/boqSlice';
+import { fetchMistralPriceQuotation } from '@/features/priceQuotationSlice';
 import CompareActivitiesPanel from "./compare-activities-panel";
 import { selectAllTableItems } from '@/features/boqSelectors';
 
@@ -35,12 +35,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
   const modalCompare = useSelector((state: RootState) => state.boq.modalCompare);
   const modalLoading = useSelector((state: RootState) => state.boq.modalLoading);
 
-
   const loading = boq.loading;
-
-  const handleSelectHighestPrices = () => {
-    console.log("Selecting highest prices");
-  };
 
   useEffect(() => {
     handleRefreshPrices();
@@ -67,11 +62,6 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
         await dispatch(fetchThunk(activity.Activity) as any);
       }
     }
-  };
-
-  const handleAddItem = () => {
-    debugger;
-    console.log("Add new Activity");
   };
 
   // Use selector to get all table items (merged from all sources)
@@ -242,7 +232,18 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
               Back to Activities
             </Button>
             <Button
-              onClick={onNext}
+              onClick={() => {
+                // Compose payload for document generation
+                const worksTimeline = siteWorks.GeneralTimeline?.Activities?.map((a: any) => a.Activity).join(', ') || '';
+                const siteVisitDescription = (siteWorks.siteVisitDescription || '');
+                const patItems = boq.categories || {};
+                const billOfQuantities = JSON.stringify(patItems, null, 2);
+                const priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitDescription}. Bill of quantities is following: ${billOfQuantities}.`;
+                if (priceQuotationPayload) {
+                  dispatch(fetchMistralPriceQuotation(priceQuotationPayload));
+                }
+                onNext();
+              }}
               className="btn-primary"
               data-testid="button-continue"
             >

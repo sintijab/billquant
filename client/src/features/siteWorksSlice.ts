@@ -1,3 +1,4 @@
+import { resetBoqState } from './boqSlice';
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from '@/store';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -60,6 +61,8 @@ export const fetchSiteWorks = createAsyncThunk(
     });
     const data = await resp.json();
     if (data && data.Works && data.Missing && data.GeneralTimeline && Array.isArray(data.GeneralTimeline.Activities)) {
+      // Reset boq state when site works are fetched
+      thunkAPI.dispatch(resetBoqState());
       // Optionally, validate each activity structure here if needed
       return { Works: data.Works, Missing: data.Missing, GeneralTimeline: data.GeneralTimeline };
     } else {
@@ -112,4 +115,6 @@ const siteWorksSlice = createSlice({
 });
 
 export const { setSiteWorks, resetSiteWorks } = siteWorksSlice.actions;
+// Export resetBoqState from boqSlice for use in thunks
+export { resetBoqState } from './boqSlice';
 export default siteWorksSlice.reducer;
