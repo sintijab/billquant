@@ -156,8 +156,6 @@ def load_txt_chunks(txt_path):
         txt_text,
         flags=re.DOTALL
     )
-
-    # Split by main activity
     main_chunks = re.split(r'(?=B\.\d{2}\.\d{2}\.\d{4}\.\d{3})', txt_text)
     structured_chunks = []
     for chunk in main_chunks:
