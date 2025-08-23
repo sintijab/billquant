@@ -233,6 +233,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
               onClick={onNext}
               className="btn-primary"
               data-testid="button-continue"
+              disabled={loading}
             >
               Create Price Quote
               <ArrowRight className="ml-2 h-4 w-4" />
