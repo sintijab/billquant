@@ -114,7 +114,7 @@ messages = [
 prompt = ChatPromptTemplate.from_messages(messages)
 chain = prompt | llm
 
-def answer_question(query: str) -> str:
+def create_quotation(query: str) -> str:
     response = chain.invoke({
         "input": query,
     })

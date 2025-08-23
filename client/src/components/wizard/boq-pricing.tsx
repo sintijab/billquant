@@ -84,7 +84,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
         allTableItems.filter(item => item.activity === activityName || item.activityName === activityName)
       )
       .flat();
-  }, [allTableItems]);
+  }, [allTableItems, boq]);
 
   // Check if any prices are missing or errored for the selected source
   const hasMissingPrices = timeline.some(activity => {

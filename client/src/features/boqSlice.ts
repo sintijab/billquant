@@ -266,10 +266,33 @@ const boqSlice = createSlice({
       if (!modalCompare || typeof modalCompare.rowIndex !== 'number') return;
       const { activity, priceSource, newData, rowIndex } = modalCompare;
       if (state.categories[activity]?.patItems && Array.isArray(state.categories[activity].patItems)) {
-        // Create a new array with the updated item
+        let newMainItems: any[] = [];
+        if (Array.isArray(newData?.results)) {
+          newMainItems = newData.results.map((result: any) => ({
+            ...result,
+            type: 'main',
+            priceSource,
+            resources: Array.isArray(result.resources)
+              ? result.resources.map((res: any) => ({ ...res, type: 'resource', priceSource }))
+              : [],
+          }));
+        } else {
+          newMainItems = [{
+            ...newData,
+            type: 'main',
+            priceSource,
+            resources: Array.isArray(newData.resources)
+              ? newData.resources.map((res: any) => ({ ...res, type: 'resource', priceSource }))
+              : [],
+          }];
+        }
         const updatedPatItems = state.categories[activity].patItems.map((item: any, idx: number) =>
-          idx === rowIndex ? { ...newData, priceSource } : item
+          idx === rowIndex ? newMainItems[0] : item
         );
+        // If there are more than one new main items, insert them after the replaced row
+        if (newMainItems.length > 1) {
+          updatedPatItems.splice(rowIndex + 1, 0, ...newMainItems.slice(1));
+        }
         state.categories[activity] = {
           ...state.categories[activity],
           patItems: updatedPatItems,
@@ -289,11 +312,30 @@ const boqSlice = createSlice({
       if (!modalCompare || typeof modalCompare.rowIndex !== 'number') return;
       const { activity, priceSource, newData, rowIndex } = modalCompare;
       if (state.categories[activity]?.patItems && Array.isArray(state.categories[activity].patItems)) {
-        // Create a new array with the new item inserted after the current row
+        let newMainItems: any[] = [];
+        if (Array.isArray(newData?.results)) {
+          newMainItems = newData.results.map((result: any) => ({
+            ...result,
+            type: 'main',
+            priceSource,
+            resources: Array.isArray(result.resources)
+              ? result.resources.map((res: any) => ({ ...res, type: 'resource', priceSource }))
+              : [],
+          }));
+        } else {
+          newMainItems = [{
+            ...newData,
+            type: 'main',
+            priceSource,
+            resources: Array.isArray(newData.resources)
+              ? newData.resources.map((res: any) => ({ ...res, type: 'resource', priceSource }))
+              : [],
+          }];
+        }
         const patItems = state.categories[activity].patItems;
         const updatedPatItems = [
           ...patItems.slice(0, rowIndex + 1),
-          { ...newData, priceSource },
+          ...newMainItems,
           ...patItems.slice(rowIndex + 1)
         ];
         state.categories[activity] = {

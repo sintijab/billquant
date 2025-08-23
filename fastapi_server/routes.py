@@ -10,7 +10,7 @@ import json
 from mistral_utils import answer_question
 from mistral_general import find_categories
 
-from mistral_price_quotation import internal_costs, answer_question
+from mistral_price_quotation import create_quotation
 
 from rag_training import rag_query
 from fastapi import Form
@@ -217,7 +217,7 @@ async def mistral_price_quotation(query: str = Form(...)):
     Returns the LLM's JSON output (price_quotation and internal_costs).
     """
     try:
-        raw_answer = answer_question(query)
+        raw_answer = create_quotation(query)
         # Remove outer quotes if present
         if raw_answer.startswith('"') and raw_answer.endswith('"'):
             raw_answer = raw_answer[1:-1]
