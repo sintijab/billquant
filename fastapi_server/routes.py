@@ -9,6 +9,9 @@ from fastapi import Query, Body
 import json
 from mistral_utils import answer_question
 from mistral_general import find_categories
+
+from mistral_price_quotation import internal_costs, answer_question
+
 from rag_training import rag_query
 from fastapi import Form
 import os
@@ -202,6 +205,40 @@ def search_piemonte(query: str = Form(...)):
         # Use the refined query for retrieval
         results = embed_and_retrieve_dei(refined_query, all_chunks_file="DEI_chunks.txt", top_k=3, embeddings_path="chunk_embeddings_dei.pt")
         return {"results": results}
+    except Exception as e:
+        return {"error": str(e)}
+    
+
+@app.post("/mistral_price_quotation")
+async def mistral_price_quotation(query: str = Form(...)):
+    """
+    Generate a price quotation and internal costs report using the Mistral LLM.
+    Expects a string input (site description, timeline, draft BOQ, etc) via form data.
+    Returns the LLM's JSON output (price_quotation and internal_costs).
+    """
+    try:
+        raw_answer = answer_question(query)
+        # Remove outer quotes if present
+        if raw_answer.startswith('"') and raw_answer.endswith('"'):
+            raw_answer = raw_answer[1:-1]
+        # Unescape escaped characters, but only if possible
+        try:
+            raw_answer = raw_answer.encode('utf-8').decode('unicode_escape')
+        except Exception:
+            pass
+        # Extract JSON from code block if present
+        import re
+        match = re.search(r"```json\s*([\s\S]*?)\s*```", raw_answer, re.IGNORECASE)
+        json_str = match.group(1) if match else raw_answer
+        # Try to parse JSON
+        import json
+        try:
+            parsed_json = json.loads(json_str)
+            if isinstance(parsed_json, str):
+                parsed_json = json.loads(parsed_json)
+        except Exception:
+            parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
+        return parsed_json
     except Exception as e:
         return {"error": str(e)}
     
