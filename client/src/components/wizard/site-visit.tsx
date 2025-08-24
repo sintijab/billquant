@@ -593,7 +593,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
               data-testid="button-continue"
               disabled={!siteWorksLength}
             >
-              Continue to Activity Overview
+              <span className="hidden md:inline">Continue to Activity Overview</span>
+              <span className="inline md:hidden">Continue</span>
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
