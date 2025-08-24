@@ -6,4 +6,4 @@ sentence-transformers
 rank-bm25
 numpy
 python-multipart
-pinecone-client
+pinecone
