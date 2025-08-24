@@ -140,7 +140,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
             {/* Photo grid */}
             <div className="flex flex-col gap-4 mb-4">
                 {sub.items?.map((item: any, itemIdx: number) => (
-                    <div key={item.id} className="flex flex-row items-start bg-gray-50 rounded-xl border p-2 w-full relative min-h-[12rem] flex-wrap" style={{ minHeight: '200px' }}>
+                    <div key={item.id} className="flex flex-row items-start justify-center bg-gray-50 rounded-xl border p-2 w-full relative min-h-[12rem] flex-wrap" style={{ minHeight: '200px' }}>
                         {/* Show first photo if exists */}
                         {item.photos && item.photos.length > 0 && (
                             <img
@@ -179,7 +179,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </Button>
-                        <div className="flex-1 flex flex-col gap-1 pl-4">
+                        <div className="flex-1 flex flex-col gap-1 md:pl-4">
                             {/* First line: file name (left), delete icon (right) */}
                             <div className="flex flex-row items-center justify-between mb-1 px-2 py-3">
                                 <span className="text-sm font-normal text-gray-700 truncate max-w-[60%] pr-4">

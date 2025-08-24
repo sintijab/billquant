@@ -122,7 +122,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
           {/* Site Areas */}
           <div className="space-y-1">
             {data.siteAreas.map((area: any, areaIdx: number) => (
-              <div key={area.id} className="bg-gray-100 rounded-2xl shadow p-5 md:p-8 mb-8 relative">
+              <div key={area.id} className="bg-gray-100 rounded-2xl shadow p-2 md:p-8 mb-8 relative">
                 {siteWorksLoading === 'pending' && (
                   <div className="absolute inset-0 flex items-center justify-center z-50 bg-white/60 bg-opacity-80 rounded-2xl">
                     <Loader size="xs" />
@@ -298,7 +298,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                   {/* Subareas right column */}
                   <div className="md:w-3/5 w-full flex flex-col gap-6">
                     {area.subareas?.map((sub: any, subIdx: number) => (
-                      <div key={sub.id} className="bg-white rounded-2xl p-6 border border-gray-200 relative">
+                      <div key={sub.id} className="bg-white rounded-2xl p-4 md:p6 border border-gray-200 relative">
                         <SubareaCard
                           sub={sub}
                           areaIdx={areaIdx}
