@@ -141,7 +141,7 @@ export default function LandingPage() {
             </p>
             <div className="flex gap-4 mb-8">
               <SignedIn>
-                <button onClick={handleGetStarted} className="bg-[#f9a825] text-[#071330] px-8 py-3 rounded-lg font-graphik-bold text-lg shadow-md hover:bg-[#ffd95a] transition">Get Started</button>
+                <button onClick={handleGetStarted} className="bg-[#f9a825] text-[#071330] px-8 py-3 rounded-lg font-graphik-bold text-lg shadow-md hover:bg-[#ffd95a] transition">Start Quotation</button>
               </SignedIn>
               <SignedOut>
                 <div className="md:inline-block">
