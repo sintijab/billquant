@@ -16,6 +16,28 @@ from mistral_price_quotation import create_quotation
 from fastapi import Form
 import os
 import re
+import time
+import httpx
+
+def mistral_with_retry(prompt, max_retries=5):
+    for attempt in range(max_retries):
+        try:
+            return answer_question(prompt)
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 429 or "capacity exceeded" in str(e).lower():
+                wait = 2 ** attempt
+                print(f"[Mistral] 429/capacity error, retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                raise
+        except Exception as e:
+            if "capacity exceeded" in str(e).lower():
+                wait = 2 ** attempt
+                print(f"[Mistral] capacity error, retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                raise
+    return {"error": "Mistral API unavailable after retries."}
 
 load_dotenv()
 
@@ -45,7 +67,7 @@ def health_check():
 
 @app.post("/mistral_activity_list")
 async def mistral(query: str = Form(...)):
-    raw_answer = answer_question(query)
+    raw_answer = mistral_with_retry(query)
     # Remove outer quotes if present
     if raw_answer.startswith('"') and raw_answer.endswith('"'):
         raw_answer = raw_answer[1:-1]
