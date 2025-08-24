@@ -6,10 +6,17 @@ import type { RootState } from '@/store';
 export const fetchActivityBySource = createAsyncThunk(
   'boq/fetchActivityBySource',
   async ({ activity, description, priceSource, rowIndex }: { activity: string, description: string, priceSource: string, rowIndex?: number }) => {
+    const isDev = import.meta.env.DEV;
+    const LOCAL_API_BASE = 'http://127.0.0.1:8000';
+    const prodBase = {
+      dei: 'https://billquant-dei.onrender.com',
+      pat: 'https://billquant-rag-pat.onrender.com',
+      piemonte: 'https://billquant-piemonte.onrender.com',
+    };
     let endpoint = '';
-    if (priceSource === 'dei') endpoint = 'https://billquant-dei.onrender.com/search_dei';
-    else if (priceSource === 'pat') endpoint = 'https://billquant-rag-pat.onrender.com/search_pat';
-    else if (priceSource === 'piemonte') endpoint = 'https://billquant-piemonte.onrender.com/search_piemonte';
+    if (priceSource === 'dei') endpoint = isDev ? `${LOCAL_API_BASE}/search_dei` : `${prodBase.dei}/search_dei`;
+    else if (priceSource === 'pat') endpoint = isDev ? `${LOCAL_API_BASE}/search_pat` : `${prodBase.pat}/search_pat`;
+    else if (priceSource === 'piemonte') endpoint = isDev ? `${LOCAL_API_BASE}/search_piemonte` : `${prodBase.piemonte}/search_piemonte`;
     else throw new Error('Invalid price source');
     const fd = new FormData();
     fd.append('query', description);
@@ -77,7 +84,7 @@ export const fetchActivityCategoryDei = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`https://billquant-dei.onrender.com/search_dei`, {
+  const resp = await fetch(`${LOCAL_API_BASE}/search_dei`, {
         method: 'POST',
         body: fd,
       });
@@ -133,7 +140,7 @@ export const fetchActivityCategoryPat = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`https://billquant-rag-pat.onrender.com/search_pat`, {
+  const resp = await fetch(`${LOCAL_API_BASE}/search_pat`, {
         method: 'POST',
         body: fd,
       });
@@ -189,7 +196,7 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-      const resp = await fetch(`https://billquant-piemonte.onrender.com/search_piemonte`, {
+  const resp = await fetch(`${LOCAL_API_BASE}/search_piemonte`, {
         method: 'POST',
         body: fd,
       });
