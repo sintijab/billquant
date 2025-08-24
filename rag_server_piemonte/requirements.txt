@@ -10,3 +10,4 @@ torch
 sentence-transformers
 rank-bm25
 numpy
+pinecone-client

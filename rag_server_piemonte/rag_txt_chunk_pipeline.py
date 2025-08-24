@@ -1,3 +1,85 @@
+import os
+import numpy as np
+import torch
+import re
+import os
+import numpy as np
+import torch
+import re
+
+import os
+import re
+import json
+import torch
+import numpy as np
+from dotenv import load_dotenv
+from pinecone import Pinecone, ServerlessSpec
+from sentence_transformers import SentenceTransformer, util
+from rank_bm25 import BM25Okapi
+
+load_dotenv()
+
+def pinecone_retrieve(query, top_k=5, index_name="piemonte-chunks", namespace="default"):
+    """
+    Retrieve top_k most similar chunks from Pinecone using semantic search.
+    """
+    embedder = get_embedder()
+    query_emb = embedder.encode(query, convert_to_numpy=True).tolist()
+    index = get_pinecone_index(index_name=index_name)
+    # Query Pinecone
+    result = index.query(vector=query_emb, top_k=top_k, include_metadata=True, namespace=namespace)
+    # Extract chunk texts from metadata
+    hits = result.get('matches', [])
+    # If you store the full chunk text in metadata, return it; otherwise, return IDs or other fields
+    return [hit['metadata'].get('chunk', hit['id']) for hit in hits]
+
+def get_pinecone_index(index_name="piemonte-chunks", dimension=384, metric="cosine", region=None):
+    api_key = os.getenv("PINECONE_API_KEY")
+    if not api_key:
+        raise RuntimeError("PINECONE_API_KEY not set in environment.")
+    if region is None:
+        region = os.getenv("PINECONE_REGION", "us-east-1")
+    pc = Pinecone(api_key=api_key)
+    if index_name not in pc.list_indexes().names():
+        pc.create_index(
+            name=index_name,
+            dimension=dimension,
+            metric=metric,
+            spec=ServerlessSpec(
+                cloud="aws",
+                region=region
+            )
+        )
+    return pc.Index(index_name)
+def upload_chunks_to_pinecone(chunks, batch_size=70, index_name="piemonte-chunks", namespace="default"):
+    """
+    Uploads all chunks to Pinecone in batches, with embeddings and metadata.
+    """
+    print("[Main] Preparing to upload chunks to Pinecone...")
+    corpus = [chunk for chunk in chunks]
+    # Troubleshoot: check metadata size for each chunk
+    for idx, chunk in enumerate(corpus):
+        meta_size = len(chunk.encode('utf-8'))
+        if meta_size > 40960:
+            print(f"[Warning] Chunk {idx} metadata size {meta_size} bytes exceeds Pinecone limit (40960 bytes). Preview: {chunk[:200]}...")
+    embedder = get_embedder()
+    print("[Main] Encoding chunks for retrieval...")
+    chunk_embeddings = embedder.encode(corpus, convert_to_numpy=True, show_progress_bar=True)
+    index = get_pinecone_index(index_name=index_name, dimension=chunk_embeddings.shape[1])
+    ids = [f"chunk_{i}" for i in range(len(corpus))]
+    metadatas = [
+        {"chunk": chunk} for chunk in chunks
+    ]
+    for i in range(0, len(corpus), batch_size):
+        batch_ids = ids[i:i+batch_size]
+        batch_embs = chunk_embeddings[i:i+batch_size]
+        batch_metas = metadatas[i:i+batch_size]
+        to_upsert = [
+            (batch_ids[j], batch_embs[j], batch_metas[j])
+            for j in range(len(batch_ids))
+        ]
+        index.upsert(vectors=to_upsert, namespace=namespace)
+    print("[Main] Embeddings uploaded to Pinecone.")
 from rank_bm25 import BM25Okapi
 embedder_global = None
 def get_embedder():
@@ -53,6 +135,59 @@ from sentence_transformers import SentenceTransformer, util
 
 def load_and_chunk_rag_txt(rag_folder="rag", out_file="all_chunks.txt"):
     chunks = []
+    def split_large_chunk(chunk_text, main_category, description, category_name):
+        # Recursively split chunk_text if it exceeds 40960 bytes
+        max_bytes = 40960
+        chunk_bytes = chunk_text.encode('utf-8')
+        if len(chunk_bytes) <= max_bytes:
+            return [chunk_text]
+        # Find all 'Work:' positions
+        work_positions = [m.start() for m in re.finditer(r'Work:', chunk_text)]
+        # If no 'Work:' found, force split at cutoff
+        if not work_positions:
+            # Try to avoid breaking utf-8
+            cutoff = max_bytes
+            while cutoff > 0 and (ord(chunk_text[cutoff-1]) & 0xC0) == 0x80:
+                cutoff -= 1
+            first_part = chunk_text[:cutoff].strip()
+            rest_part = chunk_text[cutoff:].strip()
+            result = []
+            if first_part:
+                result.append(first_part)
+            if rest_part:
+                result.extend(split_large_chunk(rest_part, main_category, description, category_name))
+            return result
+        # Find the last 'Work:' before the limit
+        split_pos = None
+        for pos in work_positions:
+            if len(chunk_text[:pos].encode('utf-8')) < max_bytes:
+                split_pos = pos
+            else:
+                break
+        if split_pos is None:
+            # All 'Work:' are after the limit, so force split at cutoff
+            cutoff = max_bytes
+            while cutoff > 0 and (ord(chunk_text[cutoff-1]) & 0xC0) == 0x80:
+                cutoff -= 1
+            first_part = chunk_text[:cutoff].strip()
+            rest_part = chunk_text[cutoff:].strip()
+            result = []
+            if first_part:
+                result.append(first_part)
+            if rest_part:
+                result.extend(split_large_chunk(rest_part, main_category, description, category_name))
+            return result
+        # Split at the found 'Work:'
+        first_part = chunk_text[:split_pos].strip()
+        rest_part = chunk_text[split_pos:].strip()
+        result = []
+        if first_part:
+            result.append(first_part)
+        if rest_part:
+            # Recursively split the rest, which starts with 'Work:'
+            result.extend(split_large_chunk(rest_part, main_category, description, category_name))
+        return result
+
     for fname in os.listdir(rag_folder):
         if fname.endswith(".txt"):
             with open(os.path.join(rag_folder, fname), "r", encoding="utf-8") as f:
@@ -64,43 +199,87 @@ def load_and_chunk_rag_txt(rag_folder="rag", out_file="all_chunks.txt"):
                 description = desc_match.group(1).strip() if desc_match else ""
                 # Split by 'Category:'
                 category_chunks = re.split(r'Category:', content)
-                for chunk in category_chunks[1:]:
-                    chunk_clean = chunk.strip().replace('\n', ' ')
-                    chunk_text = f"Main Category: {main_category} Description: {description} Category: {chunk_clean}"
-                    chunks.append(chunk_text)
+                for cat_chunk in category_chunks[1:]:
+                    # The first line up to the first Activity is the category name
+                    cat_chunk = cat_chunk.strip()
+                    if not cat_chunk:
+                        continue
+                    # Find the category name (up to first Activity or end)
+                    activity_match = re.search(r'Activity:', cat_chunk)
+                    if activity_match:
+                        category_name = cat_chunk[:activity_match.start()].strip()
+                        rest = cat_chunk[activity_match.start():]
+                    else:
+                        category_name = cat_chunk.strip()
+                        rest = ''
+                    # Split by Activity:
+                    activity_chunks = re.split(r'(Activity:)', rest)
+                    # activity_chunks is like ['', 'Activity:', ' ...', 'Activity:', ' ...', ...]
+                    # So we process in pairs
+                    for i in range(1, len(activity_chunks), 2):
+                        activity_header = activity_chunks[i]
+                        activity_body = activity_chunks[i+1] if (i+1) < len(activity_chunks) else ''
+                        chunk_clean = (activity_header + activity_body).strip().replace('\n', ' ')
+                        # Remove 'Note:' followed by 6 empty whitespaces
+                        chunk_clean = re.sub(r'Note:\s{6,}', 'Note:', chunk_clean)
+                        # Remove all occurrences of 4 consecutive whitespaces
+                        chunk_clean = re.sub(r' {4,}', ' ', chunk_clean)
+                        chunk_text = f"Main Category: {main_category} Description: {description} Category: {category_name} {chunk_clean}"
+                        # If chunk_text exceeds Pinecone limit, split by Work:
+                        split_chunks = split_large_chunk(chunk_text, main_category, description, category_name)
+                        for sc in split_chunks:
+                            chunks.append(sc)
+                    # If there was no Activity, still add the category as a chunk
+                    if not activity_match:
+                        chunk_clean = category_name.replace('\n', ' ')
+                        chunk_clean = re.sub(r'Note:\s{6,}', 'Note:', chunk_clean)
+                        chunk_clean = re.sub(r' {4,}', ' ', chunk_clean)
+                        chunk_text = f"Main Category: {main_category} Description: {description} Category: {chunk_clean}"
+                        split_chunks = split_large_chunk(chunk_text, main_category, description, category_name)
+                        for sc in split_chunks:
+                            chunks.append(sc)
     with open(out_file, "w", encoding="utf-8") as f:
         for chunk in chunks:
             f.write(chunk + "\n")
     print(f"All chunks written to {out_file}")
 
-def embed_and_retrieve(query, all_chunks_file="all_chunks.txt", top_k=3, embeddings_path="chunk_embeddings_piemonte.pt"):
+def embed_and_retrieve(query, all_chunks_file="all_chunks.txt", top_k=3, embeddings_path="chunk_embeddings_piemonte.pt", use_pinecone=True):
     import re
     try:
         from mistral_utils import answer_question
     except ImportError:
         def answer_question(q):
             return q  # fallback: identity
-    with open(all_chunks_file, "r", encoding="utf-8") as f:
-        all_chunks = [c.strip() for c in f if c.strip()]
-    embedder = get_embedder()
-    if os.path.exists(embeddings_path):
-        chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
-        # Fix: If chunk_embeddings is a meta tensor, reload properly
-        try:
-            if hasattr(chunk_embeddings, 'is_meta') and chunk_embeddings.is_meta:
-                print('[RAG] chunk_embeddings is meta tensor, re-encoding on CPU...')
+
+    # Always get candidates, then run accuracy and parsing logic
+    if use_pinecone:
+        print("[RAG] Using Pinecone for semantic search...")
+        retrieve_fn = pinecone_retrieve
+    else:
+        # Local retrieval logic setup
+        with open(all_chunks_file, "r", encoding="utf-8") as f:
+            all_chunks = [c.strip() for c in f if c.strip()]
+        embedder = get_embedder()
+        if os.path.exists(embeddings_path):
+            chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
+            # Fix: If chunk_embeddings is a meta tensor, reload properly
+            try:
+                if hasattr(chunk_embeddings, 'is_meta') and chunk_embeddings.is_meta:
+                    print('[RAG] chunk_embeddings is meta tensor, re-encoding on CPU...')
+                    chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
+                    torch.save(chunk_embeddings, embeddings_path)
+            except Exception:
+                # Fallback: if any error, re-encode
                 chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
                 torch.save(chunk_embeddings, embeddings_path)
-        except Exception:
-            # Fallback: if any error, re-encode
+            if len(chunk_embeddings) != len(all_chunks):
+                chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
+                torch.save(chunk_embeddings, embeddings_path)
+        else:
             chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
             torch.save(chunk_embeddings, embeddings_path)
-        if len(chunk_embeddings) != len(all_chunks):
-            chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
-            torch.save(chunk_embeddings, embeddings_path)
-    else:
-        chunk_embeddings = embedder.encode(all_chunks, convert_to_tensor=True, show_progress_bar=True)
-        torch.save(chunk_embeddings, embeddings_path)
+        def retrieve_fn(q, top_k=5):
+            return hybrid_retrieve(q, all_chunks, chunk_embeddings, embedder, top_k=top_k, alpha=0.1)
 
     # Use Mistral to generate a list of strong synonym queries (activity categories) in Italian
     try:
@@ -122,7 +301,11 @@ def embed_and_retrieve(query, all_chunks_file="all_chunks.txt", top_k=3, embeddi
     all_candidates = []
     for q in queries:
         print(f"[RAG] Searching with synonym/category: {q}")
-        candidates = hybrid_retrieve(q, all_chunks, chunk_embeddings, embedder, top_k=5, alpha=0.1)
+        if use_pinecone:
+            candidates = pinecone_retrieve(q, top_k=5)
+            print(candidates)
+        else:
+            candidates = hybrid_retrieve(q, all_chunks, chunk_embeddings, embedder, top_k=5, alpha=0.1)
         all_candidates.extend(candidates)
     # Deduplicate
     all_candidates = list(dict.fromkeys(all_candidates))
@@ -243,9 +426,18 @@ def embed_and_retrieve(query, all_chunks_file="all_chunks.txt", top_k=3, embeddi
     return mapped
 
 if __name__ == "__main__":
-    load_and_chunk_rag_txt(rag_folder="./rag", out_file="all_chunks.txt")
+    # Only upload to Pinecone if all_chunks.txt exists
+    all_chunks_path = "all_chunks.txt"
+    if not os.path.exists(all_chunks_path):
+        print(f"[Info] {all_chunks_path} not found. Generating it using load_and_chunk_rag_txt()...")
+        load_and_chunk_rag_txt(rag_folder="./rag", out_file=all_chunks_path)
+    with open(all_chunks_path, "r", encoding="utf-8") as f:
+        all_chunks = [c.strip() for c in f if c.strip()]
+    # Upload all chunks to Pinecone (batching, with metadata)
+    upload_chunks_to_pinecone(all_chunks)
+    # Optionally, test retrieval (existing logic remains)
     user_query = input("Enter your query: ")
-    results = embed_and_retrieve(user_query, all_chunks_file="all_chunks.txt", top_k=1)
+    results = embed_and_retrieve(user_query, all_chunks_file=all_chunks_path, top_k=1)
     print("\nTop relevant chunks:")
     for i, chunk in enumerate(results, 1):
         print(f"\n--- Chunk {i} ---\n{chunk}")

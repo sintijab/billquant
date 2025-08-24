@@ -1,8 +1,88 @@
+
 import os
 import re
+import json
 import torch
+import numpy as np
+from dotenv import load_dotenv
+from pinecone import Pinecone, ServerlessSpec
 from sentence_transformers import SentenceTransformer, util
 from rank_bm25 import BM25Okapi
+
+load_dotenv()
+
+def get_pinecone_index(index_name="pat-chunks", dimension=384, metric="cosine", region=None):
+    api_key = os.getenv("PINECONE_API_KEY")
+    if not api_key:
+        raise RuntimeError("PINECONE_API_KEY not set in environment.")
+    if region is None:
+        region = os.getenv("PINECONE_REGION", "us-east-1")
+    pc = Pinecone(api_key=api_key)
+    if index_name not in pc.list_indexes().names():
+        pc.create_index(
+            name=index_name,
+            dimension=dimension,
+            metric=metric,
+            spec=ServerlessSpec(
+                cloud="aws",
+                region=region
+            )
+        )
+    return pc.Index(index_name)
+
+def upload_chunks_to_pinecone(chunks, chunk_embeddings, batch_size=70, index_name="pat-chunks", namespace="default", start_index=0):
+    print(f"[Main] Preparing to upload PAT chunks to Pinecone from chunk_{start_index} to chunk_{start_index + len(chunks) - 1}...")
+    ids = [f"chunk_{i}" for i in range(start_index, start_index + len(chunks))]
+    metadatas = [
+        {"chunk": chunk} for chunk in chunks
+    ]
+    index = get_pinecone_index(index_name=index_name, dimension=chunk_embeddings.shape[1])
+    for i in range(0, len(chunks), batch_size):
+        batch_ids = ids[i:i+batch_size]
+        batch_embs = chunk_embeddings[i:i+batch_size]
+        batch_metas = metadatas[i:i+batch_size]
+        to_upsert = [
+            (batch_ids[j], batch_embs[j], batch_metas[j])
+            for j in range(len(batch_ids))
+        ]
+        index.upsert(vectors=to_upsert, namespace=namespace)
+    print("[Main] PAT embeddings uploaded to Pinecone.")
+
+
+def pinecone_retrieve(query, top_k=5, index_name="pat-chunks", namespace="default"):
+    embedder = get_embedder()
+    query_emb = embedder.encode(query, convert_to_numpy=True).tolist()
+    index = get_pinecone_index(index_name=index_name)
+    result = index.query(vector=query_emb, top_k=top_k, include_metadata=True, namespace=namespace)
+    hits = result.get('matches', [])
+    return [hit['metadata'].get('chunk', hit['id']) for hit in hits]
+
+def hybrid_retrieve(query, top_k=3, alpha=0.7):
+    global embedder, chunk_embeddings, corpus
+    if embedder is None or chunk_embeddings is None or corpus is None:
+        load_embeddings.use_pinecone = False
+        load_embeddings()
+        load_embeddings.use_pinecone = True
+    # Semantic search
+    query_emb = embedder.encode(query, convert_to_tensor=True)
+    semantic_hits = util.semantic_search(query_emb, chunk_embeddings, top_k=len(corpus))[0]
+    semantic_scores = {hit['corpus_id']: hit['score'] for hit in semantic_hits}
+    # BM25 keyword search
+    tokenized_chunks = [chunk.lower().split() for chunk in corpus]
+    bm25 = BM25Okapi(tokenized_chunks)
+    tokenized_query = query.lower().split()
+    bm25_scores = bm25.get_scores(tokenized_query)
+    bm25_min, bm25_max = min(bm25_scores), max(bm25_scores)
+    bm25_scores_norm = [(s - bm25_min) / (bm25_max - bm25_min + 1e-8) for s in bm25_scores]
+    sem_scores_list = [semantic_scores.get(idx, 0) for idx in range(len(corpus))]
+    sem_min, sem_max = min(sem_scores_list), max(sem_scores_list)
+    semantic_scores_norm = [(s - sem_min) / (sem_max - sem_min + 1e-8) for s in sem_scores_list]
+    import numpy as np
+    bm25_softmax = list(np.exp(bm25_scores_norm) / np.sum(np.exp(bm25_scores_norm)))
+    sem_softmax = list(np.exp(semantic_scores_norm) / np.sum(np.exp(semantic_scores_norm)))
+    combined_scores = {i: alpha * bm25_softmax[i] + (1 - alpha) * sem_softmax[i] for i in range(len(corpus))}
+    top_indices = sorted(combined_scores, key=lambda i: combined_scores[i], reverse=True)[:top_k]
+    return [corpus[i] for i in top_indices]
 
 def is_footer(line):
     footers = [
@@ -38,28 +118,9 @@ def get_embedder():
     return embedder
 
 def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chunks.txt"):
-    global chunk_embeddings, corpus
-    if os.path.exists(embeddings_path):
-        chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
-    else:
-        chunk_embeddings = None
-    if os.path.exists(corpus_path):
-        with open(corpus_path, "r", encoding="utf-8") as f:
-            corpus = [line.strip() for line in f if line.strip()]
-        if not corpus:
-            raise RuntimeError(f"Corpus file '{corpus_path}' is empty. Please generate or check your chunks.")
-    else:
-        corpus = None
-        raise RuntimeError(f"Corpus file '{corpus_path}' not found. Please generate it before querying.")
-
-def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chunks.txt"):
     global embedder, chunk_embeddings, corpus
     if embedder is None:
         embedder = SentenceTransformer('sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')
-    if os.path.exists(embeddings_path):
-        chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
-    else:
-        chunk_embeddings = None
     if os.path.exists(corpus_path):
         with open(corpus_path, "r", encoding="utf-8") as f:
             corpus = [line.strip() for line in f if line.strip()]
@@ -68,6 +129,19 @@ def load_embeddings(embeddings_path="chunk_embeddings_pat.pt", corpus_path="chun
     else:
         corpus = None
         raise RuntimeError(f"Corpus file '{corpus_path}' not found. Please generate it before querying.")
+    # Only load/generate .pt file if not using Pinecone (handled in hybrid_retrieve)
+    if not getattr(load_embeddings, 'use_pinecone', True):
+        if os.path.exists(embeddings_path):
+            chunk_embeddings = torch.load(embeddings_path, map_location='cpu')
+            if len(chunk_embeddings) != len(corpus):
+                chunk_embeddings = embedder.encode(corpus, convert_to_tensor=True, show_progress_bar=True)
+                torch.save(chunk_embeddings, embeddings_path)
+        else:
+            chunk_embeddings = embedder.encode(corpus, convert_to_tensor=True, show_progress_bar=True)
+            torch.save(chunk_embeddings, embeddings_path)
+    else:
+        chunk_embeddings = None
+
 
 def bm25_keyword_search(query, chunks, top_k=3):
     # Tokenize chunks and query
@@ -78,61 +152,6 @@ def bm25_keyword_search(query, chunks, top_k=3):
     # Get top_k chunk indices
     top_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:top_k]
     return [corpus[i] for i in top_indices]
-
-def hybrid_retrieve(query, top_k=1, alpha=0.1):
-    # Semantic search
-    embedder_local = get_embedder()
-    query_emb = embedder_local.encode(query, convert_to_tensor=True)
-    semantic_hits = util.semantic_search(query_emb, chunk_embeddings, top_k=len(corpus))[0]
-    semantic_scores = {hit['corpus_id']: hit['score'] for hit in semantic_hits}
-
-    # BM25 keyword search
-    tokenized_chunks = [chunk.lower().split() for chunk in corpus]
-    bm25 = BM25Okapi(tokenized_chunks)
-    tokenized_query = query.lower().split()
-    bm25_scores = bm25.get_scores(tokenized_query)
-    import numpy as np
-
-    # Z-score normalization for BM25
-    bm25_mean = np.mean(bm25_scores) if len(bm25_scores) > 0 else 0
-    bm25_std = np.std(bm25_scores) if len(bm25_scores) > 0 else 1
-    bm25_scores_z = [(score - bm25_mean) / (bm25_std + 1e-8) for score in bm25_scores]
-
-    # Z-score normalization for semantic scores
-    sem_scores_list = [semantic_scores.get(idx, 0) for idx in range(len(corpus))]
-    sem_mean = np.mean(sem_scores_list) if sem_scores_list else 0
-    sem_std = np.std(sem_scores_list) if sem_scores_list else 1
-    semantic_scores_z = [(score - sem_mean) / (sem_std + 1e-8) for score in sem_scores_list]
-
-    # Dynamic alpha tuning: if BM25 and semantic scores are both low-variance, favor semantic more
-    bm25_var = bm25_std
-    sem_var = sem_std
-    # If both variances are low, semantic is more reliable
-    if bm25_var < 0.1 and sem_var < 0.1:
-        dynamic_alpha = 0.2
-    elif bm25_var > sem_var:
-        dynamic_alpha = 0.7
-    else:
-        dynamic_alpha = 0.4
-
-    # Combine scores (softmax on z-scores)
-    bm25_softmax = list(np.exp(bm25_scores_z) / np.sum(np.exp(bm25_scores_z)))
-    sem_softmax = list(np.exp(semantic_scores_z) / np.sum(np.exp(semantic_scores_z)))
-
-    combined_scores = {}
-    for idx in range(len(corpus)):
-        bm25_score = bm25_softmax[idx]
-        sem_score = sem_softmax[idx]
-        combined_scores[idx] = dynamic_alpha * bm25_score + (1 - dynamic_alpha) * sem_score
-
-    # Get top_k indices
-    top_indices = sorted(combined_scores, key=lambda i: combined_scores[i], reverse=True)[:top_k]
-    return [corpus[i] for i in top_indices]
-
-    # Prioritize BM25 results, then add semantic results not already included
-    combined = bm25_chunks + [c for c in semantic_chunks if c not in bm25_chunks]
-    return combined[:top_k]
-
 
 def clean_number(num_str):
     # Remove all dots except the last one (decimal separator)
@@ -343,15 +362,8 @@ def retrieve(query, top_k=1):
     print(f"[Retrieval] Top {top_k} chunks retrieved.")
     return [corpus[hit['corpus_id']] for hit in hits]
 
-def rag_query(query):
-    global chunk_embeddings, corpus
-    if chunk_embeddings is None or corpus is None:
-        try:
-            load_embeddings()
-        except Exception as e:
-            return {"error": str(e)}
-    if corpus is None:
-        return {"error": "Corpus is not loaded. Please check your chunks.txt file."}
+
+def rag_query(query, use_pinecone=True):
     print(f"[RAG] Processing query: {query}")
     from mistral_utils import answer_question
     # Use Mistral to generate a list of strong synonym queries (activity categories) in Italian
@@ -359,20 +371,19 @@ def rag_query(query):
     if isinstance(refined_query, dict) and "error" in refined_query:
         return refined_query
     print(f"[RAG] Refined query/categories: {refined_query}")
-    # If the model returns a comma- or newline-separated list, split into queries
     if isinstance(refined_query, str):
         queries = [q.strip() for q in re.split(r'[\n,;]+', refined_query) if q.strip()]
     else:
         queries = [str(refined_query)]
-    # Retrieve candidates for each synonym/category
     all_candidates = []
     for q in queries:
         print(f"[RAG] Searching with synonym/category: {q}")
-        candidates = hybrid_retrieve(q, top_k=5, alpha=0.1)
+        if use_pinecone:
+            candidates = pinecone_retrieve(q, top_k=5)
+        else:
+            candidates = hybrid_retrieve(q, top_k=5, alpha=0.1)
         all_candidates.extend(candidates)
-    # Deduplicate
     all_candidates = list(dict.fromkeys(all_candidates))
-    # Re-rank with Mistral
     best_accuracy = 0
     best_chunk = None
     best_idx = 0
@@ -392,8 +403,7 @@ def rag_query(query):
             best_accuracy = accuracy
             best_chunk = chunk
             best_idx = i
-    # If best accuracy < 90, try alternative phrasings
-    if best_accuracy < 90:
+    if best_accuracy < 85:
         print(f"[RAG] Best accuracy only {best_accuracy}, generating alternative phrasings...")
         alt_queries = answer_question(f"Give 5 alternative ways to describe the same construction activity as: {query}, in italian, each as a single line, no commentary.")
         if isinstance(alt_queries, str):
@@ -402,7 +412,11 @@ def rag_query(query):
             alt_queries = [str(alt_queries)]
         for alt in alt_queries:
             print(f"[RAG] Trying alternative: {alt}")
-            candidates = hybrid_retrieve(alt, top_k=3, alpha=0.1)
+            if use_pinecone:
+                candidates = pinecone_retrieve(alt, top_k=3)
+            else:
+                candidates = hybrid_retrieve(alt, top_k=3, alpha=0.1)
+            print(candidates)
             for i, chunk in enumerate(candidates):
                 title = chunk.split("\n")[0] if "\n" in chunk else chunk[:500]
                 prompt = f"Is the following construction activity relevant to the query '{query}'? Activity: '{title}'. Return number from 1 to 100 representing accuracy."
@@ -440,32 +454,39 @@ def chunk_to_text(chunk):
     return '\n'.join(lines)
 
 if __name__ == "__main__":
-    # Allow dynamic txt_file path for chunking/embedding
-    import sys
-    if len(sys.argv) > 1:
-        txt_file = sys.argv[1]
-    else:
-        txt_file = "Analisi_2025Pdf_250722_081209-compressed.txt"
-    chunks = load_txt_chunks(txt_file)
-    corpus = [chunk_to_text(chunk) for chunk in chunks]
+    # Use pre-chunked file for upload, not re-chunking from raw source
+    import numpy as np
+    corpus_path = "chunks.txt"
+    if not os.path.exists(corpus_path):
+        raise RuntimeError(f"Corpus file '{corpus_path}' not found. Please generate it before uploading.")
+    with open(corpus_path, "r", encoding="utf-8") as f:
+        all_chunks = [line.strip() for line in f if line.strip()]
+    # Upload all chunks in chunks.txt
+    corpus = all_chunks
+    # --- Check for oversized chunks and skip them ---
+    # Pinecone metadata size limit is 40kB (40960 bytes)
+    max_metadata_bytes = 40960
+    filtered_corpus = []
+    filtered_indices = []
+    import json
+    for idx, chunk in enumerate(corpus):
+        meta = {"chunk": chunk}
+        meta_bytes = len(json.dumps(meta, ensure_ascii=False).encode("utf-8"))
+        if meta_bytes > max_metadata_bytes:
+            print(f"[Warning] Skipping chunk at index {idx} (ID chunk_{idx}) due to metadata size {meta_bytes} bytes > 40kB limit.")
+            continue
+        filtered_corpus.append(chunk)
+        filtered_indices.append(idx)
+    if not filtered_corpus:
+        raise RuntimeError("No valid chunks to upload after filtering oversized chunks.")
     # --- Embedding Retriever ---
     embedder_local = get_embedder()
-    if os.path.exists("chunk_embeddings_pat.pt"):
-        print("[Main] Loading chunk embeddings from disk...")
-        chunk_embeddings = torch.load("chunk_embeddings_pat.pt", map_location='cpu')
-    else:
-        print("[Main] Encoding chunks for retrieval...")
-        chunk_embeddings = embedder_local.encode(corpus, convert_to_tensor=True, show_progress_bar=True)
-        torch.save(chunk_embeddings, "chunk_embeddings_pat.pt")
-        print("[Main] Chunk embeddings saved to disk.")
-    print("[Main] Chunk embeddings ready.")
-
-    with open("chunks.txt", "w", encoding="utf-8") as f:
-        for chunk in chunks:
-            f.write(chunk_to_text(chunk).replace("\n", " ") + "\n")
-    print("[Main] Chunks saved to disk.")
-
-    # --- Print ranked chunks for the query ---
-    user_query = "prezzo totale DEMOLIZIONE MANTI DI COPERTURA manto in lamiera"
-    result = rag_query(user_query)
-    print(f"[Main] Final answer: {result}")
+    print("[Main] Encoding chunks for retrieval...")
+    chunk_embeddings = embedder_local.encode(filtered_corpus, convert_to_numpy=True, show_progress_bar=True)
+    # --- Upload all valid chunks to Pinecone ---
+    upload_chunks_to_pinecone(filtered_corpus, chunk_embeddings, batch_size=70, index_name="pat-chunks", namespace="default", start_index=0)
+    # --- Print ranked chunks for the query (optional, can be commented out) ---
+    # To use local retrieval, set use_pinecone=False
+    # user_query = "prezzo totale DEMOLIZIONE MANTI DI COPERTURA manto in lamiera"
+    # result = rag_query(user_query, use_pinecone=False)
+    # print(f"[Main] Final answer: {result}")
