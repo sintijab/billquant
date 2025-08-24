@@ -90,7 +90,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <Card className="shadow-lg animate-fade-in">
-        <CardContent className="p-8">
+        <CardContent className="md:p-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-SEMIbold text-text-primary mb-4">
               Create Construction Proposal
@@ -111,7 +111,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                 onValueChange={(value: "site_visit" | "upload_boq") => onUpdate({ projectType: value })}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center md:space-x-2">
                   <RadioGroupItem value="site_visit" id="site_visit" className="sr-only" />
                   <Label
                     htmlFor="site_visit"
@@ -145,7 +145,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
                   </Label>
                 </div>
 
-                <div className="flex items-center space-x-2 opacity-50 pointer-events-none select-none">
+                <div className="flex items-center md:space-x-2 opacity-50 pointer-events-none select-none">
                   <RadioGroupItem value="upload_boq" id="upload_boq" className="sr-only" disabled />
                   <Label
                     htmlFor="upload_boq"

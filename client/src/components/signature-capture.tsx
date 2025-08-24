@@ -29,40 +29,57 @@ export function SignatureCapture({ onSignatureCapture, children }: SignatureCapt
     }
   }, [isOpen]);
 
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+
+  // Helper to get mouse/touch coordinates relative to canvas, accounting for scaling
+  const getRelativeCoords = (event: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return { x: 0, y: 0 };
+    const rect = canvas.getBoundingClientRect();
+    let clientX = 0, clientY = 0;
+    if ('touches' in event) {
+      if (event.touches.length > 0) {
+        clientX = event.touches[0].clientX;
+        clientY = event.touches[0].clientY;
+      }
+    } else {
+      clientX = event.clientX;
+      clientY = event.clientY;
+    }
+    // Account for canvas scaling (responsive)
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+      x: (clientX - rect.left) * scaleX,
+      y: (clientY - rect.top) * scaleY,
+    };
+  };
+
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-
+    const { x, y } = getRelativeCoords(e);
     ctx.beginPath();
     ctx.moveTo(x, y);
     setIsDrawing(true);
   };
 
-  const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
     if (!isDrawing) return;
-
+    e.preventDefault();
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-
+    const { x, y } = getRelativeCoords(e);
     ctx.lineTo(x, y);
     ctx.stroke();
   };
 
-  const stopDrawing = () => {
+  const stopDrawing = (e?: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    if (e) e.preventDefault();
     setIsDrawing(false);
   };
 
@@ -105,8 +122,11 @@ export function SignatureCapture({ onSignatureCapture, children }: SignatureCapt
               onMouseMove={draw}
               onMouseUp={stopDrawing}
               onMouseLeave={stopDrawing}
+              onTouchStart={startDrawing}
+              onTouchMove={draw}
+              onTouchEnd={stopDrawing}
               className="cursor-crosshair w-full"
-              style={{ maxWidth: '100%', background: 'white', display: 'block' }}
+              style={{ maxWidth: '100%', background: 'white', display: 'block', touchAction: 'none' }}
               data-testid="signature-canvas"
             />
           </div>
