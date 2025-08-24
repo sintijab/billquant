@@ -144,7 +144,7 @@ export default function LandingPage() {
                 <button onClick={handleGetStarted} className="bg-[#f9a825] text-[#071330] px-8 py-3 rounded-lg font-graphik-bold text-lg shadow-md hover:bg-[#ffd95a] transition">Get Started</button>
               </SignedIn>
               <SignedOut>
-                <div className="hidden md:inline-block">
+                <div className="md:inline-block">
                   <SignInButton mode="modal"
                     className="bg-[#071330] text-white px-8 py-3 rounded-lg font-graphik-bold text-lg shadow-md hover:bg-[#163b7c] transition ml-0"
                   >Get started</SignInButton>
