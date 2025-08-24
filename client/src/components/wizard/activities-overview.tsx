@@ -261,7 +261,6 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               data-testid="button-continue"
             >
               Continue to Pricing
-              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
           <div className="hidden md:flex justify-between mt-8">
@@ -280,7 +279,6 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               data-testid="button-continue"
             >
               Continue to Pricing
-              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </CardContent>
