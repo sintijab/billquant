@@ -90,7 +90,7 @@ export const fetchActivityCategoryDei = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`${LOCAL_API_BASE}/search_dei`, {
+  const resp = await fetch(`https://billquant-dei-production.up.railway.app/search_dei`, {
         method: 'POST',
         body: fd,
       });
@@ -146,7 +146,7 @@ export const fetchActivityCategoryPat = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`${LOCAL_API_BASE}/search_pat`, {
+  const resp = await fetch(`https://billquant-pat-production.up.railway.app/search_pat`, {
         method: 'POST',
         body: fd,
       });
@@ -202,7 +202,7 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`${LOCAL_API_BASE}/search_piemonte`, {
+  const resp = await fetch(`'https://billquant-piemonte-production.up.railway.app'/search_piemonte`, {
         method: 'POST',
         body: fd,
       });

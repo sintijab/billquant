@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte, fetchCategoryData, fetchActivityBySource, closeModalCompare } from '@/features/boqSlice';
+import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte, fetchActivityBySource, closeModalCompare } from '@/features/boqSlice';
 import CompareActivitiesPanel from "./compare-activities-panel";
 import { selectAllTableItems } from '@/features/boqSelectors';
 
@@ -57,7 +57,6 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
       // Also refresh if there is an error
       if (catObj && catObj.error) missing = true;
       if (missing) {
-        await dispatch(fetchCategoryData(activity.Activity)).unwrap();
         await dispatch(fetchThunk(activity.Activity) as any);
       }
     }
