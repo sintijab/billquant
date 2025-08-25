@@ -106,9 +106,10 @@ python -c "with open('DEI_chunks.txt', 'r', encoding='utf-8') as f: \
 - Pinecone account (API key, region)
 - Docker (optional)
 
+
 ### Setup
 1. Clone the repository.
-2. Install dependencies:
+2. Install dependencies (if running without Docker):
     ```sh
     pip install -r requirements.txt
     ```
@@ -117,6 +118,44 @@ python -c "with open('DEI_chunks.txt', 'r', encoding='utf-8') as f: \
     PINECONE_API_KEY=YOUR_API_KEY
     PINECONE_REGION=YOUR_REGION
     ```
+
+---
+
+## Running with Docker (Locally)
+
+You can build and run the DEI RAG server using Docker for a fully containerized local environment.
+
+### 1. Prepare Environment Variables
+
+Create a `.env` file in the `rag_server_dei/` directory with your Pinecone credentials:
+
+```
+PINECONE_API_KEY=YOUR_API_KEY
+PINECONE_REGION=YOUR_REGION
+MISTRAL_API_KEY=YOUR_API_KEY
+```
+
+### 2. Build the Docker Image
+
+Open a terminal in the `rag_server_dei/` directory and run:
+
+```sh
+docker build -t rag_server_dei:latest .
+```
+
+### 3. Run the Docker Container
+
+Run the container, passing your environment variables from the `.env` file:
+
+```sh
+docker run --env-file .env -p 8000:8000 rag_server_dei:latest
+```
+
+This will start the FastAPI server on [http://localhost:8000](http://localhost:8000).
+
+You can now test the API endpoints as described below.
+
+---
 
 ### Uploading Model Embeddings
 Run the embedding script to parse, chunk, encode, and upload all chunks from `DEI_chunks.txt` to Pinecone:
