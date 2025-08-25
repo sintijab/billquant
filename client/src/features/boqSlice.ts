@@ -202,7 +202,7 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`'https://billquant-piemonte-production.up.railway.app'/search_piemonte`, {
+  const resp = await fetch(`https://billquant-piemonte-production.up.railway.app/search_piemonte`, {
         method: 'POST',
         body: fd,
       });

@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Loader from '@/components/ui/loader';
 import { AppDispatch, RootState } from "@/store";
 import { fetchActivityCategoryPat, fetchCategoryData } from "@/features/boqSlice";
@@ -35,6 +35,14 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
     acc[work.Work].push(work);
     return acc;
   }, {});
+  useEffect(() => {
+    // Example: fetch category data for each timeline activity
+    timeline.forEach((activity: any) => {
+      if (activity.Activity) {
+        dispatch(fetchCategoryData(activity.Activity));
+      }
+    });
+  }, [timeline]);
 
   // State to track which timeline activities are expanded
   const [expanded, setExpanded] = useState<{ [activity: string]: boolean }>({});
