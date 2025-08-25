@@ -236,7 +236,6 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
               disabled={loading}
             >
               Create Quotation
-              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </CardContent>

@@ -60,31 +60,7 @@ export default function ProjectSetup({ data, onUpdate, onNext }: ProjectSetupPro
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const newErrors: Record<string, string> = {};
-    
-    if (!data.clientFirstName) newErrors.clientFirstName = "First name is required";
-    if (!data.clientSurname) newErrors.clientSurname = "Surname is required";
-    if (!data.clientEmail) newErrors.clientEmail = "Email is required";
-    if (!data.siteAddress) newErrors.siteAddress = "Site address is required";
-    
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-    
     onNext();
-  };
-
-  const handleInputChange = (field: keyof ProjectWizardData, value: string) => {
-    onUpdate({ [field]: value });
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: "" }));
-    }
-  };
-
-  const handleInputBlur = (field: keyof ProjectWizardData, value: string) => {
-    dispatch(setProjectSetup({ [field]: value }));
   };
 
   return (

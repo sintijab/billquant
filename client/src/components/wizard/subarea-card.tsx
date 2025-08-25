@@ -3,6 +3,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Plus, Camera, Upload } from "lucide-react";
 import React, { useRef, useState } from "react";
+import heic2any from "heic2any";
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '@/store';
 import { setSiteVisit, analyzeImages } from '@/features/siteVisitSlice';
@@ -20,6 +21,7 @@ interface SubareaCardProps {
 }
 
 const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdate, data, setGeneratingDesc }) => {
+    // heic2any is now imported directly
     // Refs to track previous values for quantity and udm for each item
     const prevQuantityRef = useRef<{ [key: string]: string }>({});
     const prevUdmRef = useRef<{ [key: string]: string }>({});
@@ -132,14 +134,27 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
             <div className="flex flex-col gap-4 mb-4">
                 {sub.items?.map((item: any, itemIdx: number) => (
                     <div key={item.id} className="flex flex-row items-start justify-center bg-gray-50 rounded-xl border p-2 w-full relative min-h-[12rem] flex-wrap" style={{ minHeight: '200px' }}>
-                        {/* Show first photo if exists */}
+                        {/* Show first photo if exists, with HEIC and error support */}
                         {item.photos && item.photos.length > 0 && (
-                            <img
-                                src={item.photos[0].url}
-                                alt="Subarea Item"
-                                className="w-40 h-full max-h-[200px] object-cover rounded-xl border bg-gray-200"
-                                style={{ objectFit: 'cover', height: '100%', maxHeight: '200px', width: '160px' }}
-                            />
+                            item.photos[0].url && item.photos[0].url.startsWith('data:image') ? (
+                                <img
+                                    src={item.photos[0].url}
+                                    alt="Subarea Item"
+                                    className="w-40 h-full max-h-[200px] object-cover rounded-xl border bg-gray-200"
+                                    style={{ objectFit: 'cover', height: '100%', maxHeight: '200px', width: '160px' }}
+                                />
+                            ) : item.photos[0].url && item.photos[0].url.startsWith('blob:') ? (
+                                <img
+                                    src={item.photos[0].url}
+                                    alt="Subarea Item"
+                                    className="w-40 h-full max-h-[200px] object-cover rounded-xl border bg-gray-200"
+                                    style={{ objectFit: 'cover', height: '100%', maxHeight: '200px', width: '160px' }}
+                                />
+                            ) : item.photos[0].error ? (
+                                <div className="w-40 h-full max-h-[200px] flex items-center justify-center bg-gray-200 rounded-xl border text-xs text-gray-500" style={{ height: '100%', maxHeight: '200px', width: '160px' }}>
+                                    {item.photos[0].fileName}<br/>HEIC not supported
+                                </div>
+                            ) : null
                         )}
                         <Button
                             variant="ghost"
@@ -395,34 +410,41 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         let newItems: any[] = [];
                                         for (let i = 0; i < files.length; i++) {
                                             const file = files[i];
-                                            const reader = new FileReader();
-                                            // eslint-disable-next-line no-loop-func
-                                            await new Promise<void>((resolve) => {
-                                                reader.onload = async ev => {
-                                                    const url = ev.target?.result;
-                                                    let description = '';
-                                                    if (data.aiConsent) {
-                                                        try {
-                                                            const formData = new FormData();
-                                                            formData.append('file', file);
-                                                            const result = await dispatch(analyzeImages(formData)).unwrap();
-                                                            if ((result as any).answer) description = (result as any).answer;
-                                                        } catch (err) {
-                                                            description = '';
-                                                        }
-                                                    }
-                                                    newItems.push({
-                                                        id: `item-${Date.now()}-${i}-${Math.random().toString(36).slice(2)}`,
-                                                        status: '',
-                                                        dimensions: '',
-                                                        udm: '',
-                                                        quantity: '',
-                                                        description,
-                                                        photos: [{ url, fileName: file.name }]
-                                                    });
-                                                    resolve();
-                                                };
-                                                reader.readAsDataURL(file);
+                                            let url: string | undefined;
+                                            let isHeic = file.type === 'image/heic' || file.name.toLowerCase().endsWith('.heic');
+                                            if (isHeic) {
+                                                try {
+                                                    const blob = await heic2any({ blob: file, toType: 'image/jpeg' });
+                                                    url = URL.createObjectURL(blob as Blob);
+                                                } catch (err) {
+                                                    url = undefined;
+                                                }
+                                            } else {
+                                                url = await new Promise<string>((resolve) => {
+                                                    const reader = new FileReader();
+                                                    reader.onload = ev => resolve(ev.target?.result as string);
+                                                    reader.readAsDataURL(file);
+                                                });
+                                            }
+                                            let description = '';
+                                            if (data.aiConsent && url) {
+                                                try {
+                                                    const formData = new FormData();
+                                                    formData.append('file', file);
+                                                    const result = await dispatch(analyzeImages(formData)).unwrap();
+                                                    if ((result as any).answer) description = (result as any).answer;
+                                                } catch (err) {
+                                                    description = '';
+                                                }
+                                            }
+                                            newItems.push({
+                                                id: `item-${Date.now()}-${i}-${Math.random().toString(36).slice(2)}`,
+                                                status: '',
+                                                dimensions: '',
+                                                udm: '',
+                                                quantity: '',
+                                                description,
+                                                photos: [url ? { url, fileName: file.name } : { url: '', fileName: file.name, error: 'Unsupported HEIC format' }]
                                             });
                                         }
                                         onUpdate({

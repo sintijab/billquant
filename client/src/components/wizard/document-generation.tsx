@@ -39,6 +39,21 @@ interface DocumentGenerationProps {
 }
 
 export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject }: DocumentGenerationProps) {
+  // Always merge Redux and local data for attachments, notes, and signature on mount
+  useEffect(() => {
+    const reduxSetup = data; // data is already from Redux
+    let merged = { ...data, ...reduxSetup };
+    if (Array.isArray(reduxSetup.generalAttachments) && reduxSetup.generalAttachments.length > 0) {
+      merged.generalAttachments = reduxSetup.generalAttachments;
+    } else if (Array.isArray(data.generalAttachments) && data.generalAttachments.length > 0) {
+      merged.generalAttachments = data.generalAttachments;
+    }
+    if (reduxSetup.generalNotes) merged.generalNotes = reduxSetup.generalNotes;
+    if (reduxSetup.digitalSignature) merged.digitalSignature = reduxSetup.digitalSignature;
+    if (onUpdate) onUpdate(merged);
+    if (merged.digitalSignature) setSignatureState(merged.digitalSignature);
+    // eslint-disable-next-line
+  }, []);
   const [isGenerating, setIsGenerating] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
   // Load wizard/project data from Redux store (persisted)
