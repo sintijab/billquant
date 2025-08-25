@@ -412,10 +412,14 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                             const file = files[i];
                                             let url: string | undefined;
                                             let isHeic = file.type === 'image/heic' || file.name.toLowerCase().endsWith('.heic');
+                                            let uploadFile: File | Blob = file;
+                                            let uploadFileName = file.name;
                                             if (isHeic) {
                                                 try {
                                                     const blob = await heic2any({ blob: file, toType: 'image/jpeg' });
                                                     url = URL.createObjectURL(blob as Blob);
+                                                    uploadFile = blob as Blob;
+                                                    uploadFileName = file.name.replace(/\.heic$/i, '.jpg');
                                                 } catch (err) {
                                                     url = undefined;
                                                 }
@@ -430,7 +434,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                             if (data.aiConsent && url) {
                                                 try {
                                                     const formData = new FormData();
-                                                    formData.append('file', file);
+                                                    formData.append('file', uploadFile, uploadFileName);
                                                     const result = await dispatch(analyzeImages(formData)).unwrap();
                                                     if ((result as any).answer) description = (result as any).answer;
                                                 } catch (err) {
@@ -444,7 +448,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                                 udm: '',
                                                 quantity: '',
                                                 description,
-                                                photos: [url ? { url, fileName: file.name } : { url: '', fileName: file.name, error: 'Unsupported HEIC format' }]
+                                                photos: [url ? { url, fileName: uploadFileName } : { url: '', fileName: uploadFileName, error: 'Unsupported HEIC format' }]
                                             });
                                         }
                                         onUpdate({
