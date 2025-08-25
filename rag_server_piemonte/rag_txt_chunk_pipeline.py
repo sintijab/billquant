@@ -6,12 +6,6 @@ import os
 import numpy as np
 import torch
 import re
-
-import os
-import re
-import json
-import torch
-import numpy as np
 from dotenv import load_dotenv
 from pinecone import Pinecone, ServerlessSpec
 from sentence_transformers import SentenceTransformer, util
