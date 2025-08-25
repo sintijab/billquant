@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { checkAllHealth } from "../features/endpoints/healthCheck";
 import { useLocation } from "wouter";
 // Navigation/Header styled like Chakra example
 import { Button } from "@/components/ui/button";
@@ -14,8 +16,12 @@ import {
 } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
-
+import { AppDispatch } from "@/store";
 export default function LandingPage() {
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(checkAllHealth());
+  }, [dispatch]);
   const [, setLocation] = useLocation();
 
   // Features for new section
