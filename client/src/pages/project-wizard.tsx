@@ -8,6 +8,8 @@ import ActivitiesOverview from "@/components/wizard/activities-overview";
 import BOQPricing from "@/components/wizard/boq-pricing";
 import DocumentGeneration from "@/components/wizard/document-generation";
 import { ProjectWizardData } from "@/lib/types";
+import { useDispatch } from "react-redux";
+import { resetSiteWorks } from "@/features/siteWorksSlice";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 
 const INITIAL_DATA: ProjectWizardData = {
@@ -31,12 +33,16 @@ export default function ProjectWizard() {
   const [, setLocation] = useLocation();
   const currentStep = parseInt(params?.step || "1");
   const [projectData, setProjectData] = useState<ProjectWizardData>(INITIAL_DATA);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (currentStep < 1 || currentStep > 5) {
       setLocation("/project/1");
     }
-  }, [currentStep, setLocation]);
+    if (currentStep === 1) {
+      dispatch(resetSiteWorks());
+    }
+  }, [currentStep, setLocation, dispatch]);
 
   const handleStepChange = (step: number) => {
     if (step >= 1 && step <= 5) {

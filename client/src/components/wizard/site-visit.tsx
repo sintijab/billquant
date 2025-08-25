@@ -351,7 +351,6 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                                 ),
                               };
                               onUpdate(updated);
-                              dispatch(resetSiteWorks());
                             }}
                             onBlur={e => {
                               const newTitle = e.target.value;
