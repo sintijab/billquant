@@ -98,10 +98,30 @@ async def mistral(query: str = Form(...)):
         else:
             parsed_json = {"error": "Invalid JSON format", "raw_answer": raw_answer}
     return parsed_json
+# Retry logic for find_categories
+def find_categories_with_retry(prompt, max_retries=5):
+    for attempt in range(max_retries):
+        try:
+            return find_categories(prompt)
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code == 429 or "capacity exceeded" in str(e).lower():
+                wait = 2 ** attempt
+                print(f"[Mistral] 429/capacity error, retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                raise
+        except Exception as e:
+            if "capacity exceeded" in str(e).lower():
+                wait = 2 ** attempt
+                print(f"[Mistral] capacity error, retrying in {wait}s...")
+                time.sleep(wait)
+            else:
+                raise
+    return {"error": "Mistral API unavailable after retries."}
 
 @app.post("/mistral_activity_categories")
-async def mistral(query: str = Form(...)):
-    raw_answer = find_categories(query)
+async def mistral_activity_categories(query: str = Form(...)):
+    raw_answer = find_categories_with_retry(query)
     # Remove outer quotes if present
     if raw_answer.startswith('"') and raw_answer.endswith('"'):
         raw_answer = raw_answer[1:-1]
