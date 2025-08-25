@@ -6,6 +6,8 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '@/store';
 import { setSiteVisit, analyzeImages } from '@/features/siteVisitSlice';
+import { fetchSiteWorks, resetSiteWorks } from '@/features/siteWorksSlice';
+import { formatAreaData } from '@/lib/formatAreaData';
 import Loader from "../ui/loader";
 
 interface SubareaCardProps {
@@ -18,6 +20,11 @@ interface SubareaCardProps {
 }
 
 const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdate, data, setGeneratingDesc }) => {
+    // Refs to track previous values for quantity and udm for each item
+    const prevQuantityRef = useRef<{ [key: string]: string }>({});
+    const prevUdmRef = useRef<{ [key: string]: string }>({});
+    // Ref to track previous description value for each item
+    const prevDescriptionsRef = useRef<{ [key: string]: string }>({});
     const dispatch = useDispatch<AppDispatch>();
     const [photoPopover, setPhotoPopover] = useState(false);
     const [livePhotoModal, setLivePhotoModal] = useState(false);
@@ -59,13 +66,21 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                 }
                 setAnalyzing(true);
                 let description = '';
-                if (data.aiConsent) {
+        // Prepend area/subarea numbers to names/titles for Redux/AI
+        const areaName = data.siteAreas[areaIdx]?.name || '';
+        const subareaTitle = data.siteAreas[areaIdx]?.subareas?.[subIdx]?.title || '';
+        const fullAreaName = `Area no. ${areaIdx + 1} ${areaName.replace(new RegExp(`^Area no. ${areaIdx + 1} ?`), '')}`.trim();
+        const fullSubareaTitle = `Subarea no. ${subIdx + 1} ${subareaTitle.replace(new RegExp(`^Subarea no. ${subIdx + 1} ?`), '')}`.trim();
+        if (data.aiConsent) {
                     try {
                         // Convert dataURL to Blob
                         const res = await fetch(url);
                         const blob = await res.blob();
                         const formData = new FormData();
                         formData.append('file', blob, fileName);
+            // Optionally append area/subarea info for AI
+            formData.append('areaName', fullAreaName);
+            formData.append('subareaTitle', fullSubareaTitle);
                         const result = await dispatch(analyzeImages(formData)).unwrap();
                         if ((result as any).answer) description = (result as any).answer;
                     } catch (err) {
@@ -112,31 +127,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                     <Loader size="xxs" />
                 </div>
             )}
-            <div className="flex flex-row items-center gap-4 mb-4">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Subarea no. {subIdx + 1}</h3>
-                    <Button
-                        variant="secondary"
-                        size="icon"
-                        className="ml-auto w-8 h-8 p-0 rounded-full flex items-center justify-center shadow-md border-0 bg-white text-primary-dark hover:bg-primary-dark hover:text-white transition-colors"
-                    onClick={() => {
-                        const updated = {
-                            siteAreas: data.siteAreas.map((a: any, i: number) =>
-                                i === areaIdx
-                                    ? { ...a, subareas: a.subareas.filter((_: any, si: number) => si !== subIdx) }
-                                    : a
-                            )
-                        };
-                        onUpdate(updated);
-                        dispatch(setSiteVisit(updated));
-                    }}
-                    aria-label="Remove Subarea"
-                >
-                    <span className="sr-only">Remove Subarea</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </Button>
-            </div>
+            {/* Close button moved to site-visit.tsx next to subarea name input */}
             {/* Photo grid */}
             <div className="flex flex-col gap-4 mb-4">
                 {sub.items?.map((item: any, itemIdx: number) => (
@@ -146,8 +137,8 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                             <img
                                 src={item.photos[0].url}
                                 alt="Subarea Item"
-                                className="w-40 h-full max-h-[300px] object-cover rounded-xl border bg-gray-200"
-                                style={{ objectFit: 'cover', height: '100%', maxHeight: '300px', width: '160px' }}
+                                className="w-40 h-full max-h-[200px] object-cover rounded-xl border bg-gray-200"
+                                style={{ objectFit: 'cover', height: '100%', maxHeight: '200px', width: '160px' }}
                             />
                         )}
                         <Button
@@ -172,6 +163,7 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                 };
                                 onUpdate(updated);
                                 dispatch(setSiteVisit(updated));
+                                dispatch(resetSiteWorks());
                             }}
                         >
                             <span className="sr-only">Remove item</span>
@@ -186,114 +178,12 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                     {item.photos && item.photos[0]?.fileName ? item.photos[0].fileName : 'Photo'}
                                 </span>
                             </div>
-                            <Input
-                                value={item.status || ''}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    onUpdate({
-                                        siteAreas: data.siteAreas.map((a: any, i: number) =>
-                                            i === areaIdx
-                                                ? {
-                                                    ...a,
-                                                    subareas: a.subareas.map((s: any, si: number) =>
-                                                        si === subIdx
-                                                            ? {
-                                                                ...s,
-                                                                items: s.items.map((it: any, ii: number) =>
-                                                                    ii === itemIdx ? { ...it, status: e.target.value } : it
-                                                                ),
-                                                            }
-                                                            : s
-                                                    ),
-                                                }
-                                                : a
-                                        ),
-                                    });
-                                }}
-                                className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
-                                placeholder="Site status"
-                            />
-                            <Input
-                                value={item.dimensions || ''}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                    onUpdate({
-                                        siteAreas: data.siteAreas.map((a: any, i: number) =>
-                                            i === areaIdx
-                                                ? {
-                                                    ...a,
-                                                    subareas: a.subareas.map((s: any, si: number) =>
-                                                        si === subIdx
-                                                            ? {
-                                                                ...s,
-                                                                items: s.items.map((it: any, ii: number) =>
-                                                                    ii === itemIdx ? { ...it, dimensions: e.target.value } : it
-                                                                ),
-                                                            }
-                                                            : s
-                                                    ),
-                                                }
-                                                : a
-                                        ),
-                                    });
-                                }}
-                                className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
-                                placeholder="Dimensions"
-                            />
-                            <div className="flex gap-2 w-full mb-1">
-                                <Input
-                                    value={item.udm || ''}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                        onUpdate({
-                                            siteAreas: data.siteAreas.map((a: any, i: number) =>
-                                                i === areaIdx
-                                                    ? {
-                                                        ...a,
-                                                        subareas: a.subareas.map((s: any, si: number) =>
-                                                            si === subIdx
-                                                                ? {
-                                                                    ...s,
-                                                                    items: s.items.map((it: any, ii: number) =>
-                                                                        ii === itemIdx ? { ...it, udm: e.target.value } : it
-                                                                    ),
-                                                                }
-                                                                : s
-                                                        ),
-                                                    }
-                                                    : a
-                                            ),
-                                        });
-                                    }}
-                                    className="w-1/2 bg-white/80 placeholder:text-gray-400 text-sm"
-                                    placeholder="UDM"
-                                />
-                                <Input
-                                    value={item.quantity || ''}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                        onUpdate({
-                                            siteAreas: data.siteAreas.map((a: any, i: number) =>
-                                                i === areaIdx
-                                                    ? {
-                                                        ...a,
-                                                        subareas: a.subareas.map((s: any, si: number) =>
-                                                            si === subIdx
-                                                                ? {
-                                                                    ...s,
-                                                                    items: s.items.map((it: any, ii: number) =>
-                                                                        ii === itemIdx ? { ...it, quantity: e.target.value } : it
-                                                                    ),
-                                                                }
-                                                                : s
-                                                        ),
-                                                    }
-                                                    : a
-                                            ),
-                                        });
-                                    }}
-                                    className="w-1/2 bg-white/80 placeholder:text-gray-400 text-sm"
-                                    placeholder="Quantity"
-                                />
-                            </div>
                             <Textarea
                                 value={item.description || ''}
+                                onFocus={() => {
+                                    // Store the previous value on focus
+                                    prevDescriptionsRef.current[item.id] = item.description || '';
+                                }}
                                 onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
                                     onUpdate({
                                         siteAreas: data.siteAreas.map((a: any, i: number) =>
@@ -315,10 +205,149 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         ),
                                     });
                                 }}
-                                className="bg-white/80 placeholder:text-gray-400 text-sm"
+                                onBlur={async (e: React.FocusEvent<HTMLTextAreaElement>) => {
+                                    const prevValue = prevDescriptionsRef.current[item.id] || '';
+                                    if (prevValue !== e.target.value) {
+                                        const updatedSiteAreas = data.siteAreas.map((a: any, i: number) =>
+                                            i === areaIdx
+                                                ? {
+                                                    ...a,
+                                                    subareas: a.subareas.map((s: any, si: number) =>
+                                                        si === subIdx
+                                                            ? {
+                                                                ...s,
+                                                                items: s.items.map((it: any, ii: number) =>
+                                                                    ii === itemIdx ? { ...it, description: e.target.value } : it
+                                                                ),
+                                                            }
+                                                            : s
+                                                    ),
+                                                }
+                                                : a
+                                        );
+                                        dispatch(setSiteVisit({ siteAreas: updatedSiteAreas }));
+                                        const areaData = updatedSiteAreas[areaIdx];
+                                        const formatted = formatAreaData(areaData);
+                                        dispatch(fetchSiteWorks(formatted));
+                                    }
+                                }}
+                                className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
                                 placeholder="Subarea description"
                                 rows={2}
                             />
+                            <div className="flex gap-2 w-full mb-1">
+                                <Input
+                                    value={item.dimensions || ''}
+                                    onFocus={() => {
+                                        prevQuantityRef.current[item.id] = item.dimensions || '';
+                                    }}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                        onUpdate({
+                                            siteAreas: data.siteAreas.map((a: any, i: number) =>
+                                                i === areaIdx
+                                                    ? {
+                                                        ...a,
+                                                        subareas: a.subareas.map((s: any, si: number) =>
+                                                            si === subIdx
+                                                                ? {
+                                                                    ...s,
+                                                                    items: s.items.map((it: any, ii: number) =>
+                                                                        ii === itemIdx ? { ...it, dimensions: e.target.value } : it
+                                                                    ),
+                                                                }
+                                                                : s
+                                                        ),
+                                                    }
+                                                    : a
+                                            ),
+                                        });
+                                    }}
+                                    onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
+                                        const prevValue = prevQuantityRef.current[item.id] || '';
+                                        if (prevValue !== e.target.value) {
+                                            const updatedSiteAreas = data.siteAreas.map((a: any, i: number) =>
+                                                i === areaIdx
+                                                    ? {
+                                                        ...a,
+                                                        subareas: a.subareas.map((s: any, si: number) =>
+                                                            si === subIdx
+                                                                ? {
+                                                                    ...s,
+                                                                    items: s.items.map((it: any, ii: number) =>
+                                                                        ii === itemIdx ? { ...it, dimensions: e.target.value } : it
+                                                                    ),
+                                                                }
+                                                                : s
+                                                        ),
+                                                    }
+                                                    : a
+                                            );
+                                            dispatch(setSiteVisit({ siteAreas: updatedSiteAreas }));
+                                            const areaData = updatedSiteAreas[areaIdx];
+                                            const formatted = formatAreaData(areaData);
+                                            dispatch(fetchSiteWorks(formatted));
+                                        }
+                                    }}
+                                    className="bg-white/80 placeholder:text-gray-400 text-sm w-2/3"
+                                    placeholder="Dimensions / Quantity"
+                                />
+                                <Input
+                                    value={item.udm || ''}
+                                    onFocus={() => {
+                                        prevUdmRef.current[item.id] = item.udm || '';
+                                    }}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                        onUpdate({
+                                            siteAreas: data.siteAreas.map((a: any, i: number) =>
+                                                i === areaIdx
+                                                    ? {
+                                                        ...a,
+                                                        subareas: a.subareas.map((s: any, si: number) =>
+                                                            si === subIdx
+                                                                ? {
+                                                                    ...s,
+                                                                    items: s.items.map((it: any, ii: number) =>
+                                                                        ii === itemIdx ? { ...it, udm: e.target.value } : it
+                                                                    ),
+                                                                }
+                                                                : s
+                                                        ),
+                                                    }
+                                                    : a
+                                            ),
+                                        });
+                                    }}
+                                    onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
+                                        const prevValue = prevUdmRef.current[item.id] || '';
+                                        if (prevValue !== e.target.value) {
+                                            const updatedSiteAreas = data.siteAreas.map((a: any, i: number) =>
+                                                i === areaIdx
+                                                    ? {
+                                                        ...a,
+                                                        subareas: a.subareas.map((s: any, si: number) =>
+                                                            si === subIdx
+                                                                ? {
+                                                                    ...s,
+                                                                    items: s.items.map((it: any, ii: number) =>
+                                                                        ii === itemIdx ? { ...it, udm: e.target.value } : it
+                                                                    ),
+                                                                }
+                                                                : s
+                                                        ),
+                                                    }
+                                                    : a
+                                            );
+                                            dispatch(setSiteVisit({ siteAreas: updatedSiteAreas }));
+                                            const areaData = updatedSiteAreas[areaIdx];
+                                            const formatted = formatAreaData(areaData);
+                                            dispatch(fetchSiteWorks(formatted));
+                                        }
+                                    }}
+                                    className="bg-white/80 placeholder:text-gray-400 text-sm w-1/3"
+                                    placeholder="UDM"
+                                />
+                            </div>
+   
                         </div>
                     </div>
                 ))}
@@ -356,58 +385,67 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                     ref={fileInputRef}
                                     type="file"
                                     accept="image/*"
+                                    multiple
                                     style={{ display: 'none' }}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                        const file = e.target.files?.[0];
-                                        if (file) {
-                                            setAnalyzing(true);
-                                            setPhotoPopover(false);
+                                    onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
+                                        const files = e.target.files;
+                                        if (!files || files.length === 0) return;
+                                        setAnalyzing(true);
+                                        setPhotoPopover(false);
+                                        let newItems: any[] = [];
+                                        for (let i = 0; i < files.length; i++) {
+                                            const file = files[i];
                                             const reader = new FileReader();
-                                            reader.onload = async ev => {
-                                                const url = ev.target?.result;
-                                                let description = '';
-                                                if (data.aiConsent) {
-                                                    try {
-                                                        const formData = new FormData();
-                                                        formData.append('file', file);
-                                                        const result = await dispatch(analyzeImages(formData)).unwrap();
-                                                        if ((result as any).answer) description = (result as any).answer;
-                                                    } catch (err) {
-                                                        description = '';
+                                            // eslint-disable-next-line no-loop-func
+                                            await new Promise<void>((resolve) => {
+                                                reader.onload = async ev => {
+                                                    const url = ev.target?.result;
+                                                    let description = '';
+                                                    if (data.aiConsent) {
+                                                        try {
+                                                            const formData = new FormData();
+                                                            formData.append('file', file);
+                                                            const result = await dispatch(analyzeImages(formData)).unwrap();
+                                                            if ((result as any).answer) description = (result as any).answer;
+                                                        } catch (err) {
+                                                            description = '';
+                                                        }
                                                     }
-                                                }
-                                                onUpdate({
-                                                    siteAreas: data.siteAreas.map((a: any, i: number) =>
-                                                        i === areaIdx
-                                                            ? {
-                                                                ...a,
-                                                                subareas: a.subareas.map((s: any, si: number) =>
-                                                                    si === subIdx
-                                                                        ? {
-                                                                            ...s,
-                                                                            items: [
-                                                                                ...(s.items || []),
-                                                                                {
-                                                                                    id: `item-${Date.now()}`,
-                                                                                    status: '',
-                                                                                    dimensions: '',
-                                                                                    udm: '',
-                                                                                    quantity: '',
-                                                                                    description,
-                                                                                    photos: [{ url, fileName: file.name }]
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                        : s
-                                                                ),
-                                                            }
-                                                            : a
-                                                    ),
-                                                });
-                                                setAnalyzing(false);
-                                            };
-                                            reader.readAsDataURL(file);
+                                                    newItems.push({
+                                                        id: `item-${Date.now()}-${i}-${Math.random().toString(36).slice(2)}`,
+                                                        status: '',
+                                                        dimensions: '',
+                                                        udm: '',
+                                                        quantity: '',
+                                                        description,
+                                                        photos: [{ url, fileName: file.name }]
+                                                    });
+                                                    resolve();
+                                                };
+                                                reader.readAsDataURL(file);
+                                            });
                                         }
+                                        onUpdate({
+                                            siteAreas: data.siteAreas.map((a: any, idx: number) =>
+                                                idx === areaIdx
+                                                    ? {
+                                                        ...a,
+                                                        subareas: a.subareas.map((s: any, si: number) =>
+                                                            si === subIdx
+                                                                ? {
+                                                                    ...s,
+                                                                    items: [
+                                                                        ...(s.items || []),
+                                                                        ...newItems
+                                                                    ]
+                                                                }
+                                                                : s
+                                                        ),
+                                                    }
+                                                    : a
+                                            ),
+                                        });
+                                        setAnalyzing(false);
                                     }}
                                 />
                             </div>

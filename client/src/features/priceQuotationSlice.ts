@@ -38,6 +38,7 @@ const priceQuotationSlice = createSlice({
 		},
 		clearPriceQuotationData: (state) => {
 			state.data = null;
+			state.loading = false;
 		},
 	},
 	extraReducers: (builder) => {

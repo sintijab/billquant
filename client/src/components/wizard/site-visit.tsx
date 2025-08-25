@@ -3,6 +3,7 @@ import { toast } from "@/hooks/use-toast";
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch } from '@/store';
 import { fetchSiteWorks } from '@/features/siteWorksSlice';
+import { resetSiteWorks } from '@/features/siteWorksSlice';
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
@@ -140,6 +141,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         const updated = { siteAreas: data.siteAreas.filter((_: unknown, i: number) => i !== areaIdx) };
                         onUpdate(updated);
                         dispatch(setSiteVisit(updated));
+                        dispatch(resetSiteWorks());
                       }}
                       aria-label="Remove Area"
                     >
@@ -148,11 +150,36 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </Button>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-2">Area no. {areaIdx + 1}</h2>
+                    <div className="flex items-center gap-2 mb-2">
+                      <Input
+                        value={area.name?.replace(new RegExp(`^Area no. ${areaIdx + 1} ?`), '') || ''}
+                        onChange={e => {
+                          const newName = e.target.value;
+                          onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: newName } : a) });
+                          dispatch(resetSiteWorks());
+                        }}
+                        onBlur={e => {
+                          const newName = e.target.value;
+                          const fullName = `Area no. ${areaIdx + 1} ${newName}`.trim();
+                          const updated = { siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: fullName } : a) };
+                          onUpdate(updated);
+                          dispatch(setSiteVisit(updated));
+                        }}
+                        className="border-0 border-b border-gray-800 text-xl font-semibold text-gray-900 bg-transparent rounded-none px-2 py-1 placeholder-gray-400 focus:border-b-2 focus:border-gray-900 focus:ring-0"
+                        placeholder="Area name"
+                        style={{ width: '200px', marginLeft: 0 }}
+                      />
+                    </div>
                     <Input
                       value={area.statusDescription || ''}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) })}
-                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) }))}
+                      onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
+                        const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a);
+                        dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                        const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
+                        const formatted = formatAreaData(areaData);
+                        dispatch(fetchSiteWorks(formatted));
+                      }}
                       className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
                       style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                       placeholder="Area status description"
@@ -165,32 +192,39 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                       style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
                       placeholder="What to do?"
                     />
-                    <Input
-                      value={area.totalArea || ''}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a) })}
-                      onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a) }))}
-                      className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                      style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
-                      placeholder="Dimensions"
-                    />
-                    <div className="flex gap-2">
-                      <Input
-                        value={area.udm || ''}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) })}
-                        onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) }))}
-                        className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
-                        placeholder="UDM"
-                      />
-                      <Input
-                        value={area.quantity || ''}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, quantity: e.target.value } : a) })}
-                        onBlur={(e: React.FocusEvent<HTMLInputElement>) => dispatch(setSiteVisit({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, quantity: e.target.value } : a) }))}
-                        className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
-                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
-                        placeholder="Quantity"
-                      />
-                    </div>
+                    <div className="flex gap-2 w-full">
+                        <Input
+                          value={area.totalArea || ''}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a) })}
+                          onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
+                            if (!e.target.value) return;
+                            const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a);
+                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                            const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
+                            const formatted = formatAreaData(areaData);
+                            dispatch(fetchSiteWorks(formatted));
+                          }}
+                          className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/25"
+                          style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                          placeholder="Dimensions / Quantity"
+                        />
+                        <Input
+                          value={area.udm || ''}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) })}
+                          onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
+                            if (!e.target.value) return;
+                            const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a);
+                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                            const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
+                            const formatted = formatAreaData(areaData);
+                            dispatch(fetchSiteWorks(formatted));
+                          }}
+                          className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/3"
+                          style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                          placeholder="UDM"
+                        />
+                      </div>
+                    {/* End two-column input row */}
                     <div className="flex flex-col gap-2 items-start">
                       <div className="flex items-center gap-2">
                         <Button
@@ -296,9 +330,75 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
 
                   </div>
                   {/* Subareas right column */}
-                  <div className="md:w-3/5 w-full flex flex-col gap-6">
+                  <div className="md:w-3/5 w-full flex flex-col gap-6 items-center">
                     {area.subareas?.map((sub: any, subIdx: number) => (
-                      <div key={sub.id} className="bg-white rounded-2xl p-4 md:p6 border border-gray-200 relative">
+                      <div key={sub.id} className="bg-white rounded-2xl w-full p-4 md:p-6 border border-gray-200 relative">
+                        <div className="flex items-center gap-2 mb-2 justify-between">
+                          <Input
+                            value={sub.title?.replace(new RegExp(`^Subarea no. ${subIdx + 1} ?`), '') || ''}
+                            onChange={e => {
+                              const newTitle = e.target.value;
+                              const updated = {
+                                siteAreas: data.siteAreas.map((a, i) =>
+                                  i === areaIdx
+                                    ? {
+                                        ...a,
+                                        subareas: a.subareas.map((s, si) =>
+                                          si === subIdx ? { ...s, title: newTitle } : s
+                                        ),
+                                      }
+                                    : a
+                                ),
+                              };
+                              onUpdate(updated);
+                              dispatch(resetSiteWorks());
+                            }}
+                            onBlur={e => {
+                              const newTitle = e.target.value;
+                              const fullTitle = `Subarea no. ${subIdx + 1} ${newTitle}`.trim();
+                              const updated = {
+                                siteAreas: data.siteAreas.map((a, i) =>
+                                  i === areaIdx
+                                    ? {
+                                        ...a,
+                                        subareas: a.subareas.map((s, si) =>
+                                          si === subIdx ? { ...s, title: fullTitle } : s
+                                        ),
+                                      }
+                                    : a
+                                ),
+                              };
+                              onUpdate(updated);
+                              dispatch(setSiteVisit(updated));
+                            }}
+                            className="border-0 border-b border-gray-800 text-lg font-semibold text-gray-800 bg-white rounded-none px-2 py-1 placeholder-gray-400 focus:border-b-2 focus:border-gray-900 focus:ring-0"
+                            placeholder="Subarea name"
+                            style={{ width: '180px', marginLeft: 0 }}
+                          />
+                          <Button
+                            variant="secondary"
+                            size="icon"
+                            className="w-8 h-8 p-0 rounded-full flex items-center justify-center shadow-md border-0 bg-white text-primary-dark hover:bg-primary-dark hover:text-white transition-colors z-10"
+                            onClick={() => {
+                              const updated = {
+                                siteAreas: data.siteAreas.map((a: any, i: number) =>
+                                  i === areaIdx
+                                    ? { ...a, subareas: a.subareas.filter((_: any, si: number) => si !== subIdx) }
+                                    : a
+                                )
+                              };
+                              onUpdate(updated);
+                              dispatch(setSiteVisit(updated));
+                              dispatch(resetSiteWorks());
+                            }}
+                            aria-label="Remove Subarea"
+                          >
+                            <span className="sr-only">Remove Subarea</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </Button>
+                        </div>
                         <SubareaCard
                           sub={sub}
                           areaIdx={areaIdx}
@@ -320,28 +420,6 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                       Add New Subarea
                     </Button>
                   </div>
-                </div>
-                {/* Save Area button inside each Area card */}
-                <div className="flex justify-end mt-4">
-                  <Button
-                    variant="secondary"
-                    className="px-8 py-4 rounded-full"
-                    onClick={async () => {
-                      // Ensure we use the latest state from the UI before fetching site works
-                      const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? area : a);
-                      const updated = { siteAreas: updatedAreas };
-                      onUpdate(updated);
-                      dispatch(setSiteVisit(updated));
-                      // Now use the latest area data for fetchSiteWorks
-                      const areaData = collectAllAreaAndSubareaFields([area])[0];
-                      const formatted = formatAreaData(areaData);
-                      dispatch(fetchSiteWorks(formatted));
-                      // Mark this area as saved
-                      setSavedAreas(prev => prev.map((v, i) => i === areaIdx ? true : v));
-                    }}
-                  >
-                    Save Area
-                  </Button>
                 </div>
               </div>
             ))}
