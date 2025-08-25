@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "VITE_API_BASE_URL=http://127.0.0.1:8000 vite",
-    "build": "VITE_API_BASE_URL=https://billquant-rag-general.onrender.com vite build",
+    "build": "VITE_API_BASE_URL=https://billquant-production.up.railway.app vite build",
     "preview": "vite preview"
   },
   "dependencies": {

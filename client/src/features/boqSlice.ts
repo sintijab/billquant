@@ -9,9 +9,9 @@ export const fetchActivityBySource = createAsyncThunk(
     const isDev = import.meta.env.DEV;
     const LOCAL_API_BASE = 'http://127.0.0.1:8000';
     const prodBase = {
-      dei: 'https://billquant-dei.onrender.com',
-      pat: 'https://billquant-rag-pat.onrender.com',
-      piemonte: 'https://billquant-piemonte.onrender.com',
+      dei: 'https://billquant-dei-production.up.railway.app',
+      pat: 'https://billquant-pat-production.up.railway.app',
+      piemonte: 'https://billquant-piemonte-production.up.railway.app',
     };
     let endpoint = '';
     if (priceSource === 'dei') endpoint = isDev ? `${LOCAL_API_BASE}/search_dei` : `${prodBase.dei}/search_dei`;
