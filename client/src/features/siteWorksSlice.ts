@@ -85,10 +85,18 @@ const siteWorksSlice = createSlice({
       const { area, subarea } = action.payload || {};
       if (area && subarea) {
         // Remove only works and missing for this subarea in this area
+        const removedWorks = state.Works.filter(w => w.Area === area && w.Subarea === subarea).map(w => w.Work);
+        if (state.GeneralTimeline && Array.isArray(state.GeneralTimeline.Activities)) {
+          state.GeneralTimeline.Activities = state.GeneralTimeline.Activities.filter(a => !removedWorks.includes(a.Activity));
+        }
         state.Works = state.Works.filter(w => !(w.Area === area && w.Subarea === subarea));
         state.Missing = state.Missing.filter(m => !(m.Area === area && m.Subarea === subarea));
       } else if (area) {
-        // Remove all works and missing for this area
+        // Remove all works and missing for this area, work name is sometimes Work or item
+        const removedWorks = state.Works.filter(w => w.Area === area).map(w => w.Work);
+        if (state.GeneralTimeline && Array.isArray(state.GeneralTimeline.Activities)) {
+          state.GeneralTimeline.Activities = state.GeneralTimeline.Activities.filter(a => !removedWorks.includes(a.Activity));
+        }
         state.Works = state.Works.filter(w => w.Area !== area);
         state.Missing = state.Missing.filter(m => m.Area !== area);
       } else {
@@ -111,10 +119,10 @@ const siteWorksSlice = createSlice({
         state.loading = 'succeeded';
         // Merge Works by Area/Subarea
         const newWorks = action.payload.Works;
-        // Remove works for areas/subareas that are present in newWorks
-        const toReplace = new Set(newWorks.map((w: SiteWorkItem) => `${w.Area}|||${w.Subarea}`));
-        state.Works = [
-          ...state.Works.filter(w => !toReplace.has(`${w.Area}|||${w.Subarea}`)),
+        // Do not merge/replace if there are identical Work names for the same Area; keep all distinct (Area, Work, Subarea) entries
+        const existingKeys = new Set(newWorks.map((w: SiteWorkItem) => `${w.Area}|||${w.Subarea}|||${w.Work}`));
+        const mergedWorks = [
+          ...state.Works.filter(w => !existingKeys.has(`${w.Area}|||${w.Subarea}|||${w.Work}`)),
           ...newWorks
         ];
         // Merge Missing by Area/Subarea: only add new area/subarea combos
@@ -123,7 +131,30 @@ const siteWorksSlice = createSlice({
           .filter((m: MissingItem) => !existingAreaSubareas.has(`${m.Area}|||${m.Subarea}`))
           .filter((m: MissingItem) => typeof m.Missing !== 'undefined' && m.Missing !== null && m.Missing !== '');
         state.Missing = [...state.Missing, ...newMissing];
-        state.GeneralTimeline = action.payload.GeneralTimeline;
+        const newTimeline = action.payload.GeneralTimeline;
+        if (newTimeline && Array.isArray(newTimeline.Activities)) {
+          // Ensure timeline has exactly one activity per work, matching by Work/Activity name
+          const newActivityMap = new Map(newTimeline.Activities.map((a: GeneralTimelineActivity) => [a.Activity, a]));
+          const oldActivityMap = state.GeneralTimeline && Array.isArray(state.GeneralTimeline.Activities)
+            ? new Map(state.GeneralTimeline.Activities.map((a: GeneralTimelineActivity) => [a.Activity, a]))
+            : new Map();
+          const mergedActivities: GeneralTimelineActivity[] = mergedWorks.map(w => {
+            if (newActivityMap.has(w.Work)) {
+              return newActivityMap.get(w.Work)!;
+            } else if (oldActivityMap.has(w.Work)) {
+              return oldActivityMap.get(w.Work)!;
+            } else {
+              // Optionally, create a default activity if none exists
+              return { Activity: w.Work, Starting: 0, Finishing: 0 };
+            }
+          });
+          state.GeneralTimeline = {
+            Activities: mergedActivities
+          };
+        } else if (newTimeline) {
+          state.GeneralTimeline = newTimeline;
+        }
+        state.Works = mergedWorks;
       })
       .addCase(fetchSiteWorks.rejected, (state, action) => {
         state.loading = 'failed';

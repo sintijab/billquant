@@ -65,10 +65,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
     };
     const updated = { siteAreas: [...data.siteAreas, newArea] };
     onUpdate(updated);
-  // Merge Works for new area
-  const currentWorks = (window as any).store?.getState()?.siteWorks?.Works || [];
   dispatch(setSiteVisit(updated));
-  dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentWorks, Missing: [], GeneralTimeline: null } });
   };
 
   const handleAddSubarea = (areaId: string) => {
@@ -87,10 +84,9 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
       )
     };
     onUpdate(updated);
-  // Merge Works for new subarea
-  const currentWorks2 = (window as any).store?.getState()?.siteWorks?.Works || [];
   dispatch(setSiteVisit(updated));
-  dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentWorks2, Missing: [], GeneralTimeline: null } });
+  // For add area/subarea, just use currentSiteTimeline
+  dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
   };
 
 
@@ -104,6 +100,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
   const pdfInputRef = useRef<HTMLInputElement>(null);
   const imageInputRef = useRef<HTMLInputElement>(null);
   const siteWorksError = useSelector((state: any) => state.siteWorks.error);
+  const currentSiteWorks = useSelector((state: any) => state.siteWorks?.Works || []);
+  const currentSiteTimeline = useSelector((state: any) => state.siteWorks?.GeneralTimeline || null);
 
   useEffect(() => {
     if (siteWorksError) {
@@ -146,10 +144,9 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                       onClick={() => {
                         const updated = { siteAreas: data.siteAreas.filter((_: unknown, i: number) => i !== areaIdx) };
                         onUpdate(updated);
-                        // Merge Works after removing area
-                        const currentWorks3 = (window as any).store?.getState()?.siteWorks?.Works || [];
                         dispatch(setSiteVisit(updated));
-                        dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentWorks3, Missing: [], GeneralTimeline: null } });
+                        // For remove area, just use currentSiteTimeline
+                        dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
                         // Remove all works for this area only
                         dispatch(resetSiteWorks({ area: area.name }));
                       }}
@@ -173,9 +170,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                           const fullName = `Area no. ${areaIdx + 1} ${newName}`.trim();
                           const updated = { siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: fullName } : a) };
                           onUpdate(updated);
-                          const currentWorks4 = (window as any).store?.getState()?.siteWorks?.Works || [];
                           dispatch(setSiteVisit(updated));
-                          dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentWorks4, Missing: [], GeneralTimeline: null } });
+                          dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: null } });
                         }}
                         className="border-0 border-b border-gray-800 text-xl font-semibold text-gray-900 bg-transparent rounded-none px-2 py-1 placeholder-gray-400 focus:border-b-2 focus:border-gray-900 focus:ring-0"
                         placeholder="Area name"
@@ -190,8 +186,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                         const formatted = formatAreaData(areaData);
                         const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
-                        const currentWorks = (window as any).store?.getState()?.siteWorks?.Works || [];
-                        const filteredWorks = currentWorks.filter((w: any) => w.Area !== areaData.name);
+                        const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                         const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
                         dispatch(setSiteVisit({ siteAreas: updatedAreas }));
                         dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
@@ -218,8 +213,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                             const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                             const formatted = formatAreaData(areaData);
                             const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
-                            const currentWorks = (window as any).store?.getState()?.siteWorks?.Works || [];
-                            const filteredWorks = currentWorks.filter((w: any) => w.Area !== areaData.name);
+                            const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                             const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
                             dispatch(setSiteVisit({ siteAreas: updatedAreas }));
                             dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
@@ -237,8 +231,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                             const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                             const formatted = formatAreaData(areaData);
                             const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
-                            const currentWorks = (window as any).store?.getState()?.siteWorks?.Works || [];
-                            const filteredWorks = currentWorks.filter((w: any) => w.Area !== areaData.name);
+                            const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                             const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
                             dispatch(setSiteVisit({ siteAreas: updatedAreas }));
                             dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
@@ -393,9 +386,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                               };
                               onUpdate(updated);
                               // Merge Works after removing subarea
-                              const currentWorks5 = (window as any).store?.getState()?.siteWorks?.Works || [];
                               dispatch(setSiteVisit(updated));
-                              dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentWorks5, Missing: [], GeneralTimeline: null } });
                             }}
                             className="border-0 border-b border-gray-800 text-lg font-semibold text-gray-800 bg-white rounded-none px-2 py-1 placeholder-gray-400 focus:border-b-2 focus:border-gray-900 focus:ring-0"
                             placeholder="Subarea name"
@@ -414,10 +405,9 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                                 )
                               };
                               onUpdate(updated);
-                                  // Merge Works after removing attachment
-                                  const currentWorks6 = (window as any).store?.getState()?.siteWorks?.Works || [];
                                   dispatch(setSiteVisit(updated));
-                                  dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentWorks6, Missing: [], GeneralTimeline: null } });
+                                  // For remove subarea, just use currentSiteTimeline
+                                  dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
                               // Remove only works for this subarea in this area
                               dispatch(resetSiteWorks({ area: area.name, subarea: sub.title }));
                             }}
