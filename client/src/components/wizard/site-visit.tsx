@@ -177,10 +177,16 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a) })}
                       onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
                         const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a);
-                        dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                        // Merge Works by Area/Subarea if present
                         const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                         const formatted = formatAreaData(areaData);
-                        dispatch(fetchSiteWorks(formatted));
+                        const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                        const currentWorks = (window as any).store?.getState()?.siteWorks?.Works || [];
+                        // Replace works for this area/subareas
+                        const filteredWorks = currentWorks.filter((w: any) => w.Area !== areaData.name);
+                        const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                        dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                        dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
                       }}
                       className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
                       style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
@@ -201,10 +207,14 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                           onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
                             if (!e.target.value) return;
                             const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a);
-                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
                             const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                             const formatted = formatAreaData(areaData);
-                            dispatch(fetchSiteWorks(formatted));
+                            const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                            const currentWorks = (window as any).store?.getState()?.siteWorks?.Works || [];
+                            const filteredWorks = currentWorks.filter((w: any) => w.Area !== areaData.name);
+                            const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                            dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
                           }}
                           className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/25"
                           style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
@@ -216,10 +226,14 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                           onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
                             if (!e.target.value) return;
                             const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a);
-                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
                             const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                             const formatted = formatAreaData(areaData);
-                            dispatch(fetchSiteWorks(formatted));
+                            const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                            const currentWorks = (window as any).store?.getState()?.siteWorks?.Works || [];
+                            const filteredWorks = currentWorks.filter((w: any) => w.Area !== areaData.name);
+                            const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                            dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
                           }}
                           className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/3"
                           style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
