@@ -141,7 +141,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         const updated = { siteAreas: data.siteAreas.filter((_: unknown, i: number) => i !== areaIdx) };
                         onUpdate(updated);
                         dispatch(setSiteVisit(updated));
-                        dispatch(resetSiteWorks());
+                        // Remove all works for this area only
+                        dispatch(resetSiteWorks({ area: area.name }));
                       }}
                       aria-label="Remove Area"
                     >
@@ -156,7 +157,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         onChange={e => {
                           const newName = e.target.value;
                           onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: newName } : a) });
-                          dispatch(resetSiteWorks());
+                          // Remove all works for this area only
+                          dispatch(resetSiteWorks({ area: area.name }));
                         }}
                         onBlur={e => {
                           const newName = e.target.value;
@@ -388,7 +390,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                               };
                               onUpdate(updated);
                               dispatch(setSiteVisit(updated));
-                              dispatch(resetSiteWorks());
+                              // Remove only works for this subarea in this area
+                              dispatch(resetSiteWorks({ area: area.name, subarea: sub.title }));
                             }}
                             aria-label="Remove Subarea"
                           >

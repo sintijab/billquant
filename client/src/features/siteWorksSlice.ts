@@ -81,12 +81,24 @@ const siteWorksSlice = createSlice({
       state.Missing = action.payload.Missing;
       state.GeneralTimeline = action.payload.GeneralTimeline;
     },
-    resetSiteWorks(state) {
-      state.Works = [];
-      state.Missing = [];
-      state.GeneralTimeline = null;
-      state.loading = 'idle';
-      state.error = null;
+    resetSiteWorks(state, action) {
+      const { area, subarea } = action.payload || {};
+      if (area && subarea) {
+        // Remove only works and missing for this subarea in this area
+        state.Works = state.Works.filter(w => !(w.Area === area && w.Subarea === subarea));
+        state.Missing = state.Missing.filter(m => !(m.Area === area && m.Subarea === subarea));
+      } else if (area) {
+        // Remove all works and missing for this area
+        state.Works = state.Works.filter(w => w.Area !== area);
+        state.Missing = state.Missing.filter(m => m.Area !== area);
+      } else {
+        // Remove all (legacy behavior)
+        state.Works = [];
+        state.Missing = [];
+        state.GeneralTimeline = null;
+        state.loading = 'idle';
+        state.error = null;
+      }
     },
   },
   extraReducers: (builder) => {
