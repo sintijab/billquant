@@ -109,12 +109,18 @@ const siteWorksSlice = createSlice({
       })
       .addCase(fetchSiteWorks.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.Works = action.payload.Works;
-        // Merge Missing by Area: only add new areas
-        const existingAreas = new Set(state.Missing.map((m: MissingItem) => m.Area));
-        // Only add new items with a valid 'Missing' key (not undefined/null/empty)
+        // Merge Works by Area/Subarea
+        const newWorks = action.payload.Works;
+        // Remove works for areas/subareas that are present in newWorks
+        const toReplace = new Set(newWorks.map((w: SiteWorkItem) => `${w.Area}|||${w.Subarea}`));
+        state.Works = [
+          ...state.Works.filter(w => !toReplace.has(`${w.Area}|||${w.Subarea}`)),
+          ...newWorks
+        ];
+        // Merge Missing by Area/Subarea: only add new area/subarea combos
+        const existingAreaSubareas = new Set(state.Missing.map((m: MissingItem) => `${m.Area}|||${m.Subarea}`));
         const newMissing = action.payload.Missing
-          .filter((m: MissingItem) => !existingAreas.has(m.Area))
+          .filter((m: MissingItem) => !existingAreaSubareas.has(`${m.Area}|||${m.Subarea}`))
           .filter((m: MissingItem) => typeof m.Missing !== 'undefined' && m.Missing !== null && m.Missing !== '');
         state.Missing = [...state.Missing, ...newMissing];
         state.GeneralTimeline = action.payload.GeneralTimeline;
