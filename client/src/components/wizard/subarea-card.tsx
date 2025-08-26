@@ -162,23 +162,37 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                             className="absolute top-2 right-2 p-1 text-primary-dark hover:bg-gray-200 hover:text-primary-dark focus:outline-none transition-colors"
                             aria-label="Remove item"
                             onClick={() => {
-                                const updated = {
-                                    siteAreas: data.siteAreas.map((a: any, i: number) =>
-                                        i === areaIdx
-                                            ? {
-                                                ...a,
-                                                subareas: a.subareas.map((s: any, si: number) =>
-                                                    si === subIdx
-                                                        ? { ...s, items: s.items.filter((_: any, ii: number) => ii !== itemIdx) }
-                                                        : s
-                                                )
-                                            }
-                                            : a
-                                    )
+                                const updatedSiteAreas = data.siteAreas.map((a: any, i: number) =>
+                                    i === areaIdx
+                                        ? {
+                                            ...a,
+                                            subareas: a.subareas.map((s: any, si: number) =>
+                                                si === subIdx
+                                                    ? { ...s, items: s.items.filter((_: any, ii: number) => ii !== itemIdx) }
+                                                    : s
+                                            )
+                                        }
+                                        : a
+                                );
+                                const mergeWorks = (oldAreas: any[], newAreas: any[]) => {
+                                    return newAreas.map((area: any, i: number) => {
+                                        if (!oldAreas[i]) return area;
+                                        return {
+                                            ...area,
+                                            subareas: area.subareas.map((sub: any, j: number) => {
+                                                if (!oldAreas[i].subareas[j]) return sub;
+                                                // If subarea id matches, merge items
+                                                return {
+                                                    ...sub,
+                                                    items: sub.items
+                                                };
+                                            })
+                                        };
+                                    });
                                 };
-                                onUpdate(updated);
-                                dispatch(setSiteVisit(updated));
-                                dispatch(resetSiteWorks());
+                                const merged = { ...data, siteAreas: mergeWorks(data.siteAreas, updatedSiteAreas) };
+                                onUpdate(merged);
+                                dispatch(setSiteVisit(merged));
                             }}
                         >
                             <span className="sr-only">Remove item</span>
@@ -240,8 +254,25 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                                 }
                                                 : a
                                         );
-                                        dispatch(setSiteVisit({ siteAreas: updatedSiteAreas }));
-                                        const areaData = updatedSiteAreas[areaIdx];
+                                        // Merge works by Area/Subarea
+                                        const mergeWorks = (oldAreas: any[], newAreas: any[]) => {
+                                            return newAreas.map((area: any, i: number) => {
+                                                if (!oldAreas[i]) return area;
+                                                return {
+                                                    ...area,
+                                                    subareas: area.subareas.map((sub: any, j: number) => {
+                                                        if (!oldAreas[i].subareas[j]) return sub;
+                                                        return {
+                                                            ...sub,
+                                                            items: sub.items
+                                                        };
+                                                    })
+                                                };
+                                            });
+                                        };
+                                        const merged = { ...data, siteAreas: mergeWorks(data.siteAreas, updatedSiteAreas) };
+                                        dispatch(setSiteVisit(merged));
+                                        const areaData = merged.siteAreas[areaIdx];
                                         const formatted = formatAreaData(areaData);
                                         dispatch(fetchSiteWorks(formatted));
                                     }
@@ -297,8 +328,25 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                                     }
                                                     : a
                                             );
-                                            dispatch(setSiteVisit({ siteAreas: updatedSiteAreas }));
-                                            const areaData = updatedSiteAreas[areaIdx];
+                                            // Merge works by Area/Subarea
+                                            const mergeWorks = (oldAreas: any[], newAreas: any[]) => {
+                                                return newAreas.map((area: any, i: number) => {
+                                                    if (!oldAreas[i]) return area;
+                                                    return {
+                                                        ...area,
+                                                        subareas: area.subareas.map((sub: any, j: number) => {
+                                                            if (!oldAreas[i].subareas[j]) return sub;
+                                                            return {
+                                                                ...sub,
+                                                                items: sub.items
+                                                            };
+                                                        })
+                                                    };
+                                                });
+                                            };
+                                            const merged = { ...data, siteAreas: mergeWorks(data.siteAreas, updatedSiteAreas) };
+                                            dispatch(setSiteVisit(merged));
+                                            const areaData = merged.siteAreas[areaIdx];
                                             const formatted = formatAreaData(areaData);
                                             dispatch(fetchSiteWorks(formatted));
                                         }
