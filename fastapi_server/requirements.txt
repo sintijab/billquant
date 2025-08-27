@@ -13,3 +13,4 @@ sentence-transformers
 rank-bm25
 docxtpl
 docx
+matplotlib
