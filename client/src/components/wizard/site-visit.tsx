@@ -53,7 +53,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
     let hasEmptySubarea = false;
     let missingField = '';
     data.siteAreas.forEach((area, areaIdx) => {
-      (area.subareas || []).forEach((sub: any, subIdx: number) => {
+      (area.subareas || []).forEach((subarea: any, subIdx: number) => {
+        subarea.items.forEach((sub: any) => {
         // Name
         const nameInput = document.querySelector(
           `input[data-area-idx='${areaIdx}'][data-sub-idx='${subIdx}']`
@@ -63,7 +64,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
           missingField = 'Subarea name';
         }
         // Dimensions
-        if (!sub.totalArea || !sub.totalArea.toString().trim()) {
+        if (!sub.dimensions || !sub.dimensions.toString().trim()) {
           hasEmptySubarea = true;
           missingField = 'Subarea dimensions';
         }
@@ -73,11 +74,12 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
           missingField = 'Subarea UDM';
         }
         // Description
-        if (!sub.statusDescription || !sub.statusDescription.toString().trim()) {
+        if (!sub.description || !sub.description.toString().trim()) {
           hasEmptySubarea = true;
           missingField = 'Subarea description';
         }
       });
+    })
     });
     if (hasEmptySubarea) {
       toast({
@@ -118,6 +120,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
         const nameInput = document.querySelector(
           `input[data-area-idx='${areaIdx}'][data-sub-idx='${i}']`
         ) as HTMLInputElement | null;
+        console.log(sub)
+                debugger;
         if (!nameInput || !nameInput.value.trim()) {
           hasEmptySubarea = true;
           missingField = 'Subarea name';
