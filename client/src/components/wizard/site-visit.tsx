@@ -113,7 +113,6 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
     let hasEmptySubarea = false;
     let missingField = '';
     (area.subareas || []).forEach((subarea: any, i: number) => {
-      console.log(subarea)
       subarea.items.forEach((sub: any) => {
         // Name
         const nameInput = document.querySelector(
@@ -147,6 +146,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
         });
         return;
       }
+      return;
+    })
     const subIdx = area && area.subareas ? area.subareas.length : 0;
     const newSubarea = {
       id: `subarea-${Date.now()}`,
@@ -164,7 +165,6 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
     dispatch(setSiteVisit(updated));
     // For add area/subarea, just use currentSiteTimeline
     dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
-        })
   };
 
 
