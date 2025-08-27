@@ -75,6 +75,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
 
   // Get LLM response from priceQuotation slice
   const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
+  console.log(priceQuotationData)
   const priceQuotationLoading = useSelector((state: any) => state.priceQuotation.loading);
   const internalCosts = priceQuotationData || {};
   // Compose documentData from LLM response
@@ -87,7 +88,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     project: {
       address: data?.siteAddress || '',
       date: new Date().toLocaleDateString('it-IT'),
-      totalCost: internalCosts?.price_summary?.application_price || 0
+      totalCost: parseFloat(internalCosts?.price_summary?.application_price || 0)
     },
     activities: !!internalCosts?.direct_costs && internalCosts?.direct_costs?.map((item: any) => ({ category: item.category || item.description, total: parseFloat(item.total_price || 0) || 0 })),
     timeline: (internalCosts?.projectSchedule || []).map((activity: any) => ({
@@ -103,7 +104,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
       labor: parseFloat(internalCosts?.price_summary?.summary_by_category?.workers_cost || 0),
       subcontractors: parseFloat(internalCosts?.price_summary?.summary_by_category?.subcontractors_cost || 0),
       equipment: parseFloat(internalCosts?.price_summary?.summary_by_category?.equipment_cost || 0),
-      overhead: !!internalCosts?.indirect_costs && internalCosts?.indirect_costs?.map((item: any) => parseFloat(item.total_price)).reduce((acc: number, val: number) => acc + val, 0),
+      overhead: !!internalCosts?.indirect_costs && internalCosts?.indirect_costs?.map((item: any) => parseFloat(item.total_price)).reduce((acc: number, val: number) => acc + val, 0) || 0,
       profit: parseFloat(internalCosts?.price_summary?.company_profit || 0)
     },
     materialsList: (internalCosts?.materialsList || []).map((mat: any) => ({
@@ -113,7 +114,9 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     })),
     personnel: (internalCosts?.personnel || []).map((person: any) => ({
       role: `${person.role}${person.count ? `: ${person.count} workers` : ''}`,
-      duration: person.duration
+      duration: person.duration,
+      quantity: person.quantity,
+      unit_measure: person.unit_measure
     }))
   };
 
@@ -545,9 +548,9 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                         Construction Activities:
                       </div>
                       <div className="space-y-1 text-xs">
-                        {documentData.activities.map((activity, index) => (
+                        {!!documentData?.activities && documentData?.activities?.map((activity, index) => (
                           <div key={index} className="flex justify-between">
-                            <span>{activity.categoryName}</span>
+                            <span>{activity.category}</span>
                             <span>€{activity.total.toFixed(2)}</span>
                           </div>
                         ))}
@@ -688,7 +691,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                       </div>
                       <div className="space-y-1 text-xs">
                         {internalCostData.personnel.map((person, index) => (
-                          <div key={index}>• {person.role} × {person.duration}</div>
+                          <div key={index}>• {person.role} × {person.duration || person.quantity  + ' ' + person.unit_measure}</div>
                         ))}
                       </div>
                     </div>

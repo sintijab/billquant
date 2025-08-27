@@ -83,7 +83,7 @@ export interface DocumentData {
     totalCost: number;
   };
   activities: {
-    categoryName: string;
+    category: string;
     total: number;
   }[];
   timeline: {
@@ -108,6 +108,8 @@ export interface InternalCostData {
   }[];
   personnel: {
     role: string;
-    duration: string;
+    duration?: string;
+    quantity?: string;
+    unit_measure?: string;
   }[];
 }
