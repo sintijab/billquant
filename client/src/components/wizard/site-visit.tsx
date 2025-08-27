@@ -120,8 +120,6 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
         const nameInput = document.querySelector(
           `input[data-area-idx='${areaIdx}'][data-sub-idx='${i}']`
         ) as HTMLInputElement | null;
-        console.log(sub)
-                debugger;
         if (!nameInput || !nameInput.value.trim()) {
           hasEmptySubarea = true;
           missingField = 'Subarea name';
