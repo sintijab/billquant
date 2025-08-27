@@ -49,6 +49,44 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
   const [aiConsent, setAiConsent] = useState(true);
   const siteWorksLength = useSelector((state: any) => state.siteWorks?.Works?.length || 0);
   const handleAddArea = () => {
+    // Validation: check if any subarea input field, dimensions, UDM, or description is empty
+    let hasEmptySubarea = false;
+    let missingField = '';
+    data.siteAreas.forEach((area, areaIdx) => {
+      (area.subareas || []).forEach((sub: any, subIdx: number) => {
+        // Name
+        const nameInput = document.querySelector(
+          `input[data-area-idx='${areaIdx}'][data-sub-idx='${subIdx}']`
+        ) as HTMLInputElement | null;
+        if (!nameInput || !nameInput.value.trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea name';
+        }
+        // Dimensions
+        if (!sub.totalArea || !sub.totalArea.toString().trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea dimensions';
+        }
+        // UDM
+        if (!sub.udm || !sub.udm.toString().trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea UDM';
+        }
+        // Description
+        if (!sub.statusDescription || !sub.statusDescription.toString().trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea description';
+        }
+      });
+    });
+    if (hasEmptySubarea) {
+      toast({
+        title: `${missingField} required`,
+        description: `Please fill in all ${missingField.toLowerCase()}s before adding a new area.`,
+        variant: "destructive",
+      });
+      return;
+    }
     const areaIdx = data.siteAreas.length;
     const newArea = {
       id: `area-${Date.now()}`,
@@ -65,11 +103,50 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
     };
     const updated = { siteAreas: [...data.siteAreas, newArea] };
     onUpdate(updated);
-  dispatch(setSiteVisit(updated));
+    dispatch(setSiteVisit(updated));
   };
 
   const handleAddSubarea = (areaId: string) => {
-    const area = data.siteAreas.find((a: any) => a.id === areaId);
+    // Validation: check if any subarea input field, dimensions, UDM, or description is empty in this area
+    const areaIdx = data.siteAreas.findIndex((a: any) => a.id === areaId);
+    const area = data.siteAreas[areaIdx];
+    let hasEmptySubarea = false;
+    let missingField = '';
+    (area.subareas || []).forEach((subarea: any, i: number) => {
+      console.log(subarea)
+      subarea.items.forEach((sub: any) => {
+        // Name
+        const nameInput = document.querySelector(
+          `input[data-area-idx='${areaIdx}'][data-sub-idx='${i}']`
+        ) as HTMLInputElement | null;
+        if (!nameInput || !nameInput.value.trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea name';
+        }
+        // Dimensions
+        if (!sub.dimensions || !sub.dimensions.toString().trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea dimensions';
+        }
+        // UDM
+        if (!sub.udm || !sub.udm.toString().trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea UDM';
+        }
+        // Description
+        if (!sub.description || !sub.description.toString().trim()) {
+          hasEmptySubarea = true;
+          missingField = 'Subarea description';
+        }
+      });
+      if (hasEmptySubarea) {
+        toast({
+          title: `${missingField} required`,
+          description: `Please fill in all ${missingField.toLowerCase()}s before adding a new subarea.`,
+          variant: "destructive",
+        });
+        return;
+      }
     const subIdx = area && area.subareas ? area.subareas.length : 0;
     const newSubarea = {
       id: `subarea-${Date.now()}`,
@@ -84,9 +161,10 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
       )
     };
     onUpdate(updated);
-  dispatch(setSiteVisit(updated));
-  // For add area/subarea, just use currentSiteTimeline
-  dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
+    dispatch(setSiteVisit(updated));
+    // For add area/subarea, just use currentSiteTimeline
+    dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
+        })
   };
 
 
@@ -204,43 +282,43 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                       placeholder="What to do?"
                     />
                     <div className="flex gap-2 w-full">
-                        <Input
-                          value={area.totalArea || ''}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a) })}
-                          onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
-                            if (!e.target.value) return;
-                            const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a);
-                            const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
-                            const formatted = formatAreaData(areaData);
-                            const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
-                            const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
-                            const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
-                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
-                            dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
-                          }}
-                          className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/25"
-                          style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
-                          placeholder="Dimensions / Quantity"
-                        />
-                        <Input
-                          value={area.udm || ''}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) })}
-                          onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
-                            if (!e.target.value) return;
-                            const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a);
-                            const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
-                            const formatted = formatAreaData(areaData);
-                            const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
-                            const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
-                            const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
-                            dispatch(setSiteVisit({ siteAreas: updatedAreas }));
-                            dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
-                          }}
-                          className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/3"
-                          style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
-                          placeholder="UDM"
-                        />
-                      </div>
+                      <Input
+                        value={area.totalArea || ''}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a) })}
+                        onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
+                          if (!e.target.value) return;
+                          const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a);
+                          const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
+                          const formatted = formatAreaData(areaData);
+                          const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                          const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
+                          const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                          dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                          dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
+                        }}
+                        className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/25"
+                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                        placeholder="Dimensions / Quantity"
+                      />
+                      <Input
+                        value={area.udm || ''}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onUpdate({ siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a) })}
+                        onBlur={async (e: React.FocusEvent<HTMLInputElement>) => {
+                          if (!e.target.value) return;
+                          const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a);
+                          const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
+                          const formatted = formatAreaData(areaData);
+                          const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                          const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
+                          const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                          dispatch(setSiteVisit({ siteAreas: updatedAreas }));
+                          dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
+                        }}
+                        className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900 w-1/3"
+                        style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
+                        placeholder="UDM"
+                      />
+                    </div>
                     {/* End two-column input row */}
                     <div className="flex flex-col gap-2 items-start">
                       <div className="flex items-center gap-2">
@@ -353,6 +431,8 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         <div className="flex items-center gap-2 mb-2 justify-between">
                           <Input
                             value={sub.title?.replace(new RegExp(`^Subarea no. ${subIdx + 1} ?`), '') || ''}
+                            data-area-idx={areaIdx}
+                            data-sub-idx={subIdx}
                             onChange={e => {
                               const newTitle = e.target.value;
                               const updated = {
@@ -369,7 +449,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                               };
                               onUpdate(updated);
                             }}
-                            onBlur={e => {
+                            onBlur={async e => {
                               const newTitle = e.target.value;
                               const fullTitle = `Subarea no. ${subIdx + 1} ${newTitle}`.trim();
                               const updated = {
@@ -385,8 +465,15 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                                 ),
                               };
                               onUpdate(updated);
-                              // Merge Works after removing subarea
                               dispatch(setSiteVisit(updated));
+                              // Fetch site works for this area/subarea
+                              const areaData = collectAllAreaAndSubareaFields([updated.siteAreas[areaIdx]])[0];
+                              const formatted = formatAreaData(areaData);
+                              const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                              const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
+                              const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                              dispatch(setSiteVisit({ siteAreas: updated.siteAreas }));
+                              dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
                             }}
                             className="border-0 border-b border-gray-800 text-lg font-semibold text-gray-800 bg-white rounded-none px-2 py-1 placeholder-gray-400 focus:border-b-2 focus:border-gray-900 focus:ring-0"
                             placeholder="Subarea name"
@@ -405,9 +492,9 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                                 )
                               };
                               onUpdate(updated);
-                                  dispatch(setSiteVisit(updated));
-                                  // For remove subarea, just use currentSiteTimeline
-                                  dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
+                              dispatch(setSiteVisit(updated));
+                              // For remove subarea, just use currentSiteTimeline
+                              dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
                               // Remove only works for this subarea in this area
                               dispatch(resetSiteWorks({ area: area.name, subarea: sub.title }));
                             }}
@@ -630,25 +717,25 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                       </button>
                     </div>
                   ))}
-                {/* Modal for extracted text */}
-                {showExtractedTextModal.open && (
-                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-                    <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full relative">
-                      <button
-                        className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-200"
-                        onClick={() => setShowExtractedTextModal({ open: false, text: "" })}
-                        aria-label="Close"
-                        style={{ background: 'none' }}
-                      >
-                        <X className="w-5 h-5" />
-                      </button>
-                      <h4 className="text-lg font-semibold mb-4">Extracted Information</h4>
-                      <div className="whitespace-pre-wrap text-gray-800 text-base max-h-[60vh] overflow-y-auto">
-                        {showExtractedTextModal.text}
+                  {/* Modal for extracted text */}
+                  {showExtractedTextModal.open && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                      <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl w-full relative">
+                        <button
+                          className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-200"
+                          onClick={() => setShowExtractedTextModal({ open: false, text: "" })}
+                          aria-label="Close"
+                          style={{ background: 'none' }}
+                        >
+                          <X className="w-5 h-5" />
+                        </button>
+                        <h4 className="text-lg font-semibold mb-4">Extracted Information</h4>
+                        <div className="whitespace-pre-wrap text-gray-800 text-base max-h-[60vh] overflow-y-auto">
+                          {showExtractedTextModal.text}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
                 </div>
               </div>
             </div>

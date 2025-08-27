@@ -117,12 +117,10 @@ const siteWorksSlice = createSlice({
       })
       .addCase(fetchSiteWorks.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        // Merge Works by Area/Subarea
         const newWorks = action.payload.Works;
-        // Do not merge/replace if there are identical Work names for the same Area; keep all distinct (Area, Work, Subarea) entries
-        const existingKeys = new Set(newWorks.map((w: SiteWorkItem) => `${w.Area}|||${w.Subarea}|||${w.Work}`));
+        const newAreaItemKeys = new Set(newWorks.map((w: SiteWorkItem) => `${w.Area}|||${w.Item}`));
         const mergedWorks = [
-          ...state.Works.filter(w => !existingKeys.has(`${w.Area}|||${w.Subarea}|||${w.Work}`)),
+          ...state.Works.filter(w => !newAreaItemKeys.has(`${w.Area}|||${w.Item}`)),
           ...newWorks
         ];
         // Merge Missing by Area/Subarea: only add new area/subarea combos
