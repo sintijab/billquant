@@ -17,7 +17,7 @@ app = FastAPI()
 # Allow CORS for local dev and deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://billquant-1.onrender.com"],
+    allow_origins=["https://billquant-1.onrender.com", "http://localhost:5173/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
