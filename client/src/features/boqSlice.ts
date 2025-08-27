@@ -15,9 +15,9 @@ export const fetchActivityBySource = createAsyncThunk(
         // const isDev = import.meta.env.DEV;
     // const LOCAL_API_BASE = 'http://127.0.0.1:8000';
     const prodBase = {
-      dei: 'https://billquant-dei-production.up.railway.app',
-      pat: 'https://billquant-pat-production.up.railway.app',
-      piemonte: 'https://billquant-piemonte-production.up.railway.app',
+      dei: 'https://billquant-1.onrender.com/api-dei',
+      pat: 'https://billquant-1.onrender.com/api-pat',
+      piemonte: 'https://billquant-1.onrender.com/api-piemonte',
     };
     let endpoint = '';
     if (priceSource === 'dei') endpoint = `${prodBase.dei}/search_dei`;
@@ -90,7 +90,7 @@ export const fetchActivityCategoryDei = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`https://billquant-dei-production.up.railway.app/search_dei`, {
+  const resp = await fetch(`https://billquant-1.onrender.com/api-dei/search_dei`, {
         method: 'POST',
         body: fd,
       });
@@ -146,7 +146,7 @@ export const fetchActivityCategoryPat = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`https://billquant-pat-production.up.railway.app/search_pat`, {
+  const resp = await fetch(`https://billquant-1.onrender.com/api-pat/search_pat`, {
         method: 'POST',
         body: fd,
       });
@@ -202,7 +202,7 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`https://billquant-piemonte-production.up.railway.app/search_piemonte`, {
+  const resp = await fetch(`https://billquant-1.onrender.com/api-piemonte/search_piemonte`, {
         method: 'POST',
         body: fd,
       });
