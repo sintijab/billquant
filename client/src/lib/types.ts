@@ -90,7 +90,6 @@ export interface DocumentData {
     phase: string;
     duration: string;
   }[];
-  terms: string[];
 }
 
 export interface InternalCostData {

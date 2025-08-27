@@ -76,8 +76,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   // Get LLM response from priceQuotation slice
   const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
   const priceQuotationLoading = useSelector((state: any) => state.priceQuotation.loading);
-  const priceQuotation = priceQuotationData?.price_quotation || [];
-  const internalCosts = priceQuotationData?.internal_costs || {};
+  const internalCosts = priceQuotationData || {};
   // Compose documentData from LLM response
   const documentData: DocumentData = {
     client: {
@@ -88,29 +87,28 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     project: {
       address: data?.siteAddress || '',
       date: new Date().toLocaleDateString('it-IT'),
-      totalCost: priceQuotation.reduce((sum: number, item: any) => sum + (parseFloat(item.summary?.totalPriceWithVAT || 0) || 0), 0)
+      totalCost: internalCosts?.price_summary?.application_price || 0
     },
-    activities: priceQuotation.map((item: any) => ({ categoryName: item.activityName || item.activity, total: parseFloat(item.summary?.totalPriceWithVAT || 0) || 0 })),
-    timeline: (priceQuotationData?.internal_costs?.projectSchedule || []).map((activity: any) => ({
+    activities: !!internalCosts?.direct_costs && internalCosts?.direct_costs?.map((item: any) => ({ category: item.category || item.description, total: parseFloat(item.total_price || 0) || 0 })),
+    timeline: (internalCosts?.projectSchedule || []).map((activity: any) => ({
       phase: activity.activity,
       duration: `Day ${activity.starting} - ${activity.finishing}`
     })),
-    terms: (priceQuotationData?.terms && Array.isArray(priceQuotationData.terms)) ? priceQuotationData.terms : [],
   };
 
   // Compose internalCostData from LLM response
   const internalCostData: InternalCostData = {
     costBreakdown: {
-      materials: parseFloat(internalCosts?.costBreakdown?.materials || 0),
-      labor: parseFloat(internalCosts?.costBreakdown?.labor || 0),
-      subcontractors: parseFloat(internalCosts?.costBreakdown?.subcontractors || 0),
-      equipment: parseFloat(internalCosts?.costBreakdown?.equipment || 0),
-      overhead: parseFloat(internalCosts?.costBreakdown?.overhead || 0),
-      profit: parseFloat(internalCosts?.costBreakdown?.totalCost || 0)
+      materials: parseFloat(internalCosts?.price_summary?.summary_by_category?.material_cost_fc || 0),
+      labor: parseFloat(internalCosts?.price_summary?.summary_by_category?.workers_cost || 0),
+      subcontractors: parseFloat(internalCosts?.price_summary?.summary_by_category?.subcontractors_cost || 0),
+      equipment: parseFloat(internalCosts?.price_summary?.summary_by_category?.equipment_cost || 0),
+      overhead: !!internalCosts?.indirect_costs && internalCosts?.indirect_costs?.map((item: any) => parseFloat(item.total_price)).reduce((acc: number, val: number) => acc + val, 0),
+      profit: parseFloat(internalCosts?.price_summary?.company_profit || 0)
     },
     materialsList: (internalCosts?.materialsList || []).map((mat: any) => ({
-      item: `${mat.item}${mat.unit ? `: ${mat.quantity} ${mat.unit}` : ''}`,
-      quantity: mat.quantity,
+      item: `${mat.item}${mat.unit ? `: ${mat.total_quantity} ${mat.unit}` : ''}`,
+      quantity: mat.total_quantity,
       unitPrice: mat.unitPrice
     })),
     personnel: (internalCosts?.personnel || []).map((person: any) => ({
@@ -178,8 +176,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     setIsGenerating(true);
     const payload = {
       ...data, // projectSetup
-      priceQuotation: priceQuotationData?.price_quotation,
-      internalCosts: priceQuotationData?.internal_costs,
+      internalCosts: priceQuotationData,
     };
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
       method: 'POST',
@@ -205,8 +202,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     // Generate and download the quotation DOCX
     const payload = {
       ...data, // projectSetup
-      priceQuotation: priceQuotationData?.price_quotation,
-      internalCosts: priceQuotationData?.internal_costs,
+      internalCosts: priceQuotationData,
     };
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
       method: 'POST',
@@ -235,8 +231,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     setIsGenerating(true);
     const payload = {
       ...data, // projectSetup
-      priceQuotation: priceQuotationData?.price_quotation,
-      internalCosts: priceQuotationData?.internal_costs,
+      internalCosts: priceQuotationData,
     };
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_internal_costs_docx`, {
       method: 'POST',
@@ -262,16 +257,16 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     // Compose email subject
     const subject = encodeURIComponent("Materials to order");
     // Compose bullet list body from priceQuotationData.materials
-    const materials = priceQuotationData?.internal_costs?.materials || [];
+    const materials = priceQuotationData?.internal_costs?.materialsList || [];
     let body = "";
     if (materials.length > 0) {
       body += `Materials to order:%0D%0A%0D%0A`;
       materials.forEach((mat: any, idx: number) => {
         body += `• Material ${idx + 1}:%0D%0A`;
-        body += `  Name: ${mat.name || ''}%0D%0A`;
+        body += `  Name: ${mat.item || ''}%0D%0A`;
         body += `  Quantity: ${mat.quantity || ''}%0D%0A`;
         body += `  Unit: ${mat.unity || ''}%0D%0A`;
-        body += `  Price per unit: ${mat.price_per_unit || ''}%0D%0A`;
+        body += `  Price per unit: ${mat.unitPrice || ''}%0D%0A`;
         body += `  Provider price: ${mat.price_of_unity_provider || ''}%0D%0A`;
         body += `  Company cost (EUR): ${mat.company_cost_eur || ''}%0D%0A`;
         body += `  Markup (%): ${mat.markup_percentage || ''}%0D%0A`;
@@ -573,20 +568,6 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                         {documentData.timeline.map((phase, index) => (
                           <div key={index}>{phase.phase}</div>
                         ))}
-                      </div>
-                    </div>
-
-                    {/* Terms */}
-                    <div>
-                      <div className="font-semibold mb-2">Terms & Conditions:</div>
-                      <div className="text-[10px] space-y-1">
-                        {(documentData.terms && documentData.terms.length > 0)
-                          ? documentData.terms.map((term, index) => (
-                            <div key={index}>• {term}</div>
-                          ))
-                          : (
-                            <div className="italic text-text-secondary">Nessuna condizione disponibile.</div>
-                          )}
                       </div>
                     </div>
                     {/* Signature below Terms & Conditions */}
