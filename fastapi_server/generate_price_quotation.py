@@ -41,28 +41,24 @@ def transform_input_to_template_context(data):
         area_name = area.get('area', f'Area {area_idx+1}')
         work_activities = area.get('work_activities', [])
         resource_types = area.get('resource_types', [])
-        resources = area.get('resources', [])
         # Build a table: each row is index, mapped summary
         rows = []
         for i, wa in enumerate(work_activities):
             desc = wa.get('description', '')
-            # Compose the right cell: bold title (handled in template), then bullet list by resource type
+            wa_resources = wa.get('resources', [])
             cell_lines = []
             for rtype in resource_types:
-                # Find all resources of this type
-                rlist = [r for r in resources if r.get('type') == rtype]
+                # Find all resources of this type for this activity only
+                rlist = [r for r in wa_resources if r.get('type') == rtype]
                 if not rlist:
                     continue
-                # Compose value string for this type
                 bullet_prefix = "&nbsp;&nbsp;• "  # Two non-breaking spaces for indentation
                 sub_bullet_prefix = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;◦ "  # More spaces for sub-bullet
                 if rtype == 'operativita':
                     for r in rlist:
                         steps = r.get('steps', [])
                         if steps:
-                            # Main bullet for resource type
                             cell_lines.append(f"{bullet_prefix}<b>{rtype.capitalize()}:</b>")
-                            # Sub-bullets for each step
                             for step in steps:
                                 for sub in [s.strip() for s in step.split(';') if s.strip()]:
                                     cell_lines.append(f"{sub_bullet_prefix}{sub}")
@@ -88,7 +84,6 @@ def transform_input_to_template_context(data):
                             vals.append(name)
                     if vals:
                         cell_lines.append(f"{bullet_prefix}<b>{rtype.capitalize()}:</b> " + ', '.join(vals))
-            # Add extra space before each activity description
             activity_with_space = f"&nbsp;&nbsp;{desc}" if desc else desc
             rows.append({
                 'idx': i+1,

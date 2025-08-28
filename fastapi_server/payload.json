@@ -104,44 +104,208 @@
           {
             "description": "Demolizione di murature",
             "quantity": 100,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 50,
-            "totalPrice": 5000
+            "totalPrice": 5000,
+            "resources": [
+              {
+                "name": "Operaio specializzato",
+                "type": "Manodopera",
+                "quantity": 50,
+                "unit": "ore",
+                "unitPrice": 30,
+                "totalPrice": 1500
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 50,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 1250
+              },
+              {
+                "name": "Escavatore",
+                "type": "Attrezzature",
+                "quantity": 3,
+                "unit": "giorni",
+                "unitPrice": 200,
+                "totalPrice": 600
+              },
+              {
+                "name": "Gru",
+                "type": "Attrezzature",
+                "quantity": 1,
+                "unit": "giorni",
+                "unitPrice": 300,
+                "totalPrice": 300
+              }
+            ]
           },
           {
             "description": "Riparazione di murature",
             "quantity": 200,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 30,
-            "totalPrice": 6000
+            "totalPrice": 6000,
+            "resources": [
+              {
+                "name": "Cemento",
+                "type": "Materiali da costruzione",
+                "quantity": 50,
+                "unit": "sacchi",
+                "unitPrice": 10,
+                "totalPrice": 500
+              },
+              {
+                "name": "Malta",
+                "type": "Materiali da costruzione",
+                "quantity": 30,
+                "unit": "sacchi",
+                "unitPrice": 5,
+                "totalPrice": 150
+              },
+              {
+                "name": "Legname",
+                "type": "Materiali da costruzione",
+                "quantity": 10,
+                "unit": "m³",
+                "unitPrice": 100,
+                "totalPrice": 1000
+              },
+              {
+                "name": "Operaio specializzato",
+                "type": "Manodopera",
+                "quantity": 30,
+                "unit": "ore",
+                "unitPrice": 30,
+                "totalPrice": 900
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 40,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 1000
+              }
+            ]
           },
           {
             "description": "Riparazione di pavimenti",
             "quantity": 150,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 25,
-            "totalPrice": 3750
+            "totalPrice": 3750,
+            "resources": [
+              {
+                "name": "Cemento",
+                "type": "Materiali da costruzione",
+                "quantity": 20,
+                "unit": "sacchi",
+                "unitPrice": 10,
+                "totalPrice": 200
+              },
+              {
+                "name": "Malta",
+                "type": "Materiali da costruzione",
+                "quantity": 10,
+                "unit": "sacchi",
+                "unitPrice": 5,
+                "totalPrice": 50
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 30,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 750
+              }
+            ]
           },
           {
             "description": "Riparazione di soffitti",
             "quantity": 100,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 20,
-            "totalPrice": 2000
+            "totalPrice": 2000,
+            "resources": [
+              {
+                "name": "Legname",
+                "type": "Materiali da costruzione",
+                "quantity": 5,
+                "unit": "m³",
+                "unitPrice": 100,
+                "totalPrice": 500
+              },
+              {
+                "name": "Malta",
+                "type": "Materiali da costruzione",
+                "quantity": 5,
+                "unit": "sacchi",
+                "unitPrice": 5,
+                "totalPrice": 25
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 20,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 500
+              }
+            ]
           },
           {
             "description": "Installazione di nuovi impianti elettrici",
             "quantity": 1,
             "unit": "impianto",
             "unitPrice": 5000,
-            "totalPrice": 5000
+            "totalPrice": 5000,
+            "resources": [
+              {
+                "name": "Appaltatore elettrico",
+                "type": "Appaltatori",
+                "quantity": 1,
+                "unit": "contratto",
+                "unitPrice": 10000,
+                "totalPrice": 10000
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 10,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 250
+              }
+            ]
           },
           {
             "description": "Installazione di nuovi impianti idraulici",
             "quantity": 1,
             "unit": "impianto",
             "unitPrice": 5000,
-            "totalPrice": 5000
+            "totalPrice": 5000,
+            "resources": [
+              {
+                "name": "Appaltatore idraulico",
+                "type": "Appaltatori",
+                "quantity": 1,
+                "unit": "contratto",
+                "unitPrice": 10000,
+                "totalPrice": 10000
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 10,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 250
+              }
+            ]
           }
         ]
       },
@@ -238,44 +402,208 @@
           {
             "description": "Demolizione di murature",
             "quantity": 150,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 50,
-            "totalPrice": 7500
+            "totalPrice": 7500,
+            "resources": [
+              {
+                "name": "Operaio specializzato",
+                "type": "Manodopera",
+                "quantity": 70,
+                "unit": "ore",
+                "unitPrice": 30,
+                "totalPrice": 2100
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 60,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 1500
+              },
+              {
+                "name": "Escavatore",
+                "type": "Attrezzature",
+                "quantity": 4,
+                "unit": "giorni",
+                "unitPrice": 200,
+                "totalPrice": 800
+              },
+              {
+                "name": "Gru",
+                "type": "Attrezzature",
+                "quantity": 2,
+                "unit": "giorni",
+                "unitPrice": 300,
+                "totalPrice": 600
+              }
+            ]
           },
           {
             "description": "Riparazione di murature",
             "quantity": 250,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 30,
-            "totalPrice": 7500
+            "totalPrice": 7500,
+            "resources": [
+              {
+                "name": "Cemento",
+                "type": "Materiali da costruzione",
+                "quantity": 60,
+                "unit": "sacchi",
+                "unitPrice": 10,
+                "totalPrice": 600
+              },
+              {
+                "name": "Malta",
+                "type": "Materiali da costruzione",
+                "quantity": 35,
+                "unit": "sacchi",
+                "unitPrice": 5,
+                "totalPrice": 175
+              },
+              {
+                "name": "Legname",
+                "type": "Materiali da costruzione",
+                "quantity": 12,
+                "unit": "m³",
+                "unitPrice": 100,
+                "totalPrice": 1200
+              },
+              {
+                "name": "Operaio specializzato",
+                "type": "Manodopera",
+                "quantity": 40,
+                "unit": "ore",
+                "unitPrice": 30,
+                "totalPrice": 1200
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 60,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 1500
+              }
+            ]
           },
           {
             "description": "Riparazione di pavimenti",
             "quantity": 200,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 25,
-            "totalPrice": 5000
+            "totalPrice": 5000,
+            "resources": [
+              {
+                "name": "Cemento",
+                "type": "Materiali da costruzione",
+                "quantity": 30,
+                "unit": "sacchi",
+                "unitPrice": 10,
+                "totalPrice": 300
+              },
+              {
+                "name": "Malta",
+                "type": "Materiali da costruzione",
+                "quantity": 20,
+                "unit": "sacchi",
+                "unitPrice": 5,
+                "totalPrice": 100
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 40,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 1000
+              }
+            ]
           },
           {
             "description": "Riparazione di soffitti",
             "quantity": 150,
-            "unit": "mÂ²",
+            "unit": "m²",
             "unitPrice": 20,
-            "totalPrice": 3000
+            "totalPrice": 3000,
+            "resources": [
+              {
+                "name": "Legname",
+                "type": "Materiali da costruzione",
+                "quantity": 8,
+                "unit": "m³",
+                "unitPrice": 100,
+                "totalPrice": 800
+              },
+              {
+                "name": "Malta",
+                "type": "Materiali da costruzione",
+                "quantity": 8,
+                "unit": "sacchi",
+                "unitPrice": 5,
+                "totalPrice": 40
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 25,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 625
+              }
+            ]
           },
           {
             "description": "Installazione di nuovi impianti elettrici",
             "quantity": 1,
             "unit": "impianto",
             "unitPrice": 5000,
-            "totalPrice": 5000
+            "totalPrice": 5000,
+            "resources": [
+              {
+                "name": "Appaltatore elettrico",
+                "type": "Appaltatori",
+                "quantity": 1,
+                "unit": "contratto",
+                "unitPrice": 10000,
+                "totalPrice": 10000
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 15,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 375
+              }
+            ]
           },
           {
             "description": "Installazione di nuovi impianti idraulici",
             "quantity": 1,
             "unit": "impianto",
             "unitPrice": 5000,
-            "totalPrice": 5000
+            "totalPrice": 5000,
+            "resources": [
+              {
+                "name": "Appaltatore idraulico",
+                "type": "Appaltatori",
+                "quantity": 1,
+                "unit": "contratto",
+                "unitPrice": 10000,
+                "totalPrice": 10000
+              },
+              {
+                "name": "Operaio qualificato",
+                "type": "Manodopera",
+                "quantity": 15,
+                "unit": "ore",
+                "unitPrice": 25,
+                "totalPrice": 375
+              }
+            ]
           }
         ]
       }

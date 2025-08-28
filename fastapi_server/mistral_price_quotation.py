@@ -48,7 +48,17 @@ internal_costs = {
           "quantity": "number",
           "unit": "string",
           "unitPrice": "number",
-          "totalPrice": "number"
+          "totalPrice": "number",
+          "resources": [
+            {
+              "name": "string",
+              "type": "string",
+              "quantity": "number",
+              "unit": "string",
+              "unitPrice": "number",
+              "totalPrice": "number"
+            }
+          ],
         }
       ]
     }
