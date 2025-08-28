@@ -11,6 +11,7 @@ import { ProjectWizardData } from "@/lib/types";
 import { useDispatch } from "react-redux";
 import { resetSiteWorks } from "@/features/siteWorksSlice";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
+import { resetPriceQuotation } from "@/features/priceQuotationSlice";
 
 const INITIAL_DATA: ProjectWizardData = {
   projectType: "site_visit",
@@ -41,6 +42,7 @@ export default function ProjectWizard() {
     }
     if (currentStep === 1) {
       dispatch(resetSiteWorks());
+      dispatch(resetPriceQuotation());
     }
   }, [currentStep, setLocation, dispatch]);
 

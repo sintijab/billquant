@@ -41,6 +41,7 @@ const priceQuotationSlice = createSlice({
 			state.data = null;
 			state.loading = false;
 		},
+		resetPriceQuotation: () => initialState,
 	},
 	extraReducers: (builder) => {
 		builder
@@ -60,7 +61,7 @@ const priceQuotationSlice = createSlice({
 	},
 });
 
-export const { clearPriceQuotationError, clearPriceQuotationData } = priceQuotationSlice.actions;
+export const { clearPriceQuotationError, clearPriceQuotationData, resetPriceQuotation } = priceQuotationSlice.actions;
 export default priceQuotationSlice.reducer;
 
 const mock = {
