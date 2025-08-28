@@ -10,7 +10,7 @@ import priceQuotationReducer from './features/priceQuotationSlice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['wizard', 'siteVisit', 'siteWorks', 'boq', 'priceQuotation'],
+  whitelist: ['wizard'],
 };
 
 const rootReducer = {
