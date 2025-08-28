@@ -75,7 +75,6 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
 
   // Get LLM response from priceQuotation slice
   const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
-  console.log(priceQuotationData)
   const priceQuotationLoading = useSelector((state: any) => state.priceQuotation.loading);
   const internalCosts = priceQuotationData || {};
   // Compose documentData from LLM response

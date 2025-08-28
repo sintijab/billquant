@@ -20,5 +20,33 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+    proxy: {
+            '/api': {
+                target: 'https://billquant-production.up.railway.app',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, '')
+            },
+            '/api-pat': {
+                target: 'https://billquant-pat-production.up.railway.app',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api-pat/, '')
+            },
+            '/api-dei': {
+                target: 'https://billquant-dei-production.up.railway.app',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api-dei/, '')
+            },
+            '/api-piemonte': {
+                target: 'https://billquant-dei-production.up.railway.app',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api-piemonte/, '')
+            }
+    },
+    port: 5173,
+    strictPort: true,
+    origin: `http://0.0.0.0:5173`,
+    cors: {
+      origin: [/^http:\/\/127\.0\.0\.1:8000$/],
+    },
   },
 });
