@@ -40,7 +40,21 @@ uvicorn routes:app --reload
 ## 4. Usage
 - Open the client in your browser and follow the UI to create projects, upload images, and generate site visit documentation.
 - The client will communicate with the FastAPI backend for AI-powered features.
-
+### Examples with generating documents
+#### Exporting internal costs 
+```sh
+curl -X POST "http://127.0.0.1:8000/generate_internal_costs_docx" \ 
+     -H "Content-Type: application/json" \
+     -d @payload3.json \
+     --output Internal_Costs_Report.docx
+```
+#### Exporting price quotation
+```sh
+curl -X POST "http://127.0.0.1:8000/generate_price_quotation_docx" \
+     -H "Content-Type: application/json" \
+     -d @payload3.json \
+     --output Price_Quotation_Report.docx
+```
 ---
 
 ## 5. Troubleshooting
