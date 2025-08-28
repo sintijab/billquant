@@ -165,8 +165,15 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
     };
     onUpdate(updated);
     dispatch(setSiteVisit(updated));
-    // For add area/subarea, just use currentSiteTimeline
-    dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: currentSiteTimeline } });
+    // For add area/subarea, merge GeneralTimeline to keep all activities for all Works
+    const mergedTimeline = Array.isArray(currentSiteWorks)
+      ? currentSiteWorks.map((work: any) => {
+          // Try to find a matching activity in currentSiteTimeline by Work
+          const match = (currentSiteTimeline || []).find((t: any) => t.Activity === work.Work);
+          return match ? match : { Activity: work.Work };
+        })
+      : [];
+    dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: mergedTimeline } });
   };
 
 
@@ -251,7 +258,14 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                           const updated = { siteAreas: data.siteAreas.map((a, i) => i === areaIdx ? { ...a, name: fullName } : a) };
                           onUpdate(updated);
                           dispatch(setSiteVisit(updated));
-                          dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: null } });
+                          // Merge GeneralTimeline to keep all activities for all Works
+                          const mergedTimeline = Array.isArray(currentSiteWorks)
+                            ? currentSiteWorks.map((work: any) => {
+                                const match = (currentSiteTimeline || []).find((t: any) => t.Activity === work.Work);
+                                return match ? match : { Activity: work.Work };
+                              })
+                            : [];
+                          dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: currentSiteWorks, Missing: [], GeneralTimeline: mergedTimeline } });
                         }}
                         className="border-0 border-b border-gray-800 text-xl font-semibold text-gray-900 bg-transparent rounded-none px-2 py-1 placeholder-gray-400 focus:border-b-2 focus:border-gray-900 focus:ring-0"
                         placeholder="Area name"
@@ -268,8 +282,20 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
                         const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                         const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                        // Merge GeneralTimeline so that each Work has a matching Activity
+                        const prevTimeline = currentSiteTimeline || [];
+                        const newTimeline = worksResult.GeneralTimeline || [];
+                        // Remove old timeline entries for this area
+                        const filteredTimeline = prevTimeline.filter((t: any) => t.Area !== areaData.name);
+                        // Add new timeline entries
+                        const combinedTimeline = [...filteredTimeline, ...newTimeline];
+                        // Ensure every Work has a matching Activity entry (compare with Work, not Item)
+                        const mergedTimeline = mergedWorks.map((work: any) => {
+                          const match = combinedTimeline.find((t: any) => t.Activity === work.Work);
+                          return match ? match : { Activity: work.Work };
+                        });
                         dispatch(setSiteVisit({ siteAreas: updatedAreas }));
-                        dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
+                        dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: mergedTimeline } });
                       }}
                       className="bg-transparent border-0 border-b-2 border-white focus:ring-0 focus:border-white rounded-none px-0 placeholder-white text-gray-900"
                       style={{ '--tw-placeholder-opacity': '1', color: '#222', colorScheme: 'dark', '::placeholder': { color: '#fff', opacity: 1 } } as any}
@@ -474,8 +500,20 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                               const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
                               const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                               const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
+                              // Merge GeneralTimeline so that each Work has a matching Activity
+                              const prevTimeline = currentSiteTimeline || [];
+                              const newTimeline = worksResult.GeneralTimeline || [];
+                              // Remove old timeline entries for this area
+                              const filteredTimeline = prevTimeline.filter((t: any) => t.Area !== areaData.name);
+                              // Add new timeline entries
+                              const combinedTimeline = [...filteredTimeline, ...newTimeline];
+                              // Ensure every Work has a matching Activity entry (compare with Work, not Item)
+                              const mergedTimeline = mergedWorks.map((work: any) => {
+                                const match = combinedTimeline.find((t: any) => t.Activity === work.Work);
+                                return match ? match : { Activity: work.Work };
+                              });
                               dispatch(setSiteVisit({ siteAreas: updated.siteAreas }));
-                              dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: worksResult.GeneralTimeline || null } });
+                              dispatch({ type: 'siteWorks/setSiteWorks', payload: { SiteWorks: mergedWorks, Missing: worksResult.Missing || [], GeneralTimeline: mergedTimeline } });
                             }}
                             className="border-0 border-b border-gray-800 text-lg font-semibold text-gray-800 bg-white rounded-none px-2 py-1 placeholder-gray-400 focus:border-b-2 focus:border-gray-900 focus:ring-0"
                             placeholder="Subarea name"
