@@ -40,18 +40,24 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     handleRefreshPrices();
   }, [modalCompare]);
 
-  // Always fetch for every activity with a category, every time
-  // Fetch prices for all activities, but do not clear or remove existing table items
+  // Only fetch for activities that are missing prices or have errors for the selected price source
   const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
     else if (priceListSource === 'pat') fetchThunk = fetchActivityCategoryPat;
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
     else return;
-    // Fetch in parallel to avoid UI flicker and preserve existing items
     await Promise.all(
       timeline.map((activity: any) => {
         if (!activity.Activity) return Promise.resolve();
+        const catObj = boq.categories[activity.Activity];
+        let shouldFetch = false;
+        if (!catObj) shouldFetch = true;
+        else if (catObj.error) shouldFetch = true;
+        else if (priceListSource === 'dei' && (!catObj.deiItems || catObj.deiItems.length === 0)) shouldFetch = true;
+        else if (priceListSource === 'pat' && (!catObj.patItems || catObj.patItems.length === 0)) shouldFetch = true;
+        else if (priceListSource === 'piemonte' && (!catObj.piemonteItems || catObj.piemonteItems.length === 0)) shouldFetch = true;
+        if (!shouldFetch) return Promise.resolve();
         return dispatch(fetchThunk(activity.Activity) as any);
       })
     );
