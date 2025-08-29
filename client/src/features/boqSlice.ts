@@ -294,6 +294,7 @@ const boqSlice = createSlice({
     state.error = null;
     state.modalCompare = null;
     state.modalLoading = false;
+    state.boq_upload = undefined;
   },
     closeModalCompare: (state) => {
       state.modalCompare = null;

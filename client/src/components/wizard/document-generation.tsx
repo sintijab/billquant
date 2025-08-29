@@ -70,9 +70,16 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   const billOfQuantities = useSelector(selectAllPatItemsStructured);
   const patItems = useSelector(selectAllPatItemsStructured);
   const client = useSelector(selectProjectSetup);
+  // Get boq_upload from boq in state if it exists
+  const boqUpload = useSelector((state: any) => state.boq?.boq_upload);
+  const siteVisitOrBoqUpload = boqUpload ? boqUpload : siteVisitDescription;
   const patItemsStr = JSON.stringify(patItems, null, 2); // for pretty-print, or just JSON.stringify(patItems)
-  const priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitDescription}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity is following: ${patItemsStr}`;
-
+  let priceQuotationPayload;
+  if (boqUpload) {
+    priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit Bill of Quantities is following: ${boqUpload}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity prices are following: ${patItemsStr}.`;
+  } else {
+    priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitOrBoqUpload}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity is following: ${patItemsStr}`;
+  }
   // Get LLM response from priceQuotation slice
   const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
   const priceQuotationLoading = useSelector((state: any) => state.priceQuotation.loading);

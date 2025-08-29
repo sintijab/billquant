@@ -9,7 +9,7 @@ import BOQPricing from "@/components/wizard/boq-pricing";
 import DocumentGeneration from "@/components/wizard/document-generation";
 import { ProjectWizardData } from "@/lib/types";
 import { useDispatch } from "react-redux";
-import { resetSiteWorks } from "@/features/siteWorksSlice";
+import { resetBoqState, resetSiteWorks } from "@/features/siteWorksSlice";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import { resetPriceQuotation } from "@/features/priceQuotationSlice";
 
@@ -42,6 +42,7 @@ export default function ProjectWizard() {
     }
     if (currentStep === 1) {
       dispatch(resetSiteWorks());
+      dispatch(resetBoqState())
       dispatch(resetPriceQuotation());
     }
   }, [currentStep, setLocation, dispatch]);
