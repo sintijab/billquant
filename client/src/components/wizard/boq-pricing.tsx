@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte, fetchActivityBySource, closeModalCompare } from '@/features/boqSlice';
+import { fetchActivityCategoryDei, fetchActivityCategoryPat, fetchActivityCategoryPiemonte, fetchActivityBySource, closeModalCompare, fetchCategoryData } from '@/features/boqSlice';
 import CompareActivitiesPanel from "./compare-activities-panel";
 import { selectAllTableItems } from '@/features/boqSelectors';
 
@@ -40,7 +40,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     handleRefreshPrices();
   }, [modalCompare]);
 
-  // Fetch activities one by one, and retry failed activities after the first pass
+  // Fetch activities one by one, retry fetchCategoryData if categoryData has error, and only call fetchActivityCategory if categoryData is available and not errored
   const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
@@ -48,22 +48,29 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
     else return;
 
-    // Helper to check if an activity fetch failed
-    const isFailed = (activityName: string) => {
-      const catObj = boq.categories[activityName];
-      return catObj && catObj.error;
-    };
-
-    // First pass: fetch all activities sequentially
+    // Track which activities have been successfully fetched for this price source
+    const successful: Record<string, boolean> = {};
     for (const activity of timeline) {
       if (!activity.Activity) continue;
+      const categoryData = boq.categoryData?.[activity.Activity];
+      // If categoryData is missing or has error, and not currently loading, retry fetchCategoryData
+      const isLoading = boq.loading && boq.categoryData?.[activity.Activity] === undefined;
+      if ((!categoryData || categoryData.error) && !isLoading) {
+        await dispatch(fetchCategoryData(activity.Activity));
+        // After retry, get the updated categoryData
+        continue;
+      }
+      // Only call fetchActivityCategory if categoryData is available and not errored
       await dispatch(fetchThunk(activity.Activity) as any);
+      successful[activity.Activity] = true;
     }
 
-    // Second pass: retry failed activities (max 1 retry per refresh)
+    // Retry for activities where fetchActivityCategory failed (error in categories)
     for (const activity of timeline) {
       if (!activity.Activity) continue;
-      if (isFailed(activity.Activity)) {
+      if (successful[activity.Activity]) continue;
+      const catObj = boq.categories[activity.Activity];
+      if (catObj && catObj.error) {
         await dispatch(fetchThunk(activity.Activity) as any);
       }
     }
