@@ -41,16 +41,20 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
   }, [modalCompare]);
 
   // Always fetch for every activity with a category, every time
+  // Fetch prices for all activities, but do not clear or remove existing table items
   const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
     else if (priceListSource === 'pat') fetchThunk = fetchActivityCategoryPat;
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
     else return;
-    for (const activity of timeline) {
-      if (!activity.Activity) continue;
-      await dispatch(fetchThunk(activity.Activity) as any);
-    }
+    // Fetch in parallel to avoid UI flicker and preserve existing items
+    await Promise.all(
+      timeline.map((activity: any) => {
+        if (!activity.Activity) return Promise.resolve();
+        return dispatch(fetchThunk(activity.Activity) as any);
+      })
+    );
   };
 
   // Use selector to get all table items (merged from all sources)
