@@ -40,8 +40,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     handleRefreshPrices();
   }, [modalCompare]);
 
-  // Always fetch for every activity with a category, but keep track of which have already been fetched in this session
-  const fetchedActivitiesRef = useRef<{ [key: string]: boolean }>({});
+  // Always fetch for every activity with a category, every time
   const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
@@ -50,8 +49,6 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     else return;
     for (const activity of timeline) {
       if (!activity.Activity) continue;
-      if (fetchedActivitiesRef.current[activity.Activity]) continue; // Already fetched in this session
-      fetchedActivitiesRef.current[activity.Activity] = true;
       await dispatch(fetchThunk(activity.Activity) as any);
     }
   };
