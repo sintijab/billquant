@@ -40,31 +40,19 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     handleRefreshPrices();
   }, [modalCompare]);
 
-  // Only refresh activities that are missing prices or errored for the selected source
+  // Always fetch for every activity with a category, but keep track of which have already been fetched in this session
+  const fetchedActivitiesRef = useRef<{ [key: string]: boolean }>({});
   const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
     else if (priceListSource === 'pat') fetchThunk = fetchActivityCategoryPat;
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
     else return;
-    // Collect all activities to fetch
-    const toFetch: string[] = [];
     for (const activity of timeline) {
       if (!activity.Activity) continue;
-      const catObj = boq.categories[activity.Activity];
-      let missing = false;
-      if (priceListSource === 'dei') missing = !catObj || (!catObj.deiItems?.length && !catObj.error);
-      if (priceListSource === 'pat') missing = !catObj || (!catObj.patItems?.length && !catObj.error);
-      if (priceListSource === 'piemonte') missing = !catObj || (!catObj.piemonteItems?.length && !catObj.error);
-      if (catObj && catObj.error) missing = true;
-      if (missing) {
-        toFetch.push(activity.Activity);
-      }
-    }
-    // Fetch sequentially to avoid too many concurrent requests
-    for (const activityName of toFetch) {
-      // eslint-disable-next-line no-await-in-loop
-      await dispatch(fetchThunk(activityName) as any);
+      if (fetchedActivitiesRef.current[activity.Activity]) continue; // Already fetched in this session
+      fetchedActivitiesRef.current[activity.Activity] = true;
+      await dispatch(fetchThunk(activity.Activity) as any);
     }
   };
 
@@ -81,7 +69,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
   }, [allTableItems, boq]);
 
   // Check if any prices are missing or errored for the selected source
-  const hasMissingPrices = timeline.some(activity => {
+  const hasMissingPrices = timeline.some((activity: any) => {
     if (!activity.Activity) return false;
     const catObj = boq.categories[activity.Activity];
     if (!catObj) return true;
@@ -119,7 +107,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    {sortedTableItems.filter(item => item.type === 'main').map((item, i) => { 
+                    {sortedTableItems.filter((item: any) => item.type === 'main').map((item: any, i: number) => { 
                       const rowKey = item.id || item.code || item.activity || i;
                       return (
                       <>
