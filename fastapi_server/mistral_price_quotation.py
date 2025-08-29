@@ -162,8 +162,10 @@ internal_costs = {
     "company_profit": "number",
     "margin_check": "number",
     "markup": "number",
+    "vat": "string",
     "rounding": "number",
-    "total_costs": "number",
+    "total_price": "number",
+    "application_price_before_vat": "number",
     "application_price": "number",
     "explanation_of_summary": {
       "subtotal_desc": "string",
