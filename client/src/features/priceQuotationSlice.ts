@@ -12,7 +12,7 @@ export const fetchMistralPriceQuotation = createAsyncThunk(
 			method: 'POST',
 			body: formData,
 		});
-		return await resp.json();
+		return await resp.json(); 
 	}
 );
 

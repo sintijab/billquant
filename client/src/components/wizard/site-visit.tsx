@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, ArrowLeft, Plus, Upload, FileText, ImageIcon, X, SearchCheck } from "lucide-react";
+import { ArrowRight, ArrowLeft, Plus, Upload, FileText, ImageIcon, X, SearchCheck, Info } from "lucide-react";
 import { ProjectWizardData } from "@/lib/types";
 import SubareaCard from "./subarea-card";
 import NotificationProgressBar from './NotificationProgressBar';
@@ -28,6 +28,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
   // Track which areas have been saved
   const data = initial;
   const [savedAreas, setSavedAreas] = useState(() => data.siteAreas.map(() => false));
+  const [showAreaPlanInfo, setShowAreaPlanInfo] = useState(false);
   function collectAllAreaAndSubareaFields(siteAreas: any[]) {
     return siteAreas.map(area => ({
       ...area,
@@ -55,6 +56,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
   );
   const [aiConsent, setAiConsent] = useState(true);
   const siteWorksLength = useSelector((state: any) => state.siteWorks?.Works?.length || 0);
+  
   const handleAddArea = () => {
     // Validation: check if any subarea input field, dimensions, UDM, or description is empty
     let hasEmptySubarea = false;
@@ -349,7 +351,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                       <div className="flex items-center gap-2">
                         <Button
                           variant="outline"
-                          className="cursor-pointer rounded-full px-4 py-2 border-none bg-white/90 text-primary-dark font-semibold"
+                          className="cursor-pointer border rounded-full px-4 py-2 bg-white/90 text-primary-dark font-semibold"
                           asChild
                           disabled={areaPlanLoading}
                         >
@@ -392,8 +394,38 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                             />
                           </label>
                         </Button>
+                        <button
+                          type="button"
+                          className="ml-1 p-1 rounded-full text-primary-dark hover:bg-primary-dark hover:text-white focus:outline-none transition-colors"
+                          aria-label="Area plan info"
+                          onClick={() => setShowAreaPlanInfo(true)}
+                          style={{ background: 'none', border: 'none', display: 'flex', alignItems: 'center' }}
+                        >
+                          <Info className="w-5 h-5" />
+                        </button>
                         {areaPlanLoading && <Loader size="xxs" />}
                       </div>
+                      {showAreaPlanInfo && (
+                        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                          <div className="bg-white rounded-xl shadow-lg p-8 max-w-lg w-full relative">
+                            <button
+                              className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-200"
+                              onClick={() => setShowAreaPlanInfo(false)}
+                              aria-label="Close"
+                              style={{ background: '#f3f4f6', color: '#222' }}
+                            >
+                              <X className="w-5 h-5" style={{ color: '#222' }} />
+                            </button>
+                            <h4 className="text-lg font-semibold mb-4 text-gray-900 bg-white">Area Plan Upload</h4>
+                            <div className="text-gray-800 text-base space-y-3" style={{ textAlign: 'justify', lineHeight: 1.5 }}>
+                              <div className="font-semibold">Attachments of area map is not recommended. All measurements and notes must be written down for each added area and subarea.</div>
+                              <div>If you have taken measurements by hand on paper or a printed plan, please take a clear photo of your notes and upload it as an <span className="font-semibold">image</span> file.</div>
+                              <div>If your notes are in a digital format like docx or txt, please import and upload them as a <span className="font-semibold">pdf</span>.</div>
+                              <div className="text-gray-600 text-sm">This upload is for documentation and text extraction only, and will not be processed for automatic measurement assignment, use this feature only as a reference.</div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                       {/* Show uploaded area plan files as links */}
                       {area.floorAttachments && area.floorAttachments.length > 0 && (
                         <div className="flex flex-col gap-1 mt-2">
