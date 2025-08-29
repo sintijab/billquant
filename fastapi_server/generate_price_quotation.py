@@ -47,21 +47,84 @@ def transform_input_to_template_context(data):
             desc = wa.get('description', '')
             wa_resources = wa.get('resources', [])
             cell_lines = []
-            if wa_resources:
-                bullet_prefix = "&nbsp;&nbsp;• "  # Two non-breaking spaces for indentation
-                vals = []
-                for r in wa_resources:
-                    name = r.get('name', '')
-                    qty = r.get('quantity', '')
-                    unit = r.get('unit', '')
-                    if name and qty and unit:
-                        vals.append(f"{qty} {name} ({unit})")
-                    elif name and qty:
-                        vals.append(f"{qty} {name}")
-                    elif name:
-                        vals.append(name)
-                if vals:
-                    cell_lines.append(f"{bullet_prefix}" + ', '.join(vals))
+            bullet_prefix = "&nbsp;&nbsp;• "  # Two non-breaking spaces for indentation
+            sub_bullet_prefix = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;◦ "  # More spaces for sub-bullet
+            # If any resource matches operativita, servizi, or a resource_type, use the old logic for those types
+            used_types = set([r.get('type') for r in wa_resources if r.get('type')])
+            special_types = set(['operativita', 'servizi']) | set(resource_types)
+            if used_types & special_types:
+                for rtype in resource_types:
+                    rlist = [r for r in wa_resources if r.get('type') == rtype]
+                    if not rlist:
+                        continue
+                    if rtype == 'operativita':
+                        for r in rlist:
+                            steps = r.get('steps', [])
+                            if steps:
+                                cell_lines.append(f"{bullet_prefix}<b>{rtype.capitalize()}:</b>")
+                                for step in steps:
+                                    for sub in [s.strip() for s in step.split(';') if s.strip()]:
+                                        cell_lines.append(f"{sub_bullet_prefix}{sub}")
+                    elif rtype == 'servizi':
+                        for r in rlist:
+                            details = r.get('details', [])
+                            if details:
+                                cell_lines.append(f"{bullet_prefix}<b>{rtype.capitalize()}:</b>")
+                                for detail in details:
+                                    for sub in [s.strip() for s in detail.split(';') if s.strip()]:
+                                        cell_lines.append(f"{sub_bullet_prefix}{sub}")
+                    else:
+                        vals = []
+                        for r in rlist:
+                            name = r.get('name', '')
+                            qty = r.get('quantity', '')
+                            unit = r.get('unit', '')
+                            if name and qty and unit:
+                                vals.append(f"{qty} {name} ({unit})")
+                            elif name and qty:
+                                vals.append(f"{qty} {name}")
+                            elif name:
+                                vals.append(name)
+                        if vals:
+                            cell_lines.append(f"{bullet_prefix}<b>{rtype.capitalize()}:</b> " + ', '.join(vals))
+                # Also handle operativita and servizi if present but not in resource_types
+                for rtype in ['operativita', 'servizi']:
+                    if rtype not in resource_types:
+                        rlist = [r for r in wa_resources if r.get('type') == rtype]
+                        if not rlist:
+                            continue
+                        if rtype == 'operativita':
+                            for r in rlist:
+                                steps = r.get('steps', [])
+                                if steps:
+                                    cell_lines.append(f"{bullet_prefix}<b>{rtype.capitalize()}:</b>")
+                                    for step in steps:
+                                        for sub in [s.strip() for s in step.split(';') if s.strip()]:
+                                            cell_lines.append(f"{sub_bullet_prefix}{sub}")
+                        elif rtype == 'servizi':
+                            for r in rlist:
+                                details = r.get('details', [])
+                                if details:
+                                    cell_lines.append(f"{bullet_prefix}<b>{rtype.capitalize()}:</b>")
+                                    for detail in details:
+                                        for sub in [s.strip() for s in detail.split(';') if s.strip()]:
+                                            cell_lines.append(f"{sub_bullet_prefix}{sub}")
+            else:
+                # Fallback: show all resources as a flat list
+                if wa_resources:
+                    vals = []
+                    for r in wa_resources:
+                        name = r.get('name', '')
+                        qty = r.get('quantity', '')
+                        unit = r.get('unit', '')
+                        if name and qty and unit:
+                            vals.append(f"{qty} {name} ({unit})")
+                        elif name and qty:
+                            vals.append(f"{qty} {name}")
+                        elif name:
+                            vals.append(name)
+                    if vals:
+                        cell_lines.append(f"{bullet_prefix}" + ', '.join(vals))
             activity_with_space = f"&nbsp;&nbsp;{desc}" if desc else desc
             rows.append({
                 'idx': i+1,
