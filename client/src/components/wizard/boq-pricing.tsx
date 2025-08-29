@@ -40,27 +40,33 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     handleRefreshPrices();
   }, [modalCompare]);
 
-  // Only fetch for activities that are missing prices or have errors for the selected price source
+  // Fetch activities one by one, and retry failed activities after the first pass
   const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
     else if (priceListSource === 'pat') fetchThunk = fetchActivityCategoryPat;
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
     else return;
-    await Promise.all(
-      timeline.map((activity: any) => {
-        if (!activity.Activity) return Promise.resolve();
-        const catObj = boq.categories[activity.Activity];
-        let shouldFetch = false;
-        if (!catObj) shouldFetch = true;
-        else if (catObj.error) shouldFetch = true;
-        else if (priceListSource === 'dei' && (!catObj.deiItems || catObj.deiItems.length === 0)) shouldFetch = true;
-        else if (priceListSource === 'pat' && (!catObj.patItems || catObj.patItems.length === 0)) shouldFetch = true;
-        else if (priceListSource === 'piemonte' && (!catObj.piemonteItems || catObj.piemonteItems.length === 0)) shouldFetch = true;
-        if (!shouldFetch) return Promise.resolve();
-        return dispatch(fetchThunk(activity.Activity) as any);
-      })
-    );
+
+    // Helper to check if an activity fetch failed
+    const isFailed = (activityName: string) => {
+      const catObj = boq.categories[activityName];
+      return catObj && catObj.error;
+    };
+
+    // First pass: fetch all activities sequentially
+    for (const activity of timeline) {
+      if (!activity.Activity) continue;
+      await dispatch(fetchThunk(activity.Activity) as any);
+    }
+
+    // Second pass: retry failed activities (max 1 retry per refresh)
+    for (const activity of timeline) {
+      if (!activity.Activity) continue;
+      if (isFailed(activity.Activity)) {
+        await dispatch(fetchThunk(activity.Activity) as any);
+      }
+    }
   };
 
   // Use selector to get all table items (merged from all sources)
