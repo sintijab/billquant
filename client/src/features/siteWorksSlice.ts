@@ -52,15 +52,24 @@ const initialState: SiteWorksState = {
 // Async thunk for fetching site works from the backend
 export const fetchSiteWorks = createAsyncThunk(
   'siteWorks/fetchSiteWorks',
-  async (query: string, thunkAPI) => {
+  async (
+    params: { query: string; is_boq?: boolean },
+    thunkAPI
+  ) => {
+    const { query, is_boq } = params;
     const formData = new FormData();
     formData.append('query', query);
+    if (typeof is_boq === 'boolean') {
+      formData.append('is_boq', is_boq ? 'true' : 'false');
+    }
     const resp = await fetch(`${API_BASE_URL}/mistral_activity_list`, {
       method: 'POST',
       body: formData
     });
     const data = await resp.json();
-    if (data && data.Works && data.Missing && data.GeneralTimeline && Array.isArray(data.GeneralTimeline.Activities)) {
+    if (typeof is_boq === 'boolean' && is_boq && data.Works && data.GeneralTimeline) {
+      return { Works: data.Works, GeneralTimeline: data.GeneralTimeline };
+    } else if (typeof is_boq !== 'boolean' && data && data.Works && data.Missing && data.GeneralTimeline && Array.isArray(data.GeneralTimeline.Activities)) {
       // Reset boq state when site works are fetched
       thunkAPI.dispatch(resetBoqState());
       // Optionally, validate each activity structure here if needed
@@ -78,8 +87,7 @@ const siteWorksSlice = createSlice({
   reducers: {
     setSiteWorks(state, action: PayloadAction<{ SiteWorks: SiteWorkItem[]; Missing: MissingItem[]; GeneralTimeline: GeneralTimeline }>) {
       state.Works = action.payload.SiteWorks;
-      state.Missing = action.payload.Missing;
-      state.GeneralTimeline = action.payload.GeneralTimeline;
+      state.GeneralTimeline = action.payload.GeneralTimeline
     },
     resetSiteWorks(state, action) {
       const { area, subarea } = action.payload || {};
@@ -117,7 +125,17 @@ const siteWorksSlice = createSlice({
       })
       .addCase(fetchSiteWorks.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        const newWorks = action.payload.Works;
+        const { Works, GeneralTimeline, Missing } = action.payload;
+        // If no Area/Subarea/Missing, just set Works and GeneralTimeline
+        const hasArea = Works && Works.length > 0 && 'Area' in Works[0];
+        const hasSubarea = Works && Works.length > 0 && 'Subarea' in Works[0];
+        if (!hasArea || !hasSubarea || typeof Missing === 'undefined') {
+          state.Works = Works || [];
+          state.GeneralTimeline = GeneralTimeline || null;
+          return;
+        }
+        // ...existing merging logic for full payloads...
+        const newWorks = Works;
         const newAreaItemKeys = new Set(newWorks.map((w: SiteWorkItem) => `${w.Area}|||${w.Item}`));
         const mergedWorks = [
           ...state.Works.filter(w => !newAreaItemKeys.has(`${w.Area}|||${w.Item}`)),
@@ -125,11 +143,11 @@ const siteWorksSlice = createSlice({
         ];
         // Merge Missing by Area/Subarea: only add new area/subarea combos
         const existingAreaSubareas = new Set(state.Missing.map((m: MissingItem) => `${m.Area}|||${m.Subarea}`));
-        const newMissing = action.payload.Missing
+        const newMissing = Missing
           .filter((m: MissingItem) => !existingAreaSubareas.has(`${m.Area}|||${m.Subarea}`))
           .filter((m: MissingItem) => typeof m.Missing !== 'undefined' && m.Missing !== null && m.Missing !== '');
         state.Missing = [...state.Missing, ...newMissing];
-        const newTimeline = action.payload.GeneralTimeline;
+        const newTimeline = GeneralTimeline;
         if (newTimeline && Array.isArray(newTimeline.Activities)) {
           // Ensure timeline has exactly one activity per work, matching by Work/Activity name
           const newActivityMap = new Map(newTimeline.Activities.map((a: GeneralTimelineActivity) => [a.Activity, a]));

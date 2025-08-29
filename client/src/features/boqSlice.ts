@@ -1,3 +1,17 @@
+// Thunk to extract text from uploaded BOQ PDF
+export const extractBoqPdfText = createAsyncThunk(
+  'boq/extractBoqPdfText',
+  async (file: File) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    const resp = await fetch(`${import.meta.env.VITE_API_BASE_URL}/extract_pdf_text`, {
+      method: 'POST',
+      body: formData,
+    });
+    const data = await resp.json();
+    return data.text || '';
+  }
+);
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@/store';
 
@@ -247,6 +261,7 @@ interface BoqState {
     rowIndex?: number;
   } | null;
   modalLoading?: boolean;
+  boq_upload?: string;
 }
 
 const initialState: BoqState = {
@@ -256,6 +271,7 @@ const initialState: BoqState = {
   error: null,
   modalCompare: null,
   modalLoading: false,
+  boq_upload: '',
 };
 
 const boqSlice = createSlice({
@@ -482,6 +498,18 @@ const boqSlice = createSlice({
           error: action.error.message || 'Failed to fetch PIEMONTE prices',
         };
         state.error = action.error.message || 'Failed to fetch PIEMONTE prices';
+      });
+          builder
+      .addCase(extractBoqPdfText.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(extractBoqPdfText.fulfilled, (state, action) => {
+        state.loading = false;
+        state.boq_upload = action.payload;
+      })
+      .addCase(extractBoqPdfText.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || 'Failed to extract BOQ PDF text';
       });
   },
 });

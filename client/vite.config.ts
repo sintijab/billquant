@@ -26,20 +26,20 @@ export default defineConfig({
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, '')
             },
-            '/api-pat': {
+            '/pat': {
                 target: 'https://billquant-pat-production.up.railway.app',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api-pat/, '')
+                rewrite: (path) => path.replace(/^\/pat/, '')
             },
-            '/api-dei': {
+            '/dei': {
                 target: 'https://billquant-dei-production.up.railway.app',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api-dei/, '')
+                rewrite: (path) => path.replace(/^\/dei/, '')
             },
-            '/api-piemonte': {
-                target: 'https://billquant-dei-production.up.railway.app',
+            '/piemonte': {
+                target: 'https://billquant-piemonte-production.up.railway.app',
                 changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api-piemonte/, '')
+                rewrite: (path) => path.replace(/^\/piemonte/, '')
             }
     },
     port: 5173,

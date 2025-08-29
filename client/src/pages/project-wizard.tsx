@@ -63,7 +63,7 @@ export default function ProjectWizard() {
           <ProjectSetup
             data={projectData}
             onUpdate={handleDataUpdate}
-            onNext={() => handleStepChange(2)}
+            onNext={(number?: number) => handleStepChange(number || 2)}
           />
         );
       case 2:
@@ -81,7 +81,7 @@ export default function ProjectWizard() {
             data={projectData}
             onUpdate={handleDataUpdate}
             onNext={() => handleStepChange(4)}
-            onPrevious={() => handleStepChange(2)}
+            onPrevious={(number?: number) => handleStepChange(number || 2)}
           />
         );
       case 4:

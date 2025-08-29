@@ -28,7 +28,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
   const dispatch: AppDispatch = useDispatch();
   const siteWorks = useSelector((state: RootState) => state.siteWorks);
   const boq = useSelector((state: RootState) => state.boq);
-  const timeline = siteWorks.GeneralTimeline?.Activities || [];
+  const timeline = siteWorks.GeneralTimeline?.Activities || siteWorks.GeneralTimeline || [];
   const [priceListSource, setPriceListSource] = useState("pat");
 
   const modalCompare = useSelector((state: RootState) => state.boq.modalCompare);
@@ -47,6 +47,8 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     else if (priceListSource === 'pat') fetchThunk = fetchActivityCategoryPat;
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
     else return;
+    // Collect all activities to fetch
+    const toFetch: string[] = [];
     for (const activity of timeline) {
       if (!activity.Activity) continue;
       const catObj = boq.categories[activity.Activity];
@@ -54,11 +56,15 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
       if (priceListSource === 'dei') missing = !catObj || (!catObj.deiItems?.length && !catObj.error);
       if (priceListSource === 'pat') missing = !catObj || (!catObj.patItems?.length && !catObj.error);
       if (priceListSource === 'piemonte') missing = !catObj || (!catObj.piemonteItems?.length && !catObj.error);
-      // Also refresh if there is an error
       if (catObj && catObj.error) missing = true;
       if (missing) {
-        await dispatch(fetchThunk(activity.Activity) as any);
+        toFetch.push(activity.Activity);
       }
+    }
+    // Fetch sequentially to avoid too many concurrent requests
+    for (const activityName of toFetch) {
+      // eslint-disable-next-line no-await-in-loop
+      await dispatch(fetchThunk(activityName) as any);
     }
   };
 
