@@ -41,6 +41,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
   }, [modalCompare]);
 
   // Fetch activities one by one, retry fetchCategoryData if categoryData has error, and only call fetchActivityCategory if categoryData is available and not errored
+  // Only fetch prices if not already present in Redux state for the selected source
   const handleRefreshPrices = async () => {
     let fetchThunk;
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
@@ -48,8 +49,6 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
     else return;
 
-    // Track which activities have been successfully fetched for this price source
-    const successful: Record<string, boolean> = {};
     for (const activity of timeline) {
       if (!activity.Activity) continue;
       const categoryData = boq.categoryData?.[activity.Activity];
@@ -57,18 +56,26 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
       const isLoading = boq.loading && boq.categoryData?.[activity.Activity] === undefined;
       if ((!categoryData || categoryData.error) && !isLoading) {
         await dispatch(fetchCategoryData(activity.Activity));
-        // After retry, get the updated categoryData
         continue;
       }
-      // Only call fetchActivityCategory if categoryData is available and not errored
-      await dispatch(fetchThunk(activity.Activity) as any);
-      successful[activity.Activity] = true;
+      // Only call fetchActivityCategory if categoryData is available and not errored, and prices for this source are not present
+      const entry = boq.categories[activity.Activity];
+      const hasPrices = (priceListSource === 'dei' && Array.isArray(entry?.deiItems) && entry.deiItems.length > 0)
+        || (priceListSource === 'pat' && Array.isArray(entry?.patItems) && entry.patItems.length > 0)
+        || (priceListSource === 'piemonte' && Array.isArray(entry?.piemonteItems) && entry.piemonteItems.length > 0);
+      if (!hasPrices) {
+        await dispatch(fetchThunk(activity.Activity) as any);
+      }
     }
 
-    // Retry for activities where fetchActivityCategory failed (error in categories)
+    // Retry for activities where fetchActivityCategory failed (error in categories) and prices are still not present
     for (const activity of timeline) {
       if (!activity.Activity) continue;
-      if (successful[activity.Activity]) continue;
+      const entry = boq.categories[activity.Activity];
+      const hasPrices = (priceListSource === 'dei' && Array.isArray(entry?.deiItems) && entry.deiItems.length > 0)
+        || (priceListSource === 'pat' && Array.isArray(entry?.patItems) && entry.patItems.length > 0)
+        || (priceListSource === 'piemonte' && Array.isArray(entry?.piemonteItems) && entry.piemonteItems.length > 0);
+      if (hasPrices) continue;
       const catObj = boq.categories[activity.Activity];
       if (catObj && catObj.error) {
         await dispatch(fetchThunk(activity.Activity) as any);
