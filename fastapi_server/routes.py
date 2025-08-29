@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from fastapi import Query
 import json
+from mistral_utils_boq import answer_question_boq
 from mistral_utils import answer_question
 from mistral_general import find_categories
 
@@ -19,9 +20,12 @@ import re
 import time
 import httpx
 
-def mistral_with_retry(prompt, max_retries=5):
+def mistral_with_retry(prompt, max_retries=5, is_boq=False):
+    print(is_boq)
     for attempt in range(max_retries):
         try:
+            if is_boq:
+                return answer_question_boq(prompt)
             return answer_question(prompt)
         except httpx.HTTPStatusError as e:
             if e.response.status_code == 429 or "capacity exceeded" in str(e).lower():
@@ -66,8 +70,9 @@ def health_check():
     return {"status": "ok"}
 
 @app.post("/mistral_activity_list")
-async def mistral(query: str = Form(...)):
-    raw_answer = mistral_with_retry(query)
+async def mistral(query: str = Form(...), is_boq: bool = Form(False)):
+    print(is_boq)
+    raw_answer = mistral_with_retry(query,  max_retries=5, is_boq=is_boq)
     # Remove outer quotes if present
     if raw_answer.startswith('"') and raw_answer.endswith('"'):
         raw_answer = raw_answer[1:-1]
