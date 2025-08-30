@@ -281,7 +281,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                         const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, statusDescription: e.target.value } : a);
                         const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                         const formatted = formatAreaData(areaData);
-                        const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                        const worksResult = await dispatch(fetchSiteWorks({ query: formatted})).unwrap();
                         const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                         const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
                         // Merge GeneralTimeline so that each Work has a matching Activity
@@ -317,7 +317,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                           const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, totalArea: e.target.value } : a);
                           const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                           const formatted = formatAreaData(areaData);
-                          const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                          const worksResult = await dispatch(fetchSiteWorks({ query: formatted})).unwrap();
                           const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                           const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
                           dispatch(setSiteVisit({ siteAreas: updatedAreas }));
@@ -335,7 +335,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                           const updatedAreas = data.siteAreas.map((a, i) => i === areaIdx ? { ...a, udm: e.target.value } : a);
                           const areaData = collectAllAreaAndSubareaFields([updatedAreas[areaIdx]])[0];
                           const formatted = formatAreaData(areaData);
-                          const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                          const worksResult = await dispatch(fetchSiteWorks({ query: formatted})).unwrap();
                           const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                           const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
                           dispatch(setSiteVisit({ siteAreas: updatedAreas }));
@@ -526,7 +526,7 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
                               // Fetch site works for this area/subarea
                               const areaData = collectAllAreaAndSubareaFields([updated.siteAreas[areaIdx]])[0];
                               const formatted = formatAreaData(areaData);
-                              const worksResult = await dispatch(fetchSiteWorks(formatted)).unwrap();
+                              const worksResult = await dispatch(fetchSiteWorks({ query: formatted})).unwrap();
                               const filteredWorks = currentSiteWorks.filter((w: any) => w.Area !== areaData.name);
                               const mergedWorks = [...filteredWorks, ...(worksResult.Works || [])];
                               // Merge GeneralTimeline so that each Work has a matching Activity
