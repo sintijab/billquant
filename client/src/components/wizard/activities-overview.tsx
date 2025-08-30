@@ -88,6 +88,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
                   areaTimelineMap[work.Area].push({ activity, work });
                 }
               });
+              console.log(areaTimelineMap)
               return areaList.map(area => {
                 const areaTimeline = areaTimelineMap[area] || [];
                 if (!areaTimeline.length) return null;
@@ -116,9 +117,123 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
                         const percentWidth = (duration / (totalSpan || 1)) * 100;
                         return (
                           <div key={idx} className="flex flex-col w-full mb-4">
-                            {/* ...existing code for each activity... */}
-                            {/* ...copy unchanged code from above... */}
-                            {/* ... */}
+                            <div className="flex flex-row items-center w-full text-base text-text-secondary mb-1 px-1">
+                              <span
+                                className={`font-semibold text-text-primary text-left truncate flex items-center cursor-pointer underline md:no-underline md:cursor-default`}
+                                onClick={() => {
+                                  if (window.innerWidth < 768) toggleExpanded(activity.Activity + area);
+                                }}
+                                tabIndex={0}
+                                role={'button'}
+                                aria-expanded={expanded[activity.Activity + area]}
+                              >
+                                {activity.Activity}
+                                <button
+                                  className="ml-3 text-primary underline text-xs font-medium focus:outline-none hidden md:inline"
+                                  onClick={e => { e.stopPropagation(); toggleExpanded(activity.Activity + area); }}
+                                >
+                                  {expanded[activity.Activity + area] ? 'Hide' : 'Show more'}
+                                </button>
+                              </span>
+                              <span className="ml-4 flex-1 text-right text-text-secondary whitespace-nowrap flex items-center justify-end">
+                                <Clock className="h-5 w-5 mr-2 text-primary flex-shrink-0" />
+                                1 {activity.Finishing - activity.Starting > 1 ? " - " + (activity.Finishing - activity.Starting) : ""} {activity.Finishing - activity.Starting > 1 ? "days" : "day"}
+                              </span>
+                            </div>
+                            <div className="w-full relative h-5 rounded-full overflow-hidden" style={{ background: 'linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 100%)' }}>
+                              <div
+                                className="absolute left-0 top-0 h-full rounded-full"
+                                style={{
+                                  left: `${percentOffset}%`,
+                                  width: 0,
+                                  minWidth: '2%',
+                                  background: 'linear-gradient(90deg, #2563eb 0%, #60a5fa 100%)',
+                                  opacity: 0.95,
+                                  transition: 'width 1.2s cubic-bezier(0.4,0,0.2,1)',
+                                }}
+                                ref={el => {
+                                  if (el) {
+                                    setTimeout(() => {
+                                      el.style.width = `${percentWidth}%`;
+                                    }, 50);
+                                  }
+                                }}
+                              ></div>
+                            </div>
+                            {/* Expandable table for matching works */}
+                            {expanded[activity.Activity + area] && (
+                              <div className="mt-4 border border-gray-200 rounded-xl overflow-hidden">
+                                <div className="bg-surface-light p-4">
+                                  <h4 className="text-base font-semibold text-text-primary">
+                                    Construction activities for {area}
+                                  </h4>
+                                </div>
+                                {/* Responsive Table: Desktop shows table, mobile shows cards */}
+                                <div>
+                                  {/* Desktop Table */}
+                                  <div className="hidden md:block overflow-x-auto">
+                                    <table className="w-full">
+                                      <thead className="bg-gray-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider w-2/5">
+                                            Work
+                                          </th>
+                                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
+                                            Location
+                                          </th>
+                                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
+                                            Quantity
+                                          </th>
+                                          <th className="px-4 py-3 text-center text-xs font-medium text-text-secondary uppercase tracking-wider w-1/5">
+                                            UDM
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody className="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                          <td className="px-4 py-4 text-sm text-text-primary w-2/5">
+                                            <span className="text-lg font-semibold text-text-primary flex items-center">
+                                              {work.Work}
+                                            </span>
+                                            <div className="text-sm text-text-secondary mt-1">{work.Timeline}</div>
+                                          </td>
+                                          <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
+                                            {work.Subarea}
+                                          </td>
+                                          <td className="px-4 py-4 text-sm text-text-primary font-medium w-1/5 text-center">
+                                            {work.Quantity}
+                                          </td>
+                                          <td className="px-4 py-4 text-sm text-text-secondary w-1/5 text-center">
+                                            {work.Unit}
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                  {/* Mobile Cards */}
+                                  <div className="md:hidden flex flex-col gap-3">
+                                    <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+                                      <div className="text-lg font-semibold text-text-primary mb-1">{work.Work}</div>
+                                      <div className="text-sm text-text-secondary mb-2">{work.Timeline}</div>
+                                      <div className="flex flex-col gap-1">
+                                        <div className="flex justify-between text-xs">
+                                          <span className="font-medium text-text-secondary">Location</span>
+                                          <span className="text-text-primary">{work.Subarea}</span>
+                                        </div>
+                                        <div className="flex justify-between text-xs">
+                                          <span className="font-medium text-text-secondary">Quantity</span>
+                                          <span className="text-text-primary">{work.Quantity}</span>
+                                        </div>
+                                        <div className="flex justify-between text-xs">
+                                          <span className="font-medium text-text-secondary">UDM</span>
+                                          <span className="text-text-primary">{work.Unit}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
                           </div>
                         );
                       })}
