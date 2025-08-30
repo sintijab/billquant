@@ -18,7 +18,7 @@ interface ActivitiesOverviewProps {
   data: ProjectWizardData;
   onUpdate: (updates: Partial<ProjectWizardData>) => void;
   onNext: () => void;
-  onPrevious: () => void;
+  onPrevious: (nr?: number) => void;
 }
 
 export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious }: ActivitiesOverviewProps) {
@@ -379,7 +379,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               <div className="md:hidden flex justify-between mt-8">
                 <Button
                   variant="ghost"
-                  onClick={onPrevious}
+                  onClick={() => onPrevious(2)}
                   className="text-text-secondary hover:text-text-primary"
                   data-testid="button-back"
                 >
@@ -397,7 +397,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               <div className="hidden md:flex justify-between mt-8">
                 <Button
                   variant="ghost"
-                  onClick={onPrevious}
+                  onClick={() => onPrevious(2)}
                   className="text-text-secondary hover:text-text-primary"
                   data-testid="button-back"
                 >
@@ -418,7 +418,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               <div className="md:hidden flex justify-between mt-8">
                 <Button
                   variant="ghost"
-                  onClick={onPrevious}
+                  onClick={() => onPrevious(1)}
                   className="text-text-secondary hover:text-text-primary"
                   data-testid="button-back"
                 >
@@ -436,7 +436,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
               <div className="hidden md:flex justify-between mt-8">
                 <Button
                   variant="ghost"
-                  onClick={onPrevious}
+                  onClick={() => onPrevious(1)}
                   className="text-text-secondary hover:text-text-primary"
                   data-testid="button-back"
                 >
