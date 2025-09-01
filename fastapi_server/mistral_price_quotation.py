@@ -16,11 +16,92 @@ llm = ChatMistralAI(
     max_retries=2,
 )
 
+
+BOQ_PROMPT = f"""
+Also with a boq key create **draft Bill of Quantities (BOQ)** for the construction site, using the provided **site visit timeline** and **project description**.  
+Do not include any explanation, markdown, or commentary.  
+Do not wrap the JSON in code blocks.  
+Output only a valid JSON array following the given schema exactly.  
+
+## Instructions:
+1. Use only **standard construction activities** and **resources** from the official PAT Prezziario: http://www.elencoprezzi2025.provincia.tn.it.
+2. Follow the correct **order of construction activities** according to the **timeline** and **industry best practices**.
+3. Include **all necessary works**, materials, equipment, labor, and subcontracting costs to make the BOQ realistic and complete.
+4. Calculate `total` costs based on: **quantity × price** or by formula when provided.
+5. If the quantity or measurements are missing, **estimate them logically** based on the provided project description.
+6. Every field in the BOQ must be properly filled based on the definitions below.
+
+## FIELD-BY-FIELD GUIDE:
+- **type** → ("main" or "sub"): Defines if the activity is a main activity or a sub-task.
+- **activity** → A short name of the construction activity (e.g., "Demolition of old windows").
+- **mainCategory** → The main classification of the activity, e.g., "Restauro e ristrutturazione" or "Nuove costruzioni".
+- **priceSource** → Always `"pat"` if the resource pricing comes from the PAT Prezziario.
+- **code** → The unique PAT Prezziario activity code for the task.
+- **title** → The full technical description from the PAT Prezziario for this activity.
+- **unit** → The unit of measurement (e.g., "m²", "m³", "kg", "pz").
+- **quantity** → The estimated or calculated amount based on the timeline and project description.
+- **resources** → A list of all resources needed for the activity:
+    - **code** → Resource code from PAT Prezziario.
+    - **description** → Technical description of the resource.
+    - **formula** → Formula used to calculate quantity if applicable.
+    - **unit** → Measurement unit of the resource.
+    - **quantity** → Quantity of the resource based on calculation or estimation.
+    - **price** → Price per unit from PAT Prezziario.
+    - **total** → Automatically calculated = quantity × price.
+- **summary** → A cost summary for this activity:
+    - **totalPrice** → Total cost without VAT.
+    - **totalPriceWithVAT** → Total cost including VAT.
+    - **breakdown** → Cost distribution:
+        - **materials** → Total cost of materials.
+        - **labor** → Total cost of labor.
+        - **subcontractors** → Cost of subcontracted works.
+        - **equipment** → Cost of rented or used equipment.
+- **activityName** → Short descriptive name of the activity the same as activity fron projectSchedule.
+
+The final BOQ must be **technically correct**, **financially consistent**, and **ordered by construction sequence**.
+
+The original site information with timeline and site description is following:
+{{input}}
+"""
 # Internal costs structure with all values stringified and projectSchedule populated
 internal_costs = {
   "offer_title": "string",
   "cost_description": "string",
   "currency": "string",
+  "boq": [
+    {
+        "type": "string",  # Type of activity, e.g., "main" or "sub"
+        "activity": "string",  # Description of the main activity
+        "mainCategory": "string",  # Main category (e.g., Restauro e ristrutturazione)
+        "priceSource": "string",  # Price source (e.g., pat, internal, etc.)
+        "code": "string",  # Unique activity code
+        "title": "string",  # Full title or description of the activity
+        "unit": "string",  # Measurement unit (e.g., kg, m², etc.)
+        "quantity": "number",  # Quantity of the activity
+        "resources": [
+            {
+                "code": "string",  # Resource code identifier
+                "description": "string",  # Detailed description of the resource
+                "formula": "string",  # Formula used to calculate quantity/cost
+                "unit": "string",  # Measurement unit of the resource
+                "quantity": "number",  # Resource quantity
+                "price": "number",  # Price per unit of the resource
+                "total": "number | null"  # Total resource cost (nullable)
+            }
+        ],
+        "summary": {
+            "totalPrice": "number",  # Total price without VAT
+            "totalPriceWithVAT": "number",  # Total price including VAT
+            "breakdown": {
+                "materials": "number",       # Total cost of materials
+                "labor": "number",          # Total cost of labor
+                "subcontractors": "number", # Total cost of subcontractors
+                "equipment": "number"       # Total cost of equipment
+            }
+        },
+        "activityName": "string"  # Name of the activity
+    }
+  ],
   "site_area_summary": [
     {
       "area": "string",
@@ -217,11 +298,140 @@ with open(os.path.join(os.path.dirname(__file__), 'activity_keywords.txt'), 'r',
     activity_keywords = f.read().strip()
 
 messages = [
-  (
-    "system",
-    f"Based on the provided site visit timeline and description and bill of quantities, return only a valid JSON object as specified. Do not include any explanation, markdown, or commentary. Do not wrap the JSON in code blocks. Output only the JSON. Based on the book https://psu.pb.unizin.org/buildingconstructionmanagement/ and following standard: {activity_keywords}. Do site price quotation planning in right order of construction timeline, you should prepare object in JSON format in exact following schema with different estimates of all key values, number of objects of internal_costs, use this only as a schema and do not copy paste anything from this JSON: {internal_costs_str} Do not use the same prices or any other other values and number of objects from this JSON, but generate new proposal JSON from provided details of construction site. You must evaluate the project as an expert construction engineer to prepare price quotation and internal costs official report, add all necessary construction works for the site in the correct order according to the timeline and construction standard and calculate total price for each resource based on quantity, dimensions, unity of price, formula, if quantity or measures are not clear you should estimate it from site description. You should estimate what is required and what is not according to the provided construction timeline. Logistics includes cost of the gas from vehicle in working area and the hotel if workers are far away from starting point and meals for the workers when staying overnight. You must include it in overhead costs. If the prices are not provided you should search only from the trusted sources like PAT Prezziario http://www.elencoprezzi2025.provincia.tn.it. You should update and include timeline. The original site information with timeline, site description and draft bill of quantities is following:",
-  ),
-  ("human", "{input}"),
+    (
+        "system",
+        f"""
+You are an **expert construction cost estimator** and **project engineer**.  
+Your task is to evalueate and prioritize the defined work operations and construction site status, and generate a **highly detailed, realistic** internal cost estimation JSON object based on the provided **site visit timeline**, **site description**, and **draft bill of quantities (BOQ)**.  
+
+You must follow the **exact JSON schema**: {internal_costs_str}  
+Do NOT copy values, prices, or object counts from the schema example — instead, generate a **completely new and realistic proposal**.
+{BOQ_PROMPT}.
+---
+
+### **General Rules**
+1. **Output strictly JSON** — no explanations, no markdown, no commentary.
+2. Do **not wrap** JSON in code blocks.
+3. Use only **trusted data sources** for prices, specifically PAT Prezziario 2025:  
+   http://www.elencoprezzi2025.provincia.tn.it.
+4. Always **follow construction sequencing**:
+   - Site preparation → Demolition → Excavation → Foundations → Structural works → Roofing → Systems → Finishes → Landscaping.
+5. Fill **all numeric fields** realistically based on the site description, timeline, and industry best practices.
+6. Where data is missing, **estimate quantities, dimensions, and unit prices** based on the BOQ, PAT Prezziario, and standard construction norms.
+7. Make sure **costs, quantities, unit prices, and totals are mathematically consistent** across the entire JSON.
+
+---
+
+### **Important Guidelines for Each Section**
+
+#### **Top-Level Fields**
+- **offer_title** → The project title (e.g., "Renovation of Residential Complex, Block A").
+- **cost_description** → A one-sentence description of what the proposal covers.
+- **currency** → Always `"EUR"`.
+
+---
+
+#### **site_area_summary** *(Main Core of the Estimate)*
+For each **site area** or construction phase:
+- **area** → Name of the work zone (e.g., "Foundation works", "Roofing", "External landscaping").
+- **total_cost** → Sum of all costs for this specific area.
+- **markup_percentage** → Apply realistic markup (8%–25%) depending on project size.
+- **final_cost_for_client_eur** → `total_cost + (total_cost × markup_percentage)`.
+- **materials / labor / subcontractors / equipment** → Calculate separately.
+- **resource_types** → List resource categories (e.g., ["materials", "labor", "equipment"]).
+- **resources** → Detailed breakdown of every material, equipment, and subcontracted cost.
+
+---
+
+#### **resources** *(Inside site_area_summary)*
+For each resource:
+- **name** → Material, machine, or labor type.
+- **type** → One of: `"material"`, `"labor"`, `"equipment"`, `"subcontractor"`.
+- **quantity** → total quantity required for work estimated based on BOQ and site description.
+- **unit** → Measurement unit (`m²`, `m³`, `kg`, `h`, `pz`).
+- **unitPrice** → Get realistic price from PAT Prezziario or estimate.
+- **totalPrice** → `total quantity × unitPrice`.
+
+---
+
+#### **work_activities** *(Inside site_area_summary)*
+For each activity:
+- **description** → Technical description from PAT Prezziario.
+- **quantity / unit** → Derived from BOQ or estimated.
+- **unitPrice** → Taken from Prezziario.
+- **totalPrice** → `quantity × unitPrice`.
+- **resources** → Link all associated resources here.
+
+---
+
+#### **materialsList**
+- Full material inventory, sorted by cost impact.
+- Include `provider_name` when possible.
+- Prices must match PAT Prezziario whenever available.
+
+---
+
+#### **personnel**
+- Include site engineers, workers, supervisors, safety officers, subcontractors.
+- **duration** = total working time.
+- **safety_courses_requirements** = if safety training is mandatory.
+
+---
+
+#### **logistics**
+- Include **gas costs for company vehicles**, **worker hotel stays**, and **meals** if the site is far from the company base.
+- Always include **transportation of materials**.
+
+---
+
+#### **direct_costs & indirect_costs**
+- Direct = tied directly to production (materials, equipment, subcontractors).
+- Indirect = overheads like insurance, permits, safety, office costs.
+
+---
+
+#### **projectSchedule**
+- Include **starting** and **finishing dates**.
+- Assign **personnel** to each activity realistically.
+
+---
+
+#### **equipment**
+- Include cranes, scaffolding, mixers, power tools, and vehicles.
+- Calculate **company_cost_eur** and apply **markup_percentage** for client pricing.
+
+---
+
+#### **price_summary**
+- Ensure all totals match up.
+- Include explanations in `explanation_of_summary` describing cost drivers.
+- Fill **summary_by_category** with accurate breakdowns.
+
+---
+
+#### **risk_analysis**
+- Identify potential risks (e.g., delays, material price fluctuations, safety hazards).
+- Add **timeline_simulation** showing possible delays.
+
+---
+
+### **Key Instructions**
+- Always cross-check that:
+  - `totalPrice` = `quantity × unitPrice`
+  - `final_cost_for_client_eur` = `total_cost + markup`
+  - All area totals sum correctly to **price_summary.total_price**.
+- If uncertain about exact measures, **estimate using standard construction norms**.
+- If PAT Prezziario doesn't list a resource, **use typical market price estimates**.
+
+---
+
+### **Input**
+The original site information with **timeline**, **site description**, and **draft BOQ** is following:
+
+{{input}}
+"""
+    ),
+    ("human", "{input}"),
 ]
 
 prompt = ChatPromptTemplate.from_messages(messages)

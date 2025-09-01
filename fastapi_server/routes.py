@@ -278,6 +278,30 @@ async def generate_price_quotation_docx(request: Request):
         return {"error": "Document not generated or file not found", "output_path": output_path}
     return FileResponse(output_path, filename="Price_Quotation_Report.docx", media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
 
+@app.post("/generate_price_quotation_boq")
+async def generate_price_quotation_boq_endpoint(request: Request):
+    data = await request.json()
+    import traceback
+    try:
+        # Try to await if generate_price_quotation_boq is async
+        import inspect
+        from generate_price_quotation_boq import generate_price_quotation_boq as gen_boq
+        if inspect.iscoroutinefunction(gen_boq):
+            output = await gen_boq(data)
+        else:
+            output = gen_boq(data)
+    except Exception as e:
+        tb = traceback.format_exc()
+        return {"error": f"Failed to generate price quotation document: {str(e)}", "traceback": tb}
+    # Support both dict and string return for backward compatibility
+    if isinstance(output, dict):
+        output_path = output.get("output")
+    else:
+        output_path = output
+    if not output_path or not isinstance(output_path, str) or not os.path.exists(output_path):
+        return {"error": "Document not generated or file not found", "output_path": output_path}
+    return FileResponse(output_path, filename="Price_Quotation_Report_boq.docx", media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+
 
 # --- New endpoint for internal costs DOCX generation ---
 @app.post("/generate_internal_costs_docx")

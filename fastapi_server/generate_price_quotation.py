@@ -52,6 +52,8 @@ def transform_input_to_template_context(data):
             # If any resource matches operativita, servizi, or a resource_type, use the old logic for those types
             used_types = set([r.get('type') for r in wa_resources if r.get('type')])
             special_types = set(['operativita', 'servizi']) | set(resource_types)
+            def clean_unit(unit):
+                return str(unit).replace('mÂ²', 'm²').replace('m^2', 'm²').replace('Â', '')
             if used_types & special_types:
                 for rtype in resource_types:
                     rlist = [r for r in wa_resources if r.get('type') == rtype]
@@ -78,7 +80,7 @@ def transform_input_to_template_context(data):
                         for r in rlist:
                             name = r.get('name', '')
                             qty = r.get('quantity', '')
-                            unit = r.get('unit', '')
+                            unit = clean_unit(r.get('unit', ''))
                             if name and qty and unit:
                                 vals.append(f"{qty} {name} ({unit})")
                             elif name and qty:
@@ -116,7 +118,7 @@ def transform_input_to_template_context(data):
                     for r in wa_resources:
                         name = r.get('name', '')
                         qty = r.get('quantity', '')
-                        unit = r.get('unit', '')
+                        unit = clean_unit(r.get('unit', ''))
                         if name and qty and unit:
                             vals.append(f"{qty} {name} ({unit})")
                         elif name and qty:
