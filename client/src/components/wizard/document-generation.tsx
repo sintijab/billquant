@@ -261,6 +261,32 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     setIsGenerating(false);
   };
 
+  // Download Price Quotation BOQ handler
+  const handleDownloadQuotationBOQ = async () => {
+    setIsGenerating(true);
+    const payload = {
+      ...data, // projectSetup
+      internalCosts: priceQuotationData,
+    };
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_boq`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (response.ok) {
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Price_Quotation_Report_BOQ.docx';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    }
+    setIsGenerating(false);
+  };
+
   const handleEmailMaterialsList = async () => {
     setIsGenerating(true);
     // Compose email subject
@@ -597,6 +623,15 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     data-testid="button-download-quotation"
                   >
                     <Download className="h-6 w-6 mr-2" />
+                  </Button>
+                  <Button
+                    onClick={handleDownloadQuotationBOQ}
+                    disabled={isGenerating}
+                    className="flex-1 text-white py-2 rounded-full bg-[#1976d2] text-white px-8 font-graphik-bold text-xl shadow-md hover:bg-[#63a4ff] transition"
+                    data-testid="button-download-quotation-boq"
+                  >
+                    <Download className="h-6 w-6 mr-2" />
+                    BOQ Quotation
                   </Button>
                   <Button
                     onClick={handleEmailQuotation}
