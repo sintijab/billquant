@@ -1,3 +1,4 @@
+import { toast } from "@/hooks/use-toast";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "@/store";
@@ -183,27 +184,57 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
 
   const handleDownloadQuotation = async () => {
     setIsGenerating(true);
-    const payload = {
-      ...data, // projectSetup
-      internalCosts: priceQuotationData,
-    };
-    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (response.ok) {
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Price_Quotation_Report.docx';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
+    try {
+      const payload = {
+        ...data, // projectSetup
+        internalCosts: priceQuotationData,
+      };
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Price_Quotation_Report.docx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      } else {
+        throw new Error('Failed to download Quotation document');
+      }
+      // Download BOQ
+      const responseBOQ = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_boq`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (responseBOQ.ok) {
+        const blob = await responseBOQ.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Price_Quotation_Report_BOQ.docx';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+      } else {
+        throw new Error('Failed to download BOQ document');
+      }
+    } catch (e: any) {
+      toast({
+        title: 'Download failed',
+        description: e?.message || 'An error occurred while downloading documents.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsGenerating(false);
     }
-    setIsGenerating(false);
   };
 
   const handleEmailQuotation = async () => {
@@ -623,15 +654,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     data-testid="button-download-quotation"
                   >
                     <Download className="h-6 w-6 mr-2" />
-                  </Button>
-                  <Button
-                    onClick={handleDownloadQuotationBOQ}
-                    disabled={isGenerating}
-                    className="flex-1 text-white py-2 rounded-full bg-[#1976d2] text-white px-8 font-graphik-bold text-xl shadow-md hover:bg-[#63a4ff] transition"
-                    data-testid="button-download-quotation-boq"
-                  >
-                    <Download className="h-6 w-6 mr-2" />
-                    BOQ Quotation
+
                   </Button>
                   <Button
                     onClick={handleEmailQuotation}
