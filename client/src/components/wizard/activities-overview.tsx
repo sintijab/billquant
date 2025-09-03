@@ -28,19 +28,31 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
   const works = siteWorks.Works || [];
   const timeline = siteWorks.GeneralTimeline?.Activities || siteWorks.GeneralTimeline || [];
 
+  const [loading, setLoading] = useState(false);
+  const [loadingActivity, setLoadingActivity] = useState<string | null>(null);
+
   useEffect(() => {
-    // Example: fetch category data for each timeline activity
-    timeline.forEach((activity: any) => {
-      if (activity.Activity) {
-        dispatch(fetchCategoryData(activity.Activity));
+    let isMounted = true;
+    const fetchSequentially = async () => {
+      setLoading(true);
+      for (const activity of timeline) {
+        if (!isMounted) break;
+        if (activity.Activity) {
+          setLoadingActivity(activity.Activity);
+          await dispatch(fetchCategoryData(activity.Activity));
+        }
       }
-    });
+      setLoadingActivity(null);
+      setLoading(false);
+    };
+    if (timeline.length > 0) {
+      fetchSequentially();
+    }
+    return () => { isMounted = false; };
   }, [timeline]);
 
   // State to track which timeline activities are expanded
   const [expanded, setExpanded] = useState<{ [activity: string]: boolean }>({});
-  // Loading state for refresh
-  const [loading, setLoading] = useState(false);
 
   // Helper to toggle expanded state
   const toggleExpanded = (activity: string) => {
@@ -52,7 +64,10 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
     return (
       <div className="flex flex-col items-center justify-center min-h-[300px] gap-4">
         <Loader size="xs" />
-        <span className="text-text-primary text-md mt-2">Loading prices...</span>
+        <span className="text-text-primary text-md mt-2">
+          Progettazione dei lavori per la{' '}
+          <span className="font-semibold">{loadingActivity}</span>
+        </span>
       </div>
     );
   }

@@ -34,6 +34,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
   const modalCompare = useSelector((state: RootState) => state.boq.modalCompare);
   const modalLoading = useSelector((state: RootState) => state.boq.modalLoading);
 
+  const [currentLoadingActivity, setCurrentLoadingActivity] = useState<string | null>(null);
   const loading = boq.loading;
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
 
     for (const activity of timeline) {
       if (!activity.Activity) continue;
+      setCurrentLoadingActivity(activity.Activity);
       const categoryData = boq.categoryData?.[activity.Activity];
       // If categoryData is missing or has error, and not currently loading, retry fetchCategoryData
       const isLoading = boq.loading && boq.categoryData?.[activity.Activity] === undefined;
@@ -67,6 +69,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
         await dispatch(fetchThunk(activity.Activity) as any);
       }
     }
+    setCurrentLoadingActivity(null);
 
     // Retry for activities where fetchActivityCategory failed (error in categories) and prices are still not present
     for (const activity of timeline) {
@@ -111,6 +114,12 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <Card className="shadow-lg animate-fade-in">
         <CardContent className="p-8">
+          {loading && currentLoadingActivity && (
+            <div className="flex items-center gap-3 mb-4">
+              <Loader size="sm" />
+              <span className="text-lg font-semibold text-primary">Progettazione dei lavori per la <span className="font-bold">{currentLoadingActivity}</span></span>
+            </div>
+          )}
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-text-primary mb-4">Bill of Quantities & Pricing</h2>
             <p className="text-text-secondary text-lg">
