@@ -29,9 +29,9 @@ export const fetchActivityBySource = createAsyncThunk(
         // const isDev = import.meta.env.DEV;
     // const LOCAL_API_BASE = 'http://127.0.0.1:8000';
     const prodBase = {
-      dei: 'http://localhost:5173/dei',
-      pat: 'http://localhost:5173/pat',
-      piemonte: 'http://localhost:5173/piemonte',
+      dei: 'billquant-dei-production.up.railway.app',
+      pat: 'billquant-pat-production.up.railway.app',
+      piemonte: 'billquant-piemonte-production.up.railway.app',
     };
     let endpoint = '';
     if (priceSource === 'dei') endpoint = `${prodBase.dei}/search_dei`;
@@ -104,7 +104,7 @@ export const fetchActivityCategoryDei = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`http://localhost:5173/dei/search_dei`, {
+  const resp = await fetch(`billquant-dei-production.up.railway.app/search_dei`, {
         method: 'POST',
         body: fd,
       });
@@ -160,7 +160,7 @@ export const fetchActivityCategoryPat = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`http://localhost:5173/pat/search_pat`, {
+  const resp = await fetch(`billquant-pat-production.up.railway.app/search_pat`, {
         method: 'POST',
         body: fd,
       });
@@ -216,7 +216,7 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`http://localhost:5173/piemonte/search_piemonte`, {
+  const resp = await fetch(`billquant-piemonte-production.up.railway.app/search_piemonte`, {
         method: 'POST',
         body: fd,
       });
