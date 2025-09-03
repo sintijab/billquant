@@ -1,0 +1,1450 @@
+{
+    "clientFirstName": "Sintija",
+    "clientSurname": "Birgele",
+    "clientPhone": "+37128737246",
+    "clientEmail": "syntia.birgele@gmail.com",
+    "siteAddress": "Dolce Cuore, Trento",
+    "digitalSignature": "data:image/png;base64,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",
+    "internalCosts": {
+        "offer_title": "Adeguamento Impianto Termico Scuola Primaria A. Nicolodi",
+        "cost_description": "This proposal covers the detailed cost estimation for site preparation, demolition, excavation, and finishing works for the school renovation project.",
+        "currency": "EUR",
+        "boq": [
+            {
+                "type": "main",
+                "activity": "Recinzione mobile di cantiere all'aperto",
+                "mainCategory": "Site preparation",
+                "priceSource": "pat",
+                "code": "S.10.10.0015",
+                "title": "Formazione di recinzione mobile di cantiere in ambienti all'aperto di altezza minima 200 cm per delimitare l'area e impedire l'accesso.",
+                "unit": "m",
+                "quantity": 101.88,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.001",
+                        "description": "Operaio specializzato per installazione recinzione",
+                        "formula": "101.88 * 0.5",
+                        "unit": "h",
+                        "quantity": 50.94,
+                        "price": 31.72,
+                        "total": 1615.94
+                    },
+                    {
+                        "code": "X.15.01.0001.005",
+                        "description": "Pannelli zincati per recinzione",
+                        "formula": "101.88 * 1",
+                        "unit": "pz",
+                        "quantity": 101.88,
+                        "price": 25,
+                        "total": 2547
+                    },
+                    {
+                        "code": "Z.06.10.0060.010",
+                        "description": "Trasporto per materiali di recinzione",
+                        "formula": "101.88 * 0.1",
+                        "unit": "h",
+                        "quantity": 10.19,
+                        "price": 14.3,
+                        "total": 145.7
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 4308.64,
+                    "totalPriceWithVAT": 5299.62,
+                    "breakdown": {
+                        "materials": 2547,
+                        "labor": 1615.94,
+                        "subcontractors": 0,
+                        "equipment": 145.7
+                    },
+                    "activityName": "Recinzione mobile"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Taglio pavimentazione in conglomerato bituminoso fino a cm 5,00 di spessore",
+                "mainCategory": "Site preparation",
+                "priceSource": "pat",
+                "code": "D.11.05.0150.005",
+                "title": "Taglio di pavimentazione in conglomerato bituminoso fino a 5 cm di spessore con apposito scalpello o sega a disco.",
+                "unit": "m",
+                "quantity": 2,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.003",
+                        "description": "Operaio comune per taglio",
+                        "formula": "2.00 * 2",
+                        "unit": "h",
+                        "quantity": 4,
+                        "price": 26.46,
+                        "total": 105.84
+                    },
+                    {
+                        "code": "Z.06.05.0030.030",
+                        "description": "Escavatore per preparazione",
+                        "formula": "2.00 * 0.5",
+                        "unit": "h",
+                        "quantity": 1,
+                        "price": 51.76,
+                        "total": 51.76
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 157.6,
+                    "totalPriceWithVAT": 193.83,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 105.84,
+                        "subcontractors": 0,
+                        "equipment": 51.76
+                    },
+                    "activityName": "Taglio pavimentazione"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Taglio pavimentazione in conglomerato bituminoso per ogni cm oltre i cm 5,00",
+                "mainCategory": "Site preparation",
+                "priceSource": "pat",
+                "code": "D.11.05.0150.010",
+                "title": "Taglio di pavimentazione in conglomerato bituminoso per ogni cm oltre 5 cm di spessore.",
+                "unit": "m",
+                "quantity": 2,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.001",
+                        "description": "Operaio specializzato per taglio aggiuntivo",
+                        "formula": "2.00 * 3",
+                        "unit": "h",
+                        "quantity": 6,
+                        "price": 31.72,
+                        "total": 190.32
+                    },
+                    {
+                        "code": "Z.06.40.0130.010",
+                        "description": "Sega a disco",
+                        "formula": "2.00 * 1",
+                        "unit": "h",
+                        "quantity": 2,
+                        "price": 2,
+                        "total": 4
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 194.32,
+                    "totalPriceWithVAT": 239.03,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 190.32,
+                        "subcontractors": 0,
+                        "equipment": 4
+                    },
+                    "activityName": "Taglio pavimentazione aggiuntivo"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Demolizione di sovrastruttura stradale in conglomerato bituminoso",
+                "mainCategory": "Demolition",
+                "priceSource": "pat",
+                "code": "D.11.05.0110.005",
+                "title": "Demolizione di sovrastruttura stradale in conglomerato bituminoso per qualsiasi spessore.",
+                "unit": "mÂ³",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per demolizione",
+                        "formula": "1.00 * 4",
+                        "unit": "h",
+                        "quantity": 4,
+                        "price": 29.44,
+                        "total": 117.76
+                    },
+                    {
+                        "code": "Z.06.05.0030.030",
+                        "description": "Escavatore per demolizione",
+                        "formula": "1.00 * 2",
+                        "unit": "h",
+                        "quantity": 2,
+                        "price": 51.76,
+                        "total": 103.52
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 221.28,
+                    "totalPriceWithVAT": 272.17,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 117.76,
+                        "subcontractors": 0,
+                        "equipment": 103.52
+                    },
+                    "activityName": "Demolizione sovrastruttura"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Scavo a sezione ristretta in terreno ordinario",
+                "mainCategory": "Excavation",
+                "priceSource": "pat",
+                "code": "E.01.04.0041.005",
+                "title": "Scavo a sezione ristretta in terreno ordinario fino a 1.50 m di profonditÃ .",
+                "unit": "mÂ³",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.003",
+                        "description": "Operaio comune per scavo",
+                        "formula": "1.00 * 3",
+                        "unit": "h",
+                        "quantity": 3,
+                        "price": 26.46,
+                        "total": 79.38
+                    },
+                    {
+                        "code": "Z.06.05.0030.030",
+                        "description": "Escavatore per scavo",
+                        "formula": "1.00 * 1.5",
+                        "unit": "h",
+                        "quantity": 1.5,
+                        "price": 51.76,
+                        "total": 77.64
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 157.02,
+                    "totalPriceWithVAT": 193.14,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 79.38,
+                        "subcontractors": 0,
+                        "equipment": 77.64
+                    },
+                    "activityName": "Scavo ristretta"
+                }
+            },
+            {
+                "type": "sub",
+                "activity": "Sovrapprezzo per interferenza con servizi sotterranei longitudinali",
+                "mainCategory": "Excavation",
+                "priceSource": "pat",
+                "code": "E.01.04.0125.005",
+                "title": "Sovrapprezzo per interferenza con servizi sotterranei durante scavo.",
+                "unit": "m",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per gestione interferenze",
+                        "formula": "1.00 * 2",
+                        "unit": "h",
+                        "quantity": 2,
+                        "price": 29.44,
+                        "total": 58.88
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 58.88,
+                    "totalPriceWithVAT": 72.44,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 58.88,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Sovrapprezzo interferenze"
+                }
+            },
+            {
+                "type": "sub",
+                "activity": "Sovrapprezzo per incrocio con servizi stradali sotterranei",
+                "mainCategory": "Excavation",
+                "priceSource": "pat",
+                "code": "E.01.04.0120.005",
+                "title": "Sovrapprezzo per incrocio con servizi sotterranei.",
+                "unit": "cad",
+                "quantity": 8,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.001",
+                        "description": "Operaio specializzato per incroci",
+                        "formula": "8.00 * 1",
+                        "unit": "h",
+                        "quantity": 8,
+                        "price": 31.72,
+                        "total": 253.76
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 253.76,
+                    "totalPriceWithVAT": 311.63,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 253.76,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Sovrapprezzo incroci"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Trasporto a discarica provvisoria oltre 5 km",
+                "mainCategory": "Waste management",
+                "priceSource": "pat",
+                "code": "E.03.04.0050.005",
+                "title": "Trasporto di materiali di risulta a discarica oltre 5 km.",
+                "unit": "mÂ³",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "Z.06.10.0060.010",
+                        "description": "Autocarro per trasporto",
+                        "formula": "1.00 * 1",
+                        "unit": "h",
+                        "quantity": 1,
+                        "price": 14.3,
+                        "total": 14.3
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 14.3,
+                    "totalPriceWithVAT": 17.56,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 0,
+                        "subcontractors": 0,
+                        "equipment": 14.3
+                    },
+                    "activityName": "Trasporto discarica"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Conferimento di materiali inerti riutilizzabili",
+                "mainCategory": "Waste management",
+                "priceSource": "pat",
+                "code": "A.04.10.0020.005",
+                "title": "Conferimento di materiali inerti riutilizzabili da costruzione e demolizione.",
+                "unit": "t",
+                "quantity": 1.8,
+                "resources": [
+                    {
+                        "code": "X.04.10.0015.010",
+                        "description": "Materiali inerti per conferimento",
+                        "formula": "1.80 * 1",
+                        "unit": "t",
+                        "quantity": 1.8,
+                        "price": 29.76,
+                        "total": 53.57
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 53.57,
+                    "totalPriceWithVAT": 65.79,
+                    "breakdown": {
+                        "materials": 53.57,
+                        "labor": 0,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Conferimento inerti"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Conferimento di materiali da scavo in terre e rocce",
+                "mainCategory": "Waste management",
+                "priceSource": "pat",
+                "code": "A.04.15.0005.060",
+                "title": "Conferimento di materiali da scavo in terre e rocce presso impianto autorizzato.",
+                "unit": "t",
+                "quantity": 1.6,
+                "resources": [
+                    {
+                        "code": "X.04.15.0005.060",
+                        "description": "Terre e rocce da scavo",
+                        "formula": "1.60 * 1",
+                        "unit": "t",
+                        "quantity": 1.6,
+                        "price": 67.2,
+                        "total": 107.52
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 107.52,
+                    "totalPriceWithVAT": 132.24,
+                    "breakdown": {
+                        "materials": 107.52,
+                        "labor": 0,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Conferimento terre"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Esecuzione di fori mediante carotaggio",
+                "mainCategory": "Structural works",
+                "priceSource": "pat",
+                "code": "B.02.10.0042.020",
+                "title": "Esecuzione di fori per passaggio di impianti tecnologici da 163 mm a 250 mm.",
+                "unit": "cm",
+                "quantity": 6,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.001",
+                        "description": "Operaio specializzato per carotaggio",
+                        "formula": "6.00 * 1.5",
+                        "unit": "h",
+                        "quantity": 9,
+                        "price": 31.72,
+                        "total": 285.48
+                    },
+                    {
+                        "code": "Z.06.40.0010.010",
+                        "description": "Carotatrice con accessori",
+                        "formula": "6.00 * 0.5",
+                        "unit": "h",
+                        "quantity": 3,
+                        "price": 40,
+                        "total": 120
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 405.48,
+                    "totalPriceWithVAT": 498.74,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 285.48,
+                        "subcontractors": 0,
+                        "equipment": 120
+                    },
+                    "activityName": "Carotaggio fori"
+                }
+            },
+            {
+                "type": "sub",
+                "activity": "Esecuzione di fori aggiuntivi",
+                "mainCategory": "Structural works",
+                "priceSource": "pat",
+                "code": "B.02.10.0042.010",
+                "title": "Esecuzione di fori per passaggio di impianti da 63 mm a 127 mm.",
+                "unit": "cm",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per fori aggiuntivi",
+                        "formula": "1.00 * 1",
+                        "unit": "h",
+                        "quantity": 1,
+                        "price": 29.44,
+                        "total": 29.44
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 29.44,
+                    "totalPriceWithVAT": 36.21,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 29.44,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Carotaggio fori aggiuntivi"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Formazione di colmata o rinterro",
+                "mainCategory": "Site filling",
+                "priceSource": "pat",
+                "code": "D.11.15.0075.055",
+                "title": "Formazione di colmata con aggregato misto riciclato 0/14 mm.",
+                "unit": "mÂ³",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "X.10.01.0005.010",
+                        "description": "Aggregato misto riciclato",
+                        "formula": "1.00 * 1",
+                        "unit": "mÂ³",
+                        "quantity": 1,
+                        "price": 28.5,
+                        "total": 28.5
+                    },
+                    {
+                        "code": "Z.01.05.0001.003",
+                        "description": "Operaio comune per rinterro",
+                        "formula": "1.00 * 2",
+                        "unit": "h",
+                        "quantity": 2,
+                        "price": 26.46,
+                        "total": 52.92
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 81.42,
+                    "totalPriceWithVAT": 100.14,
+                    "breakdown": {
+                        "materials": 28.5,
+                        "labor": 52.92,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Colmata rinterro"
+                }
+            },
+            {
+                "type": "sub",
+                "activity": "Formazione di colmata o rinterro aggiuntiva",
+                "mainCategory": "Site filling",
+                "priceSource": "pat",
+                "code": "D.11.15.0075.060",
+                "title": "Formazione di colmata con aggregato misto riciclato 0/40 mm.",
+                "unit": "mÂ³",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "X.10.01.0005.010",
+                        "description": "Aggregato misto riciclato 0/40 mm",
+                        "formula": "1.00 * 1",
+                        "unit": "mÂ³",
+                        "quantity": 1,
+                        "price": 33.6,
+                        "total": 33.6
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 33.6,
+                    "totalPriceWithVAT": 41.33,
+                    "breakdown": {
+                        "materials": 33.6,
+                        "labor": 0,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Colmata rinterro aggiuntiva"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Piccoli lavori di bitumatura e approntamento cantiere",
+                "mainCategory": "Paving works",
+                "priceSource": "pat",
+                "code": "D.51.30.0001.005",
+                "title": "Compenso per piccoli lavori di bitumatura e approntamento cantiere.",
+                "unit": "cad",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.001",
+                        "description": "Operaio specializzato per bitumatura",
+                        "formula": "1.00 * 4",
+                        "unit": "h",
+                        "quantity": 4,
+                        "price": 31.72,
+                        "total": 126.88
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 126.88,
+                    "totalPriceWithVAT": 155.95,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 126.88,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Lavori bitumatura"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Fornitura e stesa di conglomerato bituminoso",
+                "mainCategory": "Paving works",
+                "priceSource": "pat",
+                "code": "L.09.10.0025.005",
+                "title": "Fornitura, stesa e costipamento di conglomerato bituminoso per strato unico.",
+                "unit": "mÂ²",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "X.12.05.0001.040",
+                        "description": "Conglomerato bituminoso",
+                        "formula": "1.00 * 1",
+                        "unit": "mÂ²",
+                        "quantity": 1,
+                        "price": 42,
+                        "total": 42
+                    },
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per stesa",
+                        "formula": "1.00 * 2",
+                        "unit": "h",
+                        "quantity": 2,
+                        "price": 29.44,
+                        "total": 58.88
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 100.88,
+                    "totalPriceWithVAT": 123.88,
+                    "breakdown": {
+                        "materials": 42,
+                        "labor": 58.88,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Conglomerato bituminoso"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Fornitura e posa di materiale per ripristino opere murarie",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "A.P.208",
+                "title": "Fornitura e posa di materiale per ripristino opere murarie e collegamento colonne montanti.",
+                "unit": "cadauno",
+                "quantity": 18,
+                "resources": [
+                    {
+                        "code": "X.18.10.0020.005",
+                        "description": "Materiale per ripristino murarie",
+                        "formula": "18.00 * 1",
+                        "unit": "pz",
+                        "quantity": 18,
+                        "price": 15,
+                        "total": 270
+                    },
+                    {
+                        "code": "Z.01.05.0001.001",
+                        "description": "Operaio specializzato per posa",
+                        "formula": "18.00 * 0.5",
+                        "unit": "h",
+                        "quantity": 9,
+                        "price": 31.72,
+                        "total": 285.48
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 555.48,
+                    "totalPriceWithVAT": 683.24,
+                    "breakdown": {
+                        "materials": 270,
+                        "labor": 285.48,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Ripristino murarie"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Fornitura e posa di materiale per ripristino fori solaio e murature",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "A.P.209",
+                "title": "Fornitura e posa di materiale per ripristino fori solaio e murature.",
+                "unit": "a corpo",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "X.18.10.0040.005",
+                        "description": "Materiale per ripristino fori",
+                        "formula": "1.00 * 1",
+                        "unit": "set",
+                        "quantity": 1,
+                        "price": 50,
+                        "total": 50
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 50,
+                    "totalPriceWithVAT": 61.5,
+                    "breakdown": {
+                        "materials": 50,
+                        "labor": 0,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Ripristino fori"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Fornitura e posa di materiale per ripristino controsoffitti",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "A.P.211",
+                "title": "Fornitura e posa di materiale per ripristino controsoffitti a quadrotto.",
+                "unit": "cadauno",
+                "quantity": 1,
+                "resources": [
+                    {
+                        "code": "X.15.50.0050.010",
+                        "description": "Materiale per controsoffitti",
+                        "formula": "1.00 * 1",
+                        "unit": "pz",
+                        "quantity": 1,
+                        "price": 40,
+                        "total": 40
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 40,
+                    "totalPriceWithVAT": 49.2,
+                    "breakdown": {
+                        "materials": 40,
+                        "labor": 0,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Ripristino controsoffitti"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Controsoffitto modulare in gesso rivestito fonoassorbente",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "B.15.50.0050.010",
+                "title": "Fornitura e posa di controsoffitto modulare in gesso fonoassorbente da 12.5 mm.",
+                "unit": "mÂ²",
+                "quantity": 10,
+                "resources": [
+                    {
+                        "code": "X.15.50.0050.010",
+                        "description": "Pannelli gesso fonoassorbente",
+                        "formula": "10.00 * 1",
+                        "unit": "mÂ²",
+                        "quantity": 10,
+                        "price": 25,
+                        "total": 250
+                    },
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per installazione",
+                        "formula": "10.00 * 0.5",
+                        "unit": "h",
+                        "quantity": 5,
+                        "price": 29.44,
+                        "total": 147.2
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 397.2,
+                    "totalPriceWithVAT": 488.54,
+                    "breakdown": {
+                        "materials": 250,
+                        "labor": 147.2,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Controsoffitto fonoassorbente"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Demolizione di pavimenti e massetti di sottofondo",
+                "mainCategory": "Demolition",
+                "priceSource": "pat",
+                "code": "B.02.10.0090.005",
+                "title": "Demolizione parziale di pavimenti e massetti fino a 100 mm.",
+                "unit": "mÂ²",
+                "quantity": 6.5,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.003",
+                        "description": "Operaio comune per demolizione",
+                        "formula": "6.50 * 1",
+                        "unit": "h",
+                        "quantity": 6.5,
+                        "price": 26.46,
+                        "total": 171.99
+                    },
+                    {
+                        "code": "Z.06.05.0030.030",
+                        "description": "Escavatore per demolizione",
+                        "formula": "6.50 * 0.2",
+                        "unit": "h",
+                        "quantity": 1.3,
+                        "price": 51.76,
+                        "total": 67.29
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 239.28,
+                    "totalPriceWithVAT": 293.89,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 171.99,
+                        "subcontractors": 0,
+                        "equipment": 67.29
+                    },
+                    "activityName": "Demolizione pavimenti"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Fornitura e posa di massetto comune a rapido essicamento",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "B.06.20.0066.005",
+                "title": "Fornitura e posa di massetto a rapido essicamento di 6 cm.",
+                "unit": "mÂ²",
+                "quantity": 6.5,
+                "resources": [
+                    {
+                        "code": "X.06.20.0066.005",
+                        "description": "Massetto a rapido essicamento",
+                        "formula": "6.50 * 1",
+                        "unit": "mÂ²",
+                        "quantity": 6.5,
+                        "price": 10,
+                        "total": 65
+                    },
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per posa massetto",
+                        "formula": "6.50 * 0.5",
+                        "unit": "h",
+                        "quantity": 3.25,
+                        "price": 29.44,
+                        "total": 95.68
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 160.68,
+                    "totalPriceWithVAT": 197.44,
+                    "breakdown": {
+                        "materials": 65,
+                        "labor": 95.68,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Massetto essicamento"
+                }
+            },
+            {
+                "type": "sub",
+                "activity": "Sovrapprezzo al massetto comune",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "B.06.20.0070.005",
+                "title": "Maggiorazione per variazione di spessore del massetto.",
+                "unit": "mÂ²",
+                "quantity": 6.5,
+                "resources": [
+                    {
+                        "code": "Z.01.05.0001.001",
+                        "description": "Operaio specializzato per aggiustamento",
+                        "formula": "6.50 * 0.3",
+                        "unit": "h",
+                        "quantity": 1.95,
+                        "price": 31.72,
+                        "total": 61.85
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 61.85,
+                    "totalPriceWithVAT": 75.97,
+                    "breakdown": {
+                        "materials": 0,
+                        "labor": 61.85,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Sovrapprezzo massetto"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Fornitura e posa di pavimento in gres ceramico",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "B.18.10.0020.005",
+                "title": "Fornitura e posa di pavimento in gres ceramico pressato omogeneo.",
+                "unit": "mÂ²",
+                "quantity": 6.5,
+                "resources": [
+                    {
+                        "code": "X.18.10.0020.005",
+                        "description": "Piastrelle gres ceramico",
+                        "formula": "6.50 * 1",
+                        "unit": "mÂ²",
+                        "quantity": 6.5,
+                        "price": 20,
+                        "total": 130
+                    },
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per posa pavimento",
+                        "formula": "6.50 * 0.4",
+                        "unit": "h",
+                        "quantity": 2.6,
+                        "price": 29.44,
+                        "total": 76.54
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 206.54,
+                    "totalPriceWithVAT": 253.94,
+                    "breakdown": {
+                        "materials": 130,
+                        "labor": 76.54,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Pavimento gres"
+                }
+            },
+            {
+                "type": "main",
+                "activity": "Fornitura e posa di battiscopa in gres ceramico",
+                "mainCategory": "Finishing works",
+                "priceSource": "pat",
+                "code": "B.18.10.0040.005",
+                "title": "Fornitura e posa di battiscopa in gres ceramico pressato omogeneo.",
+                "unit": "m",
+                "quantity": 10.23,
+                "resources": [
+                    {
+                        "code": "X.18.10.0040.005",
+                        "description": "Battiscopa gres ceramico",
+                        "formula": "10.23 * 1",
+                        "unit": "m",
+                        "quantity": 10.23,
+                        "price": 5,
+                        "total": 51.15
+                    },
+                    {
+                        "code": "Z.01.05.0001.002",
+                        "description": "Operaio qualificato per posa battiscopa",
+                        "formula": "10.23 * 0.2",
+                        "unit": "h",
+                        "quantity": 2.05,
+                        "price": 29.44,
+                        "total": 60.35
+                    }
+                ],
+                "summary": {
+                    "totalPrice": 111.5,
+                    "totalPriceWithVAT": 137.15,
+                    "breakdown": {
+                        "materials": 51.15,
+                        "labor": 60.35,
+                        "subcontractors": 0,
+                        "equipment": 0
+                    },
+                    "activityName": "Battiscopa gres"
+                }
+            }
+        ],
+        "site_area_summary": [
+            {
+                "area": "Site Preparation",
+                "total_cost": 5000,
+                "markup_percentage": 15,
+                "final_cost_for_client_eur": 5750,
+                "materials": 2547,
+                "labor": 1615.94,
+                "subcontractors": 0,
+                "equipment": 145.7,
+                "resource_types": [
+                    "materials",
+                    "labor",
+                    "equipment"
+                ],
+                "resources": [
+                    {
+                        "name": "Pannelli zincati",
+                        "type": "material",
+                        "quantity": 101.88,
+                        "unit": "pz",
+                        "unitPrice": 25,
+                        "totalPrice": 2547
+                    },
+                    {
+                        "name": "Operaio specializzato",
+                        "type": "labor",
+                        "quantity": 50.94,
+                        "unit": "h",
+                        "unitPrice": 31.72,
+                        "totalPrice": 1615.94
+                    },
+                    {
+                        "name": "Autocarro",
+                        "type": "equipment",
+                        "quantity": 10.19,
+                        "unit": "h",
+                        "unitPrice": 14.3,
+                        "totalPrice": 145.7
+                    }
+                ],
+                "work_activities": [
+                    {
+                        "description": "Recinzione mobile",
+                        "quantity": 101.88,
+                        "unit": "m",
+                        "unitPrice": 42.28,
+                        "totalPrice": 4308.64,
+                        "resources": [
+                            {
+                                "name": "Pannelli zincati",
+                                "type": "material",
+                                "quantity": 101.88,
+                                "unit": "pz",
+                                "unitPrice": 25,
+                                "totalPrice": 2547
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "area": "Demolition Works",
+                "total_cost": 460.56,
+                "markup_percentage": 10,
+                "final_cost_for_client_eur": 506.62,
+                "materials": 0,
+                "labor": 289.75,
+                "subcontractors": 0,
+                "equipment": 170.81,
+                "resource_types": [
+                    "labor",
+                    "equipment"
+                ],
+                "resources": [
+                    {
+                        "name": "Operaio comune",
+                        "type": "labor",
+                        "quantity": 10.5,
+                        "unit": "h",
+                        "unitPrice": 26.46,
+                        "totalPrice": 277.83
+                    },
+                    {
+                        "name": "Escavatore",
+                        "type": "equipment",
+                        "quantity": 3.3,
+                        "unit": "h",
+                        "unitPrice": 51.76,
+                        "totalPrice": 170.81
+                    }
+                ],
+                "work_activities": [
+                    {
+                        "description": "Demolizione pavimenti",
+                        "quantity": 6.5,
+                        "unit": "mÂ²",
+                        "unitPrice": 36.81,
+                        "totalPrice": 239.28,
+                        "resources": [
+                            {
+                                "name": "Operaio comune",
+                                "type": "labor",
+                                "quantity": 6.5,
+                                "unit": "h",
+                                "unitPrice": 26.46,
+                                "totalPrice": 171.99
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "area": "Excavation and Filling",
+                "total_cost": 379.56,
+                "markup_percentage": 12,
+                "final_cost_for_client_eur": 425.47,
+                "materials": 28.5,
+                "labor": 132.3,
+                "subcontractors": 0,
+                "equipment": 77.64,
+                "resource_types": [
+                    "materials",
+                    "labor",
+                    "equipment"
+                ],
+                "resources": [
+                    {
+                        "name": "Aggregato misto",
+                        "type": "material",
+                        "quantity": 1,
+                        "unit": "mÂ³",
+                        "unitPrice": 28.5,
+                        "totalPrice": 28.5
+                    },
+                    {
+                        "name": "Operaio per scavo",
+                        "type": "labor",
+                        "quantity": 3,
+                        "unit": "h",
+                        "unitPrice": 26.46,
+                        "totalPrice": 79.38
+                    },
+                    {
+                        "name": "Escavatore",
+                        "type": "equipment",
+                        "quantity": 1.5,
+                        "unit": "h",
+                        "unitPrice": 51.76,
+                        "totalPrice": 77.64
+                    }
+                ],
+                "work_activities": [
+                    {
+                        "description": "Scavo ristretta",
+                        "quantity": 1,
+                        "unit": "mÂ³",
+                        "unitPrice": 157.02,
+                        "totalPrice": 157.02,
+                        "resources": [
+                            {
+                                "name": "Operaio per scavo",
+                                "type": "labor",
+                                "quantity": 3,
+                                "unit": "h",
+                                "unitPrice": 26.46,
+                                "totalPrice": 79.38
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "area": "Finishing and Paving",
+                "total_cost": 1500,
+                "markup_percentage": 15,
+                "final_cost_for_client_eur": 1725,
+                "materials": 536.15,
+                "labor": 480.57,
+                "subcontractors": 0,
+                "equipment": 0,
+                "resource_types": [
+                    "materials",
+                    "labor"
+                ],
+                "resources": [
+                    {
+                        "name": "Piastrelle gres",
+                        "type": "material",
+                        "quantity": 6.5,
+                        "unit": "mÂ²",
+                        "unitPrice": 20,
+                        "totalPrice": 130
+                    },
+                    {
+                        "name": "Operaio per posa",
+                        "type": "labor",
+                        "quantity": 5.6,
+                        "unit": "h",
+                        "unitPrice": 29.44,
+                        "totalPrice": 164.86
+                    }
+                ],
+                "work_activities": [
+                    {
+                        "description": "Pavimento gres",
+                        "quantity": 6.5,
+                        "unit": "mÂ²",
+                        "unitPrice": 31.7,
+                        "totalPrice": 206.15,
+                        "resources": [
+                            {
+                                "name": "Piastrelle gres",
+                                "type": "material",
+                                "quantity": 6.5,
+                                "unit": "mÂ²",
+                                "unitPrice": 20,
+                                "totalPrice": 130
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "materialsList": [
+            {
+                "item": "Pannelli zincati per recinzione",
+                "quantity": 101.88,
+                "unit": "pz",
+                "unitPrice": 25,
+                "total_quantity": 101.88,
+                "provider_name": "Local supplier",
+                "price_of_unity_provider": 24,
+                "total_price": 2547,
+                "company_cost_eur": 2445,
+                "markup_percentage": 10,
+                "final_cost_for_client_eur": 2690
+            },
+            {
+                "item": "Aggregato misto riciclato",
+                "quantity": 1,
+                "unit": "mÂ³",
+                "unitPrice": 28.5,
+                "total_quantity": 1,
+                "provider_name": "Aggregate provider",
+                "price_of_unity_provider": 27,
+                "total_price": 28.5,
+                "company_cost_eur": 27,
+                "markup_percentage": 15,
+                "final_cost_for_client_eur": 31.05
+            },
+            {
+                "item": "Piastrelle gres ceramico",
+                "quantity": 6.5,
+                "unit": "mÂ²",
+                "unitPrice": 20,
+                "total_quantity": 6.5,
+                "provider_name": "Ceramics supplier",
+                "price_of_unity_provider": 19,
+                "total_price": 130,
+                "company_cost_eur": 123.5,
+                "markup_percentage": 12,
+                "final_cost_for_client_eur": 138.32
+            }
+        ],
+        "personnel": [
+            {
+                "role": "Operaio comune",
+                "count": 5,
+                "duration": "40 hours",
+                "type": "labor",
+                "unit_measure": "h",
+                "price_per_unit": 26.46,
+                "quantity": 200,
+                "total": 5292,
+                "site_works": [
+                    {
+                        "type": "demolition",
+                        "category": "site preparation"
+                    }
+                ],
+                "safety_courses_requirements": [
+                    "Corso base sicurezza cantiere"
+                ]
+            },
+            {
+                "role": "Operaio specializzato",
+                "count": 3,
+                "duration": "30 hours",
+                "type": "labor",
+                "unit_measure": "h",
+                "price_per_unit": 31.72,
+                "quantity": 90,
+                "total": 2854.8,
+                "site_works": [
+                    {
+                        "type": "excavation",
+                        "category": "structural"
+                    }
+                ],
+                "safety_courses_requirements": [
+                    "Corso avanzato sicurezza"
+                ]
+            },
+            {
+                "role": "Supervisore sito",
+                "count": 1,
+                "duration": "50 hours",
+                "type": "supervisor",
+                "unit_measure": "h",
+                "price_per_unit": 40,
+                "quantity": 50,
+                "total": 2000,
+                "site_works": [
+                    {
+                        "type": "overall management",
+                        "category": "site management"
+                    }
+                ],
+                "safety_courses_requirements": [
+                    "Coordinatore sicurezza"
+                ]
+            }
+        ],
+        "logistics": [
+            {
+                "description": "Trasporto materiali da cantiere",
+                "duration": 10,
+                "unity": "days",
+                "total_price": 500,
+                "site_category": [
+                    "site preparation"
+                ],
+                "site_works": [
+                    {
+                        "type": "transport",
+                        "category": "logistics"
+                    }
+                ]
+            },
+            {
+                "description": "Alloggiamento personale",
+                "duration": 15,
+                "unity": "days",
+                "total_price": 750,
+                "site_category": [
+                    "worker accommodation"
+                ],
+                "site_works": [
+                    {
+                        "type": "accommodation",
+                        "category": "personnel"
+                    }
+                ]
+            }
+        ],
+        "direct_costs": [
+            {
+                "category": "Materials",
+                "description": "Costo diretto materiali",
+                "unit": "EUR",
+                "price": 5000,
+                "total_price": 5000
+            },
+            {
+                "category": "Labor",
+                "description": "Costo diretto manodopera",
+                "unit": "EUR",
+                "price": 10000,
+                "total_price": 10000
+            }
+        ],
+        "indirect_costs": [
+            {
+                "category": "Assicurazione",
+                "description": "Costo assicurazione progetto",
+                "unit": "EUR",
+                "price": 500,
+                "total_price": 500
+            },
+            {
+                "category": "Permessi",
+                "description": "Costo permessi e licenze",
+                "unit": "EUR",
+                "price": 300,
+                "total_price": 300
+            }
+        ],
+        "projectSchedule": [
+            {
+                "activity": "Recinzione mobile",
+                "starting": 1,
+                "finishing": 5,
+                "personnel": [
+                    {
+                        "role": "Operaio comune",
+                        "count": 5,
+                        "duration": "40 hours"
+                    }
+                ]
+            },
+            {
+                "activity": "Taglio pavimentazione",
+                "starting": 6,
+                "finishing": 10,
+                "personnel": [
+                    {
+                        "role": "Operaio specializzato",
+                        "count": 3,
+                        "duration": "30 hours"
+                    }
+                ]
+            },
+            {
+                "activity": "Demolizione",
+                "starting": 11,
+                "finishing": 15,
+                "personnel": [
+                    {
+                        "role": "Supervisore sito",
+                        "count": 1,
+                        "duration": "50 hours"
+                    }
+                ]
+            }
+        ],
+        "equipment": [
+            {
+                "name": "Escavatore",
+                "quantity": 1,
+                "unity": "unit",
+                "price_per_unit": 51.76,
+                "price_of_unity_provider": 50,
+                "company_cost_eur": 51.76,
+                "markup_percentage": 10,
+                "final_cost_for_client_eur": 56.94
+            },
+            {
+                "name": "Carotatrice",
+                "quantity": 1,
+                "unity": "unit",
+                "price_per_unit": 40,
+                "price_of_unity_provider": 38,
+                "company_cost_eur": 40,
+                "markup_percentage": 15,
+                "final_cost_for_client_eur": 46
+            }
+        ],
+        "price_summary": {
+            "subtotal_price": 15000,
+            "global_costs": 2000,
+            "company_profit": 1500,
+            "margin_check": 1000,
+            "markup": 15,
+            "vat": "22%",
+            "rounding": 0.5,
+            "total_price": 20000.5,
+            "application_price_before_vat": 18000,
+            "application_price": 21960,
+            "explanation_of_summary": {
+                "subtotal_desc": "Somma di tutti i costi diretti",
+                "global_costs_desc": "Inclusi costi indiretti e logistici",
+                "company_profit_desc": "Margine di profitto aziendale",
+                "margin_check_desc": "Verifica margini di sicurezza",
+                "markup_desc": "Aggiunta per inflazione e rischi",
+                "rounding_desc": "Arrotondamento finale",
+                "total_amount_desc": "Totale inclusi tutti i costi",
+                "application_price_desc": "Prezzo applicato con IVA"
+            },
+            "summary_by_category": {
+                "fuel_cost": 500,
+                "activity_cost": 10000,
+                "workers_cost": 8000,
+                "subcontractors_cost": 0,
+                "equipment_cost": 2000,
+                "production_labor_cost": 6000,
+                "material_cost_fc": 3000,
+                "material_cost_fm": 2000
+            }
+        },
+        "deprecation_fixed_amount": [
+            {
+                "component": "Escavatore",
+                "depreciation_eur": 1000,
+                "percentage": 10,
+                "rounding": 0
+            },
+            {
+                "component": "Carotatrice",
+                "depreciation_eur": 500,
+                "percentage": 5,
+                "rounding": 0
+            }
+        ],
+        "risk_analysis": {
+            "potential_risks": "Ritardi dovuti a condizioni meteorologiche avverse e interferenze con servizi sotterranei.",
+            "cash_flow_risks": "Possibili aumenti dei costi dei materiali e ritardi nei pagamenti.",
+            "simulation": "Simulazione di scenari con ritardi del 10-20%.",
+            "timeline_simulation": "Timeline estesa di 5 giorni per rischi di interferenze."
+        }
+    }
+}

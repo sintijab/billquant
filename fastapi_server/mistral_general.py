@@ -11,7 +11,7 @@ if "MISTRAL_API_KEY" not in os.environ:
     raise RuntimeError("MISTRAL_API_KEY not found in environment. Please set it in your .env file.")
 
 llm = ChatMistralAI(
-    model="mistral-small-latest",
+    model="mistral-large-latest",
     temperature=0,
     max_retries=4,
 )

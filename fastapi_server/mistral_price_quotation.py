@@ -4,21 +4,38 @@ import json
 from langchain.prompts import ChatPromptTemplate
 from langchain_mistralai import ChatMistralAI
 from dotenv import load_dotenv
+from langchain_xai import ChatXAI
+import getpass
 
 load_dotenv()
-# Mistral setup
-if "MISTRAL_API_KEY" not in os.environ:
-    raise RuntimeError("MISTRAL_API_KEY not found in environment. Please set it in your .env file.")
+# # Mistral setup
+# if "MISTRAL_API_KEY" not in os.environ:
+#     raise RuntimeError("MISTRAL_API_KEY not found in environment. Please set it in your .env file.")
 
-llm = ChatMistralAI(
-    model="mistral-small-latest",
+
+if "XAI_API_KEY" not in os.environ:
+    os.environ["XAI_API_KEY"] = getpass.getpass("Enter your xAI API key: ")
+    
+llm = ChatXAI(
+    model="grok-3-mini",
     temperature=0,
+    max_tokens=None,
+    timeout=None,
     max_retries=2,
+    # other params...
 )
 
 
+# llm = ChatMistralAI(
+#     model="mistral-large-latest",
+#     temperature=0,
+#     max_retries=2,
+# )
+
+
 BOQ_PROMPT = f"""
-Also with a boq key create **draft Bill of Quantities (BOQ)** for the construction site, using the provided **site visit timeline** and **project description**.  
+Also with a boq key create **draft Bill of Quantities (BOQ)** for the construction site, using the provided **site visit timeline** and **project description**.
+If Site visit **Bill of Quantities** is provided, follow strictly the given description of what has to be done including everything from the Bill of Quantities in boq with all operations, dimensions, quantities, units, materials and other resources, everything that Bill of Quantities has described after timeline and before key 'Bill of quantity prices', and calculate total prices.  
 Do not include any explanation, markdown, or commentary.  
 Do not wrap the JSON in code blocks.  
 Output only a valid JSON array following the given schema exactly.  
@@ -56,7 +73,7 @@ Output only a valid JSON array following the given schema exactly.
         - **labor** → Total cost of labor.
         - **subcontractors** → Cost of subcontracted works.
         - **equipment** → Cost of rented or used equipment.
-- **activityName** → Short descriptive name of the activity the same as activity fron projectSchedule.
+- **activityName** → Short descriptive name of the activity the same as activity mapped to projectSchedule.
 
 The final BOQ must be **technically correct**, **financially consistent**, and **ordered by construction sequence**.
 
@@ -301,8 +318,8 @@ messages = [
     (
         "system",
         f"""
-You are an **expert construction cost estimator** and **project engineer**.  
-Your task is to evalueate and prioritize the defined work operations and construction site status, and generate a **highly detailed, realistic** internal cost estimation JSON object based on the provided **site visit timeline**, **site description**, and **draft bill of quantities (BOQ)**.  
+You are an **expert construction cost estimator** and **project construction engineer**.  
+Your task is to evalueate and prioritize the defined work operations and construction site status, and generate a **highly detailed, realistic** internal cost estimation JSON object based on the provided **site visit timeline**, **site description**, and **draft bill of quantities (BOQ)** in Italian.  
 
 You must follow the **exact JSON schema**: {internal_costs_str}  
 Do NOT copy values, prices, or object counts from the schema example — instead, generate a **completely new and realistic proposal**.
@@ -392,6 +409,7 @@ For each activity:
 
 #### **projectSchedule**
 - Include **starting** and **finishing dates**.
+- Include **activity** equal with activityName
 - Assign **personnel** to each activity realistically.
 
 ---

@@ -55,53 +55,68 @@ def transform_input_to_template_context(data):
     # Compose company
     company = data.get('company', 'Company: ')
 
-    # Map items in the order of projectSchedule activities
+    # Map items: group by main activities, each with sub-rows for resources
     items = []
     price_quotation = data.get('priceQuotation')
     if price_quotation is None:
         price_quotation = data.get('internalCosts', {}).get('boq', [])
-    project_schedule = data.get('internalCosts', {}).get('projectSchedule', [])
-    # Build a mapping from activity name to BOQ entry
-    pq_by_activity = {}
-    for pq in price_quotation:
-        activity_name = pq.get('activityName') or pq.get('activity') or pq.get('title', '')
-        pq_by_activity[activity_name] = pq
 
-    # Iterate project_schedule in order, and for each, add items for that activity
-    for sched in project_schedule:
-        sched_activity = sched.get('activity', '')
-        pq = pq_by_activity.get(sched_activity)
-        if not pq:
+    personnel_list = data.get('internalCosts', {}).get('personnel', [])
+    for pq in price_quotation:
+        # Only process main activities
+        if pq.get('type', '') != 'main':
             continue
-        # Find matching projectSchedule entry (should be sched itself)
-        personnel = sched.get('personnel', [])
-        estimated_time = ', '.join([p.get('duration', '') for p in personnel if p.get('duration')])
-        people = ', '.join([f"{p.get('count', '')} {p.get('role', '')}".strip() for p in personnel if p.get('count') or p.get('role')])
-        resources = pq.get('resources', [])
-        if resources:
-            for res in resources:
-                total_val = res.get('total', pq.get('amount', ''))
-                if total_val is not None and str(total_val).strip() != '' and str(total_val).strip().lower() != 'none':
-                    items.append({
-                        "work": res.get('description', ''),
-                        "quantity": res.get('quantity', pq.get('quantity', '')),
-                        "price_unit": f"{res.get('price', pq.get('unit_price', ''))} / {str(res.get('unit', pq.get('unit', ''))).replace('mÂ²', 'm²').replace('m^2', 'm²').replace('Â', '')}",
-                        "total": total_val,
-                        "work_method": f"{pq.get('mainCategory', '')}, {pq.get('title', pq.get('activity', ''))}",
-                        "estimated_time": estimated_time,
-                        "people": people,
-                    })
-        else:
-            summary = pq.get('summary', {})
-            items.append({
-                "work": pq.get('title', pq.get('activity', '')),
-                "quantity": f"{pq.get('quantity', '')} {pq.get('unit', '')}",
-                "price_unit": pq.get('unit_price', ''),
-                "total": summary.get('totalPrice', pq.get('total', pq.get('amount', ''))),
-                "work_method": pq.get('mainCategory', ''),
-                "estimated_time": estimated_time,
-                "people": people,
+        summary = pq.get('summary', {})
+        activity_name = summary.get('activityName') or pq.get('activityName') or pq.get('activity') or pq.get('title', '')
+        main_category = pq.get('mainCategory', '')
+
+        # Find matching personnel by inclusive substring match of mainCategory in site_works.category
+        matched_personnel = []
+        for person in personnel_list:
+            for sw in person.get('site_works', []):
+                main_cat = main_category.strip().lower()
+                sw_cat = sw.get('category', '').strip().lower()
+                if main_cat and sw_cat and (sw_cat in main_cat or main_cat in sw_cat):
+                    matched_personnel.append(person)
+                    break
+
+        # Compose estimated_time, people, training
+        estimated_time = ', '.join([
+            f"{p.get('quantity', '')} {p.get('unit_measure', '')}" for p in matched_personnel if p.get('quantity') and p.get('unit_measure')
+        ])
+        people = ', '.join([
+            f"{p.get('count', '')} {p.get('role', '')}".strip() for p in matched_personnel if p.get('count') or p.get('role')
+        ])
+        training = ', '.join([
+            ', '.join(p.get('safety_courses_requirements', [])) for p in matched_personnel if p.get('safety_courses_requirements')
+        ])
+
+        main_row = {
+            "activity": activity_name,
+            "mainCategory": main_category,
+            "code": pq.get('code', ''),
+            "title": pq.get('title', ''),
+            "unit": str(pq.get('unit', '')).replace('mÂ²', 'm²').replace('m^2', 'm²').replace('Â', ''),
+            "quantity": pq.get('quantity', ''),
+            "total": summary.get('totalPrice', pq.get('total', pq.get('amount', ''))),
+            "totalWithVAT": summary.get('totalPriceWithVAT', ''),
+            "breakdown": summary.get('breakdown', {}),
+            "resources": [],
+            "estimated_time": estimated_time,
+            "people": people,
+            "training": training
+        }
+        # Add sub-rows for each resource
+        for res in pq.get('resources', []):
+            main_row["resources"].append({
+                "code": res.get('code', ''),
+                "description": res.get('description', ''),
+                "formula": res.get('formula', ''),
+                "quantity": res.get('quantity', ''),
+                "price": f"{res.get('price', '')} / {res.get('unit', '').replace('mÂ²', 'm²').replace('m^2', 'm²').replace('Â', '')}",
+                "total": res.get('total', '')
             })
+        items.append(main_row)
 
     # Totals: Extract from internalCosts['price_summary'] if available
     price_total_gross = None
@@ -156,7 +171,7 @@ def generate_price_quotation_boq(data):
     context = transform_input_to_template_context(data)
 
     # Instantiate the template first
-    doc = DocxTemplate("Price_Quotation_Template_BOQ.docx")
+    doc = DocxTemplate("Price_Quotation_Template_BOQ_new.docx")
 
     # Create InlineImage objects for logo and signature
     def image_from_data_url(doc, data_url, width):
