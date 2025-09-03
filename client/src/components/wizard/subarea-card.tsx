@@ -272,9 +272,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                         };
                                         const merged = { ...data, siteAreas: mergeWorks(data.siteAreas, updatedSiteAreas) };
                                         dispatch(setSiteVisit(merged));
-                                        const areaData = merged.siteAreas[areaIdx];
-                                        const formatted = formatAreaData(areaData);
-                                        dispatch(fetchSiteWorks({ query: formatted}));
                                     }
                                 }}
                                 className="mb-1 bg-white/80 placeholder:text-gray-400 text-sm"
@@ -346,9 +343,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                             };
                                             const merged = { ...data, siteAreas: mergeWorks(data.siteAreas, updatedSiteAreas) };
                                             dispatch(setSiteVisit(merged));
-                                            const areaData = merged.siteAreas[areaIdx];
-                                            const formatted = formatAreaData(areaData);
-                                            dispatch(fetchSiteWorks({ query: formatted}));
                                         }
                                     }}
                                     className="bg-white/80 placeholder:text-gray-400 text-sm w-2/3"
@@ -401,9 +395,6 @@ const SubareaCard: React.FC<SubareaCardProps> = ({ sub, areaIdx, subIdx, onUpdat
                                                     : a
                                             );
                                             dispatch(setSiteVisit({ siteAreas: updatedSiteAreas }));
-                                            const areaData = updatedSiteAreas[areaIdx];
-                                            const formatted = formatAreaData(areaData);
-                                            dispatch(fetchSiteWorks({ query: formatted}));
                                         }
                                     }}
                                     className="bg-white/80 placeholder:text-gray-400 text-sm w-1/3"
