@@ -4,26 +4,19 @@ import json
 from langchain.prompts import ChatPromptTemplate
 from langchain_mistralai import ChatMistralAI
 from dotenv import load_dotenv
-from langchain_xai import ChatXAI
-import getpass
 
 load_dotenv()
 # Mistral setup
 if "MISTRAL_API_KEY" not in os.environ:
     raise RuntimeError("MISTRAL_API_KEY not found in environment. Please set it in your .env file.")
 
-
-if "XAI_API_KEY" not in os.environ:
-    os.environ["XAI_API_KEY"] = getpass.getpass("Enter your xAI API key: ")
-
-llm = ChatXAI(
-    model="grok-3-mini",
+llm = ChatMistralAI(
+    model="mistral-small-latest",
     temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=2,
-    # other params...
+    max_retries=4,
 )
+
+
 
 # Read activity keywords from file and split in half
 with open(os.path.join(os.path.dirname(__file__), 'activity_keywords.txt'), 'r', encoding='utf-8') as f:
