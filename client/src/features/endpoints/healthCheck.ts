@@ -4,10 +4,10 @@ export const checkAllHealth = createAsyncThunk(
   'health/checkAll',
   async () => {
     const urls = [
-      'billquant-pat-production.up.railway.app/health',
-      'billquant-piemonte-production.up.railway.app/health',
-      'billquant-dei-production.up.railway.app/health',
-      'billquant-production.up.railway.app/health',
+      'https://billquant-pat-production.up.railway.app/health',
+      'https://billquant-piemonte-production.up.railway.app/health',
+      'https://billquant-dei-production.up.railway.app/health',
+      'https://billquant-production.up.railway.app/health',
     ];
     try {
       await Promise.all(
