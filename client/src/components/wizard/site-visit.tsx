@@ -867,7 +867,6 @@ export default function SiteVisit({ data: initial, onUpdate, onNext, onPrevious 
               variant="link"
               className="text-lg px-8 py-4 rounded-full"
               data-testid="button-continue"
-              disabled={!siteWorksLength}
             >
               <span className="hidden md:inline">Continue to Activity Overview</span>
               <span className="inline md:hidden">Continue</span>
