@@ -195,6 +195,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     try {
       const payload = {
         ...data, // projectSetup
+        contractTerms: contractTerms.replace(/\\n/g, '\n'),
         internalCosts: priceQuotationData,
       };
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
@@ -250,6 +251,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     // Generate and download the quotation DOCX
     const payload = {
       ...data, // projectSetup
+      contractTerms: contractTerms.replace(/\\n/g, '\n'),
       internalCosts: priceQuotationData,
     };
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_docx`, {
@@ -279,6 +281,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     setIsGenerating(true);
     const payload = {
       ...data, // projectSetup
+      contractTerms: contractTerms.replace(/\\n/g, '\n'),
       internalCosts: priceQuotationData,
     };
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_internal_costs_docx`, {
@@ -305,6 +308,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
     setIsGenerating(true);
     const payload = {
       ...data, // projectSetup
+      contractTerms: contractTerms.replace(/\\n/g, '\n'),
       internalCosts: priceQuotationData,
     };
     const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/generate_price_quotation_boq`, {
