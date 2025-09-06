@@ -35,7 +35,7 @@ llm = ChatXAI(
 
 BOQ_PROMPT = f"""
 Also with a boq key create **draft Bill of Quantities (BOQ)** for the construction site, using the provided **site visit timeline** and **project description**.
-If Site visit **Bill of Quantities** is provided, follow strictly the given description of what has to be done including everything from the Bill of Quantities in boq with all operations, exact descriptions and titles, dimensions, quantities, units, materials and other resources, everything that Bill of Quantities has described before 'Bill of quantity prices', and calculate total prices.  
+If Site visit **Bill of Quantities** is provided, follow strictly the given description of what has to be done including everything from the Bill of Quantities in boq with all operations, exact descriptions and titles, exact dimensions, exact quantities, exact unit, exact price, exact total if provided, read provided table format and include all values that Bill of Quantities has, until 'Bill of quantity prices', if total price is provided then copy paste, if not then calculate it.  
 Do not include any explanation, markdown, or commentary.  
 Do not wrap the JSON in code blocks.  
 Output only a valid JSON array following the given schema exactly.  
@@ -47,18 +47,19 @@ Output only a valid JSON array following the given schema exactly.
 4. Calculate `total` costs based on: **quantity × price** or by formula when provided.
 5. If the quantity or measurements are missing, **estimate them logically** based on the provided project description.
 6. Every field in the BOQ must be properly filled based on the definitions below.
+7. If the Bill of Quantities total price is provided it must align with the Bill of Quantity source, and all the works must be included with its original description or original title.
 
 ## FIELD-BY-FIELD GUIDE:
 - **type** → ("main" or "sub"): Defines if the activity is a main activity or a sub-task.
-- **activity** → A short name of the construction activity (e.g., "Demolition of old windows").
+- **activity** → The full original name or full activity description of the construction activity copy paste from the original Bill of Quantity.
 - **mainCategory** → The main classification of the activity, e.g., "Restauro e ristrutturazione" or "Nuove costruzioni".
-- **priceSource** → Always `"pat"` if the resource pricing comes from the PAT Prezziario.
-- **code** → The unique PAT Prezziario activity code for the task.
-- **title** → The full technical description from the PAT Prezziario for this activity.
+- **priceSource** → Always `"pat"` if the resource pricing comes from the PAT Prezziario
+- **code** → The code or number NR of the activity from the Bill of Quantity, or PAT Prezziario activity code.
+- **title** → A full original name or full activity description of the construction activity from the Bill of Quantity, or from the PAT Prezziario for this activity.
 - **unit** → The unit of measurement (e.g., "m²", "m³", "kg", "pz").
 - **quantity** → The estimated or calculated amount based on the timeline and project description.
-- **resources** → A list of all resources needed for the activity:
-    - **code** → Resource code from PAT Prezziario.
+- **resources** → A list of all resources needed for the activity if it is in the Bill of Quantity or required, if it is not in Bill of Quantity then do not add it:
+    - **code** → Resource code from the activity from the Bill of Quantity or PAT Prezziario.
     - **description** → Technical description of the resource.
     - **formula** → Formula used to calculate quantity if applicable.
     - **unit** → Measurement unit of the resource.
@@ -87,36 +88,36 @@ internal_costs = {
   "currency": "string",
   "boq": [
     {
-        "type": "string",  # Type of activity, e.g., "main" or "sub"
-        "activity": "string",  # Description of the main activity
-        "mainCategory": "string",  # Main category (e.g., Restauro e ristrutturazione)
-        "priceSource": "string",  # Price source (e.g., pat, internal, etc.)
-        "code": "string",  # Unique activity code
-        "title": "string",  # Full title or description of the activity
-        "unit": "string",  # Measurement unit (e.g., kg, m², etc.)
-        "quantity": "number",  # Quantity of the activity
+        "type": "string",
+        "activity": "string",
+        "mainCategory": "string",
+        "priceSource": "string",
+        "code": "string",
+        "title": "string",
+        "unit": "string",
+        "quantity": "number",
         "resources": [
             {
-                "code": "string",  # Resource code identifier
-                "description": "string",  # Detailed description of the resource
-                "formula": "string",  # Formula used to calculate quantity/cost
-                "unit": "string",  # Measurement unit of the resource
-                "quantity": "number",  # Resource quantity
-                "price": "number",  # Price per unit of the resource
-                "total": "number | null"  # Total resource cost (nullable)
+                "code": "string",
+                "description": "string",
+                "formula": "string",
+                "unit": "string",
+                "quantity": "number",
+                "price": "number",
+                "total": "number | null"
             }
         ],
         "summary": {
-            "totalPrice": "number",  # Total price without VAT
-            "totalPriceWithVAT": "number",  # Total price including VAT
+            "totalPrice": "number",
+            "totalPriceWithVAT": "number",
             "breakdown": {
-                "materials": "number",       # Total cost of materials
-                "labor": "number",          # Total cost of labor
-                "subcontractors": "number", # Total cost of subcontractors
-                "equipment": "number"       # Total cost of equipment
+                "materials": "number",
+                "labor": "number",
+                "subcontractors": "number",
+                "equipment": "number"
             }
         },
-        "activityName": "string"  # Name of the activity
+        "activityName": "string"
     }
   ],
   "site_area_summary": [
@@ -321,7 +322,7 @@ messages = [
 You are an **expert construction cost estimator** and **project construction engineer**.  
 Your task is to evalueate and prioritize the defined work operations and construction site status, and generate a **highly detailed, realistic** internal cost estimation JSON object based on the provided **site visit timeline**, **site description**, and **draft bill of quantities (BOQ)** in Italian.  
 
-You must follow the **exact JSON schema**: {internal_costs_str}  
+You must follow the **exact JSON schema**: {internal_costs_str}
 Do NOT copy values, prices, or object counts from the schema example — instead, generate a **completely new and realistic proposal**.
 {BOQ_PROMPT}.
 ---
@@ -364,19 +365,19 @@ For each **site area** or construction phase:
 For each resource:
 - **name** → Material, machine, or labor type.
 - **type** → One of: `"material"`, `"labor"`, `"equipment"`, `"subcontractor"`.
-- **quantity** → total quantity required for work estimated based on BOQ and site description.
-- **unit** → Measurement unit (`m²`, `m³`, `kg`, `h`, `pz`).
-- **unitPrice** → Get realistic price from PAT Prezziario or estimate.
-- **totalPrice** → `total quantity × unitPrice`.
+- **quantity** → total quantity required for work estimated, use quantity from Bill of Quantities if provided or estimate.
+- **unit** → Measurement unit (`m²`, `m³`, `kg`, `h`, `pz`). Use this measure from Bill of Quantities if provided.
+- **unitPrice** → Use price from Bill of Quantities if provided. Otherwise get realistic price from PAT Prezziario.
+- **totalPrice** → Use total price from Bill of Quantities if provided, if not then follow formula `total quantity × unitPrice`.
 
 ---
 
 #### **work_activities** *(Inside site_area_summary)*
 For each activity:
-- **description** → Technical description from PAT Prezziario.
-- **quantity / unit** → Derived from BOQ or estimated.
-- **unitPrice** → Taken from Prezziario.
-- **totalPrice** → `quantity × unitPrice`.
+- **description** → Technical description from rom Bill of Quantities if provided, if not then PAT Prezziario.
+- **quantity / unit** →  Use price from Bill of Quantities if provided, if not then estimate.
+- **unitPrice** → Use unit from Bill of Quantities if provided, if not then estimate from Prezziario.
+- **totalPrice** → Use price from Bill of Quantities if provided, if not then follow formula `quantity × unitPrice`.
 - **resources** → Link all associated resources here.
 
 ---
@@ -456,13 +457,48 @@ prompt = ChatPromptTemplate.from_messages(messages)
 chain = prompt | llm
 
 def create_quotation(query: str) -> str:
-    response = chain.invoke({
+  # Prioritize splitting at the second pattern if present, otherwise the first
+  pattern2 = r"Use following Bill of quantity prices"
+  pattern1 = r"Bill of quantity is following"
+  match2 = re.search(pattern2, query, re.IGNORECASE)
+  if match2:
+    split_idx = match2.start()
+    part1 = query[:split_idx].strip()
+    part2 = query[split_idx:].strip()
+    part1_escaped = escape_curly_braces(part1)
+    part2_escaped = escape_curly_braces(part2)
+    # Reuse the original full prompt as the first system message, replacing {input} with PART 1
+    sys_message = messages[0][1].replace('{input}', part1_escaped)
+    prompt = ChatPromptTemplate.from_messages([
+      ("system", sys_message),
+      ("system", f"Here is PART 2: {part2_escaped}. Now, based on the provided information, generate the internal cost estimation JSON as instructed above."),
+      ("human", "Continue and output only the JSON.")
+    ])
+    chain2 = prompt | llm
+    response = chain2.invoke({})
+  else:
+    match1 = re.search(pattern1, query, re.IGNORECASE)
+    if match1:
+      split_idx = match1.start()
+      part1 = query[:split_idx].strip()
+      part2 = query[split_idx:].strip()
+      part1_escaped = escape_curly_braces(part1)
+      part2_escaped = escape_curly_braces(part2)
+      sys_message = messages[0][1].replace('{input}', part1_escaped)
+      prompt = ChatPromptTemplate.from_messages([
+        ("system", sys_message),
+        ("system", f"Here is PART 2: {part2_escaped}. Now, based on the provided information, generate the internal cost estimation JSON as instructed above."),
+        ("human", "Continue and output only the JSON, do not include the comments in JSON.")
+      ])
+      chain2 = prompt | llm
+      response = chain2.invoke({})
+    else:
+      response = chain.invoke({
         "input": query,
-    })
-        # Model loading logic can be added here if needed
-    try:
-        parsed_output = response.content
-        return json.dumps(parsed_output, ensure_ascii=False)
-    except Exception:
-        return response.content.strip()
+      })
+  try:
+    parsed_output = response.content
+    return json.dumps(parsed_output, ensure_ascii=False)
+  except Exception:
+    return response.content.strip()
 

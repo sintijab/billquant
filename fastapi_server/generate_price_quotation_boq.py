@@ -86,9 +86,10 @@ def transform_input_to_template_context(data):
         estimated_time = ', '.join([
             f"{p.get('quantity', '')} {p.get('unit_measure', '')}" for p in matched_personnel if p.get('quantity') and p.get('unit_measure')
         ])
-        people = ', '.join([
+        people_list = [
             f"{p.get('count', '')} {p.get('role', '')}".strip() for p in matched_personnel if p.get('count') or p.get('role')
-        ])
+        ]
+        people = ', '.join(people_list) if people_list else ''
         training = ', '.join([
             ', '.join(p.get('safety_courses_requirements', [])) for p in matched_personnel if p.get('safety_courses_requirements')
         ])
