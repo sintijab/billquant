@@ -38,22 +38,24 @@ def transform_input_to_template_context(data):
         if internal_costs:
             data["internalCosts"] = internal_costs
 
-    # Compose client name
-    client = f"{data.get('clientFirstName', '')} {data.get('clientSurname', '')}".strip()
-    # Compose address (siteAddress or address)
-    address = data.get('address') or data.get('siteAddress') or 'Address:'
-    # Compose issued_by (use clientFirstName + clientSurname or issued_by)
+    # Company details
     issued_by = data.get('issued_by', '')
-    # Compose logo and signature
     logo = data.get('logo') or data.get('companyLogo', '')
     signature = data.get('digitalSignature') or data.get('signature', '')
-    # Compose email/pec_email
-    email = data.get('email', '')
+    # Client
+    client = f"{data.get('clientFirstName', '')} {data.get('clientSurname', '')}".strip()
+    email = data.get('clientEmail', '')
     pec_email = data.get('pec_email', '')
-    # Compose region
-    region = data.get('region', 'Comune di Trento')
-    # Compose company
-    company = data.get('company', 'Company: ')
+    company = data.get('issuedByCompany', 'Company: ')
+    address = data.get('address') or data.get('siteAddress') or 'Address:'
+    # Price summary
+    price_summary = data.get('internalCosts', {}).get('price_summary', {})
+    currency = price_summary.get('currency', 'EUR')
+    total_price = price_summary.get('application_price', price_summary.get('total_price', ''))
+    vat = data.get('vat', 22)
+    application_price_before_vat = price_summary.get('application_price_before_vat', '')
+    quotation_intro = price_summary.get('quotation_intro', 'La presente è lieta di presentarvi la seguente offerta per la fornitura di servizi di pulizia presso le vostre sedi. La nostra proposta è studiata per garantire elevati standard di igiene e sicurezza, con personale qualificato, logistica e spostamenti autonomi da e verso ogni location, oltre alla strumentazione per la pulizia (da concordare separatamente eventuali prodotti o trattamenti specifici e modalità di intervento in base alle peculiarità di ogni struttura). Ci si rendi disponibili inoltre ad utilizzare esclusivamente prodotti pulenti naturali, assicurando ai vostri clienti una migliore respirazione esente da sostanze chimiche, in linea con un approccio sostenibile e attento alla salute.')
+    offer_title = data.get('internalCosts', {}).get('offer_title', 'Offerta economica lavori')
 
     # Map items: group by main activities, each with sub-rows for resources
     items = []
@@ -135,6 +137,25 @@ def transform_input_to_template_context(data):
         tax = price_total_net - price_total_gross
     except Exception:
         tax = 0.0
+    
+    # Clauses
+    default_clauses = (
+        "1. Prezzi e inclusioni \n I prezzi indicati si intendono comprensivi di tutti i materiali, attrezzature, manodopera, oneri di smaltimento e ogni altra prestazione necessaria per l'esecuzione delle lavorazioni, secondo le specifiche del presente capitolato. In caso di affidamento, verrà redatta una contabilità a consuntivo verificata con la Direzione Lavori, sulla base dei prezzi riportati.\n"
+        "2. Lavorazioni extra e varianti \n Eventuali lavorazioni extra, modifiche in corso d'opera o varianti richieste rispetto a quanto preventivato saranno soggette ad approvazione prima dell'esecuzione e svolte in economia come da voce P.\n"
+        "3. L'impresa garantisce \n- L'utilizzo di materiali conformi alle normative vigenti; \n- Personale qualificato; \n- Assistenza tecnica durante tutte le fasi di realizzazione.\n"
+        "4. A carico della committenza \n- Fornitura di acqua di cantiere; \n- Messa a disposizione di uno spazio per deposito materiali e attrezzature; \n- Eventuali oneri per occupazione suolo pubblico e/o autorizzazioni comunali; \n- IVA di legge (non inclusa nei prezzi).\n"
+        "5. Modalità di pagamento \n- 40% a titolo di acconto alla conferma dell'ordine; \n- 50% alla conclusione delle lavorazioni; \n- 10% saldo finale a collaudo avvenuto.\n"
+        "6. Tempi di consegna e saluti Tempi di consegna e durata lavori: da definire in accordo con la Direzione Lavori. Ringraziando per l'attenzione e la fiducia, restiamo a disposizione per ogni chiarimento e porgiamo cordiali saluti."
+    )
+    clauses = data.get('contractTerms', default_clauses)
+    import re
+    clauses_lines = []
+    for line in clauses.split('\n'):
+        line_stripped = line.strip()
+        if re.match(r"^\d+\.", line_stripped):
+            clauses_lines.append({"text": line_stripped, "bold": True})
+        else:
+            clauses_lines.append({"text": line_stripped, "bold": False})
 
     context = {
         "company": company,
@@ -142,15 +163,20 @@ def transform_input_to_template_context(data):
         "email": email,
         "pec_email": pec_email,
         "logo": logo,
-        "region": region,
         "client": client,
         "date": datetime.now().strftime("%d/%m/%Y"),
         "issued_by": issued_by,
         "signature": signature,
-        "items": items,
+        "application_price_before_vat": application_price_before_vat,
+        "vat": vat,
+        "currency": currency,
+        "clauses_lines": clauses_lines,
+        "quotation_intro": quotation_intro,
         "price_total_gross": f"{price_total_gross:.2f}",
-        "tax": f"{tax:.2f}",
         "price_total_net": f"{price_total_net:.2f}",
+        "offer_title": offer_title,
+        "total_price": total_price,
+        "items": items,
     }
     return context
 

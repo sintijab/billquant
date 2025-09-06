@@ -25,13 +25,13 @@ def transform_input_to_template_context(data):
     # Compose client name
     client = f"{data.get('clientFirstName', '')} {data.get('clientSurname', '')}".strip()
     address = data.get('siteAddress') or data.get('address', '')
-    issued_by = data.get('issued_by', '')
+    issued_by = f"{data.get('issuedByFirstName', '')} {data.get('issuedBySurname', '')}".strip()
     logo = data.get('logo') or data.get('companyLogo', '')
     signature = data.get('digitalSignature') or data.get('signature', '')
     email = data.get('clientEmail', data.get('email', ''))
     pec_email = data.get('pec_email', email)
     region = data.get('region', 'Comune di Trento')
-    company = data.get('company', '')
+    company = data.get('issuedByCompany', '')
     offer_title = data.get('internalCosts', {}).get('offer_title', 'Offerta economica lavori')
 
     # --- Area Summaries ---
@@ -191,7 +191,7 @@ def transform_input_to_template_context(data):
     price_summary = data.get('internalCosts', {}).get('price_summary', {})
     currency = price_summary.get('currency', 'EUR')
     total_price = price_summary.get('application_price', price_summary.get('total_price', ''))
-    vat = price_summary.get('application_price', price_summary.get('vat', ''))
+    vat = data.get('vat', 22)
     application_price_before_vat = price_summary.get('application_price_before_vat', '')
     quotation_intro = price_summary.get('quotation_intro', 'La presente è lieta di presentarvi la seguente offerta per la fornitura di servizi di pulizia presso le vostre sedi. La nostra proposta è studiata per garantire elevati standard di igiene e sicurezza, con personale qualificato, logistica e spostamenti autonomi da e verso ogni location, oltre alla strumentazione per la pulizia (da concordare separatamente eventuali prodotti o trattamenti specifici e modalità di intervento in base alle peculiarità di ogni struttura). Ci si rendi disponibili inoltre ad utilizzare esclusivamente prodotti pulenti naturali, assicurando ai vostri clienti una migliore respirazione esente da sostanze chimiche, in linea con un approccio sostenibile e attento alla salute.')
 
@@ -204,7 +204,7 @@ def transform_input_to_template_context(data):
         "5. Modalità di pagamento \n- 40% a titolo di acconto alla conferma dell'ordine; \n- 50% alla conclusione delle lavorazioni; \n- 10% saldo finale a collaudo avvenuto.\n"
         "6. Tempi di consegna e saluti Tempi di consegna e durata lavori: da definire in accordo con la Direzione Lavori. Ringraziando per l'attenzione e la fiducia, restiamo a disposizione per ogni chiarimento e porgiamo cordiali saluti."
     )
-    clauses = price_summary.get('clauses', default_clauses)
+    clauses = data.get('contractTerms', default_clauses)
     import re
     clauses_lines = []
     for line in clauses.split('\n'):

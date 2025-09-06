@@ -35,7 +35,7 @@ llm = ChatXAI(
 
 BOQ_PROMPT = f"""
 Also with a boq key create **draft Bill of Quantities (BOQ)** for the construction site, using the provided **site visit timeline** and **project description**.
-If Site visit **Bill of Quantities** is provided, follow strictly the given description of what has to be done including everything from the Bill of Quantities in boq with all operations, dimensions, quantities, units, materials and other resources, everything that Bill of Quantities has described after timeline and before key 'Bill of quantity prices', and calculate total prices.  
+If Site visit **Bill of Quantities** is provided, follow strictly the given description of what has to be done including everything from the Bill of Quantities in boq with all operations, exact descriptions and titles, dimensions, quantities, units, materials and other resources, everything that Bill of Quantities has described before 'Bill of quantity prices', and calculate total prices.  
 Do not include any explanation, markdown, or commentary.  
 Do not wrap the JSON in code blocks.  
 Output only a valid JSON array following the given schema exactly.  
