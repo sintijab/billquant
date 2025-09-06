@@ -69,6 +69,12 @@ export interface ProjectWizardData {
   activityCategories: ActivityCategory[];
   boqItems: BOQItem[];
   logo: string;
+  markup?: number;
+  vat?: number;
+  issuedByFirstName?: string;
+  issuedBySurname?: string;
+  issuedByCompany?: string;
+  contractTerms?: string;
 }
 
 export interface DocumentData {

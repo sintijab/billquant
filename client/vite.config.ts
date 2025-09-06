@@ -22,22 +22,22 @@ export default defineConfig({
     },
     proxy: {
             '/api': {
-                target: 'https://billquant-production.up.railway.app',
+                target: 'http://127.0.0.1:8000',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, '')
             },
             '/pat': {
-                target: 'https://billquant-pat-production.up.railway.app',
+                target: 'https://billquant-pat-production.up.railway.app/search_pat',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/pat/, '')
             },
             '/dei': {
-                target: 'https://billquant-dei-production.up.railway.app',
+                target: 'https://billquant-dei-production.up.railway.app/search_dei',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/dei/, '')
             },
             '/piemonte': {
-                target: 'https://billquant-piemonte-production.up.railway.app',
+                target: 'https://billquant-piemonte-production.up.railway.app/search_piemonte',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/piemonte/, '')
             }

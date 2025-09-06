@@ -27,7 +27,6 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
   const siteWorks = useSelector((state: any) => state.siteWorks);
   const works = siteWorks.Works || [];
   const timeline = siteWorks.GeneralTimeline?.Activities || siteWorks.GeneralTimeline || [];
-
   const [loading, setLoading] = useState(false);
   const [loadingActivity, setLoadingActivity] = useState<string | null>(null);
 
@@ -58,6 +57,7 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
   const toggleExpanded = (activity: string) => {
     setExpanded((prev) => ({ ...prev, [activity]: !prev[activity] }));
   };
+
  const dispatch: AppDispatch = useDispatch();
 
   if (loading) {
@@ -103,7 +103,6 @@ export default function ActivitiesOverview({ data, onUpdate, onNext, onPrevious 
                   areaTimelineMap[work.Area].push({ activity, work });
                 }
               });
-              console.log(areaTimelineMap)
               return areaList.map(area => {
                 const areaTimeline = areaTimelineMap[area] || [];
                 if (!areaTimeline.length) return null;

@@ -21,7 +21,7 @@ const prodBase = {
   piemonte: 'https://billquant-piemonte-production.up.railway.app',
 };
 const isDev = import.meta.env.DEV;
-const LOCAL_API_BASE = 'http://127.0.0.1:8000';
+const LOCAL_API_BASE = 'http://localhost:5173';
 
 // Thunk to fetch new activity data by price source for a specific row
 export const fetchActivityBySource = createAsyncThunk(

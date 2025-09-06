@@ -75,11 +75,19 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
   const boqUpload = useSelector((state: any) => state.boq?.boq_upload);
   const siteVisitOrBoqUpload = boqUpload ? boqUpload : siteVisitDescription;
   const patItemsStr = JSON.stringify(patItems, null, 2); // for pretty-print, or just JSON.stringify(patItems)
+  // Markup, VAT, and Company/Issued by/Contract Terms state
+  const [markup, setMarkup] = useState(data.markup ?? 10);
+  const [vat, setVat] = useState(data.vat ?? 22);
+  const [issuedByFirstName, setIssuedByFirstName] = useState(data.issuedByFirstName ?? "");
+  const [issuedBySurname, setIssuedBySurname] = useState(data.issuedBySurname ?? "");
+  const [issuedByCompany, setIssuedByCompany] = useState(data.issuedByCompany ?? "");
+  const [contractTerms, setContractTerms] = useState(data.contractTerms ?? `1. Prezzi e inclusioni \n I prezzi indicati si intendono comprensivi di tutti i materiali, attrezzature, manodopera, oneri di smaltimento e ogni altra prestazione necessaria per l'esecuzione delle lavorazioni, secondo le specifiche del presente capitolato. In caso di affidamento, verrà redatta una contabilità a consuntivo verificata con la Direzione Lavori, sulla base dei prezzi riportati.\n2. Lavorazioni extra e varianti \n Eventuali lavorazioni extra, modifiche in corso d'opera o varianti richieste rispetto a quanto preventivato saranno soggette ad approvazione prima dell'esecuzione e svolte in economia come da voce P.\n3. L'impresa garantisce \n- L'utilizzo di materiali conformi alle normative vigenti; \n- Personale qualificato; \n- Assistenza tecnica durante tutte le fasi di realizzazione.\n4. A carico della committenza \n- Fornitura di acqua di cantiere; \n- Messa a disposizione di uno spazio per deposito materiali e attrezzature; \n- Eventuali oneri per occupazione suolo pubblico e/o autorizzazioni comunali; \n- IVA di legge (non inclusa nei prezzi).\n5. Modalità di pagamento \n- 40% a titolo di acconto alla conferma dell'ordine; \n- 50% alla conclusione delle lavorazioni; \n- 10% saldo finale a collaudo avvenuto.\n6. Tempi di consegna e saluti Tempi di consegna e durata lavori: da definire in accordo con la Direzione Lavori. Ringraziando per l'attenzione e la fiducia, restiamo a disposizione per ogni chiarimento e porgiamo cordiali saluti.`);
+
   let priceQuotationPayload;
   if (boqUpload) {
-    priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit Bill of Quantities is following: ${boqUpload}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity prices are following: ${patItemsStr}.`;
+    priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Markup: ${markup}%. VAT: ${vat}%. Site visit Bill of Quantity is following: ${boqUpload}. Use following Bill of quantity prices only as a reference to prices: ${patItemsStr}.`;
   } else {
-    priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Site visit description is following: ${siteVisitOrBoqUpload}. Bill of quantities is following: ${billOfQuantities}. Bill of quantity is following: ${patItemsStr}`;
+    priceQuotationPayload = `Site construction timeline is following: ${worksTimeline}. Markup: ${markup}%. VAT: ${vat}%. Site visit description is following: ${siteVisitOrBoqUpload}. Bill of quantity is following: ${patItemsStr}.`;
   }
   // Get LLM response from priceQuotation slice
   const priceQuotationData = useSelector((state: any) => state.priceQuotation.data);
@@ -367,79 +375,69 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
             </div>
             <div className="mt-8 mb-8 max-w-xl mx-auto w-full">
               <div className="flex flex-col gap-6 w-full">
-                <div className="space-y-2">
-                  <Label htmlFor="clientFirstName" className="text-sm font-medium text-text-primary">
-                    Client First Name
-                  </Label>
-                  <Input
-                    id="clientFirstName"
-                    type="text"
-                    placeholder="Marco"
-                    value={data.clientFirstName}
-                    onChange={(e) => handleInputChange("clientFirstName", e.target.value)}
-                    onBlur={(e) => handleInputBlur("clientFirstName", e.target.value)}
-                    className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientFirstName ? "ring-2 ring-red-500" : ""}`}
-                    data-testid="input-client-first-name"
-                  />
-                  {errors.clientFirstName && (
-                    <p className="text-sm text-red-500">{errors.clientFirstName}</p>
-                  )}
+                {/* Client First Name & Surname side by side */}
+                <div className="flex flex-col md:flex-row gap-4 w-full">
+                  <div className="flex-1 space-y-2">
+                    <Label htmlFor="clientFirstName" className="text-sm font-medium text-text-primary">Client First Name</Label>
+                    <Input
+                      id="clientFirstName"
+                      type="text"
+                      placeholder="Marco"
+                      value={data.clientFirstName}
+                      onChange={(e) => handleInputChange("clientFirstName", e.target.value)}
+                      onBlur={(e) => handleInputBlur("clientFirstName", e.target.value)}
+                      className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientFirstName ? "ring-2 ring-red-500" : ""}`}
+                      data-testid="input-client-first-name"
+                    />
+                    {errors.clientFirstName && <p className="text-sm text-red-500">{errors.clientFirstName}</p>}
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <Label htmlFor="clientSurname" className="text-sm font-medium text-text-primary">Client Surname</Label>
+                    <Input
+                      id="clientSurname"
+                      type="text"
+                      placeholder="Rossi"
+                      value={data.clientSurname}
+                      onChange={(e) => handleInputChange("clientSurname", e.target.value)}
+                      onBlur={(e) => handleInputBlur("clientSurname", e.target.value)}
+                      className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientSurname ? "ring-2 ring-red-500" : ""}`}
+                      data-testid="input-client-surname"
+                    />
+                    {errors.clientSurname && <p className="text-sm text-red-500">{errors.clientSurname}</p>}
+                  </div>
+                </div>
+                {/* Client Phone & Email side by side */}
+                <div className="flex flex-col md:flex-row gap-4 w-full">
+                  <div className="flex-1 space-y-2">
+                    <Label htmlFor="clientPhone" className="text-sm font-medium text-text-primary">Client Phone</Label>
+                    <Input
+                      id="clientPhone"
+                      type="tel"
+                      placeholder="+39 333 123 4567"
+                      value={data.clientPhone}
+                      onChange={(e) => handleInputChange("clientPhone", e.target.value)}
+                      onBlur={(e) => handleInputBlur("clientPhone", e.target.value)}
+                      className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400"
+                      data-testid="input-client-phone"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <Label htmlFor="clientEmail" className="text-sm font-medium text-text-primary">Client Email</Label>
+                    <Input
+                      id="clientEmail"
+                      type="email"
+                      placeholder="marco.rossi@email.com"
+                      value={data.clientEmail}
+                      onChange={(e) => handleInputChange("clientEmail", e.target.value)}
+                      onBlur={(e) => handleInputBlur("clientEmail", e.target.value)}
+                      className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientEmail ? "ring-2 ring-red-500" : ""}`}
+                      data-testid="input-client-email"
+                    />
+                    {errors.clientEmail && <p className="text-sm text-red-500">{errors.clientEmail}</p>}
+                  </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="clientSurname" className="text-sm font-medium text-text-primary">
-                    Client Surname
-                  </Label>
-                  <Input
-                    id="clientSurname"
-                    type="text"
-                    placeholder="Rossi"
-                    value={data.clientSurname}
-                    onChange={(e) => handleInputChange("clientSurname", e.target.value)}
-                    onBlur={(e) => handleInputBlur("clientSurname", e.target.value)}
-                    className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientSurname ? "ring-2 ring-red-500" : ""}`}
-                    data-testid="input-client-surname"
-                  />
-                  {errors.clientSurname && (
-                    <p className="text-sm text-red-500">{errors.clientSurname}</p>
-                  )}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="clientPhone" className="text-sm font-medium text-text-primary">
-                    Client Phone
-                  </Label>
-                  <Input
-                    id="clientPhone"
-                    type="tel"
-                    placeholder="+39 333 123 4567"
-                    value={data.clientPhone}
-                    onChange={(e) => handleInputChange("clientPhone", e.target.value)}
-                    onBlur={(e) => handleInputBlur("clientPhone", e.target.value)}
-                    className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400"
-                    data-testid="input-client-phone"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="clientEmail" className="text-sm font-medium text-text-primary">
-                    Client Email
-                  </Label>
-                  <Input
-                    id="clientEmail"
-                    type="email"
-                    placeholder="marco.rossi@email.com"
-                    value={data.clientEmail}
-                    onChange={(e) => handleInputChange("clientEmail", e.target.value)}
-                    onBlur={(e) => handleInputBlur("clientEmail", e.target.value)}
-                    className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.clientEmail ? "ring-2 ring-red-500" : ""}`}
-                    data-testid="input-client-email"
-                  />
-                  {errors.clientEmail && (
-                    <p className="text-sm text-red-500">{errors.clientEmail}</p>
-                  )}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="siteAddress" className="text-sm font-medium text-text-primary">
-                    Site Address
-                  </Label>
+                  <Label htmlFor="siteAddress" className="text-sm font-medium text-text-primary">Site Address</Label>
                   <Input
                     id="siteAddress"
                     type="text"
@@ -450,9 +448,11 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                     className={`transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 ${errors.siteAddress ? "ring-2 ring-red-500" : ""}`}
                     data-testid="input-site-address"
                   />
-                  {errors.siteAddress && (
-                    <p className="text-sm text-red-500">{errors.siteAddress}</p>
-                  )}
+                  {errors.siteAddress && <p className="text-sm text-red-500">{errors.siteAddress}</p>}
+                </div>
+                {/* Company Details Headline */}
+                <div className="mt-8 mb-4 text-center">
+                  <h2 className="text-3xl font-SEMIbold text-text-primary mb-2">Company Details</h2>
                 </div>
               </div>
             </div>
@@ -483,6 +483,87 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
               )}
             </div>
 
+
+            {/* Markup, VAT, and Contract Terms above Site Address */}
+            <div className="mb-8 max-w-xl mx-auto w-full">
+              <div className="flex flex-row items-center justify-center gap-4 mb-6">
+                <div className="flex flex-col items-start flex-1">
+                  <Label htmlFor="markup" className="text-sm font-medium text-text-primary mb-1">Markup (%)</Label>
+                  <Input
+                    id="markup"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    value={markup}
+                    onChange={e => { setMarkup(Number(e.target.value)); handleInputChange("markup", e.target.value); }}
+                    className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 w-full"
+                  />
+                </div>
+                <div className="flex flex-col items-start flex-1">
+                  <Label htmlFor="vat" className="text-sm font-medium text-text-primary mb-1">VAT (%)</Label>
+                  <Input
+                    id="vat"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.1"
+                    value={vat}
+                    onChange={e => { setVat(Number(e.target.value)); handleInputChange("vat", e.target.value); }}
+                    className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 w-full"
+                  />
+                </div>
+              </div>
+
+              {/* Issued by fields: First Name & Surname side by side, then Company */}
+              <div className="flex flex-col gap-4 mb-6">
+                <div className="flex flex-col md:flex-row gap-4 w-full">
+                  <div className="flex-1 flex flex-col items-start">
+                    <Label htmlFor="issuedByFirstName" className="text-sm font-medium text-text-primary mb-1">Issued by First Name</Label>
+                    <Input
+                      id="issuedByFirstName"
+                      type="text"
+                      placeholder="First Name"
+                      value={issuedByFirstName}
+                      onChange={e => { setIssuedByFirstName(e.target.value); handleInputChange("issuedByFirstName", e.target.value); }}
+                      className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 w-full"
+                    />
+                  </div>
+                  <div className="flex-1 flex flex-col items-start">
+                    <Label htmlFor="issuedBySurname" className="text-sm font-medium text-text-primary mb-1">Issued by Surname</Label>
+                    <Input
+                      id="issuedBySurname"
+                      type="text"
+                      placeholder="Surname"
+                      value={issuedBySurname}
+                      onChange={e => { setIssuedBySurname(e.target.value); handleInputChange("issuedBySurname", e.target.value); }}
+                      className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 w-full"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col items-start">
+                  <Label htmlFor="issuedByCompany" className="text-sm font-medium text-text-primary mb-1">Issued by Company</Label>
+                  <Input
+                    id="issuedByCompany"
+                    type="text"
+                    placeholder="Company Name"
+                    value={issuedByCompany}
+                    onChange={e => { setIssuedByCompany(e.target.value); handleInputChange("issuedByCompany", e.target.value); }}
+                    className="transition-all bg-white/60 backdrop-blur px-5 py-6 rounded-full text-l shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 w-full"
+                  />
+                </div>
+              </div>
+              <div className="mb-6 text-left w-full">
+                <Label htmlFor="contract-terms" className="text-xs font-medium text-text-primary mb-1">Contract Terms</Label>
+                <textarea
+                  id="contract-terms"
+                  className="w-full min-h-[180px] border border-gray-300 px-5 py-6 text-xs bg-white/80 shadow focus:shadow-lg focus:shadow-primary/40 active:shadow-primary/60 outline-none focus:outline-none focus-visible:outline-none border-0 focus:border focus:border-primary focus:border-[1px] placeholder:text-gray-400 resize-none"
+                  style={{ borderRadius: 0 }}
+                  value={contractTerms}
+                  onChange={e => { setContractTerms(e.target.value); handleInputChange("contractTerms", e.target.value); }}
+                />
+              </div>
+            </div>
             {/* Digital Signature */}
             <div className="mb-8 max-w-xl mx-auto w-full">
               <div className="border border-dashed border-primary-blue rounded-2xl p-8 text-center hover:border-cad-blue transition-colors bg-white/40 backdrop-blur">
@@ -755,7 +836,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                       </div>
                       <div className="space-y-1 text-xs">
                         {internalCostData.personnel.map((person, index) => (
-                          <div key={index}>• {person.role} × {person.duration || person.quantity  + ' ' + person.unit_measure}</div>
+                          <div key={index}>• {person.role} × {person.duration || person.quantity + ' ' + person.unit_measure}</div>
                         ))}
                       </div>
                     </div>
@@ -837,7 +918,7 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                 </div>
               </div>
             </div>
-                        {/* Final Actions */}
+            {/* Final Actions */}
             <div className="flex flex-col gap-4 mt-8">
               <div className="flex justify-between">
                 <Button
@@ -853,8 +934,8 @@ export default function DocumentGeneration({ onUpdate, onPrevious, onNewProject 
                 </Button>
               </div>
             </div>
-            
-            </>}
+
+          </>}
         </CardContent>
       </Card>
     </div>

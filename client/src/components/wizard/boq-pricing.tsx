@@ -44,6 +44,7 @@ const BOQPricing = ({ onNext, onPrevious }: BOQPricingProps) => {
   // Only fetch prices if not already present in Redux state for the selected source
   const handleRefreshPrices = async () => {
     let fetchThunk;
+    console.log(priceListSource)
     if (priceListSource === 'dei') fetchThunk = fetchActivityCategoryDei;
     else if (priceListSource === 'pat') fetchThunk = fetchActivityCategoryPat;
     else if (priceListSource === 'piemonte') fetchThunk = fetchActivityCategoryPiemonte;
