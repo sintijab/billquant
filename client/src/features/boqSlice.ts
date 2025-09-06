@@ -15,28 +15,22 @@ export const extractBoqPdfText = createAsyncThunk(
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '@/store';
 
+const prodBase = {
+  dei: 'https://billquant-dei-production.up.railway.app',
+  pat: 'https://billquant-pat-production.up.railway.app',
+  piemonte: 'https://billquant-piemonte-production.up.railway.app',
+};
+const isDev = import.meta.env.DEV;
+const LOCAL_API_BASE = 'http://127.0.0.1:8000';
 
 // Thunk to fetch new activity data by price source for a specific row
 export const fetchActivityBySource = createAsyncThunk(
   'boq/fetchActivityBySource',
   async ({ activity, description, priceSource, rowIndex }: { activity: string, description: string, priceSource: string, rowIndex?: number }) => {
-    // const isDev = import.meta.env.DEV;
-    // const LOCAL_API_BASE = 'http://127.0.0.1:8000';
-    // let endpoint = '';
-    // if (priceSource === 'dei') endpoint = isDev ? `${LOCAL_API_BASE}/search_dei` : `${prodBase.dei}/search_dei`;
-    // else if (priceSource === 'pat') endpoint = isDev ? `${LOCAL_API_BASE}/search_pat` : `${prodBase.pat}/search_pat`;
-    // else if (priceSource === 'piemonte') endpoint = isDev ? `${LOCAL_API_BASE}/search_piemonte` : `${prodBase.piemonte}/search_piemonte`;
-        // const isDev = import.meta.env.DEV;
-    // const LOCAL_API_BASE = 'http://127.0.0.1:8000';
-    const prodBase = {
-      dei: 'https://billquant-dei-production.up.railway.app',
-      pat: 'https://billquant-pat-production.up.railway.app',
-      piemonte: 'https://billquant-piemonte-production.up.railway.app',
-    };
     let endpoint = '';
-    if (priceSource === 'dei') endpoint = `${prodBase.dei}/search_dei`;
-    else if (priceSource === 'pat') endpoint = `${prodBase.pat}/search_pat`;
-    else if (priceSource === 'piemonte') endpoint = `${prodBase.piemonte}/search_piemonte`;
+    if (priceSource === 'dei') endpoint = isDev ? `${LOCAL_API_BASE}/dei` : `${prodBase.dei}/search_dei`;
+    else if (priceSource === 'pat') endpoint = isDev ? `${LOCAL_API_BASE}/pat` : `${prodBase.pat}/search_pat`;
+    else if (priceSource === 'piemonte') endpoint = isDev ? `${LOCAL_API_BASE}/piemonte` : `${prodBase.piemonte}/search_piemonte`;
     else throw new Error('Invalid price source');
     const fd = new FormData();
     fd.append('query', description);
@@ -104,7 +98,8 @@ export const fetchActivityCategoryDei = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`https://billquant-dei-production.up.railway.app/search_dei`, {
+      const url = isDev ? `${LOCAL_API_BASE}/dei` : `${prodBase.dei}/search_dei`;
+      const resp = await fetch(url, {
         method: 'POST',
         body: fd,
       });
@@ -160,7 +155,8 @@ export const fetchActivityCategoryPat = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`https://billquant-pat-production.up.railway.app/search_pat`, {
+      const url = isDev ? `${LOCAL_API_BASE}/pat` : `${prodBase.pat}/search_pat`;
+      const resp = await fetch(url, {
         method: 'POST',
         body: fd,
       });
@@ -216,7 +212,8 @@ export const fetchActivityCategoryPiemonte = createAsyncThunk(
       if (!description) continue;
       const fd = new FormData();
       fd.append('query', description);
-  const resp = await fetch(`https://billquant-piemonte-production.up.railway.app/search_piemonte`, {
+      const url = isDev ? `${LOCAL_API_BASE}/piemonte` : `${prodBase.piemonte}/search_piemonte`;
+      const resp = await fetch(url, {
         method: 'POST',
         body: fd,
       });
@@ -278,7 +275,7 @@ const boqSlice = createSlice({
   name: 'boq',
   initialState,
   reducers: {
-  clearCategoryError: (state, action) => {
+    clearCategoryError: (state, action) => {
       const activity = action.payload;
       if (state.categories[activity]) {
         state.categories[activity].error = undefined;
@@ -287,15 +284,15 @@ const boqSlice = createSlice({
         state.categoryData[activity].error = undefined;
       }
     },
-  resetBoqState: (state) => {
-    state.categories = {};
-    state.categoryData = {};
-    state.loading = false;
-    state.error = null;
-    state.modalCompare = null;
-    state.modalLoading = false;
-    state.boq_upload = undefined;
-  },
+    resetBoqState: (state) => {
+      state.categories = {};
+      state.categoryData = {};
+      state.loading = false;
+      state.error = null;
+      state.modalCompare = null;
+      state.modalLoading = false;
+      state.boq_upload = undefined;
+    },
     closeModalCompare: (state) => {
       state.modalCompare = null;
       state.modalLoading = false;
@@ -500,7 +497,7 @@ const boqSlice = createSlice({
         };
         state.error = action.error.message || 'Failed to fetch PIEMONTE prices';
       });
-          builder
+    builder
       .addCase(extractBoqPdfText.pending, (state) => {
         state.loading = true;
       })
